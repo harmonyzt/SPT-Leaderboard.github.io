@@ -487,7 +487,7 @@ button:hover,
 .account-icon {
     width: 20px;
     height: 20px;
-    vertical-align: middle;
+    vertical-align: sub;
 }
 
 /* Stats bar */
@@ -767,8 +767,167 @@ button:hover,
     display: block;
     margin: 15px auto;
     border-radius: 6px;
-    border: 1px solid rgba(100, 255, 218, 0.2);
+    border: 1px solid rgb(119, 255, 223);
 }
+
+.team-members {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 20px;
+}
+
+.main-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.other-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 160px;
+}
+
+.member-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.main-member .member-avatar {
+    width: 150px;
+    height: 150px;
+}
+
+.member-avatar img {
+    box-shadow: 0 0 12px rgba(0, 255, 208, 0.25);
+    border-radius: 50%;
+    transition: all 300ms ease-in-out;
+}
+
+.member-avatar:hover img {
+    transform: scale(1.05);
+}
+
+.team-members {
+    animation: fadeUp 0.6s ease-in-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.member-avatar:hover .avatar-border {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    opacity: 1;
+}
+
+.member-name {
+    color: #fff;
+    margin: 0 0 8px 0;
+    font-size: 1.4em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.main-member .member-name {
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.member-name::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: radial-gradient(circle,rgb(131, 255, 243) 0%, rgba(60, 62, 99, 0.16) 100%);
+    margin: 12px auto;
+    opacity: 0.7;
+}
+
+.member-role-wrapper {
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.member-role {
+    color: #86c2ff !important;
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 600 !important;
+}
+
+.main-member .member-role {
+    font-size: 1.1em;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 20px;
+}
+
+.setting-item {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 15px 20px;
+    border-left: 4px solid var(--accent-teal);
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.setting-label {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.setting-description {
+    color: var(--text-light);
+    font-size: 0.95em;
+    line-height: 1.4;
+    margin: 0;
+}
+
+#volumeControl {
+    width: 100%;
+    accent-color: var(--accent-teal);
+    margin-top: 5px;
+}
+
 
 /* Announcement / Notification */
 .leaderboard-notification {
@@ -1168,7 +1327,7 @@ button:hover,
     background: #1e1e2d;
     border-radius: 10px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid #3a3a4a;
+    border: 1px solid #ffffff1a;
     padding: 25px;
     min-height: 840px;
 }
@@ -1196,23 +1355,6 @@ button:hover,
     color: #ffffff;
     background: rgba(70, 70, 90, 0.7);
     transform: scale(1.1);
-}
-
-/* Themes */
-.theme-default {
-    background-color: #1e1e2d;
-}
-
-.theme-dark {
-    background-color: #000000eb;
-}
-
-.theme-light {
-    background-color: rgb(61, 87, 106);
-}
-
-.theme-gradient {
-    background: linear-gradient(169deg, rgba(62, 150, 141, 1) 0%, rgba(49, 49, 92, 1) 42%, rgba(60, 62, 99, 1) 69%);
 }
 
 /* Player Info */
@@ -1332,7 +1474,7 @@ button:hover,
 .prestige-icon {
     width: 32px;
     height: 32px;
-    vertical-align: middle;
+    vertical-align: inherit;
 }
 
 .profile-modal-content {
@@ -1468,7 +1610,7 @@ button:hover,
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.2em;
-    border-bottom: 1px solid #585870;
+    border-bottom: 1px solid #ffffff48;
     padding-bottom: 8px;
 }
 
@@ -1979,7 +2121,6 @@ button:hover,
 .raid-result-r {
     font-size: 13px;
     font-weight: 500;
-    padding: 4px 8px;
     border-radius: 4px;
     display: inline-flex;
     align-items: center;

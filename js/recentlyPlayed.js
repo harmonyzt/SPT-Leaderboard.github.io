@@ -111,6 +111,11 @@ function createNotificationsContainer() {
 }
 
 function checkRecentPlayers(leaderboardData) {
+    // Don't show anything if user has notifications disabled...
+    if (getCookie('notificationsEnabled') === 'false') {
+        return;
+    }
+
     const currentTime = Math.floor(Date.now() / 1000);
     const fiveMinutesAgo = currentTime - 1200;
 

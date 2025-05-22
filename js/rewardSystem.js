@@ -14,6 +14,12 @@ function refreshRewards(player) {
     // To change any avatar things (like border color around PFP)
     const profileAvatar = document.getElementById('profile-avatar');
 
+    // Cat :D
+    const profileCat = document.getElementById('catrew');
+
+    // Tester Request
+    const badgerPenguin = document.getElementById('badger');
+
     // Reset
     resetStyles(mainBackground, profileCard, profileAvatar);
 
@@ -27,6 +33,20 @@ function refreshRewards(player) {
     applyMainBackgroundReward(player, mainBackground);
     applyPfpStyleReward(player, profileAvatar);
     applyPfpBorderReward(player, profileAvatar);
+
+    // Cat :D
+    if (player.bp_cat && player.battlePassLevel >= 15) {
+        profileCat.style.display = 'block';
+    } else {
+        profileCat.style.display = 'none';
+    }
+
+    // Requested by Badger
+    if (player.id === "6800024300038077fb7eea53") {
+        badgerPenguin.style.display = 'block';
+    } else {
+        badgerPenguin.style.display = 'none';
+    }
 }
 
 function resetStyles(mainBackground, profileCard, profileAvatar) {

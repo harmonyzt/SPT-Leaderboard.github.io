@@ -9,17 +9,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <script src="https://betterdiscord.app/js/vendor/countUp.min.js?v=DBxeQBHNMaYkRvB8uPOLm07cbQj54TDexlykb-Dcg28"></script>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
+        <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
         <script src="js/main.js"></script>
         <script src="js/recentlyPlayed.js"></script>
         <script src="js/announcement.js"></script>
         <script src="js/searchBar.js"></script>
         <script src="js/profiles.js"></script>
-        <script src="js/hallOfFame.js"></script>\
+        <script src="js/hallOfFame.js"></script>
         <script src="js/rewardSystem.js"></script>
         <script src="js/navbarModals.js"></script>
         <script src="js/autoRefresh.js"></script>
         <script src="js/serverStatus.js"></script>
+        <script src="js/settings.js"></script>
         <title>SPT Leaderboard</title>
     </head>
 
@@ -33,6 +34,9 @@
             </div>
             <div class="navbar-links">
                 <a id="tosButton" class="navbar-link">LA/TOS</a>
+            </div>
+            <div class="navbar-links">
+                <a id="settingsButton" class="navbar-link">Settings</a>
             </div>
             <div class="season-selector">
                 <label for="seasonSelect">Season:</label>
@@ -137,6 +141,33 @@
                 <p><em>Last updated: May 8, 2025</em></p>
             </div>
         </div>
+        
+        <div id="settingsModal" class="modal" role="dialog" aria-labelledby="settingsTitle" aria-modal="true">
+            <div class="modal-content">
+                <span class="close" aria-label="Close">&times;</span>
+                <h2 id="settingsTitle">Settings</h2>
+                <div class="settings-list">
+
+                    <div class="setting-item">
+                        <label class="setting-label">
+                            <input type="checkbox" id="notificationsToggle">
+                            Enable Last Raid Notifications
+                        </label>
+                        <p class="setting-description">Toggle system notifications for last raid events. Will not hide announcement on the top left</p>
+                    </div>
+
+                    <div class="setting-item">
+                        <label class="setting-label">
+                            <input type="checkbox" id="timerToggle">
+                            Show Season Countdown Timer
+                        </label>
+                        <p class="setting-description">Display or hide the time left until new season on the page.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
 
         <div class="leaderboard-notification">
             <div class="notification-content">

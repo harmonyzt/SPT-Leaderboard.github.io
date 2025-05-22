@@ -338,6 +338,8 @@ function showPublicProfile(container, player) {
 <div class="profile-grid-layout" id="profile-main-grid">
     <!-- Main -->
     <div class="profile-main-card" id="main-profile-card">
+        <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger">
+        <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew">
         <img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='/media/default_avatar.png';" />
         <div class="player-status">
             <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>

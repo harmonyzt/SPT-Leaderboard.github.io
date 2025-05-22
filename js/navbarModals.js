@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
         infoButton: document.getElementById('infoButton'),
         tosModal: document.getElementById('tosModal'),
         tosButton: document.getElementById('tosButton'),
+
+        settingsModal: document.getElementById('settingsModal'),
+        settingsButton: document.getElementById('settingsButton'),
+
         closeButtons: document.querySelectorAll('.close'),
         modals: document.querySelectorAll('.modal')
     };
@@ -33,12 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners
     elements.infoButton.addEventListener('click', () => toggleModal(elements.infoModal, true));
     elements.tosButton.addEventListener('click', () => toggleModal(elements.tosModal, true));
+    elements.settingsButton.addEventListener('click', () => toggleModal(elements.settingsModal, true));
 
     // Close modal if close button was clicked
     elements.closeButtons.forEach(button => {
         button.addEventListener('click', () => {
             toggleModal(elements.infoModal, false);
             toggleModal(elements.tosModal, false);
+            toggleModal(elements.settingsModal, false);
         });
     });
 
@@ -46,5 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (event) => {
         if (event.target === elements.infoModal) toggleModal(elements.infoModal, false);
         if (event.target === elements.tosModal) toggleModal(elements.tosModal, false);
+        if (event.target === elements.settingsModal) toggleModal(elements.settingsModal, false);
     });
 });

@@ -80,3 +80,44 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* Themes */
+.theme-default {
+    background-color: #1e1e2d;
+}
+
+.theme-dark {
+    background-color: #000000eb;
+}
+
+.theme-light {
+    background-color: rgb(61, 87, 106);
+}
+
+.theme-gradient {
+    background-color: linear-gradient(169deg, rgba(62, 150, 141, 1) 0%, rgba(49, 49, 92, 1) 42%, rgba(60, 62, 99, 1) 69%);
+}
+
+.theme-redshade {
+    background-color: linear-gradient(169deg, rgb(150, 62, 62) 0%, rgb(92, 49, 49) 42%, rgb(99, 61, 60) 69%);
+}
+
+.theme-steelshade {
+    background-color: linear-gradient(169deg, #808991 0%, #657583 42%, #3F4952 69%);
+}
+
+.kittyrew {
+    display: block;
+    position: absolute;
+    width: 100px;
+    top: 313px;
+    left: 100px;
+}
+
+.badger {
+    display: block;
+    position: absolute;
+    width: 100px;
+    top: 277px;
+    left: 650px;
+}

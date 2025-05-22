@@ -406,13 +406,13 @@ function displayLeaderboard(data) {
 
         // Developer
         if (player.dev) {
-            accountIcon = `<em class='bx bxl-dev-to' style="font-size: 26px; top: 4px; position: relative;"></em>`;
-            accountColor = '#db6096';
+            accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
+            accountColor = '#2486ff';
         }
 
         // Prestige icon
         const prestigeImg = [1, 2].includes(player.prestige)
-            ? `<img src="media/prestige${player.prestige}.png" style="width: 30px; height: 30px" class="prestige-icon" alt="Prestige ${player.prestige}">`
+            ? `<img src="media/leaderboard_icons/Prestige_Icon${player.prestige}.png" style="width: 25px; height: 25px" class="prestige-icon" alt="Prestige ${player.prestige}">`
             : '';
 
         // Skill rank label
