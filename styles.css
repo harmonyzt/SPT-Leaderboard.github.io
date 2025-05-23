@@ -80,6 +80,22 @@ h1 {
     box-shadow: 0 -4px 12px rgba(100, 255, 218, 0.1);
 }
 
+#seasonTimer {
+    display: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #cacaca;
+    background: #ffffff0e;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 5;
+    backdrop-filter: blur(30px);
+}
+
 .navbar {
     position: fixed;
     top: 70px;
@@ -834,6 +850,7 @@ button:hover,
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -854,7 +871,7 @@ button:hover,
     font-size: 1.4em;
     font-weight: 600;
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .main-member .member-name {
@@ -868,7 +885,7 @@ button:hover,
     display: block;
     width: 150px;
     height: 2px;
-    background: radial-gradient(circle,rgb(131, 255, 243) 0%, rgba(60, 62, 99, 0.16) 100%);
+    background: radial-gradient(circle, rgb(131, 255, 243) 0%, rgba(60, 62, 99, 0.16) 100%);
     margin: 12px auto;
     opacity: 0.7;
 }
@@ -902,7 +919,7 @@ button:hover,
     padding: 15px 20px;
     border-left: 4px solid var(--accent-teal);
     border-radius: 8px;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .setting-label {
