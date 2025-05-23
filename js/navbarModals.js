@@ -62,11 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initProfileWatchList(data) {
   const getPlayerStatsHTML = (player) => `
-    <ul>
-      <li>PMC Raids: ${player.pmcRaids}</li>
-      <li>PMC Kills: ${player.pmcKills}</li>
-      <li>Rank: ${player.rank}</li>
-    </ul>
+        <div class="raid-stats-grid">
+            <div class="raid-stat-block">
+                <span class="profile-stat-label">Name:</span>
+                <span class="profile-stat-value">${player.name}</span>
+            </div>
+            <div class="raid-stat-block">
+                <span class="profile-stat-label">Rank:</span>
+                <span class="profile-stat-value">${player.rank}</span>
+            </div>
+            <div class="raid-stat-block">
+                <span class="profile-stat-label">K/D:</span>
+                <span class="profile-stat-value">${player.killToDeathRatio}</span>
+            </div>
+            <div class="raid-stat-block">
+                <span class="profile-stat-label">Skill:</span>
+                <span class="profile-stat-value">${player.totalScore.toFixed(2)}(${getRankLabel(player.totalScore)})</span>
+            </div>
+        </div>
   `;
 
   const findPlayerById = (id) => data.find(p => p.id === id);

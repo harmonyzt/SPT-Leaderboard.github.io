@@ -26,7 +26,7 @@ let oldTotalPlayTime = 0;
 
 // https://visuals.nullcore.net/hidden/seasons/season
 // season/season [DEBUG]
-const seasonPath = "https://visuals.nullcore.net/hidden/seasons/season";
+const seasonPath = "season/season";
 const seasonPathEnd = ".json";
 
 /**
