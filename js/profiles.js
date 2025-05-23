@@ -59,6 +59,7 @@ function openProfile(playerId) {
 // Private profile HTML
 function showPrivateProfile(container, player) {
     const profileModal = document.querySelector('.profile-modal-content');
+    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
     container.innerHTML = `
@@ -175,6 +176,7 @@ function showPrivateProfile(container, player) {
 // Disqualified profile HTML
 function showDisqualProfile(container, player) {
     const profileModal = document.querySelector('.profile-modal-content');
+    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
     container.innerHTML = `
@@ -307,7 +309,7 @@ function showPublicProfile(container, player) {
     // Profile Theme
     const profileModal = document.querySelector('.profile-modal-content');
 
-    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default');
+    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
 
     // About me
