@@ -58,11 +58,11 @@ function showPlayerNotification(player) {
     // Sounds
     if(player.lastRaidAs === "PMC"){
         const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg'); 
-        pmcRaid.volume = 0.1;
+        pmcRaid.volume = 0.2;
         pmcRaid.play();
     } else if (player.lastRaidAs === "SCAV") {
         const scavRaid = new Audio('media/sounds/scav-raid-run.mp3');
-        scavRaid.volume = 0.1;
+        scavRaid.volume = 0.2;
         scavRaid.play();
     }
 
