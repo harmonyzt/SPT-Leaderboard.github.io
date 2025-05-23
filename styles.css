@@ -85,7 +85,8 @@ h1 {
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: #cacaca;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #f0f0f0;
     background: #ffffff0e;
     padding: 5px 10px;
     border-radius: 4px;
@@ -94,7 +95,16 @@ h1 {
     right: 20px;
     z-index: 5;
     backdrop-filter: blur(30px);
+    user-select: none;
 }
+
+#timerDisplay {
+    color: #abc1ff;
+    font-weight: 700;
+    padding: 0 3px;
+    border-radius: 2px;
+}
+
 
 .navbar {
     position: fixed;
@@ -1648,7 +1658,7 @@ button:hover,
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px dashed rgba(58, 58, 74, 0.5);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.11);
 }
 
 .profile-stat-label {

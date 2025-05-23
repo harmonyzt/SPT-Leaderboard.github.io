@@ -38,15 +38,41 @@ function showPlayerNotification(player) {
         timeoutId: timeoutId
     });
 
-    console.debug(`[NOTIFY] Showing notification for player ${player.name}, lastPlayed: ${lastRaidTime}`);
+    //console.debug(`[NOTIFY] Showing notification for player ${player.name}, lastPlayed: ${lastRaidTime}`);
+
+    let specialIconNotification = '';
+    let accountColor = '';
+
+    // Tester
+    if (player.trusted) {
+        specialIconNotification = '<img src="media/trusted.png" alt="Tester" class="account-icon">';
+        accountColor = '#ba8bdb';
+    }
+
+    // Developer
+    if (player.dev) {
+        specialIconNotification = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
+        accountColor = '#2486ff';
+    }
+
+    // Sounds
+    if(player.lastRaidAs === "PMC"){
+        const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg'); 
+        pmcRaid.volume = 0.1;
+        pmcRaid.play();
+    } else if (player.lastRaidAs === "SCAV") {
+        const scavRaid = new Audio('media/sounds/scav-raid-run.mp3');
+        scavRaid.volume = 0.1;
+        scavRaid.play();
+    }
 
     const notification = document.createElement('div');
     notification.className = 'player-notification-r';
     notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-text">
-                <span class="notification-name-r">${player.name}</span>
-                <span class="notification-info-r">Finished a raid</span>
+                <span class="notification-name-r" style="color:${accountColor}">${specialIconNotification} ${player.name}</span>
+                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)}</span>
         ${player.publicProfile ? `
             <div class="raid-overview-notify">
             <span class="raid-result-r ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">

@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-
     updateTimer();
     const timerInterval = setInterval(updateTimer, 1000);
 

@@ -90,7 +90,7 @@ function applyMainBackgroundReward(player, mainBackground) {
     } else if (reward === 'bear' && level >= 5) {
         mainBackground.classList.add('bear-background');
     } else if (reward === 'none') {
-        // do nothing
+        mainBackground.style.backgroundColor = 'none';
     } else {
         // Default background
         mainBackground.style.backgroundColor = 'none';
@@ -105,8 +105,7 @@ function applyMainBackgroundReward(player, mainBackground) {
             mainBackground.classList.remove('bear-background', 'usec-background');
             mainBackground.classList.add('prestige-killa');
         }
-    } else { }
-
+    }
 }
 
 function applyPfpStyleReward(player, profileAvatar) {
