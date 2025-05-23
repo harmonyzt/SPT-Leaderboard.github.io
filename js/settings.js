@@ -4,14 +4,14 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
+// Date for countdown
+const seasonEndDate = new Date(2025, 4, 30);
+
 document.addEventListener('DOMContentLoaded', () => {
     const notifToggle = document.getElementById('notificationsToggle');
     const timerToggle = document.getElementById('timerToggle');
     const seasonTimer = document.getElementById('seasonTimer');
     const timerDisplay = document.getElementById('timerDisplay');
-
-
-    const seasonEndDate = new Date(2025, 4, 30);
 
     notifToggle.checked = getCookie('notificationsEnabled') === 'true';
     timerToggle.checked = getCookie('showTimer') === 'true';
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const diff = seasonEndDate - now;
 
         if (diff <= 0) {
-            timerDisplay.textContent = "Season was ended!";
+            timerDisplay.textContent = "Season was ended! New starting shortly...";
             return;
         }
 
