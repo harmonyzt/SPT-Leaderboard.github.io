@@ -24,13 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        timerDisplay.textContent = `${days}d ${hours}h ${minutes}m`;
+        timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
 
     updateTimer();
-    const timerInterval = setInterval(updateTimer, 60000);
+    const timerInterval = setInterval(updateTimer, 1000);
 
     notifToggle.addEventListener('change', () => {
         setCookie('notificationsEnabled', notifToggle.checked);

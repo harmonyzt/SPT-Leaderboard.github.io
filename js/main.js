@@ -446,7 +446,13 @@ function displayLeaderboard(data) {
     addSortListeners();
 }
 
-// Format last played time
+/**
+ * Returns an array of text (date) depending on when was Unix timestamp set to
+ * @param {Array<Object>} unixTimestamp - Unix timestamp
+ * @returns Array of text (date)
+ * @example In game <div id="blink"></div> | 1d ago | 1m 2d ago
+ * 
+ */
 function formatLastPlayed(unixTimestamp) {
     if (typeof unixTimestamp !== 'number' || unixTimestamp <= 0) {
         return 'Unknown';
@@ -799,7 +805,7 @@ function addSortListeners() {
     });
 }
 
-// Sort leaderboard data
+// Sort leaderboard data (BROKEN)
 function sortLeaderboard(sortKey) {
     if (!sortDirection[sortKey]) {
         sortDirection[sortKey] = 'asc';
