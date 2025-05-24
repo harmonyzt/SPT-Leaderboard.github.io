@@ -57,14 +57,14 @@ function showPlayerNotification(player) {
 
     // Sounds
     // NOTE: Works only if user interacted with website or allowed sounds
-    if(player.lastRaidAs === "PMC"){
+    if(player.lastRaidAs === "PMC" && player.lastRaidSurvived){
         const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg'); 
         pmcRaid.volume = 0.2;
         pmcRaid.play();
-    } else if (player.lastRaidAs === "SCAV") {
-        const scavRaid = new Audio('media/sounds/scav-raid-run.mp3');
-        scavRaid.volume = 0.2;
-        scavRaid.play();
+    } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
+        const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
+        pmcRaidDied.volume = 0.2;
+        pmcRaidDied.play();
     }
 
     const notification = document.createElement('div');
@@ -73,7 +73,7 @@ function showPlayerNotification(player) {
         <div class="notification-content-r">
             <div class="notification-text">
                 <span class="notification-name-r" style="color:${accountColor}">${specialIconNotification} ${player.name}</span>
-                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)}</span>
+                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)} • Rank №${player.rank}</span>
         ${player.publicProfile ? `
             <div class="raid-overview-notify">
             <span class="raid-result-r ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
