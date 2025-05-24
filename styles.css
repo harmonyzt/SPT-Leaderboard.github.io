@@ -2143,12 +2143,12 @@ button:hover,
     color: #fff;
 }
 
+/* Notifications of last raid */
 .player-notification-r {
     position: absolute;
     right: 10px;
     width: 320px;
     padding: 12px;
-    background: rgba(20, 20, 25, 0.116);
     border-radius: 6px;
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -2158,6 +2158,19 @@ button:hover,
     backdrop-filter: blur(5px);
     font-family: 'Segoe UI', system-ui, sans-serif;
     overflow: hidden;
+}
+
+.player-notification-private-background {
+    background: rgba(20, 20, 25, 0.116);
+}
+
+/* To change left border */
+.border-died {
+    border-left: 4px solid #f87171;
+}
+
+.border-survived {
+    border-left: 4px solid #4ade80;
 }
 
 .notification-content-r {

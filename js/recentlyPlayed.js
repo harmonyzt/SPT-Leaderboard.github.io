@@ -31,7 +31,7 @@ function showPlayerNotification(player) {
     const timeoutId = setTimeout(() => {
         console.debug(`[NOTIFY] Timeout expired – removing data for player ${player.name}.`);
         playerNotificationData.delete(player.id);
-    }, 400000); // 5 min
+    }, 600000); // 10 min
 
     playerNotificationData.set(player.id, {
         lastRaidTime: lastRaidTime,
@@ -68,12 +68,17 @@ function showPlayerNotification(player) {
     }
 
     const notification = document.createElement('div');
-    notification.className = 'player-notification-r';
+    if(player.publicProfile){
+        notification.className = `player-notification-r ${player.discFromRaid ? 'disconnected-bg border-died' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg border-survived' : 'died-bg border-died'}`;
+    } else {
+        notification.className = `player-notification-r player-notification-private-background`;
+    }
+
     notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-text">
                 <span class="notification-name-r" style="color:${accountColor}">${specialIconNotification} ${player.name}</span>
-                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)} • Rank №${player.rank}</span>
+                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)} • Rank #${player.rank}</span>
         ${player.publicProfile ? `
             <div class="raid-overview-notify">
             <span class="raid-result-r ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">

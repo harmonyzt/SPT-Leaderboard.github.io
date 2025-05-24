@@ -515,7 +515,6 @@ function addColorIndicators(data) {
         } else {
             player.killToDeathRatioClass = 'impressive';
         }
-
     });
 }
 

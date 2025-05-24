@@ -78,10 +78,10 @@ function calculateMasteryLevel(player) {
 
     const expFromShots = Math.round(totalShots * 0.1);
     const expFromKills = kills * 10;
-    const expFromHeadshots = headshots * 15;
+    const expFromHeadshots = headshots * 20;
 
     const totalExp = expFromShots + expFromKills + expFromHeadshots;
-    const expPerLevel = 1000;
+    const expPerLevel = 800;
 
     const level = Math.floor(totalExp / expPerLevel);
     const currentLevelExp = totalExp % expPerLevel;

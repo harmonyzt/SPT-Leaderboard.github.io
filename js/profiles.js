@@ -342,6 +342,7 @@ function showPublicProfile(container, player) {
     <div class="profile-main-card" id="main-profile-card">
         <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger">
         <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew">
+        
         <img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='/media/default_avatar.png';" />
         <div class="player-status">
             <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>
@@ -754,15 +755,12 @@ function formatLastPlayedRaid(unixTimestamp) {
     const date = new Date(unixTimestamp * 1000);
     const now = new Date();
     const diffInSeconds = Math.floor((now - date) / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
 
-    if (diffInSeconds < 60) {
+    if (diffInMinutes < 5) {
         return 'Just Now';
     }
 
-    const diffInMinutes = Math.floor(diffInSeconds / 60);
-    if (diffInMinutes === 1) {
-        return '1 minute ago';
-    }
     if (diffInMinutes < 60) {
         return `${diffInMinutes} minutes ago`;
     }
@@ -795,5 +793,6 @@ function formatLastPlayedRaid(unixTimestamp) {
     if (diffInYears === 1) {
         return '1 year ago';
     }
+
     return `${diffInYears} years ago`;
 }
