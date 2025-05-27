@@ -16,7 +16,7 @@ function showPlayerNotification(player) {
         return;
     }
 
-    const lastRaidTime = player.absoluteLastTime;
+    const lastRaidTime = player.absoluteLastTime? player.absoluteLastTime : player.lastPlayed;
     const currentData = playerNotificationData.get(player.id);
 
     if (currentData && currentData.absoluteLastTime === lastRaidTime) {
