@@ -1917,10 +1917,23 @@ button:hover,
     border-radius: 8px;
 }
 
+.bp-wrapper {
+    width: 74%;
+    float: left;
+}
+
 .level-info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+
+.rank-icon {
+    display: block;
+    width: 85px;
+    height: 85px;
+    float: left;
+    margin-left: 5px;
 }
 
 .level-label {

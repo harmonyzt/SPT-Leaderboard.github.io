@@ -24,19 +24,8 @@ function showPlayerNotification(player) {
         return;
     }
 
-    if (currentData && currentData.timeoutId) {
-        console.debug(`[NOTIFY] Clearing existing timeout for player ${player.name}.`);
-        clearTimeout(currentData.timeoutId);
-    }
-
-    const timeoutId = setTimeout(() => {
-        console.debug(`[NOTIFY] Timeout expired – removing data for player ${player.name}.`);
-        playerNotificationData.delete(player.id);
-    }, 600000); // 10 min
-
     playerNotificationData.set(player.id, {
-        lastRaidTime: lastRaidTime,
-        timeoutId: timeoutId
+        lastRaidTime: lastRaidTime
     });
 
     let specialIconNotification = '';

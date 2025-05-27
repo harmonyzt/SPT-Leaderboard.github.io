@@ -452,6 +452,7 @@ function showPublicProfile(container, player) {
     <div id="player-profile-hof">
         <div class="stats-blocks">
             <div class="stat-block hof-player-level">
+            <div class="bp-wrapper">
                 <div class="level-info">
                     <span class="level-label">Leaderboard Level:</span>
                     <span class="level-value">0</span>
@@ -468,6 +469,10 @@ function showPublicProfile(container, player) {
                 </div>
                 <div class="exp-remaining">Until next level: <span class="remaining-value">0</span> EXP</div>
             </div>
+            <img src="" class="rank-icon" id="playerRankIcon">
+
+            </div>
+            
             <div class="hof-player-trader-info">
                 <div class="trader-grid">
 

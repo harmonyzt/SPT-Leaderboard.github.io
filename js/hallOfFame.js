@@ -39,21 +39,43 @@ function initHOF(player) {
 }
 
 function calculatePlayerLevel(player) {
-    const expFromRaids = player.pmcRaids * 80;
-    const expFromKills = player.pmcKills * 30;
-    const expFromSurvival = player.survived * 75;
-    const expFromDamage = Math.floor(player.damage / 1000);
-    const expFromSkill = Math.round(player.totalScore * 1500);
+    // BASE OPTIONS
+    const BASE_EXP_PER_LEVEL = 2200;
+    const MAX_LEVEL = 80;
 
-    // get summary
-    const totalExp = expFromRaids + expFromKills + expFromSurvival + expFromDamage + expFromSkill;
+    const expFromPmcRaids = player.pmcRaids * 60;
+    const expFromPmcKills = player.pmcKills * 25;
+    const expFromScavRaids = player.scavRaids? player.scavRaids * 30 : 0;
+    const expFromScavKills = player.scavKills? player.scavKills * 15 : 0;
+    
+    const survivalMultiplier = 1 + (player.survivalRate / 100);
+    const expFromSurvival = player.survived * 120 * survivalMultiplier;
+    
+    const expFromLifeTime = Math.floor(player.averageLifeTime / 60) * 5;
 
-    // 1800 exp per lvl
-    const level = Math.floor(totalExp / 1800);
-    const currentLevelExp = totalExp % 1000;
-    const expForNextLevel = 1000;
+    const expFromDamage = Math.floor(player.damage / 1500);
+
+    // Get all EXP
+    const totalExp = Math.floor(
+        expFromPmcRaids +
+        expFromPmcKills +
+        expFromScavRaids +
+        expFromScavKills +
+        expFromSurvival +
+        expFromLifeTime +
+        expFromDamage
+    );
+
+    // Calculate level and keep in mind max level
+    let level = Math.floor(totalExp / BASE_EXP_PER_LEVEL);
+    level = Math.min(level, MAX_LEVEL);
+    
+    // Dynamic
+    const currentLevelExp = totalExp % BASE_EXP_PER_LEVEL;
+    const expForNextLevel = BASE_EXP_PER_LEVEL - currentLevelExp;
 
     player.battlePassLevel = level;
+    setRankImage(player.battlePassLevel);
 
     return {
         level: level,
@@ -130,3 +152,10 @@ function updatePlayerProfile(player) {
     document.querySelector('.remaining-value').textContent = remainingExp.toLocaleString();
 }
 
+function setRankImage(playerLevel) {
+    const level = Math.min(Math.max(0, playerLevel), 80);
+    const rankLevel = Math.floor(level / 5) * 5;
+    const finalRankLevel = rankLevel < 5 ? 5 : rankLevel;
+    const levelClass = document.querySelector('.rank-icon');
+    levelClass.src = `media/profile_ranks/rank${finalRankLevel}.png`;
+}
