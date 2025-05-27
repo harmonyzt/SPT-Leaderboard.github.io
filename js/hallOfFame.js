@@ -4,6 +4,9 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
+const BASE_EXP_PER_LEVEL = 2200;
+const MAX_LEVEL = 80;
+
 function initHOF(player) {
     const toggleBtn = document.getElementById('toggle-hof-button');
     const hof = document.getElementById('player-profile-hof');
@@ -39,18 +42,14 @@ function initHOF(player) {
 }
 
 function calculatePlayerLevel(player) {
-    // BASE OPTIONS
-    const BASE_EXP_PER_LEVEL = 2200;
-    const MAX_LEVEL = 80;
-
     const expFromPmcRaids = player.pmcRaids * 60;
     const expFromPmcKills = player.pmcKills * 25;
-    const expFromScavRaids = player.scavRaids? player.scavRaids * 30 : 0;
-    const expFromScavKills = player.scavKills? player.scavKills * 15 : 0;
-    
+    const expFromScavRaids = player.scavRaids ? player.scavRaids * 30 : 0;
+    const expFromScavKills = player.scavKills ? player.scavKills * 15 : 0;
+
     const survivalMultiplier = 1 + (player.survivalRate / 100);
     const expFromSurvival = player.survived * 120 * survivalMultiplier;
-    
+
     const expFromLifeTime = Math.floor(player.averageLifeTime / 60) * 5;
 
     const expFromDamage = Math.floor(player.damage / 1500);
@@ -69,9 +68,9 @@ function calculatePlayerLevel(player) {
     // Calculate level and keep in mind max level
     let level = Math.floor(totalExp / BASE_EXP_PER_LEVEL);
     level = Math.min(level, MAX_LEVEL);
-    
+
     // Dynamic
-    const currentLevelExp = totalExp % BASE_EXP_PER_LEVEL;
+    const currentLevelExp = totalExp - (level * BASE_EXP_PER_LEVEL);
     const expForNextLevel = BASE_EXP_PER_LEVEL - currentLevelExp;
 
     player.battlePassLevel = level;
@@ -142,13 +141,20 @@ function updatePlayerProfile(player) {
     document.querySelector('.level-value').textContent = levelData.level;
 
     // update exp bar
-    const expPercentage = (levelData.currentExp / levelData.expForNextLevel) * 100;
+    const expPercentage = (levelData.level >= MAX_LEVEL)
+        ? 100
+        : (levelData.currentExp / BASE_EXP_PER_LEVEL) * 100;
     document.querySelector('.exp-progress').style.width = `${expPercentage}%`;
 
     // update exp values
     document.querySelector('.current-exp').textContent = levelData.currentExp.toLocaleString();
-    document.querySelector('.next-level-exp').textContent = levelData.expForNextLevel.toLocaleString();
-    const remainingExp = levelData.expForNextLevel - levelData.currentExp;
+    document.querySelector('.next-level-exp').textContent =
+        (levelData.level >= MAX_LEVEL) ? "MAX" : levelData.expForNextLevel.toLocaleString();
+
+    const remainingExp = (levelData.level >= MAX_LEVEL)
+        ? 0
+        : levelData.expForNextLevel;
+
     document.querySelector('.remaining-value').textContent = remainingExp.toLocaleString();
 }
 
