@@ -7,16 +7,6 @@
     --text-muted: #8892b0;
 }
 
-.prestige-title {
-    background: linear-gradient(135deg, #aee8ff, #f0d78e, #f0d78e, #aee8ff),
-        linear-gradient(135deg, #aee8ff, #f0d78e, #f0d78e, #aee8ff),
-        linear-gradient(135deg, #aee8ff, #f0d78e, #f0d78e, #aee8ff),
-        linear-gradient(135deg, #aee8ff, #f0d78e, #f0d78e, #aee8ff);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(180deg,
@@ -40,21 +30,6 @@ h1 {
     text-shadow:
         0 0 1px rgba(100, 255, 218, 0.4),
         0 0 3px rgba(100, 255, 218, 0.2);
-}
-
-.outdated-version {
-    color: #f6c65d;
-    font-weight: bold;
-}
-
-.old-version {
-    color: #da6879;
-    font-weight: bold;
-}
-
-.current-version {
-    color: #6fdf60;
-    font-weight: bold;
 }
 
 /* Leaderboard notifications */
@@ -104,7 +79,6 @@ h1 {
     padding: 0 3px;
     border-radius: 2px;
 }
-
 
 .navbar {
     position: fixed;

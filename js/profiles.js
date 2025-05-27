@@ -328,12 +328,6 @@ function showPublicProfile(container, player) {
         lastAchievementIconResult = lastAchievementIcon.slice(1)
     }
 
-    // If user has usePrestigeStyling and prestige unlocked, assign a color name
-    let profileClassStyle = ''
-    if (player.prestige && player.usePrestigeStyling) {
-        profileClassStyle = 'prestige-title';
-    }
-
     container.innerHTML = `
 <div class="profile-grid-layout" id="profile-main-grid">
     <!-- Main -->
@@ -346,7 +340,7 @@ function showPublicProfile(container, player) {
             <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${player.isOnline ? 'Online' : 'Offline'}</span>
         </div>
-        <h2 class="profile-player-name ${profileClassStyle}">${player.name}</h2>
+        <h2 class="profile-player-name">${player.name}</h2>
         <div class="player-about">${aboutText}</div>
         <div class="player-reg-date">
             <span class="reg-date-text">Registered: ${regDate}</span>
