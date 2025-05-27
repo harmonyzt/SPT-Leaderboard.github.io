@@ -11,7 +11,7 @@ const playerNotificationData = new Map();
 let allowToPlayLastRaidSound = true;
 
 function showPlayerNotification(player) {
-    if (!player.absoluteLastTime) {
+    if (!player.absoluteLastTime || !player.lastPlayed) {
         console.debug(`[NOTIFY] Skipping player ${player.name} – no lastPlayed data.`);
         return;
     }
@@ -225,12 +225,12 @@ function checkRecentPlayers(leaderboardData) {
     console.debug(`[CHECK] Checking for recent players... Time now: ${currentTime}`);
 
     leaderboardData.forEach(player => {
-        if (!player.lastPlayed) {
+        if (!player.absoluteLastTime) {
             console.debug(`[CHECK] Skipping player ${player.name} - no lastPlayed.`);
             return;
         }
 
-        if (player.lastPlayed > fiveMinutesAgo) {
+        if (player.absoluteLastTime > fiveMinutesAgo) {
             console.debug(`[CHECK] Player ${player.name} finished raid at ${player.absoluteLastTime}, showing notification.`);
             showPlayerNotification(player);
         }
