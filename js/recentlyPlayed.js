@@ -11,15 +11,15 @@ const playerNotificationData = new Map();
 let allowToPlayLastRaidSound = true;
 
 function showPlayerNotification(player) {
-    if (!player.lastPlayed) {
+    if (!player.absoluteLastTime) {
         console.debug(`[NOTIFY] Skipping player ${player.name} – no lastPlayed data.`);
         return;
     }
 
-    const lastRaidTime = player.lastPlayed;
+    const lastRaidTime = player.absoluteLastTime;
     const currentData = playerNotificationData.get(player.id);
 
-    if (currentData && currentData.lastRaidTime === lastRaidTime) {
+    if (currentData && currentData.absoluteLastTime === lastRaidTime) {
         console.debug(`[NOTIFY] Player ${player.name} already shown for this raid at ${lastRaidTime}.`);
         return;
     }
@@ -60,7 +60,7 @@ function showPlayerNotification(player) {
     let isOnKillStreak = false;
     let isOnRaidStreak = false;
     let streakNotificationText = '';
-    
+
     if (player.currentWinstreak > 5) {
         isOnRaidStreak = true;
         allowToPlayLastRaidSound = false;
@@ -91,7 +91,7 @@ function showPlayerNotification(player) {
                 killStreak.volume = 0.02;
                 killStreak.play();
                 break;
-            } 
+            }
             case 10: {
                 streakNotificationText = `${player.name} IS A TARKOV DEMON! ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/10.wav');
@@ -115,10 +115,14 @@ function showPlayerNotification(player) {
         const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
         pmcRaid.volume = 0.07;
         pmcRaid.play();
-    } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
+    } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {   // PMC DIED
         const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
         pmcRaidDied.volume = 0.07;
         pmcRaidDied.play();
+    } else if (player.lastRaisAs === "SCAV" && player.lastRaidSurvived) {    // SCAV RAID SURVIVED
+        const scavRaid = new Audio('media/sounds/scav-raid-run.mp3');
+        scavRaid.volume = 0.1;
+        scavRaid.play();
     }
 
     // In the end, allow sound to be played
@@ -129,9 +133,9 @@ function showPlayerNotification(player) {
         notification.className = `player-notification-r ${player.discFromRaid ? 'disconnected-bg border-died' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg border-survived' : 'died-bg border-died'}`;
     } else {
         notification.className = `player-notification-r player-notification-private-background`;
-    } 
+    }
 
-notification.innerHTML = `
+    notification.innerHTML = `
     <div class="notification-content-r">
         <div class="notification-header-r">
             <img src="${player.profilePicture || 'media/default-avatar.jpg'}" 
@@ -227,7 +231,7 @@ function checkRecentPlayers(leaderboardData) {
         }
 
         if (player.lastPlayed > fiveMinutesAgo) {
-            console.debug(`[CHECK] Player ${player.name} finished raid at ${player.lastPlayed}, showing notification.`);
+            console.debug(`[CHECK] Player ${player.name} finished raid at ${player.absoluteLastTime}, showing notification.`);
             showPlayerNotification(player);
         }
     });
