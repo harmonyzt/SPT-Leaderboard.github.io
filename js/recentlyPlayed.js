@@ -63,7 +63,7 @@ function showPlayerNotification(player) {
         isOnRaidStreak = true;
         allowToPlayLastRaidSound = false;
         const pmcRaid = new Audio('media/sounds/raidstreak/5raidstreak.wav');
-        pmcRaid.volume = 0.02;
+        pmcRaid.volume = 0.05;
         pmcRaid.play();
 
         streakNotificationText = `ON A ${player.currentWinstreak} RAID WIN STREAK!`;
@@ -79,25 +79,25 @@ function showPlayerNotification(player) {
             case player.lastRaidKills >= 6 && player.lastRaidKills < 8:
                 streakNotificationText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/6.wav');
-                killStreak.volume = 0.02;
+                killStreak.volume = 0.04;
                 killStreak.play();
                 break;
             case player.lastRaidKills >= 8 && player.lastRaidKills < 10:
                 streakNotificationText = `${player.name} IS UNSTOPPABLE! ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/8.wav');
-                killStreak.volume = 0.02;
+                killStreak.volume = 0.04;
                 killStreak.play();
                 break;
             case player.lastRaidKills >= 10 && player.lastRaidKills < 12:
                 streakNotificationText = `${player.name} IS A TARKOV DEMON! ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/10.wav');
-                killStreak.volume = 0.02;
+                killStreak.volume = 0.04;
                 killStreak.play();
                 break;
-            case player.lastRaidKills >= 12:
+            case player.lastRaidKills >= 15:
                 streakNotificationText = `SOMEONE STOP THEM! ${player.lastRaidKills} KILLS IN ONE RAID!`;
-                killStreak = new Audio('media/sounds/killstreak/12.wav');
-                killStreak.volume = 0.02;
+                killStreak = new Audio('media/sounds/killstreak/15.wav');
+                killStreak.volume = 0.04;
                 killStreak.play();
                 break;
         }
