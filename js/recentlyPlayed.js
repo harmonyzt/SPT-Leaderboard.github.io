@@ -63,7 +63,7 @@ function showPlayerNotification(player) {
         isOnRaidStreak = true;
         allowToPlayLastRaidSound = false;
         const pmcRaid = new Audio('media/sounds/raidstreak/5raidstreak.wav');
-        pmcRaid.volume = 0.1;
+        pmcRaid.volume = 0.02;
         pmcRaid.play();
 
         streakNotificationText = `ON A ${player.currentWinstreak} RAID WIN STREAK!`;

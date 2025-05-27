@@ -13224,13 +13224,13 @@
             "id": "6831846a00009b476b9a08a8",
             "name": "Jacket",
             "pmcLevel": 13,
-            "lastPlayed": 1748335451,
+            "lastPlayed": 1749335451,
             "damage": 32971,
             "accountType": "standard",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 6,
             "longestShot": 0,
             "suspicious": false,
             "pmcRaids": 61,
@@ -13240,7 +13240,7 @@
             "profileAboutMe": "1 like = 1 meow",
             "profilePicture": "https:\/\/i.imgur.com\/z15FrrK.png",
             "registrationDate": 1748075694,
-            "lastRaidKills": 0,
+            "lastRaidKills": 12,
             "lastRaidAs": "PMC",
             "lastRaidDamage": 645,
             "lastRaidEXP": 825,
@@ -13386,7 +13386,7 @@
             "totalPlayTime": 20361,
             "trusted": false,
             "survived": 27,
-            "absoluteLastTime": 1748335957
+            "absoluteLastTime": 1749335957
         },
         {
             "id": "6831a516000122ef1ec57de0",
