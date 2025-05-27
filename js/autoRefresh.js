@@ -28,7 +28,6 @@ function saveControlsToCookies() {
 
 function initControls() {
     const autoUpdateToggle = document.getElementById('autoUpdateToggle');
-    const manualUpdateBtn = document.getElementById('manualUpdate');
     const timeToUpdateSpan = document.getElementById('timeToUpdate');
 
     autoUpdateToggle.addEventListener('change', (e) => {
@@ -38,15 +37,6 @@ function initControls() {
         } else {
             clearTimeout(updateTimer);
             timeToUpdateSpan.textContent = "Auto-update disabled";
-        }
-    });
-
-
-    manualUpdateBtn.addEventListener('click', () => {
-        detectSeasons();
-        if (autoUpdateEnabled) {
-            timeLeft = updateInterval;
-            updateTimeDisplay();
         }
     });
 
