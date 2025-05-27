@@ -75,35 +75,31 @@ function showPlayerNotification(player) {
         isOnKillStreak = true;
         let killStreak;
 
-        switch (player.lastRaidKills) {
-            case 6: {
+        switch (true) {
+            case player.lastRaidKills >= 6 && player.lastRaidKills < 8:
                 streakNotificationText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/6.wav');
                 killStreak.volume = 0.02;
                 killStreak.play();
                 break;
-            }
-            case 8: {
+            case player.lastRaidKills >= 8 && player.lastRaidKills < 10:
                 streakNotificationText = `${player.name} IS UNSTOPPABLE! ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/8.wav');
                 killStreak.volume = 0.02;
                 killStreak.play();
                 break;
-            }
-            case 10: {
+            case player.lastRaidKills >= 10 && player.lastRaidKills < 12:
                 streakNotificationText = `${player.name} IS A TARKOV DEMON! ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/10.wav');
                 killStreak.volume = 0.02;
                 killStreak.play();
                 break;
-            }
-            case 12: {
+            case player.lastRaidKills >= 12:
                 streakNotificationText = `SOMEONE STOP THEM! ${player.lastRaidKills} KILLS IN ONE RAID!`;
                 killStreak = new Audio('media/sounds/killstreak/12.wav');
                 killStreak.volume = 0.02;
                 killStreak.play();
                 break;
-            }
         }
     }
 
