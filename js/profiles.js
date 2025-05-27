@@ -274,7 +274,7 @@ function showDisqualProfile(container, player) {
         </div>
       </div>
     </div>
-      
+
       <div class="private-profile-overlay">
         <div class="private-profile-content">
           <div class="lock-icon">👻</div>
@@ -313,9 +313,7 @@ function showPublicProfile(container, player) {
     profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
 
     // About me
-    const aboutText = player.profileAboutMe && player.profileAboutMe.length <= 80
-        ? player.profileAboutMe
-        : 'Nothing to see here.';
+    const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
 
     // Generate badges
     const badgesHTML = generateBadgesHTML(player);

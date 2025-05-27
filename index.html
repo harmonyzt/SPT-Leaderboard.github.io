@@ -30,6 +30,9 @@
                 <img src="media/TP.png" alt="SPT Leaderboard Logo" class="navbar-logo">
             </a>
             <div class="navbar-links">
+                <a href="#" class="navbar-link">SPT Teams (Soon)</a>
+            </div>
+            <div class="navbar-links">
                 <a id="infoButton" class="navbar-link">How it works</a>
             </div>
             <div class="navbar-links">
@@ -69,6 +72,7 @@
                 <h3>1. Leaderboard Terminology</h3>
                 <ul>
                     <li><strong>KDR:</strong> Kill-to-Death Ratio (Kills ÷ Deaths)</li>
+                    <li><strong>SR:</strong> Survival Rate</li>
                 </ul>
                 <h3>2. Season System</h3>
                 <p>Competitive cycles with unique leaderboards:</p>
@@ -150,14 +154,6 @@
 
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="notificationsToggle">
-                            Enable Last Raid Notifications
-                        </label>
-                        <p class="setting-description">Toggle system notifications for last raid events. Will not hide announcement on the top left</p>
-                    </div>
-
-                    <div class="setting-item">
-                        <label class="setting-label">
                             <input type="checkbox" id="timerToggle">
                             Show Season Countdown Timer
                         </label>
@@ -168,11 +164,11 @@
                         <h3>Player Watch List</h3>
                         <div class="player-compare-wrapper">
                         <div class="player-input">
-                            <input type="text" id="playerOneId" placeholder="Enter Player 1 ID">
+                            <input type="text" id="playerOneId" placeholder="Enter Player Profile ID">
                             <div id="playerOneStats"></div>
                         </div>
                         <div class="player-input">
-                            <input type="text" id="playerTwoId" placeholder="Enter Player 2 ID">
+                            <input type="text" id="playerTwoId" placeholder="Enter Player Profile ID">
                             <div id="playerTwoStats"></div>
                         </div>
                         </div>
@@ -188,7 +184,7 @@
                 <p><!--<img src="media/loading_bar.gif" width="20px" height="20px" style="position: relative; top: 5px;">-->Wanna hear last raid notifications?</p>
                 <p>Give website a permission to play sound, and don't forget to enable them in settings!</p>
             </div>
-            <button class="close-notification" aria-label="Close notification">&times;</button>
+            <button class="close-notification">&times;</button>
         </div>
 
         <div class="top-stats-bar">
@@ -243,25 +239,21 @@
                         <input type="checkbox" id="autoUpdateToggle" checked /> Live Data Flow </label>
                     <span id="timeToUpdate">Next update in: 3s</span>
                 </div>
-                <button id="manualUpdate" class="button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M23 4v6h-6M1 20v-6h6"></path>
-                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                    </svg> Update Now </button>
             </div>
         </div>
         <table id="leaderboardTable" class="animate animate__animated animate__fadeIn">
             <thead>
                 <tr>
                     <th data-sort="rank">Rank</th>
+                    <th>Team</th>
                     <th data-sort="name">Name</th>
                     <th data-sort="lastPlayed">Last Raid</th>
                     <th>Profile</th>
                     <th>Standing</th>
                     <th data-sort="totalRaids">Raids</th>
-                    <th data-sort="survivedToDiedRatio">Survival Rate</th>
+                    <th data-sort="survivedToDiedRatio">SR</th>
                     <th data-sort="killToDeathRatio">KDR</th>
-                    <th data-sort="averageLifeTime">AVG Life Time</th>
+                    <th data-sort="averageLifeTime">Life Time</th>
                     <th data-sort="totalScore">Skill</th>
                     <!--
                         <th>TP</th>

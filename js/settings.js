@@ -8,12 +8,10 @@
 const seasonEndDate = new Date(2025, 4, 30);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const notifToggle = document.getElementById('notificationsToggle');
     const timerToggle = document.getElementById('timerToggle');
     const seasonTimer = document.getElementById('seasonTimer');
     const timerDisplay = document.getElementById('timerDisplay');
 
-    notifToggle.checked = getCookie('notificationsEnabled') === 'true';
     timerToggle.checked = getCookie('showTimer') === 'true';
     seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
 
@@ -37,10 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateTimer();
     const timerInterval = setInterval(updateTimer, 1000);
-
-    notifToggle.addEventListener('change', () => {
-        setCookie('notificationsEnabled', notifToggle.checked);
-    });
 
     timerToggle.addEventListener('change', () => {
         setCookie('showTimer', timerToggle.checked);

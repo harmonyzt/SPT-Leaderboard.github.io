@@ -13,7 +13,7 @@ async function getServerStatus() {
         return {
             online: false,
             underWork: false,
-            workText: "Failed to connect."
+            workText: "Couldn't connect with server."
         };
     }
 }
@@ -35,7 +35,7 @@ async function updateServerStatus() {
         statusElement.textContent = 'Server Online';
         statusElement.classList.add('server-online');
     } else {
-        statusElement.textContent = 'Server Offline';
+        statusElement.textContent = 'Server Unreachable';
         statusElement.classList.add('server-offline');
         if (status.workText) {
             statusElement.setAttribute('data-tooltip', status.workText);

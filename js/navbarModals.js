@@ -1,8 +1,8 @@
-//   _____ ____  ______   __    _________    ____  __________  ____  ____  ___    ____  ____ 
-//  / ___// __ \/_  __/  / /   / ____/   |  / __ \/ ____/ __ \/ __ )/ __ \/   |  / __ \/ __ \
-//  \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
-// ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
-///____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
+//     _____ ____  ______   __    _________    ____  __________  ____  ____  ___    ____  ____ 
+//    / ___// __ \/_  __/  / /   / ____/   |  / __ \/ ____/ __ \/ __ )/ __ \/   |  / __ \/ __ \
+//    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
+//   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
+//  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/    
 
 document.addEventListener('DOMContentLoaded', () => {
     const elements = {
@@ -103,13 +103,13 @@ function initProfileWatchList(data) {
     const p1 = findPlayerById(p1Id);
     const p2 = findPlayerById(p2Id);
 
-    playerOneStatsDiv.innerHTML = p1 ? getPlayerStatsHTML(p1) : '<p>Player 1 not found.</p>';
-    playerTwoStatsDiv.innerHTML = p2 ? getPlayerStatsHTML(p2) : '<p>Player 2 not found.</p>';
+    playerOneStatsDiv.innerHTML = p1 ? getPlayerStatsHTML(p1) : '<p>Player ID not found</p>';
+    playerTwoStatsDiv.innerHTML = p2 ? getPlayerStatsHTML(p2) : '<p>Player ID not found</p>';
 
     if (p1 && p2) {
       let result = '<h3>Comparison</h3><ul>';
-      result += `<li>PMC Raids: ${p1.pmcRaids} vs ${p2.pmcRaids} (${p1.pmcRaids > p2.pmcRaids ? `${p1.name} wins` : p1.pmcRaids < p2.pmcRaids ? `${p2.name} wins` : 'Tie'})</li>`;
-      result += `<li>PMC Kills: ${p1.pmcKills} vs ${p2.pmcKills} (${p1.pmcKills > p2.pmcKills ? `${p1.name} wins` : p1.pmcKills < p2.pmcKills ? `${p2.name} wins` : 'Tie'})</li>`;
+      result += `<li>Raids: ${p1.pmcRaids} vs ${p2.pmcRaids} (${p1.pmcRaids > p2.pmcRaids ? `${p1.name} wins` : p1.pmcRaids < p2.pmcRaids ? `${p2.name} wins` : 'Tie'})</li>`;
+      result += `<li>Kills: ${p1.pmcKills} vs ${p2.pmcKills} (${p1.pmcKills > p2.pmcKills ? `${p1.name} wins` : p1.pmcKills < p2.pmcKills ? `${p2.name} wins` : 'Tie'})</li>`;
       result += `<li>Rank: ${p1.rank} vs ${p2.rank} (${p1.rank < p2.rank ? `${p1.name} wins` : p1.rank > p2.rank ? `${p2.name} wins` : 'Tie'})</li>`;
       result += '</ul>';
       comparisonResultDiv.innerHTML = result;

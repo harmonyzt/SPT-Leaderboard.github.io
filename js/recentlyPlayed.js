@@ -8,6 +8,7 @@ const shownPlayerNotifications = new Set();
 const playerLastRaidTimes = new Map();
 const notificationStack = [];
 const playerNotificationData = new Map();
+let allowToPlayLastRaidSound = true;
 
 function showPlayerNotification(player) {
     if (!player.lastPlayed) {
@@ -55,32 +56,98 @@ function showPlayerNotification(player) {
         accountColor = '#2486ff';
     }
 
+    // Raidstreak/Killstreaks
+    let isOnKillStreak = false;
+    let isOnRaidStreak = false;
+    let streakNotificationText = '';
+    
+    if (player.currentWinstreak > 5) {
+        isOnRaidStreak = true;
+        allowToPlayLastRaidSound = false;
+        const pmcRaid = new Audio('media/sounds/raidstreak/5raidstreak.wav');
+        pmcRaid.volume = 0.1;
+        pmcRaid.play();
+
+        streakNotificationText = `ON A ${player.currentWinstreak} RAID WIN STREAK!`;
+    }
+
+    // Killstreak
+    if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound) {
+        allowToPlayLastRaidSound = false;
+        isOnKillStreak = true;
+        let killStreak;
+
+        switch (player.lastRaidKills) {
+            case 6: {
+                streakNotificationText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
+                killStreak = new Audio('media/sounds/killstreak/6.wav');
+                killStreak.volume = 0.02;
+                killStreak.play();
+                break;
+            }
+            case 8: {
+                streakNotificationText = `${player.name} IS UNSTOPPABLE! ${player.lastRaidKills} KILLS!`;
+                killStreak = new Audio('media/sounds/killstreak/8.wav');
+                killStreak.volume = 0.02;
+                killStreak.play();
+                break;
+            } 
+            case 10: {
+                streakNotificationText = `${player.name} IS A TARKOV DEMON! ${player.lastRaidKills} KILLS!`;
+                killStreak = new Audio('media/sounds/killstreak/10.wav');
+                killStreak.volume = 0.02;
+                killStreak.play();
+                break;
+            }
+            case 12: {
+                streakNotificationText = `SOMEONE STOP THEM! ${player.lastRaidKills} KILLS IN ONE RAID!`;
+                killStreak = new Audio('media/sounds/killstreak/12.wav');
+                killStreak.volume = 0.02;
+                killStreak.play();
+                break;
+            }
+        }
+    }
+
     // Sounds
     // NOTE: Works only if user interacted with website or allowed sounds
-    if(player.lastRaidAs === "PMC" && player.lastRaidSurvived){
-        const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg'); 
-        pmcRaid.volume = 0.2;
+    if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound) {
+        const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
+        pmcRaid.volume = 0.07;
         pmcRaid.play();
     } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
         const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
-        pmcRaidDied.volume = 0.2;
+        pmcRaidDied.volume = 0.07;
         pmcRaidDied.play();
     }
 
+    // In the end, allow sound to be played
+    allowToPlayLastRaidSound = true;
+
     const notification = document.createElement('div');
-    if(player.publicProfile){
+    if (player.publicProfile) {
         notification.className = `player-notification-r ${player.discFromRaid ? 'disconnected-bg border-died' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg border-survived' : 'died-bg border-died'}`;
     } else {
         notification.className = `player-notification-r player-notification-private-background`;
-    }
+    } 
 
-    notification.innerHTML = `
-        <div class="notification-content-r">
+notification.innerHTML = `
+    <div class="notification-content-r">
+        <div class="notification-header-r">
+            <img src="${player.profilePicture || 'media/default-avatar.jpg'}" 
+                 alt="${player.name}'s avatar" 
+                 class="notification-avatar-r">
             <div class="notification-text">
-                <span class="notification-name-r" style="color:${accountColor}">${specialIconNotification} ${player.name}</span>
-                <span class="notification-info-r">Finished raid • ${formatLastPlayedRaid(player.lastPlayed)} • Rank #${player.rank}</span>
+                <span class="notification-name-r" style="color:${accountColor}">
+                    ${specialIconNotification} ${player.name}
+                </span>
+                <span class="notification-info-r">
+                    Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • Rank #${player.rank}
+                </span>
+            </div>
+        </div>
         ${player.publicProfile ? `
-            <div class="raid-overview-notify">
+        <div class="raid-overview-notify">
             <span class="raid-result-r ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
                 ${player.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : player.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${player.lastRaidMap}
                 <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${player.lastRaidTransitionTo || 'Unknown'})` : player.lastRaidSurvived ? `<em class="bx bx-walk"></em> Survived` : `
@@ -89,11 +156,16 @@ function showPlayerNotification(player) {
             <span class="raid-meta-notify">
                 ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'}
             </span>
+
+            ${streakNotificationText ? `
+            <span class="notification-last-raid-streak">
+                ${streakNotificationText}
+            </span>
+            ` : ''}
         </div>
         `: ''}
-            </div>
-        </div>
-    `;
+    </div>
+`;
 
     const container = document.getElementById('notifications-container-r') || createNotificationsContainer();
     container.appendChild(notification);
@@ -143,11 +215,6 @@ function createNotificationsContainer() {
 }
 
 function checkRecentPlayers(leaderboardData) {
-    // Don't show anything if user has notifications disabled...
-    if (getCookie('notificationsEnabled') === 'false') {
-        return;
-    }
-
     const currentTime = Math.floor(Date.now() / 1000);
     const fiveMinutesAgo = currentTime - 1200;
 

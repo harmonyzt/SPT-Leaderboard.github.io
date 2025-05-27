@@ -85,7 +85,7 @@ h1 {
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 0px 1px rgb(255 255 255 / 70%);
     color: #f0f0f0;
     background: #ffffff0e;
     padding: 5px 10px;
@@ -111,7 +111,7 @@ h1 {
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 600px;
+    min-width: 650px;
     max-width: 1200px;
     background-color: #21354f;
     padding: 10px 25px;
@@ -136,15 +136,17 @@ h1 {
 }
 
 .navbar-link {
+    background-color: #ffffff0e;
     color: var(--text-light);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 300ms ease-in-out;
     font-size: 0.9rem;
-    padding: 15px 0;
+    padding: 8px;
+    border-radius: 4px;
 }
 
 .navbar-link:hover {
-    color: var(--accent-teal);
+    background-color: #ffffff21;
     cursor: pointer;
 }
 
@@ -374,12 +376,11 @@ td {
     }
 }
 
-
-td:nth-child(2) {
+td:nth-child(3) {
     font-weight: bold;
 }
 
-td:nth-child(2):hover {
+td:nth-child(3):hover {
     cursor: pointer;
 }
 
@@ -950,65 +951,65 @@ button:hover,
 }
 
 .player-compare-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .player-input {
-  flex: 1 1 45%;
-  background-color: #243447;
-  padding: 0.55rem;
-  border-radius: 8px;
+    flex: 1 1 45%;
+    background-color: #243447;
+    padding: 0.55rem;
+    border-radius: 8px;
 }
 
 /* id input */
 .player-input input {
-  width: 200px;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: none;
-  font-family: monospace;
-  background-color: #3b4a5a;
-  color: #fff;
+    width: 200px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: none;
+    font-family: monospace;
+    background-color: #3b4a5a;
+    color: #fff;
 }
 
 .player-input ul {
-  list-style: disc inside;
-  margin: 0;
-  padding: 0;
+    list-style: disc inside;
+    margin: 0;
+    padding: 0;
 }
 
 #comparePlayers {
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 300ms ease-in-out;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 300ms ease-in-out;
 }
 
 #comparePlayers:hover {
-  background-color: #1d4ed8;
+    background-color: #1d4ed8;
 }
 
 #comparisonResult {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #243447;
-  border-radius: 8px;
-  color: #ffffff;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #243447;
+    border-radius: 8px;
+    color: #ffffff;
 }
 
 #comparisonResult ul {
-  list-style: disc inside;
-  padding-left: 0;
+    list-style: disc inside;
+    padding-left: 0;
 }
 
 /* Announcement / Notification */
@@ -1027,7 +1028,6 @@ button:hover,
     align-items: flex-start;
     animation: slideIn 0.5s ease-out;
     backdrop-filter: blur(5px);
-
 }
 
 .notification-content {
@@ -2164,6 +2164,13 @@ button:hover,
     background: rgba(20, 20, 25, 0.116);
 }
 
+.notification-header-r {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
 /* To change left border */
 .border-died {
     border-left: 4px solid #f87171;
@@ -2183,7 +2190,9 @@ button:hover,
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .notification-text-r {
@@ -2197,13 +2206,14 @@ button:hover,
     color: #fff;
     display: block;
     margin-bottom: 2px;
+    line-height: 1.2;
 }
 
 .notification-info-r {
     font-size: 13px;
     color: #a0a0c0;
     display: block;
-    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .raid-overview-notify {
@@ -2251,6 +2261,32 @@ button:hover,
     gap: 8px;
 }
 
+.notification-last-raid-streak {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #79fbff,
+            #6a6cfc,
+            #79fbff);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3s linear infinite;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+@keyframes textclip {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
 
 @keyframes slideInLastRaid {
     from {

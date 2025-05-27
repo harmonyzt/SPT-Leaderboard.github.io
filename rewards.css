@@ -96,6 +96,13 @@
     background-repeat: no-repeat;
 }
 
+.prestige-both {
+    background: url(media/rewards/prestige_only/both.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* Themes */
 .theme-default {
     background-color: #1e1e2d;

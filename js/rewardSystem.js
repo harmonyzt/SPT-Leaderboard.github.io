@@ -52,7 +52,7 @@ function refreshRewards(player) {
 function resetStyles(mainBackground, profileCard, profileAvatar) {
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa');
+    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
 
     profileCard.style.backgroundImage = '';
     profileCard.classList.remove('streets-bg', 'streets2-bg', 'streets3-bg', 'purple-bg', 'labs-bg');
@@ -78,6 +78,8 @@ function applyBackgroundReward(player, profileCard) {
         profileCard.classList.add('streets2-bg');
     } else if (reward === "streets" && level >= 4) {
         profileCard.classList.add('streets-bg');
+    } else {
+        return;
     }
 }
 
@@ -96,14 +98,17 @@ function applyMainBackgroundReward(player, mainBackground) {
         mainBackground.style.backgroundColor = 'none';
     }
 
-    // Set the background no matter what unless they turned it off
+    // Set the background no matter what unless it's turned it off
     if (player.usePrestigeStyling && player.prestige > 0) {
-        if (player.bp_prestigebg == "tagilla") {
-            mainBackground.classList.remove('bear-background', 'usec-background');
+        if (player.bp_prestigebg === "tagilla") {
+            mainBackground.classList.remove('bear-background', 'usec-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
             mainBackground.classList.add('prestige-tagilla');
-        } else if (player.bp_prestigebg == "killa") {
-            mainBackground.classList.remove('bear-background', 'usec-background');
+        } else if (player.bp_prestigebg === "killa") {
+            mainBackground.classList.remove('bear-background', 'usec-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
             mainBackground.classList.add('prestige-killa');
+        } else if (player.bp_prestigebg === "both") {
+            mainBackground.classList.remove('bear-background', 'usec-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
+            mainBackground.classList.add('prestige-both');
         }
     }
 }
