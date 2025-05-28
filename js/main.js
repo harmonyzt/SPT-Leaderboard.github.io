@@ -11,6 +11,7 @@ let leaderboardData = []; // For keeping current season data
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
+let ranOnlyOnce = false;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -68,15 +69,13 @@ async function detectSeasons() {
         seasonNumber++;
     }
 
-    /* 
-    // Load previous winners (unused due to season 1)
-    function loadPreviousSeasonWinners() {
-        if (seasons.length > 1) {
-            loadPreviousSeasonWinners();
-        }
-    }
-    */
+    // Load previous winners
 
+    if (seasons.length > 1 && !ranOnlyOnce) {
+        ranOnlyOnce = true;
+        loadPreviousSeasonWinners();
+    }
+    
     // Sort from newest to oldest
     seasons.sort((a, b) => b - a);
 
@@ -105,7 +104,7 @@ async function detectSeasons() {
 async function loadPreviousSeasonWinners() {
     if (seasons.length < 2) return;
 
-    const previousSeason = seasons[seasons.length - 1];
+    const previousSeason = seasons[seasons.length - 2];
 
     try {
         const response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
