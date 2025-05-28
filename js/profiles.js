@@ -729,6 +729,13 @@ function generateBadgesHTML(player) {
                    </div>`;
     }
 
+    if (player.dev) {
+        badges += `<div class="badge tooltip">
+                     <img src="media/leaderboard_icons/icon_developer.png" style="width: 20px; height: 20px">
+                     <span class="tooltiptext">Developer playing the game.. Seriously?</span>
+                   </div>`;
+    }
+
     return badges;
 }
 

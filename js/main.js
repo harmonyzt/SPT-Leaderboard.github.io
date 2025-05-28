@@ -420,7 +420,7 @@ function displayLeaderboard(data) {
 
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
-            <td class="teamtag">${player.teamTag ? player.teamTag : ``}</td>
+            <td class="teamtag">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
             <td>${profileOpenIcon}</td>
