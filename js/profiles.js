@@ -348,7 +348,7 @@ function showPublicProfile(container, player) {
             <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${player.isOnline ? 'Online' : 'Offline'}</span>
         </div>
-        <h2 class="profile-player-name">${player.name}</h2>
+        <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}</h2>
         <div class="player-about">${aboutText}</div>
         <div class="player-reg-date">
             <span class="reg-date-text">Registered: ${regDate}</span>

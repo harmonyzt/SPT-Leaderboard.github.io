@@ -118,7 +118,7 @@ function showPlayerNotification(player) {
                 <img src="${player.profilePicture || 'media/default-avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='/media/default_avatar.png';">
                 <div class="notification-text">
                     <span class="notification-name-r" style="color:${accountColor}">
-                        ${specialIconNotification} ${player.name}
+                        ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
                     </span>
                     <span class="notification-info-r">
                         Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • Rank #${player.rank}
