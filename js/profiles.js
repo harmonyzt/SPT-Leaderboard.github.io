@@ -59,6 +59,10 @@ function openProfile(playerId) {
 // Private profile HTML
 function showPrivateProfile(container, player) {
     const profileModal = document.querySelector('.profile-modal-content');
+    const mainBackground = document.getElementById('playerProfileModal');
+    mainBackground.style.backgroundImage = '';
+    mainBackground.style.backgroundColor = '';
+    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
@@ -176,6 +180,10 @@ function showPrivateProfile(container, player) {
 // Disqualified profile HTML
 function showDisqualProfile(container, player) {
     const profileModal = document.querySelector('.profile-modal-content');
+    const mainBackground = document.getElementById('playerProfileModal');
+    mainBackground.style.backgroundImage = '';
+    mainBackground.style.backgroundColor = '';
+    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
@@ -332,9 +340,9 @@ function showPublicProfile(container, player) {
 <div class="profile-grid-layout" id="profile-main-grid">
     <!-- Main -->
     <div class="profile-main-card" id="main-profile-card">
-        <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger">
-        <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew">
-        
+        <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
+        <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew" />
+
         <img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='/media/default_avatar.png';" />
         <div class="player-status">
             <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>
@@ -452,33 +460,31 @@ function showPublicProfile(container, player) {
     <div id="player-profile-hof">
         <div class="stats-blocks">
             <div class="stat-block hof-player-level">
-            <div class="bp-wrapper">
-                <div class="level-info">
-                    <span class="level-label">Leaderboard Level:</span>
-                    <span class="level-value">0</span>
-                </div>
-                <div class="exp-bar-container">
-                    <div class="exp-bar">
-                        <div class="exp-progress" style="width: 0%;"></div>
+                <div class="bp-wrapper">
+                    <div class="level-info">
+                        <span class="level-label">Leaderboard Level:</span>
+                        <span class="level-value">0</span>
                     </div>
-                    <div class="exp-numbers">
-                        <span class="current-exp">0</span>
-                        <span class="exp-separator"></span>
-                        <span class="next-level-exp">0</span>
+                    <div class="exp-bar-container">
+                        <div class="exp-bar">
+                            <div class="exp-progress" style="width: 0%;"></div>
+                        </div>
+                        <div class="exp-numbers">
+                            <span class="current-exp">0</span>
+                            <span class="exp-separator"></span>
+                            <span class="next-level-exp">0</span>
+                        </div>
                     </div>
+                    <div class="exp-remaining">Until next level: <span class="remaining-value">0</span> EXP</div>
                 </div>
-                <div class="exp-remaining">Until next level: <span class="remaining-value">0</span> EXP</div>
+                <img src="" class="rank-icon" id="playerRankIcon" />
             </div>
-            <img src="" class="rank-icon" id="playerRankIcon">
 
-            </div>
-            
             <div class="hof-player-trader-info">
                 <div class="trader-grid">
-
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/prapor.png" alt="Prapor" class="trader-image">
+                            <img src="media/traders/prapor.png" alt="Prapor" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Prapor</div>
@@ -487,7 +493,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/therapist.png" alt="Therapist" class="trader-image">
+                            <img src="media/traders/therapist.png" alt="Therapist" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Therapist</div>
@@ -496,7 +502,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/fence.png" alt="Fence" class="trader-image">
+                            <img src="media/traders/fence.png" alt="Fence" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Fence</div>
@@ -505,7 +511,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/skier.png" alt="Skier" class="trader-image">
+                            <img src="media/traders/skier.png" alt="Skier" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Skier</div>
@@ -514,7 +520,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/peacekeeper.png" alt="Peacekeeper" class="trader-image">
+                            <img src="media/traders/peacekeeper.png" alt="Peacekeeper" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Peacekeeper</div>
@@ -523,7 +529,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/mechanic.png" alt="Mechanic" class="trader-image">
+                            <img src="media/traders/mechanic.png" alt="Mechanic" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Mechanic</div>
@@ -532,7 +538,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/ragman.png" alt="Ragman" class="trader-image">
+                            <img src="media/traders/ragman.png" alt="Ragman" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Ragman</div>
@@ -541,7 +547,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/jaeger.png" alt="Jaeger" class="trader-image">
+                            <img src="media/traders/jaeger.png" alt="Jaeger" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Jaeger</div>
@@ -550,7 +556,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/ref.png" alt="Ref" class="trader-image">
+                            <img src="media/traders/ref.png" alt="Ref" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Ref</div>
@@ -559,7 +565,7 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/lightkeeper.png" alt="Lightkeeper" class="trader-image">
+                            <img src="media/traders/lightkeeper.png" alt="Lightkeeper" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">Lightkeeper</div>
@@ -568,14 +574,12 @@ function showPublicProfile(container, player) {
 
                     <div class="trader-card" data-unlocked="true">
                         <div class="trader-image-container">
-                            <img src="media/traders/btr.png" alt="BTR Driver" class="trader-image">
+                            <img src="media/traders/btr.png" alt="BTR Driver" class="trader-image" />
                             <div class="trader-lock" style="display: none;">🔒</div>
                         </div>
                         <div class="trader-name">BTR Driver</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.BTR_DRIVER.standing.toFixed(2)) : 0}</div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -584,8 +588,14 @@ function showPublicProfile(container, player) {
     <div id="player-profile-hof-sec">
         <div class="stats-blocks">
             <div class="stat-block hof-player-fav-weapon">
+                ${!player?.isUsingStattrack ? `
+                <div class="stattrack-overlay">
+                    <div class="stattrack-message">This player is not using <a href="https://hub.sp-tarkov.com/files/file/2501-stattrack/">Stattrack Mod</a> by AcidPhantasm</div>
+                </div>
+                ` : ''}
+                
                 <h3 class="section-title">Meta Gun</h3>
-                <div class="weapon-info">
+                <div class="weapon-info ${!player?.isUsingStattrack ? 'stattrack-disabled' : ''}">
                     <div class="weapon-name">${getWeaponName(player)}</div>
                     <div class="weapon-mastery">Mastery Level: <span class="level-value-wp">0</span></div>
 
@@ -600,28 +610,26 @@ function showPublicProfile(container, player) {
                     </div>
                     <div class="exp-remaining">Until next level: <span class="remaining-value-wp">0</span> EXP</div>
 
-                    <!-- player.stattrack -->
-                    ${player?.isUsingStattrack ? `<div class="weapon-extra-stats">
+                    <div class="weapon-extra-stats">
                         <div class="raid-stats-grid">
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Kills:</span>
-                                <span class="profile-stat-value">${player.modWeaponStats.bestWeapon.stats.kills ? player.modWeaponStats.bestWeapon.stats.kills : 0}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.kills ? player.modWeaponStats.bestWeapon.stats.kills : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Headshots:</span>
-                                <span class="profile-stat-value">${player.modWeaponStats.bestWeapon.stats.headshots ? player.modWeaponStats.bestWeapon.stats.headshots : 0}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.headshots ? player.modWeaponStats.bestWeapon.stats.headshots : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Shots Fired:</span>
-                                <span class="profile-stat-value">${player.modWeaponStats.bestWeapon.stats.totalShots ? player.modWeaponStats.bestWeapon.stats.totalShots : 0}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.totalShots ? player.modWeaponStats.bestWeapon.stats.totalShots : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Times Lost:</span>
-                                <span class="profile-stat-value">${player.modWeaponStats.bestWeapon.stats.timesLost ? player.modWeaponStats.bestWeapon.stats.timesLost : 0}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.timesLost ? player.modWeaponStats.bestWeapon.stats.timesLost : 0) : '0'}</span>
                             </div>
                         </div>
-                    </div>` : ''}
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -629,22 +637,21 @@ function showPublicProfile(container, player) {
         <div class="stats-blocks">
             <div class="stat-block">
                 <h3 class="section-title">Extra Stats</h3>
-                        <div class="raid-stats-grid">
-                            <div class="raid-stat-block">
-                                <span class="profile-stat-label">Longest Killshot:</span>
-                                <span class="profile-stat-value">${player.longestShot ? player.longestShot + 'm' : 0}</span>
-                            </div>
-                            <div class="raid-stat-block">
-                                <span class="profile-stat-label">Total Damage:</span>
-                                <span class="profile-stat-value">${player.damage}</span>
-                            </div>
-                        </div>
+                <div class="raid-stats-grid">
+                    <div class="raid-stat-block">
+                        <span class="profile-stat-label">Longest Killshot:</span>
+                        <span class="profile-stat-value">${player.longestShot ? player.longestShot + 'm' : 0}</span>
+                    </div>
+                    <div class="raid-stat-block">
+                        <span class="profile-stat-label">Total Damage:</span>
+                        <span class="profile-stat-value">${player.damage}</span>
+                    </div>
+                </div>
             </div>
         </div>
-      
     </div>
 </div>
-    `;
+`;
 
     // Init battlepass button once the profile has opened
     initHOF(player);

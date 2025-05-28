@@ -105,6 +105,8 @@ function calculateMasteryLevel(player) {
     const expPerLevel = 800;
 
     const level = Math.floor(totalExp / expPerLevel);
+    player.masteryLevel = level;
+    
     const currentLevelExp = totalExp % expPerLevel;
 
     return {
@@ -118,7 +120,7 @@ function calculateMasteryLevel(player) {
 // EXP for weapon mastery
 function updatePlayerProfileMastery(player) {
     const levelData = calculateMasteryLevel(player);
-
+    
     // update level
     document.querySelector('.level-value-wp').textContent = levelData.level;
 

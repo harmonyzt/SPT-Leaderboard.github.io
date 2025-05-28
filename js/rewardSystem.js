@@ -7,21 +7,19 @@
 function refreshRewards(player) {
     // Background behind profile card
     const mainBackground = document.getElementById('playerProfileModal');
-
     // For background for main profile card
     const profileCard = document.getElementById('main-profile-card');
-
     // To change any avatar things (like border color around PFP)
     const profileAvatar = document.getElementById('profile-avatar');
-
     // Cat :D
     const profileCat = document.getElementById('catrew');
-
     // Tester Request
     const badgerPenguin = document.getElementById('badger');
+    // Decal of the profile
+    const profileBackground = document.getElementById('modalPlayerInfo');
 
     // Reset
-    resetStyles(mainBackground, profileCard, profileAvatar);
+    resetStyles(mainBackground, profileCard, profileAvatar, profileBackground);
 
     // Nuke 
     if (!player.publicProfile) {
@@ -33,9 +31,10 @@ function refreshRewards(player) {
     applyMainBackgroundReward(player, mainBackground);
     applyPfpStyleReward(player, profileAvatar);
     applyPfpBorderReward(player, profileAvatar);
+    applyProfileDecal(player, profileBackground);
 
     // Cat :D
-    if (player.bp_cat && player.battlePassLevel >= 15) {
+    if (player.bp_cat && player.battlePassLevel >= 20) {
         profileCat.style.display = 'block';
     } else {
         profileCat.style.display = 'none';
@@ -49,25 +48,47 @@ function refreshRewards(player) {
     }
 }
 
-function resetStyles(mainBackground, profileCard, profileAvatar) {
+function resetStyles(mainBackground, profileCard, profileAvatar, profileBackground) {
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
     mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
 
+    profileBackground.classList.remove('scratches', 'cult-signs', 'cult-signs2', 'cult-circle');
+    
     profileCard.style.backgroundImage = '';
     profileCard.classList.remove('streets-bg', 'streets2-bg', 'streets3-bg', 'purple-bg', 'labs-bg');
-
 
     profileAvatar.classList.remove(
         'wide-style', 'box-style', 'red-border', 'pink-border', 'white-border', 'black-border'
     );
 }
 
+function applyProfileDecal(player, profileBackground){
+    const level = player.masteryLevel;
+    const reward = player.bp_decal;
+    const theme = player.profileTheme.toLowerCase();
+
+    if(theme === "redshade" || theme === "steelshade" || theme === "gradient") {
+        return;
+    }
+
+    if (reward === "cult-signs2" && level >= 20) {
+        profileBackground.classList.add('cult-signs2');
+    } else if (reward === "cult-signs" && level >= 15) {
+        profileBackground.classList.add('cult-signs');
+    } else if (reward === "cult-circle" && level >= 10) {
+        profileBackground.classList.add('cult-circle');
+    } else if (reward === "scratches" && level >= 5) {
+        profileBackground.classList.add('scratches');
+    } else {
+        return;
+    }
+}
+
 function applyBackgroundReward(player, profileCard) {
     const level = player.battlePassLevel;
     const reward = player.bp_cardbg;
 
-    // automatically choose 
     if (reward === "labs" && level >= 25) {
         profileCard.classList.add('labs-bg');
     } else if (reward === "purple" && level >= 15) {
@@ -87,9 +108,9 @@ function applyMainBackgroundReward(player, mainBackground) {
     const level = player.battlePassLevel;
     const reward = player.bp_mainbg;
 
-    if (reward === 'usec' && level >= 5) {
+    if (reward === 'usec' && level >= 10) {
         mainBackground.classList.add('usec-background');
-    } else if (reward === 'bear' && level >= 5) {
+    } else if (reward === 'bear' && level >= 10) {
         mainBackground.classList.add('bear-background');
     } else if (reward === 'none') {
         mainBackground.style.backgroundColor = 'none';
@@ -131,20 +152,10 @@ function applyPfpBorderReward(player, profileAvatar) {
     if (reward !== 'default') {
         if ((reward === 'red' && level >= 5) ||
             (reward === 'pink' && level >= 8) ||
-            (reward === 'white' && level >= 10) ||
-            (reward === 'black' && level >= 15)) {
+            (reward === 'white' && level >= 15) ||
+            (reward === 'black' && level >= 20)) {
             profileAvatar.classList.add(`${reward}-border`);
         }
         return;
-    }
-
-    if (level >= 15) {
-        profileAvatar.classList.add('black-border');
-    } else if (level >= 10) {
-        profileAvatar.classList.add('white-border');
-    } else if (level >= 8) {
-        profileAvatar.classList.add('pink-border');
-    } else if (level >= 5) {
-        profileAvatar.classList.add('red-border');
     }
 }

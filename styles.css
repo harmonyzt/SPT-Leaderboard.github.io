@@ -2118,6 +2118,7 @@ button:hover,
     padding-top: 10px;
     border-top: 1px solid rgb(255 255 255 / 10%);
     display: block;
+    text-align: center;
 }
 
 .extra-stat {
@@ -2126,8 +2127,44 @@ button:hover,
     margin-bottom: 5px;
 }
 
-.stat-value {
-    color: #fff;
+.stattrack-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.stattrack-message {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.stattrack-message a {
+    text-decoration: wavy;
+    transition: all 300ms ease-in-out;
+    color: rgb(192, 201, 252);
+}
+
+.stattrack-disabled {
+    filter: blur(10px);
+    opacity: 0.8;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hof-player-fav-weapon {
+    position: relative;
 }
 
 /* Notifications of last raid */
@@ -2255,6 +2292,7 @@ button:hover,
             #6a6cfc,
             #79fbff);
     background-size: 200% auto;
+    text-align: center;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

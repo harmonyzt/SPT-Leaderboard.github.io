@@ -39,14 +39,14 @@ function showPlayerNotification(player) {
 
     // Developer
     if (player.dev) {
-        specialIconNotification = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
+        specialIconNotification = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer" style="width: 15px; height: 15px" class="account-icon">`;
         accountColor = '#2486ff';
     }
 
     // Raidstreak/Killstreaks
     let isOnKillStreak = false;
     let isOnRaidStreak = false;
-    let streakNotificationText = '';
+    let streakNotificationKillText = '';
 
     if (player.currentWinstreak > 5) {
         isOnRaidStreak = true;
@@ -55,7 +55,7 @@ function showPlayerNotification(player) {
         pmcRaid.volume = 0.05;
         pmcRaid.play();
 
-        streakNotificationText = `ON A ${player.currentWinstreak} RAID WIN STREAK!`;
+        streakNotificationKillText = `ON A ${player.currentWinstreak} RAID WIN STREAK!`;
     }
 
     // Killstreak
@@ -66,25 +66,25 @@ function showPlayerNotification(player) {
 
         switch (true) {
             case player.lastRaidKills >= 6 && player.lastRaidKills < 8:
-                streakNotificationText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
+                streakNotificationKillText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/6.wav');
                 killStreak.volume = 0.04;
                 killStreak.play();
                 break;
             case player.lastRaidKills >= 8 && player.lastRaidKills < 10:
-                streakNotificationText = `${player.name} IS UNSTOPPABLE! ${player.lastRaidKills} KILLS!`;
+                streakNotificationKillText = `${player.name} IS UNSTOPPABLE!<br> ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/8.wav');
                 killStreak.volume = 0.04;
                 killStreak.play();
                 break;
-            case player.lastRaidKills >= 10 && player.lastRaidKills < 12:
-                streakNotificationText = `${player.name} IS A TARKOV DEMON! ${player.lastRaidKills} KILLS!`;
+            case player.lastRaidKills >= 10 && player.lastRaidKills < 15:
+                streakNotificationKillText = `${player.name} IS A TARKOV DEMON!<br> ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/10.wav');
                 killStreak.volume = 0.04;
                 killStreak.play();
                 break;
             case player.lastRaidKills >= 15:
-                streakNotificationText = `SOMEONE STOP THEM! ${player.lastRaidKills} KILLS IN ONE RAID!`;
+                streakNotificationKillText = `SOMEONE STOP THIS MACHINE!<br> ${player.lastRaidKills} KILLS IN ONE RAID!`;
                 killStreak = new Audio('media/sounds/killstreak/15.wav');
                 killStreak.volume = 0.04;
                 killStreak.play();
@@ -115,9 +115,7 @@ function showPlayerNotification(player) {
     notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-header-r">
-                <img src="${player.profilePicture || 'media/default-avatar.jpg'}" 
-                     alt="${player.name}'s avatar" 
-                     class="notification-avatar-r">
+                <img src="${player.profilePicture || 'media/default-avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='/media/default_avatar.png';">
                 <div class="notification-text">
                     <span class="notification-name-r" style="color:${accountColor}">
                         ${specialIconNotification} ${player.name}
@@ -138,9 +136,9 @@ function showPlayerNotification(player) {
                     ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'}
                 </span>
 
-                ${streakNotificationText ? `
+                ${streakNotificationKillText ? `
                 <span class="notification-last-raid-streak">
-                    ${streakNotificationText}
+                    ${streakNotificationKillText}
                 </span>
                 ` : ''}
             </div>

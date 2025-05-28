@@ -1687,7 +1687,8 @@
             "bp_mainbg": "bear",
             "bp_cat": true,
             "bp_pfpstyle": "wide",
-            "bp_pfpbordercolor": "red"
+            "bp_pfpbordercolor": "red",
+            "bp_decal": "cult-signs2"
         },
         {
             "id": "681ab8200000def4d93d6880",
@@ -13230,7 +13231,7 @@
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 1,
+            "currentWinstreak": 9,
             "longestShot": 0,
             "suspicious": false,
             "pmcRaids": 61,
@@ -13240,7 +13241,7 @@
             "profileAboutMe": "1 like = 1 meow",
             "profilePicture": "https:\/\/i.imgur.com\/z15FrrK.png",
             "registrationDate": 1748075694,
-            "lastRaidKills": 15,
+            "lastRaidKills": 16,
             "lastRaidAs": "PMC",
             "lastRaidDamage": 645,
             "lastRaidEXP": 825,

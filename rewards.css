@@ -61,7 +61,7 @@
 
 .wide-style {
     border-radius: 10%;
-    width: 100px;
+    width: 90px;
 }
 
 /* PFP Borders */
@@ -74,7 +74,7 @@
 }
 
 .white-border {
-    border-color: rgba(255, 255, 255, 0.733);
+    border-color: rgba(255, 255, 255, 0.445);
 }
 
 .black-border {
@@ -143,4 +143,29 @@
     width: 100px;
     top: 277px;
     left: 650px;
+}
+
+/* Profile Decals */
+.scratches {
+    background-image: url(media/rewards/profile_decals_mastery/scratches.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-circle {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-signs {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point1.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-signs2 {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point_moresigns.png);
+    background-position: center;
+    background-size: cover;
 }
