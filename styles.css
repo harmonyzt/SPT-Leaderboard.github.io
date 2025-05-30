@@ -1107,6 +1107,7 @@ button:hover,
     gap: 15px;
     margin: 20px;
     margin-bottom: 50px;
+    min-width: 900px;
 }
 
 .winner-card {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+        <link rel="icon" href="/media/TP.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <script src="https://betterdiscord.app/js/vendor/countUp.min.js?v=DBxeQBHNMaYkRvB8uPOLm07cbQj54TDexlykb-Dcg28"></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
+        <script src="/gunmeta/js/main.js"></script>
+        <script src="/js/recentlyPlayed.js"></script>
+        <script src="/js/announcement.js"></script>
+        <script src="/js/serverStatus.js"></script>
+        <title>SPT Leaderboard</title>
+    </head>
+
+    <body>
+        <nav class="navbar animate__animated animate__fadeIn">
+            <a href="#">
+                <img src="/media/TP.png" alt="SPT Leaderboard Logo" class="navbar-logo">
+            </a>
+            <div class="navbar-links">
+                <a href="/" class="navbar-link">Go Back</a>
+            </div>
+            <div class="navbar-links">
+                <a id="tosButton" class="navbar-link">LA/TOS</a>
+            </div>
+        </nav>
+        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Gun Meta</h1>
+        <div class="leaderboard-notification">
+            <div class="notification-content">
+                <p><!--<img src="media/loading_bar.gif" width="20px" height="20px" style="position: relative; top: 5px;">--> Season 3 is here!</p>
+                <p>Make sure you have sound permissions on the website if you want to hear the notifications! Good luck, warrior!</p>
+            </div>
+            <button class="close-notification">&times;</button>
+        </div>
+        <div class="top-stats-bar">
+            <div class="live-data-label" id="serverStatus">Server Online</div>
+        </div>
+        <table id="leaderboardTable" class="animate animate__animated animate__fadeIn">
+            <thead>
+                <tr>
+                    <th data-sort="rank">Rank</th>
+                    <th data-sort="name">Weapon</th>
+                    <th data-sort="lastPlayed">Kills %</th>
+                    <th>Heashot %</th>
+                    <th>Shots Fired</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="seasonTimer"> Season ends in: <span id="timerDisplay"></span>
+        </div>
+        <div class="notification-container">
+            <div id="loadingNotification" class="animate animate__animated animate__fadeInUp" style="display: none;">Loading Players...</div>
+            <div id="emptyLeaderboardNotification" class="animate animate__animated animate__fadeInUp" style="display: none;">Whoops! Looks like leaderboard is empty. Be the first one to submit your stats!</div>
+        </div>
+    </body>
+
+</html>
