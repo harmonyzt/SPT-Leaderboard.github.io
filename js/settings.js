@@ -5,7 +5,7 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
 // Date for countdown
-const seasonEndDate = new Date(2025, 5, 29);
+const seasonEndDate = new Date(2025, 6, 29);
 
 document.addEventListener('DOMContentLoaded', () => {
     const timerToggle = document.getElementById('timerToggle');
