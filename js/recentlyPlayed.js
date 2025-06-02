@@ -250,7 +250,7 @@ function wasBanRecentlyShown(playerId) {
 
 function setBanNotificationCookie(playerId) {
     const now = new Date();
-    now.setTime(now.getTime() + (10 * 60 * 1000)); // 10 mins
+    now.setTime(now.getTime() + (20 * 60 * 1000)); // 10 mins
     document.cookie = `banNotify_${playerId}=1; expires=${now.toUTCString()}; path=/`;
 }
 
