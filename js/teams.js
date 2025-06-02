@@ -25,8 +25,6 @@ async function loadTeamsData(teamsPath) {
 
 function openTeam(tag) {
     console.log('Team tag clicked:', tag);
-    // Здесь вы можете добавить логику для работы с выбранной командой
-    // Например:
     if (teamData[tag]) {
         console.log('Team members:', teamData[tag]);
     } else {
