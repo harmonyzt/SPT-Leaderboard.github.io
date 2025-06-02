@@ -117,7 +117,7 @@ function showPlayerNotification(player) {
     notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-header-r">
-                <img src="${player.profilePicture || '/media/default_avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='/media/default_avatar.png';">
+                <img src="${player.profilePicture || 'media/default_avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
                 <div class="notification-text">
                     <span class="notification-name-r" style="color:${accountColor}">
                         ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
