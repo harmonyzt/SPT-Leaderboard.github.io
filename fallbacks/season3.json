@@ -1984,7 +1984,11 @@
             "usePrestigeStyling": true,
             "bp_name": null,
             "totalPlayTime": 14998,
-            "trusted": false
+            "trusted": false,
+            "banTime": 1748999928,
+            "banned": true,
+            "banReason": "LA/TOS Violation",
+            "tookAction": "Skill Issue Detector"
         },
         {
             "id": "6830d9720004250c4fb5e01e",

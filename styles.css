@@ -2347,6 +2347,44 @@ button:hover,
     font-weight: 700;
 }
 
+.notification-ban {
+    color: #da6879;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.ban-text {
+    display: block;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #ffcccc;
+    margin: 8px 0;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.164);
+    border-left: 3px solid #ff3333;
+    border-radius: 0 4px 4px 0;
+}
+
+.ban-issued {
+    display: block;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff9999;
+    margin-top: 6px;
+    padding: 6px 10px;
+    background: rgba(139, 0, 0, 0.3);
+    border: 1px solid #ff4d4d;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+}
+
 @keyframes textclip {
     0% {
         background-position: 0% center;

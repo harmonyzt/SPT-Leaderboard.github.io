@@ -16,6 +16,11 @@ function showPlayerNotification(player) {
         return;
     }
 
+    if (player.banned && wasBanRecentlyShown(player.id)) {
+        console.debug(`[NOTIFY] Skipping banned player ${player.name}, recently shown.`);
+        return;
+    }
+
     const lastRaidTime = player.absoluteLastTime;
     const currentData = playerNotificationData.get(player.id);
 
@@ -50,7 +55,7 @@ function showPlayerNotification(player) {
     let isOnRaidStreak = false;
     let streakNotificationKillText = '';
 
-    if (player.currentWinstreak > 5) {
+    if (player.currentWinstreak > 5 && !player.banned) {
         isOnRaidStreak = true;
         allowToPlayLastRaidSound = false;
         const pmcRaid = new Audio('media/sounds/raidstreak/5raidstreak.wav');
@@ -61,7 +66,7 @@ function showPlayerNotification(player) {
     }
 
     // Killstreak
-    if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound) {
+    if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound && !player.banned) {
         allowToPlayLastRaidSound = false;
         isOnKillStreak = true;
         let killStreak;
@@ -95,7 +100,7 @@ function showPlayerNotification(player) {
     }
 
     // Sounds
-    if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound) {
+    if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound && !player.banned) {
         const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
         pmcRaid.volume = 0.07;
         pmcRaid.play();
@@ -108,13 +113,34 @@ function showPlayerNotification(player) {
     allowToPlayLastRaidSound = true;
 
     const notification = document.createElement('div');
-    if (player.publicProfile) {
+    if (player.banned) {
+        notification.className = `player-notification-r died-bg border-died`;
+    }
+
+    if (player.publicProfile && !player.banned) {
         notification.className = `player-notification-r ${player.discFromRaid ? 'disconnected-bg border-died' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg border-survived' : 'died-bg border-died'}`;
-    } else {
+    } else if (!player.publicProfile && !player.banned) {
         notification.className = `player-notification-r player-notification-private-background`;
     }
 
-    notification.innerHTML = `
+    if (player.banned) {
+        const introMusic = new Audio('media/sounds/ban/ban_reveal.mp3');
+        introMusic.volume = 0.07;
+        introMusic.play();
+
+        introMusic.addEventListener('ended', () => {
+            const mainBanSound = new Audio('media/sounds/ban/ban.mp3');
+            mainBanSound.volume = 0.08;
+            mainBanSound.play();
+
+            setBanNotificationCookie(player.id);
+
+            createBanNotification(player);
+        });
+
+        return;
+    } else {
+        notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-header-r">
                 <img src="${player.profilePicture || 'media/default_avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
@@ -147,6 +173,7 @@ function showPlayerNotification(player) {
             `: ''}
         </div>
     `;
+    }
 
     const container = document.getElementById('notifications-container-r') || createNotificationsContainer();
     container.appendChild(notification);
@@ -207,9 +234,68 @@ function checkRecentPlayers(leaderboardData) {
             return;
         }
 
-        if (player.absoluteLastTime > fiveMinutesAgo) {
+        if (player.absoluteLastTime > fiveMinutesAgo || player.banTime > fiveMinutesAgo && player.banned) {
             console.debug(`[CHECK] Player ${player.name} finished raid at ${player.absoluteLastTime}, showing notification.`);
             showPlayerNotification(player);
         }
     });
+}
+
+function wasBanRecentlyShown(playerId) {
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith(`banNotify_${playerId}=`));
+    return !!cookieValue;
+}
+
+function setBanNotificationCookie(playerId) {
+    const now = new Date();
+    now.setTime(now.getTime() + (10 * 60 * 1000)); // 10 mins
+    document.cookie = `banNotify_${playerId}=1; expires=${now.toUTCString()}; path=/`;
+}
+
+function createBanNotification(player) {
+    const notification = document.createElement('div');
+    notification.className = `player-notification-r died-bg border-died`;
+    notification.innerHTML = `
+        <div class="notification-content-r">
+            <div class="notification-header-r">
+                <img src="${player.profilePicture || 'media/default_avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
+                <div class="notification-text">
+                    <span class="notification-name-r">
+                        ${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
+                    </span>
+                </div>
+            </div>
+            <div class="raid-overview-notify">
+                <span class="notification-ban">
+                    Was permanently banned from Leaderboard.
+                </span>
+                <span class="ban-text">
+                    Banned at: ${player.banTime}<br>
+                    Reason: ${player.banReason}
+                </span>
+                <span class="ban-issued">
+                    Banned by ${player.tookAction}
+                </span>
+            </div>
+        </div>
+    `;
+    const container = document.getElementById('notifications-container-r') || createNotificationsContainer();
+    container.appendChild(notification);
+    notificationStack.push(notification);
+    updateNotificationPositions();
+
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s forwards';
+    }, 67000);
+
+    setTimeout(() => {
+        notification.remove();
+        const index = notificationStack.indexOf(notification);
+        if (index > -1) {
+            notificationStack.splice(index, 1);
+        }
+        updateNotificationPositions();
+    }, 70000);
 }
