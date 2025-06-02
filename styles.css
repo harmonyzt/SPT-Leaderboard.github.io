@@ -388,6 +388,15 @@ button:hover,
     transform: scale(0.95);
 }
 
+.player-name {
+    transition: all 300ms ease-in-out;
+}
+
+.player-name:hover {
+    background-color: rgba(255, 255, 255, 0.103) !important;
+    color: #ffffff !important;
+}
+
 /* Styling scorings by color */
 .bad {
     color: #da6879;
@@ -434,22 +443,56 @@ button:hover,
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
-    animation: glowanim 1s ease-in-out infinite;
+    animation: lights 4s 750ms linear infinite;
     font-size: 1.4rem;
 }
 
-@keyframes glowanim {
+@keyframes lights {
     0% {
-        text-shadow: 0 0 1px #b963ffc5, 0 0 2px #b963ffbe, 0 0 2px #0f3d3ebb;
+        color: hsl(230, 40%, 80%);
+        text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
 
-    50% {
-        text-shadow: 0 0 2px #b963ff, 0 0 4px #b963ff, 0 0 4px #0f3d3e;
+    30% {
+        color: hsl(230, 80%, 90%);
+        text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    40% {
+        color: hsl(230, 100%, 95%);
+        text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+
+    70% {
+        color: hsl(230, 80%, 90%);
+        text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
     }
 
     100% {
-        text-shadow: 0 0 1px #b963ffc5, 0 0 2px #b963ffbe, 0 0 2px #0f3d3ebb;
+        color: hsl(230, 40%, 80%);
+        text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
+
 }
 
 .silver-name {

@@ -1,0 +1,127 @@
+{
+    "teams": {
+        "MIKU": [
+            {
+                "id": "68333e5200006c5586c2f0d0",
+                "name": "Clay",
+                "joined_at": 1748673022
+            },
+            {
+                "id": "681613bf0001797f3195528c",
+                "name": "Maomao",
+                "joined_at": 1748703844
+            },
+            {
+                "id": "579edee300034b7ec78ca58a",
+                "name": "HatsuneMiku",
+                "joined_at": 1748796488
+            },
+            {
+                "id": "683339cb00003338ee70e248",
+                "name": "II45I4",
+                "joined_at": 1748872104
+            }
+        ],
+        "CHADS": [
+            {
+                "id": "6800024300038077fb7eea53",
+                "name": "Badger",
+                "joined_at": 1748596892
+            },
+            {
+                "id": "683c9970000031cd740f5300",
+                "name": "dev",
+                "joined_at": 1748802369
+            },
+            {
+                "id": "67f67824000033906ddc9304",
+                "name": "Bruce",
+                "joined_at": 1748808342
+            },
+            {
+                "id": "682c302a00037889c6e07cf8",
+                "name": "harmony",
+                "joined_at": 1748888480
+            }
+        ],
+        "ON": [
+            {
+                "id": "682d776500042bece384080a",
+                "name": "Jordan",
+                "joined_at": 1748698637
+            },
+            {
+                "id": "682d76e900040279cfbe41bf",
+                "name": "Mitchell",
+                "joined_at": 1748853820
+            }
+        ],
+        "SIURY": [
+            {
+                "id": "6803b52a00040490a9f8d300",
+                "name": "Szrama",
+                "joined_at": 1748820407
+            },
+            {
+                "id": "68039ea5000145936c8039eb",
+                "name": "Szrama",
+                "joined_at": 1748820440
+            },
+            {
+                "id": "6803a6780001f9ad7707b6e8",
+                "name": "Szrama",
+                "joined_at": 1748892016
+            },
+            {
+                "id": "681f5236e6bcfa38180023c5",
+                "name": "Szrama",
+                "joined_at": 1748892017
+            }
+        ],
+        "CUCK": [
+            {
+                "id": "6816ebf10000a6901dd10746",
+                "name": "Lipe",
+                "joined_at": 1748829320
+            },
+            {
+                "id": "683b6bb8000326013cff5d40",
+                "name": "Intrusive_Mora",
+                "joined_at": 1748838204
+            },
+            {
+                "id": "680c297400048a67df1bf000",
+                "name": "ChewieDM",
+                "joined_at": 1748838588
+            }
+        ],
+        "GER": [
+            {
+                "id": "68360e8300051815bd570727",
+                "name": "KoS",
+                "joined_at": 1748786226
+            }
+        ],
+        "404": [
+            {
+                "id": "6836edf10001eb135617b150",
+                "name": "Lenna",
+                "joined_at": 1748861326
+            }
+        ],
+        "LOIS": [
+            {
+                "id": "683c255d0004bc79c04d6e04",
+                "name": "killerb0ss",
+                "joined_at": 1748869705
+            }
+        ],
+        "NIKKE": [
+            {
+                "id": "6831323d0000d1b0f2714fde",
+                "name": "麦口喵",
+                "joined_at": 1748870876
+            }
+        ]
+    }
+}

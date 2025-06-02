@@ -29,6 +29,7 @@ let oldTotalPlayTime = 0;
 // fallbacks/season [DEBUG]
 const seasonPath = "https://visuals.nullcore.net/hidden/seasons/season";
 const seasonPathEnd = ".json";
+const teamsPath = "https://visuals.nullcore.net/hidden/teams/player_teams3.json"
 
 /**
  * Checks if a season with the given number exists on the server
@@ -419,7 +420,7 @@ function displayLeaderboard(data) {
 
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
-            <td class="teamtag">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
+            <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
             <td>${profileOpenIcon}</td>
@@ -439,6 +440,12 @@ function displayLeaderboard(data) {
     document.querySelectorAll('.player-name').forEach(element => {
         element.addEventListener('click', () => {
             openProfile(element.dataset.playerId);
+        });
+    });
+
+    document.querySelectorAll('.teamtag').forEach(element => {
+        element.addEventListener('click', () => {
+            openTeam(element.dataset.team);
         });
     });
 
