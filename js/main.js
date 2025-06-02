@@ -360,6 +360,10 @@ function displayLeaderboard(data) {
         player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
 
         // Add profile standing
+        if(player.killToDeathRatio > 80) {
+            player.suspicious = true;
+        }
+
         let badge = '';
         if (player?.suspicious == true) {
             badge = `<div class="badge-lb tooltip">
@@ -416,10 +420,6 @@ function displayLeaderboard(data) {
 
         // Skill rank label
         const rankLabel = getRankLabel(player.totalScore);
-
-        if(player.killToDeathRatio > 80) {
-            player.suspicious = true;
-        }
 
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
