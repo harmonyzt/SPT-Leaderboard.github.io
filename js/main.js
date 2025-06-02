@@ -360,10 +360,6 @@ function displayLeaderboard(data) {
         player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
 
         // Add profile standing
-        if(player.killToDeathRatio > 80) {
-            player.suspicious = true;
-        }
-
         let badge = '';
         if (player?.suspicious == true) {
             badge = `<div class="badge-lb tooltip">
