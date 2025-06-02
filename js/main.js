@@ -29,7 +29,6 @@ let oldTotalPlayTime = 0;
 // fallbacks/season [DEBUG]
 const seasonPath = "https://visuals.nullcore.net/hidden/seasons/season";
 const seasonPathEnd = ".json";
-const teamsPath = "https://visuals.nullcore.net/hidden/teams/player_teams3.json"
 
 /**
  * Checks if a season with the given number exists on the server

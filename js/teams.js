@@ -1,7 +1,8 @@
 
 let teamData = [];
+const teamsPath = "https://visuals.nullcore.net/hidden/teams/player_teams3.json"
 
-async function loadTeamsData(teamsPath) {
+async function loadTeamsData() {
     try {
         const response = await fetch(teamsPath);
 
