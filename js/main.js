@@ -547,7 +547,7 @@ function convertTimeToSeconds(time) {
 function calculateRanks(data) {
     const MIN_RAIDS = 50;
     const SOFT_CAP_RAIDS = 100;
-    const MIN_LIFE_TIME = 15; // tracking skill issue
+    const MIN_LIFE_TIME = 12; // tracking skill issue
     const MAX_LIFE_TIME = 45;
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio));
@@ -574,16 +574,16 @@ function calculateRanks(data) {
 
         let score = (normKDR * 0.10) + (normSurvival * 0.1) + (normRaids * 0.4) + (normAvgLifeTime * 0.3);
 
-        if (player.averageLifeTime < MIN_LIFE_TIME) {
-            score *= 0.4; // -60% penalty
-        }
-
         // Soft Cap for raids
         if (player.pmcRaids <= MIN_RAIDS) {
             score *= 0.3;
         } else if (player.pmcRaids < SOFT_CAP_RAIDS) {
             const progress = (player.pmcRaids - MIN_RAIDS) / (SOFT_CAP_RAIDS - MIN_RAIDS);
             score *= 0.3 + (0.7 * progress);
+        }
+
+        if ((player.averageLifeTime / 60) < MIN_LIFE_TIME) {
+            score *= 0.4; // -60% penalty
         }
 
         player.totalScore = score;
