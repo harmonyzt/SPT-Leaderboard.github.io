@@ -417,6 +417,10 @@ function displayLeaderboard(data) {
         // Skill rank label
         const rankLabel = getRankLabel(player.totalScore);
 
+        if(player.killToDeathRatio > 80) {
+            player.suspicious = true;
+        }
+
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
