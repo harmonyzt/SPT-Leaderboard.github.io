@@ -2416,3 +2416,222 @@ button:hover,
         opacity: 0;
     }
 }
+
+/* Season End Screen */
+#seasonOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a2e;
+    color: white;
+    z-index: 1000;
+    overflow: none;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', 'Arial Narrow', Arial, sans-serif;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Растягиваем на весь экран */
+}
+
+.season-end-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.season-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.season-header h1 {
+    text-align: center;
+    color: var(--accent-blue);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 1px rgba(100, 255, 218, 0.4),
+        0 0 3px rgba(100, 255, 218, 0.2);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+.season-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stats-block {
+    background: rgba(30, 41, 59, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-block h2 {
+    color: #8afbff;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.041);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #9fa5ff;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.player-card {
+    background: rgba(255, 255, 255, 0.041);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid;
+}
+
+.player-card.top-kd {
+    border-left-color: #ef4444;
+}
+
+.player-card.top-kills {
+    border-left-color: #3b82f6;
+}
+
+.player-card.top-survivor {
+    border-left-color: #10b981;
+}
+
+.player-title {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.player-se-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+    color: white;
+}
+
+.player-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #24fb97;
+    font-weight: bold;
+}
+
+.player-additional {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.additional-stats {
+    background: rgba(30, 41, 59, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.additional-stats h3 {
+    color: #8afbff;
+    margin-top: 0;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.fact-card {
+    background: rgba(255, 255, 255, 0.034);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fact-icon {
+    font-size: 1.5rem;
+}
+
+.fact-text {
+    font-size: 0.9rem;
+}
+
+.season-countdown {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.season-countdown p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .season-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

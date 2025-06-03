@@ -51,7 +51,6 @@ function showPlayerNotification(player) {
     }
 
     // Raidstreak/Killstreaks
-    let isOnKillStreak = false;
     let isOnRaidStreak = false;
     let streakNotificationKillText = '';
 
@@ -68,7 +67,6 @@ function showPlayerNotification(player) {
     // Killstreak
     if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound && !player.banned) {
         allowToPlayLastRaidSound = false;
-        isOnKillStreak = true;
         let killStreak;
 
         switch (true) {
@@ -133,9 +131,8 @@ function showPlayerNotification(player) {
             mainBanSound.volume = 0.08;
             mainBanSound.play();
 
-            setBanNotificationCookie(player.id);
-
             createBanNotification(player);
+            setBanNotificationCookie(player.id);
         });
 
         return;
