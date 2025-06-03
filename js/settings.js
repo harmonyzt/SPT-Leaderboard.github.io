@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         audioElements['season/season_end_final'].play();
 
                         setCookie('haveSeenSeasonEnd', true);
-                    }
+                    
 
                     endSeason();
                 }
