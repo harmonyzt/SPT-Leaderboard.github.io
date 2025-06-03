@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         files.forEach(({ name, time }) => {
             const audio = new Audio(`media/sounds/${name}.mp3`);
             audio.timeThreshold = time;
-            audio.volume = 0.30;
+            audio.volume = 1;
             audioElements[name] = audio;
         });
 
@@ -62,36 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (diff <= 0) {
             if (lastPlayed !== trackToPlay) {
-                if (leaderboardData && leaderboardData?.length > 0) {
-                    if (getCookie('haveSeenSeasonEnd') == false) {
-                        // Stopping all sounds
-                        Object.values(audioElements).forEach(audio => {
-                            audio.pause();
-                            audio.currentTime = 0;
-                        });
-
-                        // Playing exactly end final
-                        audioElements['season/season_end_final'].play();
-
-                        setCookie('haveSeenSeasonEnd', true);
-                    
-
-                    endSeason();
-                }
+                endSeason();
             }
 
-            // We didn't play anything so play ambience (late join)
-            if (!lastPlayed) {
-                trackToPlay = 'season/season_end_ambience';
-            }
-        } else if (diff <= 31000) {
+            trackToPlay = 'season/season_end_ambience';
+        } else if (diff <= 30000) { // 0:30
             trackToPlay = 'season/season_end3';
-        } else if (diff <= 86000) {
+        } else if (diff <= 85000) { // 1:25
             trackToPlay = 'season/season_end2';
-        } else if (diff <= 146000) {
+        } else if (diff <= 145000) { // 2:25
             trackToPlay = 'season/season_end1';
         }
 
+        // If track changed
         if (trackToPlay && lastPlayed !== trackToPlay) {
             // Stop all tracks
             Object.values(audioElements).forEach(audio => {
@@ -103,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
             audioElements[trackToPlay].play().catch(e => {
                 console.warn(`Couldn't play ${trackToPlay}:`, e);
             });
+
+            // Loop ambience
+            if (trackToPlay === 'season/season_end_ambience') {
+                audioElements[trackToPlay].loop = true;
+            }
         }
     }
 
@@ -127,6 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Season end screen
     function endSeason() {
         clearInterval(timerInterval);
+        Object.values(audioElements).forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+
+        audioElements['season/season_end_final'].play();
 
         const stats = calculateGlobalStats(leaderboardData)
 
@@ -135,13 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.innerHTML = `
         <div class="season-end-container animate__animated animate__fadeIn">
             <div class="season-header">
-                <h1 class="animate__animated animate__fadeInDown animate__slow">SEASON FINALE</h1>
-                <p class="subtitle animate__animated animate__fadeInUp animate__slow">The battle is over... for now.</p>
+                <h1>SEASON ${seasons[0]} FINALE</h1>
+                <p class="subtitle">The battle is over... for now.</p>
             </div>
             
             <div class="season-stats-grid">
                 <!-- Left Block -->
-                <div class="stats-block general-stats animate__animated animate__fadeInLeft  animate__delay-1s">
+                <div class="stats-block general-stats animate__animated animate__fadeInLeft">
                     <h2>Global Statistics</h2>
                     <div class="stats-grid">
                         <div class="stat-card">
@@ -172,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <!-- Right Block -->
-                <div class="stats-block top-players animate__animated animate__fadeInRight  animate__delay-3s">
-                    <h2>Honorable Mentions</h2>
+                <div class="stats-block top-players animate__animated animate__fadeInRight">
+                    <h2>Season MVPs</h2>
                     
                     <div class="player-card top-kd">
                         <div class="player-title">BEST K/D RATIO</div>
@@ -250,6 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalRaids = 0;
         let totalSurvived = 0;
         let kappaOwners = 0;
+        let totalSurvivalRate = 0;
+        let validPlayersCount = 0;
 
         const weaponStats = {};
         const mapStats = {};
@@ -293,6 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
+                if (player.survivalRate !== undefined && player.survivalRate !== null) {
+                    totalSurvivalRate += player.survivalRate;
+                    validPlayersCount++;
+                }
+
                 if (player.hasKappa) kappaOwners++;
 
                 if (player.longestShot > longestShot) {
@@ -321,12 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
             richestTrader = Object.entries(traderStats).sort((a, b) => b[1] - a[1])[0][0];
         }
 
+        const averageSurvivalRate = validPlayersCount > 0 ? totalSurvivalRate / validPlayersCount : 0;
+
         return {
             totalKills,
             totalDeaths,
             totalPlayTime,
             totalRaids,
-            averageSurvivalRate: Math.round((totalSurvived / totalRaids) * 100) || 0,
+            averageSurvivalRate: averageSurvivalRate.toFixed(1),
             kappaOwners,
             topKD,
             topKills,

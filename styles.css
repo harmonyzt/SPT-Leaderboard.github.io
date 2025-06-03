@@ -2424,12 +2424,44 @@ button:hover,
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1a1a2e;
     color: white;
     z-index: 1000;
     overflow: none;
     box-sizing: border-box;
     font-family: 'Rajdhani', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533d7b);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+}
+
+@keyframes glowPulse {
+    from {
+        box-shadow: 0 0 30px rgba(134, 200, 255, 0.3);
+    }
+
+    to {
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes glowPulseTextRepeat {
+    from {
+        text-shadow: 5px 5px 10px rgba(255, 67, 67, 0.897);
+    }
+
+    to {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes glowPulseText {
+    from {
+        text-shadow: 0 0 30px rgba(134, 200, 255, 0.3);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(0, 0, 0, 0);
+    }
 }
 
 .video-background {
@@ -2438,14 +2470,14 @@ button:hover,
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; 
+    z-index: -1;
     overflow: hidden;
 }
 
 .video-background video {
     min-width: 100%;
     min-height: 100%;
-    object-fit: cover; /* Растягиваем на весь экран */
+    object-fit: cover;
 }
 
 .season-end-container {
@@ -2470,6 +2502,10 @@ button:hover,
     text-shadow:
         0 0 1px rgba(100, 255, 218, 0.4),
         0 0 3px rgba(100, 255, 218, 0.2);
+    animation: fadeInDown 2s ease-in-out forwards,
+        glowPulseText 5s ease-in-out forwards 7.5s,
+        glowPulseTextRepeat 2s ease-in-out forwards 8.5s,
+        glowPulseText 5s ease-in-out forwards 8.9s;
 }
 
 .subtitle {
@@ -2477,6 +2513,11 @@ button:hover,
     font-weight: 600;
     color: #94a3b8;
     margin-top: 10px;
+    text-shadow:
+        0 0 1px rgba(100, 255, 218, 0.4),
+        0 0 3px rgba(100, 255, 218, 0.2);
+    animation: fadeInUp 2s ease-in-out forwards,
+        glowPulseText 5s ease-in-out forwards 7.6s;
 }
 
 .season-stats-grid {
@@ -2487,11 +2528,24 @@ button:hover,
 }
 
 .stats-block {
-    background: rgba(30, 41, 59, 0.7);
+    background: radial-gradient(650px 440px at top left, hsl(178deg 69% 52% / 22%), #fffdfd03);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-block.general-stats {
+    opacity: 0;
+    animation: fadeInLeft 1s ease-in-out forwards 1s,
+        glowPulse 5s ease-in-out forwards 7.9s;
+}
+
+.stats-block.top-players {
+    opacity: 0;
+    animation: fadeInRight 1s ease-in-out forwards 3s,
+        glowPulse 5s ease-in-out forwards 8.3s;
+    background: radial-gradient(650px 440px at top right, hsl(178deg 69% 52% / 22%), #fffdfd03);
 }
 
 .stats-block h2 {
@@ -2509,7 +2563,7 @@ button:hover,
 
 .stat-card {
     background: rgba(255, 255, 255, 0.041);
-     border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 15px;
     text-align: center;
@@ -2517,9 +2571,10 @@ button:hover,
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #9fa5ff;
+    text-align: center;
+    color: #bfebff;
 }
 
 .stat-label {
@@ -2577,7 +2632,8 @@ button:hover,
 }
 
 .additional-stats {
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(255, 255, 255, 0.027);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;

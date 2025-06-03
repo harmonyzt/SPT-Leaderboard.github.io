@@ -616,11 +616,6 @@ function getRankLabel(totalScore) {
 
 // Calculate all stats + dynamic update support
 function calculateOverallStats(data) {
-    data.forEach(player => {
-        const lastGame = formatLastPlayed(player.lastPlayed);
-        player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
-    });
-
     // Save old values before calculating new ones
     const previousStats = {
         raids: oldTotalRaids,
@@ -647,6 +642,9 @@ function calculateOverallStats(data) {
     let totalPlayTime = 0;
 
     data.forEach(player => {
+        const lastGame = formatLastPlayed(player.lastPlayed);
+        player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
+
         if (!player.disqualified) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
