@@ -12,6 +12,7 @@ let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false;
+let isDataReady = false;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -36,6 +37,8 @@ const seasonPathEnd = ".json";
  * @returns {Promise<boolean>} - True if season exists, false otherwise
  */
 async function checkSeasonExists(seasonNumber) {
+    isDataReady = false;
+
     try {
         const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
 
@@ -285,6 +288,7 @@ function processSeasonData(data) {
     addColorIndicators(data);
     calculateRanks(data);
     calculateOverallStats(data);
+    isDataReady = true;
 }
 
 /**

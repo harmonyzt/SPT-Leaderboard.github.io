@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         files.forEach(({ name, time }) => {
             const audio = new Audio(`media/sounds/${name}.mp3`);
             audio.timeThreshold = time;
-            audio.volume = 1;
+            audio.volume = 0.4;
             audioElements[name] = audio;
         });
 
@@ -61,11 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let trackToPlay = null;
 
         if (diff <= 0) {
-            if (lastPlayed !== trackToPlay) {
+            if (isDataReady) {
                 endSeason();
             }
-
-            trackToPlay = 'season/season_end_ambience';
         } else if (diff <= 30000) { // 0:30
             trackToPlay = 'season/season_end3';
         } else if (diff <= 85000) { // 1:25
@@ -87,10 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn(`Couldn't play ${trackToPlay}:`, e);
             });
 
-            // Loop ambience
-            if (trackToPlay === 'season/season_end_ambience') {
-                audioElements[trackToPlay].loop = true;
-            }
         }
     }
 
@@ -115,24 +109,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Season end screen
     function endSeason() {
         clearInterval(timerInterval);
-        Object.values(audioElements).forEach(audio => {
-            audio.pause();
-            audio.currentTime = 0;
+        const stats = calculateGlobalStats(leaderboardData);
+        const endMusic = new Audio(`media/sounds/season/season_end_final.mp3`);
+
+        // When season end sound is over, play music and show video
+        endMusic.play();
+        endMusic.addEventListener('ended', () => {
+            const contMusic = new Audio('media/sounds/season/end_music.mp3');
+            const videoBackground = document.querySelector('.video-background');
+
+            contMusic.volume = 0.3;
+            contMusic.loop = true;
+            contMusic.play();
+
+            // Плавное появление видео
+            setTimeout(() => {
+                videoBackground.style.opacity = '0.5';
+            }, 100);
         });
-
-        audioElements['season/season_end_final'].play();
-
-        const stats = calculateGlobalStats(leaderboardData)
 
         const overlay = document.createElement('div');
         overlay.id = 'seasonOverlay';
         overlay.innerHTML = `
         <div class="season-end-container animate__animated animate__fadeIn">
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="media/season_end/test.mp4" type="video/mp4">
+                </video>
+            </div>
+
             <div class="season-header">
                 <h1>SEASON ${seasons[0]} FINALE</h1>
                 <p class="subtitle">The battle is over... for now.</p>
             </div>
-            
             <div class="season-stats-grid">
                 <!-- Left Block -->
                 <div class="stats-block general-stats animate__animated animate__fadeInLeft">
@@ -210,26 +219,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>Interesting Facts</h3>
                 <div class="facts-grid">
                     <div class="fact-card">
-                        <div class="fact-icon">💀</div>
+                        <div class="fact-icon"><img src="media/season_end/Mastering.png" width="20px" height="25px" style="position: relative; top: 5px;"></div>
                         <div class="fact-text">${stats.mostDeadlyWeapon} was the deadliest weapon</div>
                     </div>
                     <div class="fact-card">
-                        <div class="fact-icon">🏆</div>
+                        <div class="fact-icon"><img src="media/season_end/icon_unique_id.png" width="25px" height="25px" style="position: relative; top: 5px;"></div>
                         <div class="fact-text">${stats.kappaOwners} players achieved Kappa container</div>
                     </div>
                     <div class="fact-card">
-                        <div class="fact-icon">🏹</div>
+                        <div class="fact-icon"><img src="media/season_end/icon_statscategory_combat_0.png" width="25px" height="25px" style="position: relative; top: 5px;"></div>
                         <div class="fact-text">Longest shot: ${stats.longestShot}m by ${stats.longestShotPlayer}</div>
                     </div>
                     <div class="fact-card">
-                        <div class="fact-icon">💰</div>
+                        <div class="fact-icon"><img src="media/season_end/standing_icon.png" width="25px" height="25px" style="position: relative; top: 5px;"></div>
                         <div class="fact-text">${stats.richestTrader} was the most profitable trader</div>
                     </div>
                 </div>
             </div>
             
             <div class="season-countdown animate__animated animate__fadeInUp animate__delay-5s">
-                <p>New season begins shortly...</p>
+                <p>New season begins shortly <img src="media/loading_bar.gif" width="20px" height="20px" style="position: relative; top: 5px;"></p>
             </div>
         </div>
     `;
