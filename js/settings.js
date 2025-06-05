@@ -1,4 +1,4 @@
-const seasonEndDate = new Date(2025, 7, 33, 1, 1, 1);
+const seasonEndDate = new Date(2025, 5, 33, 1, 1, 1);
 let audioElements = {};
 let lastPlayed = null;
 let timerInterval;
