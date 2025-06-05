@@ -12,7 +12,7 @@ let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false;
-let isDataReady = false;
+let isDataReady = false; // To tell whenever the live update was done
 
 // For dynamic stats counters
 let oldTotalRaids = 0;

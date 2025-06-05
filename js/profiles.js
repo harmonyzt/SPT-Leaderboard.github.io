@@ -54,6 +54,8 @@ function openProfile(playerId) {
     openedPlayerData = player;
     modal.style.display = 'flex';
     setupModalCloseHandlers(modal);
+
+    return;
 }
 
 // Private profile HTML
@@ -756,6 +758,8 @@ function setupModalCloseHandlers(modal) {
             window.removeEventListener('click', closeModal);
         }
     });
+
+    return;
 }
 
 function formatLastPlayedRaid(unixTimestamp) {

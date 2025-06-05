@@ -7,7 +7,7 @@
 const BASE_EXP_PER_LEVEL = 2200;
 const MAX_LEVEL = 80;
 
-function initHOF(player) {
+async function initHOF(player) {
     const toggleBtn = document.getElementById('toggle-hof-button');
     const hof = document.getElementById('player-profile-hof');
     const hof2 = document.getElementById('player-profile-hof-sec');
@@ -38,6 +38,7 @@ function initHOF(player) {
 
     updatePlayerProfile(player);
     updatePlayerProfileMastery(player);
+    // rewardSystem.js
     refreshRewards(player);
 }
 
@@ -118,7 +119,7 @@ function calculateMasteryLevel(player) {
 }
 
 // EXP for weapon mastery
-function updatePlayerProfileMastery(player) {
+async function updatePlayerProfileMastery(player) {
     const levelData = calculateMasteryLevel(player);
     
     // update level
@@ -136,7 +137,7 @@ function updatePlayerProfileMastery(player) {
 }
 
 // EXP for leaderboard level
-function updatePlayerProfile(player) {
+async function updatePlayerProfile(player) {
     const levelData = calculatePlayerLevel(player);
 
     // update level
@@ -160,7 +161,7 @@ function updatePlayerProfile(player) {
     document.querySelector('.remaining-value').textContent = remainingExp.toLocaleString();
 }
 
-function setRankImage(playerLevel) {
+async function setRankImage(playerLevel) {
     const level = Math.min(Math.max(0, playerLevel), 80);
     const rankLevel = Math.floor(level / 5) * 5;
     const finalRankLevel = rankLevel < 5 ? 5 : rankLevel;

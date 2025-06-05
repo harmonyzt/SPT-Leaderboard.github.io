@@ -1,4 +1,4 @@
-const seasonEndDate = new Date(2025, 5, 33, 1, 1, 1);
+const seasonEndDate = new Date(2025, 7, 33, 1, 1, 1);
 let audioElements = {};
 let lastPlayed = null;
 let timerInterval;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioElements['season/season_end_ambience'].loop = true;
     }
 
-    function playAppropriateTrack(diff) {
+    async function playAppropriateTrack(diff) {
         let trackToPlay = null;
 
         if (diff <= 0) {
@@ -107,12 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Season end screen
-    function endSeason() {
+    async function endSeason() {
         clearInterval(timerInterval);
         const stats = calculateGlobalStats(leaderboardData);
-        const endMusic = new Audio(`media/sounds/season/season_end_final.mp3`);
 
         // When season end sound is over, play music and show video
+        const endMusic = new Audio(`media/sounds/season/season_end_final.mp3`);
         endMusic.play();
         endMusic.addEventListener('ended', () => {
             const contMusic = new Audio('media/sounds/season/end_music.mp3');
@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
             contMusic.loop = true;
             contMusic.play();
 
-            // Плавное появление видео
             setTimeout(() => {
                 videoBackground.style.opacity = '0.5';
             }, 100);

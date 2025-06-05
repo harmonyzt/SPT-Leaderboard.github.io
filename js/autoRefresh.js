@@ -9,47 +9,38 @@ let timeLeft = updateInterval;
 let autoUpdateEnabled = true;
 let updateTimer;
 
-// Initialize controls from cookies
-function initControlsFromCookies() {
-    // Auto-update toggle
-    const autoUpdateToggle = document.getElementById('autoUpdateToggle');
-    const savedAutoUpdate = getCookie('autoUpdateEnabled');
-    autoUpdateToggle.checked = savedAutoUpdate !== 'false';
-    autoUpdateEnabled = autoUpdateToggle.checked;
-
-    updateTimeDisplay();
-}
-
-// Save controls to cookies
-function saveControlsToCookies() {
-    setCookie('autoUpdateEnabled', autoUpdateEnabled);
-    setCookie('updateInterval', updateInterval);
-}
-
 function initControls() {
     const autoUpdateToggle = document.getElementById('autoUpdateToggle');
     const timeToUpdateSpan = document.getElementById('timeToUpdate');
 
+    // Init form cookies
+    autoUpdateToggle.checked = getCookie('autoUpdateEnabled') !== 'false';
+    autoUpdateEnabled = autoUpdateToggle.checked;
+
     autoUpdateToggle.addEventListener('change', (e) => {
         autoUpdateEnabled = e.target.checked;
+        setCookie('autoUpdateEnabled', autoUpdateEnabled);
+
         if (autoUpdateEnabled) {
             startUpdateTimer();
         } else {
-            clearTimeout(updateTimer);
+            clearInterval(updateTimer);
             timeToUpdateSpan.textContent = "Auto-update disabled";
         }
     });
 
-    // start timer
     startUpdateTimer();
 
     function startUpdateTimer() {
+        // Clear old interval
+        clearInterval(updateTimer);
+
         updateTimer = setInterval(() => {
-            updateTimeDisplay();
             timeLeft--;
+            updateTimeDisplay();
 
             if (timeLeft <= 0) {
-                detectSeasons();
+                loadSeasonData(seasons[0]);
                 timeLeft = updateInterval;
             }
         }, 1000);
