@@ -333,7 +333,7 @@ td {
     box-shadow: rgb(106, 255, 163) 0px 0px 8px;
     border-radius: 100px;
     animation-name: blink;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
 }
 
@@ -343,7 +343,7 @@ td {
     }
 
     50% {
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
     100% {
