@@ -212,7 +212,7 @@ async function loadSeasonData(season) {
         const data = await response.json();
         leaderboardData = data.leaderboard || [];
 
-        // Leaderboard data is empty.. Clean and do nothing
+        // Leaderboard data is empty. Clean and do nothing
         if (leaderboardData.length === 0 || (leaderboardData.length === 1 && Object.keys(leaderboardData[0]).length === 0)) {
             emptyLeaderboardNotification.style.display = 'block';
             resetStats();
@@ -551,7 +551,7 @@ function convertTimeToSeconds(time) {
 function calculateRanks(data) {
     const MIN_RAIDS = 50;
     const SOFT_CAP_RAIDS = 100;
-    const MIN_LIFE_TIME = 12; // tracking skill issue
+    const MIN_LIFE_TIME = 10; // tracking skill issue
     const MAX_LIFE_TIME = 45;
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio));

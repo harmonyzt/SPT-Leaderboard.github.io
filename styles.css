@@ -327,9 +327,10 @@ td {
 
 #blink {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: rgb(194, 43, 43);
+    width: 8px;
+    height: 8px;
+    background-color: rgb(106, 255, 163);
+    box-shadow: rgb(106, 255, 163) 0px 0px 8px;
     border-radius: 100px;
     animation-name: blink;
     animation-duration: 2s;
