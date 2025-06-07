@@ -8,8 +8,6 @@
 document.addEventListener('DOMContentLoaded', detectSeasons);
 
 let leaderboardData = []; // For keeping current season data
-let rawLeaderboardData = []; // For comparing
-let rawLeaderboardDataStore = []; // For comparing
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
@@ -212,16 +210,8 @@ async function loadSeasonData(season) {
         }
 
         const data = await response.json();
-        rawLeaderboardData = data.leaderboard || [];
 
-        if (getHash(rawLeaderboardData) === getHash(rawLeaderboardDataStore)) {
-            //console.debug("No data change. Skipping...");
-            return;
-        }
-
-        //console.log("Data changed. Updating...");
-        rawLeaderboardDataStore = rawLeaderboardData;
-        leaderboardData = rawLeaderboardData;
+        leaderboardData = data.leaderboard || [];
 
         // Leaderboard data is empty. Clean and do nothing
         if (leaderboardData.length === 0 || (leaderboardData.length === 1 && Object.keys(leaderboardData[0]).length === 0)) {
