@@ -362,6 +362,16 @@ td {
     }
 }
 
+td:nth-child(2) {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+}
+
 td:nth-child(3) {
     font-weight: 600;
     color: white;
