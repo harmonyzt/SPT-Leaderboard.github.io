@@ -8,6 +8,8 @@
 document.addEventListener('DOMContentLoaded', detectSeasons);
 
 let leaderboardData = []; // For keeping current season data
+let rawLeaderboardData = []; // For comparing
+let rawLeaderboardDataStore = []; // For comparing
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
@@ -78,7 +80,7 @@ async function detectSeasons() {
         ranOnlyOnce = true;
         loadPreviousSeasonWinners();
     }
-    
+
     // Sort from newest to oldest
     seasons.sort((a, b) => b - a);
 
@@ -210,7 +212,16 @@ async function loadSeasonData(season) {
         }
 
         const data = await response.json();
-        leaderboardData = data.leaderboard || [];
+        rawLeaderboardData = data.leaderboard || [];
+
+        if (getHash(rawLeaderboardData) === getHash(rawLeaderboardDataStore)) {
+            //console.debug("No data change. Skipping...");
+            return;
+        }
+
+        //console.log("Data changed. Updating...");
+        rawLeaderboardDataStore = rawLeaderboardData;
+        leaderboardData = rawLeaderboardData;
 
         // Leaderboard data is empty. Clean and do nothing
         if (leaderboardData.length === 0 || (leaderboardData.length === 1 && Object.keys(leaderboardData[0]).length === 0)) {
@@ -226,6 +237,15 @@ async function loadSeasonData(season) {
     }
 }
 
+function getHash(obj) {
+    const str = JSON.stringify(obj, Object.keys(obj).sort());
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash;
+}
 /**
  * Loads all of the seasons and determines who played in previous seasons
  * @returns {Promise<void>}
