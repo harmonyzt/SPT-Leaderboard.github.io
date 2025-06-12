@@ -14,6 +14,10 @@ function initLastRaids(player, container) {
     const plprofile = document.getElementById('playerProfileModal');
     const closeProfileBtn = plprofile.querySelector('.profile-close-btn');
 
+    const raidHistory = document.getElementById('raids-stats-modal');
+    raidHistory.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
+    raidHistory.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
+
     container.style.right = '0';
     closeProfileBtn.style.right = '30px';
 
