@@ -3,53 +3,71 @@
 
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="/styles.css">
-        <link rel="icon" href="/media/TP.png">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="icon" href="../media/TP.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <script src="https://betterdiscord.app/js/vendor/countUp.min.js?v=DBxeQBHNMaYkRvB8uPOLm07cbQj54TDexlykb-Dcg28"></script>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
-        <script src="/gunmeta/js/main.js"></script>
-        <script src="/js/recentlyPlayed.js"></script>
-        <script src="/js/announcement.js"></script>
-        <script src="/js/serverStatus.js"></script>
-        <title>SPT Leaderboard - Gun Meta</title>
+        <script src="../gunmeta/js/main.js"></script>
+        <script src="../js/recentlyPlayed.js"></script>
+        <script src="../js/serverStatus.js"></script>
+        <title>SPT Leaderboard - Weapon Meta</title>
     </head>
 
     <body>
         <nav class="navbar animate__animated animate__fadeIn">
             <a href="#">
-                <img src="/media/TP.png" alt="SPT Leaderboard Logo" class="navbar-logo">
+                <img src="../media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
             </a>
-            <div class="navbar-links">
-                <a href="/" class="navbar-link">Go Back</a>
+            
+            <div class="navbar-links-container">
+                <a href="../" class="navbar-link">Go back</a>
             </div>
         </nav>
-        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Gun Meta</h1>
-        <div class="leaderboard-notification">
-            <div class="notification-content">
-                <p><!--<img src="media/loading_bar.gif" width="20px" height="20px" style="position: relative; top: 5px;">--> Season 3 is here!</p>
-                <p>Make sure you have sound permissions on the website if you want to hear the notifications! Good luck, warrior!</p>
-            </div>
-            <button class="close-notification">&times;</button>
-        </div>
+        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Weapon Meta</h1>
         <div class="top-stats-bar">
             <div class="live-data-label" id="serverStatus">Server Online</div>
         </div>
-        <table id="leaderboardTable" class="animate animate__animated animate__fadeIn">
+        <table id="leaderboardTable" style="width: 85%;" class="animate animate__animated animate__fadeIn">
             <thead>
                 <tr>
                     <th data-sort="rank">Rank</th>
                     <th data-sort="name">Weapon</th>
-                    <th data-sort="lastPlayed">Kills %</th>
-                    <th>Heashot %</th>
+                    <th data-sort="totalKills">Kills</th>
+                    <th data-sort="killsRate">Kills Rate</th>
+                    <th data-sort="totalHeadshots">Headshots</th>
+                    <th data-sort="headshotRate">Headshot Rate</th>
+                    <th data-sort="avgShots">AVG Shots to kill</th>
                     <th>Shots Fired</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
+        <footer class="modern-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                <div class="logo-slogan">
+                    <img src="../media/newlogo_transparent.png" class="footer-logo">
+                    <p class="slogan">Community driven project. With dedication and love.</p>
+                </div>
+                <div class="license-info">
+                    <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
+                    <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+                </div>
+                </div>
+                
+                <div class="footer-links">
+                <ul>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard" target="_blank" rel="noopener">SPTarkov Mod</a></li>
+                </ul>
+                </div>
+            </div>
+        </footer>
     </body>
 
 </html>

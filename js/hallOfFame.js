@@ -7,11 +7,10 @@
 const BASE_EXP_PER_LEVEL = 2200;
 const MAX_LEVEL = 80;
 
-async function initHOF(player) {
+async function initHOF(player, bestWeapon) {
     const toggleBtn = document.getElementById('toggle-hof-button');
     const hof = document.getElementById('player-profile-hof');
     const hof2 = document.getElementById('player-profile-hof-sec');
-
     const blocksToHide = [
         document.getElementById('raid-stats-grid'),
         document.getElementById('last-raid-feed')
@@ -37,7 +36,7 @@ async function initHOF(player) {
     });
 
     updatePlayerProfile(player);
-    updatePlayerProfileMastery(player);
+    updatePlayerProfileMastery(player, bestWeapon);
     // rewardSystem.js
     refreshRewards(player);
 }
@@ -85,9 +84,9 @@ function calculatePlayerLevel(player) {
     };
 }
 
-function calculateMasteryLevel(player) {
+function calculateMasteryLevel(player, bestWeapon) {
     // Don't calculate for those who don't have mod installed
-    if (!player?.isUsingStattrack || !player?.modWeaponStats?.bestWeapon?.stats) {
+    if (!player?.isUsingStattrack || !bestWeapon) {
         return {
             level: 0,
             currentExp: 0,
@@ -96,7 +95,7 @@ function calculateMasteryLevel(player) {
         };
     }
 
-    const { totalShots = 0, kills = 0, headshots = 0 } = player.modWeaponStats.bestWeapon.stats;
+    const { totalShots = 0, kills = 0, headshots = 0 } = bestWeapon.stats;
 
     const expFromShots = Math.round(totalShots * 0.1);
     const expFromKills = kills * 10;
@@ -107,7 +106,7 @@ function calculateMasteryLevel(player) {
 
     const level = Math.floor(totalExp / expPerLevel);
     player.masteryLevel = level;
-    
+
     const currentLevelExp = totalExp % expPerLevel;
 
     return {
@@ -119,9 +118,9 @@ function calculateMasteryLevel(player) {
 }
 
 // EXP for weapon mastery
-async function updatePlayerProfileMastery(player) {
-    const levelData = calculateMasteryLevel(player);
-    
+async function updatePlayerProfileMastery(player, bestWeapon) {
+    const levelData = calculateMasteryLevel(player, bestWeapon);
+
     // update level
     document.querySelector('.level-value-wp').textContent = levelData.level;
 

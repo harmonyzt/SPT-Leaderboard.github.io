@@ -6,14 +6,14 @@
 
 async function getServerStatus() {
     try {
-        const response = await fetch('https://visuals.nullcore.net/hidden/online.json');
-        if (!response.ok) throw new Error('Server not responding');
+        const response = await fetch('https://visuals.nullcore.net/SPT/api/online.json');
+        if (!response.ok) throw new Error('API is not responding');
         return await response.json();
     } catch (error) {
         return {
             online: false,
             underWork: false,
-            workText: "Couldn't connect with server."
+            workText: "Couldn't connect with API"
         };
     }
 }

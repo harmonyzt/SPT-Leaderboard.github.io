@@ -54,7 +54,7 @@ function resetStyles(mainBackground, profileCard, profileAvatar, profileBackgrou
     mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
 
     profileBackground.classList.remove('scratches', 'cult-signs', 'cult-signs2', 'cult-circle');
-    
+
     profileCard.style.backgroundImage = '';
     profileCard.classList.remove('streets-bg', 'streets2-bg', 'streets3-bg', 'purple-bg', 'labs-bg');
 
@@ -63,12 +63,12 @@ function resetStyles(mainBackground, profileCard, profileAvatar, profileBackgrou
     );
 }
 
-function applyProfileDecal(player, profileBackground){
+function applyProfileDecal(player, profileBackground) {
     const level = player.masteryLevel;
     const reward = player.bp_decal;
     const theme = player.profileTheme.toLowerCase();
 
-    if(theme === "redshade" || theme === "steelshade" || theme === "gradient") {
+    if (theme === "redshade" || theme === "steelshade" || theme === "gradient") {
         return;
     }
 

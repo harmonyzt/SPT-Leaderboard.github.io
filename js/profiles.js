@@ -338,6 +338,9 @@ function showPublicProfile(container, player) {
         lastAchievementIconResult = lastAchievementIcon.slice(1)
     }
 
+    // Stattrack weapon
+    const bestWeapon = getBestWeapon(player.id, player.modWeaponStats);
+
     container.innerHTML = `
 <div class="profile-grid-layout" id="profile-main-grid">
     <!-- Main -->
@@ -361,17 +364,20 @@ function showPublicProfile(container, player) {
         <div class="hall-of-fame-button-container">
             <button class="hall-of-fame-button" id="toggle-hof-button">Profile Battlepass</button>
         </div>
+        <button id="show-raids-stats" class="hall-of-fame-button-container hall-of-fame-button lastRaids-button">
+            Show Last Raids
+        </button>
     </div>
 
     <!-- Last Raid -->
-    <div class="last-raid-feed ${player.discFromRaid ? 'disconnected-bg' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg' : 'died-bg'}" id="last-raid-feed">
-        <h3 class="section-title ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
+    <div class="last-raid-feed ${player.lastRaidRanThrough ? 'run-through-bg' : player.discFromRaid ? 'disconnected-bg' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg' : 'died-bg'}" id="last-raid-feed">
+        <h3 class="section-title ${player.lastRaidRanThrough ? 'run-through' : player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
             Last Raid
         </h3>
 
         <div class="raid-overview">
-            <span class="raid-result ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
-                ${player.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : player.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${player.lastRaidMap}
+            <span class="raid-result ${player.lastRaidRanThrough ? 'run-through' : player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
+                ${player.lastRaidRanThrough ? `<em class="bx bx-walk"></em> Runner` : player.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : player.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${player.lastRaidMap}
                 <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${player.lastRaidTransitionTo || 'Unknown'})` : player.lastRaidSurvived ? `<em class="bx bx-walk"></em> Survived` : `
                 <em class="bx bxs-skull"></em> Killed in Action`}
             </span>
@@ -484,100 +490,100 @@ function showPublicProfile(container, player) {
 
             <div class="hof-player-trader-info">
                 <div class="trader-grid">
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.PRAPOR.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/prapor.png" alt="Prapor" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.PRAPOR.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Prapor</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.PRAPOR.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.THERAPIST.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/therapist.png" alt="Therapist" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.THERAPIST.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Therapist</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.THERAPIST.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.FENCE.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/fence.png" alt="Fence" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.FENCE.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Fence</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.FENCE.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.SKIER.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/skier.png" alt="Skier" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.SKIER.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Skier</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.SKIER.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.PEACEKEEPER.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/peacekeeper.png" alt="Peacekeeper" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.PEACEKEEPER.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Peacekeeper</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.PEACEKEEPER.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.MECHANIC.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/mechanic.png" alt="Mechanic" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.MECHANIC.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Mechanic</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.MECHANIC.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.RAGMAN.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/ragman.png" alt="Ragman" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.RAGMAN.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Ragman</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.RAGMAN.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.JAEGER.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/jaeger.png" alt="Jaeger" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.JAEGER.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Jaeger</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.JAEGER.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.REF.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/ref.png" alt="Ref" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.REF.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Ref</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.REF.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.LIGHTKEEPER.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/lightkeeper.png" alt="Lightkeeper" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.LIGHTKEEPER.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">Lightkeeper</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.LIGHTKEEPER.standing.toFixed(2)) : 0}</div>
                     </div>
 
-                    <div class="trader-card" data-unlocked="true">
+                    <div class="trader-card" data-unlocked="${player.traderInfo.BTR_DRIVER.unlocked}">
                         <div class="trader-image-container">
                             <img src="media/traders/btr.png" alt="BTR Driver" class="trader-image" />
-                            <div class="trader-lock" style="display: none;">🔒</div>
+                            <div class="trader-lock" style="display: ${!player.traderInfo.BTR_DRIVER.unlocked ? 'block' : 'none'};">🔒</div>
                         </div>
                         <div class="trader-name">BTR Driver</div>
                         <div class="trader-standing">Loyalty: ${player.traderInfo ? Number(player.traderInfo.BTR_DRIVER.standing.toFixed(2)) : 0}</div>
@@ -598,7 +604,7 @@ function showPublicProfile(container, player) {
                 
                 <h3 class="section-title">Meta Gun</h3>
                 <div class="weapon-info ${!player?.isUsingStattrack ? 'stattrack-disabled' : ''}">
-                    <div class="weapon-name">${getWeaponName(player)}</div>
+                    <div class="weapon-name">${bestWeapon?.name ? bestWeapon.name : 'Unknown'}</div>
                     <div class="weapon-mastery">Mastery Level: <span class="level-value-wp">0</span></div>
 
                     <div class="exp-bar-container">
@@ -616,19 +622,19 @@ function showPublicProfile(container, player) {
                         <div class="raid-stats-grid">
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Kills:</span>
-                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.kills ? player.modWeaponStats.bestWeapon.stats.kills : 0) : '0'}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (bestWeapon ? bestWeapon.stats.kills : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Headshots:</span>
-                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.headshots ? player.modWeaponStats.bestWeapon.stats.headshots : 0) : '0'}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (bestWeapon ? bestWeapon.stats.headshots : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
                                 <span class="profile-stat-label">Shots Fired:</span>
-                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.totalShots ? player.modWeaponStats.bestWeapon.stats.totalShots : 0) : '0'}</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (bestWeapon ? bestWeapon.stats.totalShots : 0) : '0'}</span>
                             </div>
                             <div class="raid-stat-block">
-                                <span class="profile-stat-label">Times Lost:</span>
-                                <span class="profile-stat-value">${player?.isUsingStattrack ? (player.modWeaponStats.bestWeapon.stats.timesLost ? player.modWeaponStats.bestWeapon.stats.timesLost : 0) : '0'}</span>
+                                <span class="profile-stat-label">Shots to Kill:</span>
+                                <span class="profile-stat-value">${player?.isUsingStattrack ? (bestWeapon ? (bestWeapon.stats.kills > 0 ? Math.round(bestWeapon.stats.totalShots / bestWeapon.stats.kills) : '0') : '0') : '0'}</span>
                             </div>
                         </div>
                     </div>
@@ -653,22 +659,52 @@ function showPublicProfile(container, player) {
         </div>
     </div>
 </div>
+
+<div>
+    <div class="raids-modal-content" id="raids-stats-modal">
+        <div class="modal-header" style="padding: 15px; border-bottom: 1px solid #444; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0;">Raid History</h3>
+            <button id="close-raids-stats" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">&times;</button>
+        </div>
+        <div class="raids-modal-body">
+            <div id="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img src="media/loading_bar.gif" alt="Loading..." style="width: 30px; height: 30px;">
+            </div>
+            <div id="raids-stats-container" style="display: none;"></div>
+        </div>
+    </div>
+</div>
 `;
 
     // Init battlepass button once the profile has opened
-    initHOF(player);
+    initHOF(player, bestWeapon);
+    initLastRaids(player, container);
 }
 
-function getWeaponName(player) {
-    if (!player) return 'Unknown';
-
-    if (player.modWeaponStats && player.modWeaponStats.bestWeapon) {
-        return player.modWeaponStats.bestWeapon.name;
-    } else if (player.weaponMasteryId) {
-        return player.weaponMasteryId;
-    } else {
-        return 'Unknown';
+function getBestWeapon(playerId, modWeaponStats) {
+    if (!modWeaponStats[playerId]) {
+        return null;
     }
+
+    let maxKills = 0;
+    let bestWeapon = null;
+    const playerWeapons = modWeaponStats[playerId];
+
+    // Go through all weapons
+    for (const [weaponName, weaponData] of Object.entries(playerWeapons)) {
+        const kills = weaponData.stats?.kills || 0;
+
+        // Found best weapon by kills
+        if (kills > maxKills) {
+            maxKills = kills;
+            bestWeapon = {
+                name: weaponName,
+                ...weaponData
+            };
+        }
+    }
+
+    return bestWeapon;
 }
 
 // Helper function to generate badges HTML

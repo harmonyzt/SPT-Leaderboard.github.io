@@ -21,7 +21,10 @@
         <script src="js/autoRefresh.js"></script>
         <script src="js/serverStatus.js"></script>
         <script src="js/settings.js"></script>
+        <script src="js/lastRaids.js"></script>
+        <script src="js/profileShare.js"></script>
         <script src="js/teams.js"></script>
+        <script src="js/toasts.js"></script>
         <title>SPT Leaderboard</title>
     </head>
 
@@ -30,22 +33,17 @@
             <a href="#">
                 <img src="media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
             </a>
-            <div class="navbar-links">
-                <a href="gunmeta/" class="navbar-link">Gun Meta (Soon)</a>
-            </div>
-            <div class="navbar-links">
+            
+            <div class="navbar-links-container">
+                <a href="gunmeta/" class="navbar-link">Weapon Meta</a>
                 <a id="infoButton" class="navbar-link">How it works</a>
-            </div>
-            <div class="navbar-links">
                 <a id="tosButton" class="navbar-link">LA/TOS</a>
-            </div>
-            <div class="navbar-links">
                 <a id="settingsButton" class="navbar-link">Settings</a>
             </div>
+            
             <div class="season-selector">
                 <label for="seasonSelect">Season:</label>
-                <select id="seasonSelect">
-                </select>
+                <select id="seasonSelect"></select>
             </div>
         </nav>
         <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">SPT Leaderboard</h1>
@@ -189,7 +187,7 @@
         </div>
 
         <div class="top-stats-bar">
-            <div class="live-data-label" id="serverStatus">Server Online</div>
+            <div class="live-data-label" id="serverStatus">API Online</div>
             <div class="stats-line">
                 <div class="stats-item"><strong>Kills:</strong> <span id="totalKills" class="odometer">0</span></div>
                 <div class="stats-item"><strong>Deaths:</strong> <span id="totalDeaths" class="odometer">0</span></div>
@@ -256,10 +254,6 @@
                     <th data-sort="killToDeathRatio">KDR</th>
                     <th data-sort="averageLifeTime">Life Time</th>
                     <th data-sort="totalScore">Skill</th>
-                    <!--
-                        <th>TP</th>
-                        <th>Fika</th>
-                    -->
                     <th>SPT</th>
                 </tr>
             </thead>
@@ -282,6 +276,28 @@
                 <div id="modalPlayerInfo" class="profile-modal-content"></div>
             </div>
         </div>
+        <footer class="modern-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                <div class="logo-slogan">
+                    <img src="media/newlogo_transparent.png" class="footer-logo">
+                    <p class="slogan">Community driven project. With dedication and love.</p>
+                </div>
+                <div class="license-info">
+                    <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
+                    <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+                </div>
+                </div>
+                
+                <div class="footer-links">
+                <ul>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard" target="_blank" rel="noopener">SPTarkov Mod</a></li>
+                </ul>
+                </div>
+            </div>
+        </footer>
         <script src="https://github.hubspot.com/odometer/odometer.js"></script>
     </body>
 

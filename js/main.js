@@ -26,9 +26,9 @@ let oldTotalPlayers = 0;
 let oldOnlinePlayers = 0;
 let oldTotalPlayTime = 0;
 
-// https://visuals.nullcore.net/hidden/seasons/season
+// https://visuals.nullcore.net/SPT/data/seasons/season
 // fallbacks/season [DEBUG]
-const seasonPath = "https://visuals.nullcore.net/hidden/seasons/season";
+const seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
 const seasonPathEnd = ".json";
 
 /**
@@ -37,7 +37,6 @@ const seasonPathEnd = ".json";
  * @returns {Promise<boolean>} - True if season exists, false otherwise
  */
 async function checkSeasonExists(seasonNumber) {
-    isDataReady = false;
 
     try {
         const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
@@ -199,8 +198,8 @@ function populateSeasonDropdown() {
  */
 async function loadSeasonData(season) {
     const emptyLeaderboardNotification = document.getElementById('emptyLeaderboardNotification');
-
     emptyLeaderboardNotification.style.display = 'none';
+    isDataReady = false;
 
     try {
         const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
@@ -223,7 +222,7 @@ async function loadSeasonData(season) {
             checkRecentPlayers(leaderboardData);
         }
     } finally {
-        // Nothing..? Yet.
+        // Nothing.
     }
 }
 
@@ -298,7 +297,6 @@ function processSeasonData(data) {
     addColorIndicators(data);
     calculateRanks(data);
     calculateOverallStats(data);
-    isDataReady = true;
 }
 
 /**
@@ -436,7 +434,7 @@ function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
-            <td>${profileOpenIcon}</td>
+            <td>${profileOpenIcon} ${player.publicProfile? `<button style="share-button" onclick="copyProfile('${player.id}')"><em class='bx bxs-share'></em></button>` : ``}</td>
             <td>${badge}</td>
             <td>${player.pmcRaids}</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
@@ -464,6 +462,8 @@ function displayLeaderboard(data) {
 
     // Add sort listeners
     addSortListeners();
+
+    isDataReady = true;
 }
 
 /**

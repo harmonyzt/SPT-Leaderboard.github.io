@@ -1,0 +1,15 @@
+{
+    "weapons": {
+        "683c9970000031cd740f5300": {
+            "RD-704": {
+                "stats": {
+                    "kills": 9,
+                    "headshots": 2,
+                    "totalShots": 217,
+                    "timesLost": 0
+                },
+                "originalId": "628a60ae6b1d481ff772e9c8"
+            }
+        }
+    }
+}
