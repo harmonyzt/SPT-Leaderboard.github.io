@@ -37,6 +37,7 @@
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
+            "isCasual": true,
             "modWeaponStats": {
                 "bestWeapon": {
                     "name": "AK-74M",

@@ -191,7 +191,7 @@ function populateSeasonDropdown() {
         const selectedValue = event.target.value;
         loadSeasonData(selectedValue);
 
-        if(selectedValue == seasons[0]){
+        if (selectedValue == seasons[0]) {
             AppState.setAutoUpdate(true);
         } else {
             showToast("Live Data Flow was automatically disabled", "info", 8000);
@@ -380,7 +380,7 @@ function displayLeaderboard(data) {
 
         // Add profile standing
         let badge = '';
-        if (player?.suspicious == true) {
+        if (player?.suspicious == true && !player.isCasual) {
             badge = `<div class="badge-lb tooltip">
             <em class='bx bxs-shield-x bx-flashing' style="color:rgb(255, 123, 100);"></em>
             <span class="tooltiptext">This player was marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
@@ -434,7 +434,7 @@ function displayLeaderboard(data) {
             : '';
 
         // Skill rank label
-        const rankLabel = getRankLabel(player.totalScore);
+        const rankLabel = player.isCasual ? 'Casual' : getRankLabel(player.totalScore);
 
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
@@ -607,14 +607,23 @@ function calculateRanks(data) {
             score *= 0.6; // -60% penalty
         }
 
-        player.totalScore = score;
+        if (player.isCasual) {
+            player.totalScore = 0.01;
+        } else {
+            player.totalScore = score;
+        }
     });
 
     data.sort((a, b) => b.totalScore - a.totalScore);
 
     data.forEach((player, index) => {
-        player.rank = index + 1;
-        player.medal = ['🥇', '🥈', '🥉'][index] || '';
+        if (player.isCasual) {
+            player.rank = 0;
+            player.medal = '';
+        } else {
+            player.rank = index + 1;
+            player.medal = ['🥇', '🥈', '🥉'][index] || '';
+        }
     });
 }
 
@@ -666,7 +675,7 @@ function calculateOverallStats(data) {
         const lastGame = formatLastPlayed(player.lastPlayed);
         player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
 
-        if (!player.disqualified) {
+        if (!player.disqualified && !player.isCasual) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
             const rawKills = parseFloat(player.pmcKills) || 0;
@@ -689,14 +698,15 @@ function calculateOverallStats(data) {
                 }
             }
 
-            // Check if player is online
-            if (player.isOnline) {
-                onlinePlayers++;
-            }
+        }
 
-            if (player.totalPlayTime) {
-                totalPlayTime += Math.floor(player.totalPlayTime / 60);
-            }
+        // Check if player is online
+        if (player.isOnline) {
+            onlinePlayers++;
+        }
+
+        if (player.totalPlayTime) {
+            totalPlayTime += Math.floor(player.totalPlayTime / 60);
         }
     });
 

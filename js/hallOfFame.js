@@ -77,7 +77,7 @@ function calculatePlayerLevel(player) {
     setRankImage(player.battlePassLevel);
 
     return {
-        level: level,
+        level: level + 3,
         currentExp: currentLevelExp,
         expForNextLevel: expForNextLevel,
         totalExp: totalExp
