@@ -146,14 +146,14 @@ function showPlayerNotification(player) {
                         ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
                     </span>
                     <span class="notification-info-r">
-                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • Rank #${player.rank}
+                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • ${player.isCasual? `Rank #${player.rank}` : `Casual Mode`}
                     </span>
                 </div>
             </div>
             ${player.publicProfile ? `
             <div class="raid-overview-notify">
-                <span class="raid-result-r ${player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
-                    ${player.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : player.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${player.lastRaidMap}
+                <span class="raid-result-r ${player.lastRaidRanThrough ? 'run-through' : player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
+                    ${player.lastRaidRanThrough ? `<em class="bx bx-walk"></em> Runner` : player.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : player.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${player.lastRaidMap}
                     <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${player.lastRaidTransitionTo || 'Unknown'})` : player.lastRaidSurvived ? `<em class="bx bx-walk"></em> Survived` : `
                     <em class="bx bxs-skull"></em> Killed in Action`}
                 </span>
