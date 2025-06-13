@@ -146,7 +146,7 @@ function showPlayerNotification(player) {
                         ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
                     </span>
                     <span class="notification-info-r">
-                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • ${player.isCasual? `Rank #${player.rank}` : `Casual Mode`}
+                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • ${!player.isCasual ? `Rank #${player.rank}` : `Casual Mode`}
                     </span>
                 </div>
             </div>
