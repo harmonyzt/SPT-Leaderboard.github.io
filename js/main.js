@@ -28,7 +28,7 @@ let oldTotalPlayTime = 0;
 
 // https://visuals.nullcore.net/SPT/data/seasons/season
 // fallbacks/season [DEBUG]
-const seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
+const seasonPath = "fallbacks/season";
 const seasonPathEnd = ".json";
 
 /**
@@ -186,8 +186,16 @@ function populateSeasonDropdown() {
     });
 
     seasonSelect.addEventListener('change', (event) => {
+        AppState.setAutoUpdate(false);
+
         const selectedValue = event.target.value;
         loadSeasonData(selectedValue);
+
+        if(selectedValue == seasons[0]){
+            AppState.setAutoUpdate(true);
+        } else {
+            showToast("Live Data Flow was automatically disabled", "info", 8000);
+        }
     });
 }
 
@@ -222,7 +230,6 @@ async function loadSeasonData(season) {
             checkRecentPlayers(leaderboardData);
         }
     } finally {
-        // Nothing.
     }
 }
 
@@ -774,8 +781,6 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initControls();
-
     // Load previous stats from localStorage if can
     const savedStats = localStorage.getItem('leaderboardStats');
     if (savedStats) {

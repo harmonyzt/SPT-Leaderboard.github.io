@@ -2908,6 +2908,8 @@ button:hover,
     color: white;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2916,19 +2918,19 @@ button:hover,
 }
 
 .toast.success {
-    background: radial-gradient(650px 240px at top left, hsl(178deg 69% 52% / 22%), #fffdfd03);
+    background: radial-gradient(650px 240px at top left, hsla(178, 69%, 52%, 0.856), #fffdfd03);
 }
 
 .toast.error {
-    background: radial-gradient(650px 240px at top left, hsla(0, 58%, 47%, 0.185), #fffdfd03);
+    background: radial-gradient(650px 240px at top left, hsla(0, 58%, 47%, 0.89), #fffdfd03);
 }
 
 .toast.warning {
-    background: radial-gradient(650px 240px at top left, #f4783025, #fffdfd03);
+    background: radial-gradient(650px 240px at top left, #f47830ee, #fffdfd03);
 }
 
 .toast.info {
-    background-color: #2196F3;
+    background: radial-gradient(650px 240px at top left, #1867a8, #2195f3be);
 }
 
 @keyframes toastSlideIn {
