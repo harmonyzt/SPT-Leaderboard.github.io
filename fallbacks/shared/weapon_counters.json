@@ -385,14 +385,14 @@
         "6828fa74000108627b6eadfc": {
             "level": 32,
             "playedMaps": {
-                "Woods": 1
+                "RezervBase": 1
             },
             "weapons": {
                 "M4A1": {
                     "stats": {
-                        "kills": 38,
-                        "headshots": 24,
-                        "totalShots": 332
+                        "kills": 47,
+                        "headshots": 28,
+                        "totalShots": 429
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
@@ -1064,11 +1064,20 @@
             }
         },
         "67e9457f000241474352d54b": {
-            "level": 8,
+            "level": 9,
             "playedMaps": {
                 "Woods": 1
             },
             "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 250,
+                        "headshots": 135,
+                        "totalShots": 3928,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
                 "AUG A3": {
                     "stats": {
                         "kills": 11,
@@ -1077,15 +1086,6 @@
                         "timesLost": 0
                     },
                     "originalId": "6718817435e3cfd9550d2c27"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 246,
-                        "headshots": 134,
-                        "totalShots": 3874,
-                        "timesLost": 0
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
                 "M9A3": {
                     "stats": {
@@ -2852,6 +2852,122 @@
                         "timesLost": 0
                     },
                     "originalId": "668fe5a998b5ad715703ddd6"
+                }
+            }
+        },
+        "680b9ba10006099d882b654f": {
+            "level": 22,
+            "playedMaps": {
+                "bigmap": 1
+            },
+            "weapons": {
+                "AKM": {
+                    "stats": {
+                        "kills": 73,
+                        "headshots": 41,
+                        "totalShots": 907,
+                        "timesLost": 3
+                    },
+                    "originalId": "59d6088586f774275f37482f"
+                },
+                "M9A3": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 1,
+                        "totalShots": 183,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cadc190ae921500103bb3b6"
+                },
+                "M60E6": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 10,
+                        "timesLost": 0
+                    },
+                    "originalId": "661cec09b2c6356b4d0c7a36"
+                },
+                "MP-155": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 1,
+                        "timesLost": 0
+                    },
+                    "originalId": "606dae0ab0e443224b421bb7"
+                },
+                "RPK-16": {
+                    "stats": {
+                        "kills": 45,
+                        "headshots": 27,
+                        "totalShots": 321,
+                        "timesLost": 3
+                    },
+                    "originalId": "5beed0f50db834001c062b12"
+                },
+                "RD-704": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 3,
+                        "totalShots": 65,
+                        "timesLost": 0
+                    },
+                    "originalId": "628a60ae6b1d481ff772e9c8"
+                },
+                "AKMN": {
+                    "stats": {
+                        "kills": 26,
+                        "headshots": 17,
+                        "totalShots": 192,
+                        "timesLost": 3
+                    },
+                    "originalId": "5a0ec13bfcdbcb00165aa685"
+                },
+                "FN 5-7": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 7,
+                        "timesLost": 0
+                    },
+                    "originalId": "5d3eb3b0a4b93615055e84d2"
+                },
+                "SVDS": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 3,
+                        "timesLost": 1
+                    },
+                    "originalId": "5c46fbd72e2216398b5a8c9c"
+                },
+                "AK-105": {
+                    "stats": {
+                        "kills": 65,
+                        "headshots": 50,
+                        "totalShots": 338,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ac66d9b5acfc4001633997a"
+                },
+                "MP5": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 6,
+                        "totalShots": 68,
+                        "timesLost": 0
+                    },
+                    "originalId": "5926bb2186f7744b1c6c6e60"
+                },
+                "P226R": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 20,
+                        "timesLost": 0
+                    },
+                    "originalId": "56d59856d2720bd8418b456a"
                 }
             }
         }
