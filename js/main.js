@@ -434,7 +434,7 @@ function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
-            <td>${profileOpenIcon} ${player.publicProfile? `<button style="share-button" onclick="copyProfile('${player.id}')"><em class='bx bxs-share'></em></button>` : ``}</td>
+            <td>${profileOpenIcon} ${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')"><em class='bx bxs-share'></em></button>` : ``}</td>
             <td>${badge}</td>
             <td>${player.pmcRaids}</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>

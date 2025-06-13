@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             closeNotification();
         });
 
-        // 30 second timeout
-        const autoCloseTimer = setTimeout(closeNotification, 30000);
+        // 12 second timeout
+        const autoCloseTimer = setTimeout(closeNotification, 12000);
 
         function closeNotification() {
             clearTimeout(autoCloseTimer);
