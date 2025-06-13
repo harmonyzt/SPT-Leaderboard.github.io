@@ -133,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         });
 
+        const roundedMillions = Math.round(stats.totalSalesSum / 1_000_000);
+
         const overlay = document.createElement('div');
         overlay.id = 'seasonOverlay';
         overlay.innerHTML = `
@@ -166,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="stat-card">
                             <div class="stat-value">${formatTime(stats.totalPlayTime)}</div>
-                            <div class="stat-label">PLAY TIME</div>
+                            <div class="stat-label">TIME PLAYED</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-value">${stats.averageSurvivalRate}%</div>
@@ -175,6 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="stat-card">
                             <div class="stat-value">${stats.mostPopularMap}</div>
                             <div class="stat-label">HOTTEST MAP</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${roundedMillions}M</div>
+                            <div class="stat-label">RUBLES TRADED</div>
                         </div>
                     </div>
                 </div>
@@ -270,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let topPlayTime = null;
         let longestShot = 0;
         let longestShotPlayer = null;
+        let totalSalesSum = 0;
 
         players.forEach(player => {
             if (!player.disqualified && !player.banned) {
@@ -285,6 +292,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPlayTime += playTime;
                 totalRaids += raids;
                 totalSurvived += survived;
+
+                if (player.traderInfo) {
+                    for (const trader in player.traderInfo) {
+                        const data = player.traderInfo[trader];
+                        if (data.salesSum && data.salesSum > 0) {
+                            totalSalesSum += data.salesSum;
+                        }
+                    }
+                }
 
                 if (player.modWeaponStats?.bestWeapon) {
                     const weapon = player.modWeaponStats.bestWeapon.name;
@@ -353,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
             richestTrader,
             longestShot,
             longestShotPlayer,
+            totalSalesSum,
             topKillsWeapon: topKills?.modWeaponStats?.bestWeapon?.name || "Unknown",
         };
     }
