@@ -14,6 +14,7 @@ body {
             var(--bg-dark-secondary) 100%);
     color: var(--text-light);
     margin: 0;
+    font-size: 1rem;
 }
 
 h1 {
@@ -113,7 +114,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     flex-shrink: 1;
-    min-width: 0; 
+    min-width: 0;
 }
 
 .navbar-links {
@@ -129,7 +130,7 @@ h1 {
     font-size: 0.9rem;
     padding: 8px;
     border-radius: 4px;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .navbar-link:hover {
@@ -1591,6 +1592,10 @@ button:hover,
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+    flex-direction: column;
+    position: absolute;
+    right: 40px;
+    top: 70px;
 }
 
 .badge {
@@ -2969,4 +2974,106 @@ button:hover,
 
 .toast-close:hover {
     opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+
+    max-width: 100%;
+  }
+
+  .navbar-links-container,
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .leaderboard-controls {
+    padding: 10px;
+  }
+
+  .search-container,
+  .controls-toolset {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  .team-members {
+    gap: 20px;
+  }
+
+  .other-members {
+    gap: 20px;
+  }
+
+  .member-avatar,
+  .main-member .member-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .winner-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .season-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .popup-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 15px;
+  }
+
+  .stats-item,
+  .live-data-label,
+  .player-stats,
+  .leaderboard-notification {
+    display: none;
+  }
+
+  .winner-card {
+    display: none;
+  }
+
+  .rank-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-close-btn {
+    right: 15px;
+    top: 15px;
+  }
 }
