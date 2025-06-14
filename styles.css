@@ -1590,12 +1590,13 @@ button:hover,
 .badges-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 8px;
-    flex-direction: column;
     position: absolute;
     right: 40px;
     top: 70px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .badge {
