@@ -2000,7 +2000,7 @@ button:hover,
 }
 
 .lastRaids-button {
-    top: 310px;
+    top: 55px;
     left: 35px;
 }
 
@@ -2979,101 +2979,101 @@ button:hover,
 
 @media (max-width: 768px) {
 
-  .navbar {
-    flex-direction: column;
-    padding: 10px;
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
 
-    max-width: 100%;
-  }
+        max-width: 100%;
+    }
 
-  .navbar-links-container,
-  .navbar-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+    .navbar-links-container,
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
-  .leaderboard-controls {
-    padding: 10px;
-  }
+    .leaderboard-controls {
+        padding: 10px;
+    }
 
-  .search-container,
-  .controls-toolset {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
+    .search-container,
+    .controls-toolset {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
 
-  table,
-  th,
-  td {
-    font-size: 0.8rem;
-    padding: 3px 6px;
-  }
+    table,
+    th,
+    td {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+    }
 
-  .team-members {
-    gap: 20px;
-  }
+    .team-members {
+        gap: 20px;
+    }
 
-  .other-members {
-    gap: 20px;
-  }
+    .other-members {
+        gap: 20px;
+    }
 
-  .member-avatar,
-  .main-member .member-avatar {
-    width: 100px;
-    height: 100px;
-  }
+    .member-avatar,
+    .main-member .member-avatar {
+        width: 100px;
+        height: 100px;
+    }
 
-  .modal-content {
-    width: 95%;
-  }
+    .modal-content {
+        width: 95%;
+    }
 
-  .winner-card {
-    width: 100%;
-    max-width: 320px;
-  }
+    .winner-card {
+        width: 100%;
+        max-width: 320px;
+    }
 
-  .season-stats-grid {
-    grid-template-columns: 1fr;
-  }
+    .season-stats-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .profile-grid-layout {
-    grid-template-columns: 1fr;
-  }
+    .profile-grid-layout {
+        grid-template-columns: 1fr;
+    }
 
-  .popup-content h1 {
-    font-size: 1.5rem;
-  }
+    .popup-content h1 {
+        font-size: 1.5rem;
+    }
 
-  .popup-content p {
-    font-size: 1rem;
-  }
+    .popup-content p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .popup-content {
-    padding: 15px;
-  }
+    .popup-content {
+        padding: 15px;
+    }
 
-  .stats-item,
-  .live-data-label,
-  .player-stats,
-  .leaderboard-notification {
-    display: none;
-  }
+    .stats-item,
+    .live-data-label,
+    .player-stats,
+    .leaderboard-notification {
+        display: none;
+    }
 
-  .winner-card {
-    display: none;
-  }
+    .winner-card {
+        display: none;
+    }
 
-  .rank-icon {
-    width: 60px;
-    height: 60px;
-  }
+    .rank-icon {
+        width: 60px;
+        height: 60px;
+    }
 
-  .profile-close-btn {
-    right: 15px;
-    top: 15px;
-  }
+    .profile-close-btn {
+        right: 15px;
+        top: 15px;
+    }
 }
