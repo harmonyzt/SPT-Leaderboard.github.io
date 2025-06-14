@@ -1569,7 +1569,7 @@ button:hover,
 }
 
 .profile-player-name {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #84d2ff;
     margin-bottom: 8px;
     text-align: center;
@@ -1889,6 +1889,7 @@ button:hover,
 .badge.tooltip {
     position: relative;
     cursor: pointer;
+    z-index: 5;
 }
 
 .badge.tooltip em {
@@ -2058,7 +2059,6 @@ button:hover,
     color: #fff;
     gap: 15px;
 }
-
 
 .hof-player-level {
     padding: 15px;
