@@ -383,16 +383,40 @@
             }
         },
         "6828fa74000108627b6eadfc": {
-            "level": 32,
+            "level": 33,
             "playedMaps": {
-                "RezervBase": 1
+                "TarkovStreets": 1
             },
             "weapons": {
+                "P90": {
+                    "stats": {
+                        "kills": 53,
+                        "headshots": 27,
+                        "totalShots": 563
+                    },
+                    "originalId": "5cc82d76e24e8d00134b4b83"
+                },
+                "MDR": {
+                    "stats": {
+                        "kills": 35,
+                        "headshots": 26,
+                        "totalShots": 249
+                    },
+                    "originalId": "5c488a752e221602b412af63"
+                },
+                "AXMC": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 1
+                    },
+                    "originalId": "627e14b21713922ded6f2c15"
+                },
                 "M4A1": {
                     "stats": {
-                        "kills": 47,
-                        "headshots": 28,
-                        "totalShots": 429
+                        "kills": 50,
+                        "headshots": 30,
+                        "totalShots": 460
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
@@ -492,14 +516,6 @@
                     },
                     "originalId": "5ae08f0a5acfc408fb1398a1"
                 },
-                "MDR": {
-                    "stats": {
-                        "kills": 13,
-                        "headshots": 8,
-                        "totalShots": 164
-                    },
-                    "originalId": "5c488a752e221602b412af63"
-                },
                 "MP-18": {
                     "stats": {
                         "kills": 4,
@@ -523,14 +539,6 @@
                         "totalShots": 169
                     },
                     "originalId": "6183afd850224f204c1da514"
-                },
-                "P90": {
-                    "stats": {
-                        "kills": 46,
-                        "headshots": 23,
-                        "totalShots": 523
-                    },
-                    "originalId": "5cc82d76e24e8d00134b4b83"
                 },
                 "AK-103": {
                     "stats": {
@@ -2655,11 +2663,20 @@
                 "Shoreline": 1
             },
             "weapons": {
+                "Mosin Sniper": {
+                    "stats": {
+                        "kills": 11,
+                        "headshots": 5,
+                        "totalShots": 101,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ae08f0a5acfc408fb1398a1"
+                },
                 "ADAR 2-15": {
                     "stats": {
-                        "kills": 8,
-                        "headshots": 4,
-                        "totalShots": 189,
+                        "kills": 17,
+                        "headshots": 8,
+                        "totalShots": 289,
                         "timesLost": 0
                     },
                     "originalId": "5c07c60e0db834002330051f"
@@ -2817,15 +2834,6 @@
                     },
                     "originalId": "5d2f0d8048f0356c925bc3b0"
                 },
-                "Mosin Sniper": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 37,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ae08f0a5acfc408fb1398a1"
-                },
                 "AXMC": {
                     "stats": {
                         "kills": 37,
@@ -2856,11 +2864,20 @@
             }
         },
         "680b9ba10006099d882b654f": {
-            "level": 22,
+            "level": 23,
             "playedMaps": {
                 "bigmap": 1
             },
             "weapons": {
+                "RFB": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 3,
+                        "totalShots": 38,
+                        "timesLost": 0
+                    },
+                    "originalId": "5f2a9575926fd9352339381f"
+                },
                 "AKM": {
                     "stats": {
                         "kills": 73,
@@ -2968,6 +2985,139 @@
                         "timesLost": 0
                     },
                     "originalId": "56d59856d2720bd8418b456a"
+                }
+            }
+        },
+        "684a284900030d8b43b7575d": {
+            "level": 14,
+            "playedMaps": {
+                "bigmap": 1
+            },
+            "weapons": {
+                "AS VAL": {
+                    "stats": {
+                        "kills": 9,
+                        "headshots": 6,
+                        "totalShots": 68,
+                        "timesLost": 0
+                    },
+                    "originalId": "57c44b372459772d2b39b8ce"
+                },
+                "M9A3": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 7,
+                        "totalShots": 88,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cadc190ae921500103bb3b6"
+                },
+                "MP-133": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 11,
+                        "timesLost": 0
+                    },
+                    "originalId": "54491c4f4bdc2db1078b4568"
+                },
+                "PPSh41": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 71,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ea03f7400685063ec28bfa8"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 2,
+                        "totalShots": 89,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "683cce2d00047b7167eb67c2": {
+            "level": 6,
+            "playedMaps": {
+                "RezervBase": 1
+            },
+            "weapons": {
+                "AK-74M": {
+                    "stats": {
+                        "kills": 21,
+                        "headshots": 8,
+                        "totalShots": 553,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
+                },
+                "M1A": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 5,
+                        "timesLost": 0
+                    },
+                    "originalId": "5aafa857e5b5b00018480968"
+                },
+                "MP-443 Grach": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 18,
+                        "timesLost": 0
+                    },
+                    "originalId": "576a581d2459771e7b1bc4f1"
+                },
+                "AK-545 Short": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 11,
+                        "timesLost": 0
+                    },
+                    "originalId": "628b9c37a733087d0d7fe84b"
+                },
+                "PP-19-01": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 21,
+                        "timesLost": 0
+                    },
+                    "originalId": "59984ab886f7743e98271174"
+                },
+                "SKS": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 16,
+                        "timesLost": 0
+                    },
+                    "originalId": "574d967124597745970e7c94"
+                },
+                "590A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 6,
+                        "timesLost": 0
+                    },
+                    "originalId": "5e870397991fd70db46995c8"
+                },
+                "AUG A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 1,
+                        "timesLost": 0
+                    },
+                    "originalId": "62e7c4fba689e8c9c50dfc38"
                 }
             }
         }
