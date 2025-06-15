@@ -123,12 +123,12 @@ function showPlayerNotification(player) {
 
     if (player.banned) {
         const introMusic = new Audio('media/sounds/ban/ban_reveal.mp3');
-        introMusic.volume = 0.07;
+        introMusic.volume = 0.10;
         introMusic.play();
 
         introMusic.addEventListener('ended', () => {
             const mainBanSound = new Audio('media/sounds/ban/ban.mp3');
-            mainBanSound.volume = 0.08;
+            mainBanSound.volume = 0.15;
             mainBanSound.play();
 
             createBanNotification(player);
