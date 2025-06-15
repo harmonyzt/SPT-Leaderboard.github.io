@@ -181,7 +181,7 @@ function showPlayerNotification(player) {
     setTimeout(() => {
         notification.style.animation = 'fadeOut 0.3s forwards';
         console.debug(`[NOTIFY] Notification fade started for ${player.name}`);
-    }, 67000);
+    }, 12000);
 
     setTimeout(() => {
         notification.remove();
@@ -191,7 +191,7 @@ function showPlayerNotification(player) {
         }
         updateNotificationPositions();
         console.debug(`[NOTIFY] Notification removed for ${player.name}`);
-    }, 70000);
+    }, 15000);
 }
 
 function updateNotificationPositions() {
@@ -285,7 +285,7 @@ function createBanNotification(player) {
 
     setTimeout(() => {
         notification.style.animation = 'fadeOut 0.3s forwards';
-    }, 67000);
+    }, 27000);
 
     setTimeout(() => {
         notification.remove();
@@ -294,5 +294,5 @@ function createBanNotification(player) {
             notificationStack.splice(index, 1);
         }
         updateNotificationPositions();
-    }, 70000);
+    }, 30000);
 }
