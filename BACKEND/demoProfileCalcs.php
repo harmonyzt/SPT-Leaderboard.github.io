@@ -2,7 +2,6 @@
 // Note - this isn't a complete working PHP file ready to be deployed.
 // All of the updating code was given along with other stuff - you're free to implement your own system on how to store tokens and ids, or just completely get rid of them. 
 
-
 // Statistics where all players will be written to
 $STATS_FILE = __DIR__ . '/season3.json';
 
