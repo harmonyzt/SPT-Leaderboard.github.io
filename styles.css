@@ -2807,7 +2807,8 @@ button,
 
 /* Footer */
 .modern-footer {
-    background-color: rgba(57, 89, 131, 0.205);;
+    background-color: rgba(57, 89, 131, 0.205);
+    ;
     color: #f0f0f0;
     padding: 2.5rem 0;
     font-family: 'Inter', -apple-system, sans-serif;
