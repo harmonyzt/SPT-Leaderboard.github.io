@@ -28,7 +28,7 @@ let oldTotalPlayTime = 0;
 
 // https://visuals.nullcore.net/SPT/data/seasons/season
 // fallbacks/season [DEBUG]
-const seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
+let seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
 const seasonPathEnd = ".json";
 
 /**

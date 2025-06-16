@@ -5,13 +5,15 @@
     --accent-blue: #1e90ff;
     --text-light: #ccd6f6;
     --text-muted: #8892b0;
+    --darker: #0f172a;
 }
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(180deg,
-            var(--bg-dark) 0%,
-            var(--bg-dark-secondary) 100%);
+    background-image:
+        radial-gradient(circle at top left, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(114, 68, 239, 0.1) 0%, transparent 20%);
+    background-color: var(--darker);
     color: var(--text-light);
     margin: 0;
     font-size: 1rem;
@@ -2022,7 +2024,7 @@ button:hover,
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 800px;
-    max-height: 80vh;
+    height: 80vh;
     background-color: #1e1e2d;
     border-radius: 8px;
     overflow: hidden;
