@@ -28,7 +28,7 @@ let oldTotalPlayTime = 0;
 
 // https://visuals.nullcore.net/SPT/data/seasons/season
 // fallbacks/season [DEBUG]
-const seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
+const seasonPath = "fallbacks/season";
 const seasonPathEnd = ".json";
 
 /**
@@ -230,6 +230,7 @@ async function loadSeasonData(season) {
             checkRecentPlayers(leaderboardData);
         }
     } finally {
+        
     }
 }
 
@@ -568,7 +569,7 @@ function convertTimeToSeconds(time) {
 function calculateRanks(data) {
     const MIN_RAIDS = 50;
     const SOFT_CAP_RAIDS = 100;
-    const MIN_LIFE_TIME = 10; // tracking skill issue
+    const MIN_LIFE_TIME = 8; // tracking skill issue
     const MAX_LIFE_TIME = 45;
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio));
