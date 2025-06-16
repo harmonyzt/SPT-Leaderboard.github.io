@@ -109,7 +109,7 @@ function initProfileWatchList(data) {
         if (p1 && p2) {
             let result = '<h3>Comparison</h3><ul>';
             result += `<li>Raids: ${p1.pmcRaids} vs ${p2.pmcRaids} (${p1.pmcRaids > p2.pmcRaids ? `${p1.name} wins` : p1.pmcRaids < p2.pmcRaids ? `${p2.name} wins` : 'Tie'})</li>`;
-            result += `<li>Kills: ${p1.pmcKills} vs ${p2.pmcKills} (${p1.pmcKills > p2.pmcKills ? `${p1.name} wins` : p1.pmcKills < p2.pmcKills ? `${p2.name} wins` : 'Tie'})</li>`;
+            result += `<li>PMC Kills: ${p1.pmcKills} vs ${p2.pmcKills} (${p1.pmcKills > p2.pmcKills ? `${p1.name} wins` : p1.pmcKills < p2.pmcKills ? `${p2.name} wins` : 'Tie'})</li>`;
             result += `<li>Rank: ${p1.rank} vs ${p2.rank} (${p1.rank < p2.rank ? `${p1.name} wins` : p1.rank > p2.rank ? `${p2.name} wins` : 'Tie'})</li>`;
             result += '</ul>';
             comparisonResultDiv.innerHTML = result;

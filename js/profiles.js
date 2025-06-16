@@ -387,7 +387,7 @@ function showPublicProfile(container, player) {
 
         <div class="raid-stats-grid">
             <div class="raid-stat-block">
-                <span class="profile-stat-label">Kills:</span>
+                <span class="profile-stat-label">PMC Kills:</span>
                 <span class="profile-stat-value">${player.lastRaidKills ?? 0}</span>
             </div>
             <div class="raid-stat-block">
