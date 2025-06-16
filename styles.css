@@ -2924,18 +2924,22 @@ button,
 
 .toast.success {
     background: radial-gradient(650px 240px at top left, hsla(178, 69%, 52%, 0.856), #fffdfd03);
+    backdrop-filter: blur(5px);
 }
 
 .toast.error {
     background: radial-gradient(650px 240px at top left, hsla(0, 58%, 47%, 0.89), #fffdfd03);
+    backdrop-filter: blur(5px);
 }
 
 .toast.warning {
     background: radial-gradient(650px 240px at top left, #f47830ee, #fffdfd03);
+    backdrop-filter: blur(5px);
 }
 
 .toast.info {
     background: radial-gradient(650px 240px at top left, #1867a8, #2195f3be);
+    backdrop-filter: blur(5px);
 }
 
 @keyframes toastSlideIn {
