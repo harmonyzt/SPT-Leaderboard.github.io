@@ -1592,10 +1592,13 @@ button:hover,
     flex-wrap: wrap;
     gap: 8px;
     position: absolute;
-    left: -60px;
+    left: -80px;
+    top: 150px;
     flex-direction: column;
     justify-content: space-evenly;
-    border-radius: 15%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ffffff21;
 }
 
 .badge {
