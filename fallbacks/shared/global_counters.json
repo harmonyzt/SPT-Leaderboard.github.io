@@ -1,11 +1,14 @@
 {
-    "factory4_day": 17,
-    "Sandbox_high": 1,
-    "Shoreline": 2,
-    "bigmap": 29,
-    "Sandbox": 12,
-    "Woods": 3,
-    "RezervBase": 4,
-    "Interchange": 1,
-    "TarkovStreets": 6
+    "factory4_day": 53,
+    "Sandbox_high": 15,
+    "Shoreline": 21,
+    "bigmap": 110,
+    "Sandbox": 72,
+    "Woods": 34,
+    "RezervBase": 15,
+    "Interchange": 14,
+    "TarkovStreets": 10,
+    "laboratory": 49,
+    "factory4_night": 3,
+    "Lighthouse": 3
 }

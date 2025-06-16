@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (weapon.topMaps.includes('Sandbox_high')) weapon.mapTags.push({ text: 'Ground Zero Hero', type: 'woods' });
             if (weapon.topMaps.includes('Interchange')) weapon.mapTags.push({ text: 'Inter-raptor', type: 'factory' });
             if (weapon.topMaps.includes('TarkovStreets')) weapon.mapTags.push({ text: 'Streets Ruler', type: 'lighthouse' });
+            if (weapon.topMaps.includes('laboratory')) weapon.mapTags.push({ text: 'Labs Demolisher', type: 'lighthouse' });
         });
 
         // Render
