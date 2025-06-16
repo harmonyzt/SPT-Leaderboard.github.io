@@ -717,6 +717,41 @@ function generateBadgesHTML(player) {
 
     const playerData = allSeasonsCombinedData.find(p => p.id === player.id || p.name === player.name);
 
+    // Add faction badge
+    if (player.pmcSide === 'Bear') {
+        badges += `<div class="badge tooltip">
+                     <img src="media/Bear.png" width="70" height="70" alt="BEAR">
+                     <span class="tooltiptext">Plays as BEAR Operator</span>
+                   </div>`;
+    } else if (player.pmcSide === 'Usec') {
+        badges += `<div class="badge tooltip">
+                     <img src="media/Usec.png" width="70" height="70" alt="USEC">
+                     <span class="tooltiptext">Plays as USEC Operator</span>
+                   </div>`;
+    }
+
+    // Prestige badge
+    if (player.prestige && player.prestige > 0) {
+        badges += `<div class="badge tooltip">
+        <img src="media/prestige${player.prestige}.png" width="40" height="40" alt="Prestige">
+        <span class="tooltiptext">This player has reached prestige level ${player.prestige}</span>
+      </div>`;
+    }
+
+    if (player.hasKappa) {
+        badges += `<div class="badge tooltip">
+        <img src="media/kappa.png" width="35" height="35" alt="Kappa">
+        <span class="tooltiptext">This player acquired Kappa!</span>
+      </div>`;
+    }
+
+    if (player.dev) {
+        badges += `<div class="badge tooltip">
+                     <img src="media/leaderboard_icons/icon_developer.png" style="width: 20px; height: 20px">
+                     <span class="tooltiptext">Developer playing the game.. Seriously?</span>
+                   </div>`;
+    }
+
     if (playerData && playerData.seasonsCount > 1) {
         badges += `<div class="badge tooltip">
         <em class='bx bxs-joystick'></em>
@@ -741,41 +776,6 @@ function generateBadgesHTML(player) {
         <em class='bx bxs-check-shield' style="color:rgb(100, 255, 165);"></em>
         <span class="tooltiptext">Profile in good standing</span>
       </div>`;
-    }
-
-    // Prestige badge
-    if (player.prestige && player.prestige > 0) {
-        badges += `<div class="badge tooltip">
-        <img src="media/prestige${player.prestige}.png" width="40" height="40" alt="Prestige">
-        <span class="tooltiptext">This player has reached prestige level ${player.prestige}</span>
-      </div>`;
-    }
-
-    if (player.hasKappa) {
-        badges += `<div class="badge tooltip">
-        <img src="media/kappa.png" width="35" height="35" alt="Kappa">
-        <span class="tooltiptext">This player acquired Kappa!</span>
-      </div>`;
-    }
-
-    // Add faction badge
-    if (player.pmcSide === 'Bear') {
-        badges += `<div class="badge tooltip">
-                     <img src="media/Bear.png" width="70" height="70" alt="BEAR">
-                     <span class="tooltiptext">Plays as BEAR Operator</span>
-                   </div>`;
-    } else if (player.pmcSide === 'Usec') {
-        badges += `<div class="badge tooltip">
-                     <img src="media/Usec.png" width="70" height="70" alt="USEC">
-                     <span class="tooltiptext">Plays as USEC Operator</span>
-                   </div>`;
-    }
-
-    if (player.dev) {
-        badges += `<div class="badge tooltip">
-                     <img src="media/leaderboard_icons/icon_developer.png" style="width: 20px; height: 20px">
-                     <span class="tooltiptext">Developer playing the game.. Seriously?</span>
-                   </div>`;
     }
 
     return badges;
