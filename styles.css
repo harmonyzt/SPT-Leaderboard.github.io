@@ -752,7 +752,7 @@ button:hover,
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 0.85rem;
-    max-width: 300px;
+    width: 180px;
     text-align: center;
     z-index: 1000;
     pointer-events: none;

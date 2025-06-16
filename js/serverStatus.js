@@ -41,6 +41,12 @@ async function updateServerStatus() {
             statusElement.setAttribute('data-tooltip', status.workText);
         }
     }
+
+    if(seasonPath === "fallbacks/season"){
+        statusElement.textContent = 'API at Fallback';
+        statusElement.setAttribute('data-tooltip', "Using local season files instead of connecting to API.")
+        statusElement.classList.add('server-maintenance');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
