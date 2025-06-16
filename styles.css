@@ -1595,6 +1595,7 @@ button:hover,
     left: -60px;
     flex-direction: column;
     justify-content: space-evenly;
+    border-radius: 15%;
 }
 
 .badge {
