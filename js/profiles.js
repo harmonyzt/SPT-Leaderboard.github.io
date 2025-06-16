@@ -318,13 +318,9 @@ function showPublicProfile(container, player) {
 
     // Profile Theme
     const profileModal = document.querySelector('.profile-modal-content');
-    const badgesBG = document.querySelector('.badges-container');
-
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
-    badgesBG.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
-    badgesBG.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
-    
+
     // About me
     const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
 
@@ -682,6 +678,11 @@ function showPublicProfile(container, player) {
     // Init battlepass button once the profile has opened
     initHOF(player, bestWeapon);
     initLastRaids(player, container);
+
+    // Get bg for badges
+    const badgesBG = document.querySelector('.badges-container');
+    badgesBG.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
+    badgesBG.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
 }
 
 function getBestWeapon(playerId, modWeaponStats) {
