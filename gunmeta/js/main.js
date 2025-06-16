@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (weapon.avgLevel > 30) weapon.tags.push({ text: 'Veteran Choice', type: 'level' });
             if (weapon.kills === maxKills) weapon.tags.push({ text: 'Most Kills', type: 'kills' });
             if (weapon.kills > 50 && weapon.avgLevel > 20) weapon.tags.push({ text: 'Hot', type: 'kills' });
-            if (weapon.headshotsPercent > 70) weapon.tags.push({ text: 'Headhunter', type: 'accuracy' });
-            if (weapon.headshotsPercent < 30) weapon.tags.push({ text: 'Spray & Pray', type: 'accuracy' });
-            if (weapon.playerCount === maxPlayerCount) weapon.tags.push({ text: 'Most Popular', type: 'popularity' });
+            if (weapon.headshotsPercent > 60 && weapon.headshotsPercent !== 100) weapon.tags.push({ text: 'Headhunter', type: 'accuracy' });
+            if (weapon.headshotsPercent < 20 && weapon.headshotsPercent !== 0) weapon.tags.push({ text: 'Spray & Pray', type: 'accuracy' });
+            if (weapon.playerCount === maxPlayerCount) weapon.tags.push({ text: 'Popular', type: 'popularity' });
             if (weapon.survivalRate > 95) weapon.tags.push({ text: 'Survivor', type: 'survival' });
 
             // Map tags
