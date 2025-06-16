@@ -1592,9 +1592,7 @@ button:hover,
     flex-wrap: wrap;
     gap: 8px;
     position: absolute;
-    right: 40px;
-    top: 70px;
-    max-height: 270px;
+    left: -60px;
     flex-direction: column;
     justify-content: space-evenly;
 }
