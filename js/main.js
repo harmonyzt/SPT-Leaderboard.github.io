@@ -440,7 +440,7 @@ function displayLeaderboard(data) {
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
-            <td class="player-name ${nameClass}" style="color: ${accountColor}; ${player.currentWinstreak >= 5 ? `background: url(media/raidstreak_effect.gif); background-position: 100% 10%; background-size: cover;` : ``}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
+            <td class="player-name ${nameClass}" style="color: ${accountColor}; ${player.currentWinstreak >= 10 ? `background: url(media/raidstreak_effect.gif); background-position: 100% 1%; background-size: cover;` : ``}" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
             <td>${profileOpenIcon} ${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')"><em class='bx bxs-share'></em></button>` : ``}</td>
             <td>${badge}</td>
