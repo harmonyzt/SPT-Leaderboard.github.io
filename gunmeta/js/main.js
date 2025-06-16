@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // ../fallbacks/shared/weapon_counters.json
     // https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json
-    fetch('../fallbacks/shared/weapon_counters.json')
+    fetch('https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok >:(');
