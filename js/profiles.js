@@ -6,7 +6,7 @@
 
 let openedPlayerData = [];
 
-function openProfile(playerId) {
+async function openProfile(playerId) {
     const modal = document.getElementById('playerProfileModal');
     const modalContent = document.getElementById('modalPlayerInfo');
 
@@ -48,6 +48,44 @@ function openProfile(playerId) {
         setupModalCloseHandlers(modal, player);
         return;
     }
+
+    // Now that we've done that, get player profile settings if they exist
+    async function applyPlayerSettings(playerId) {
+        try {
+            //
+            const response = await fetch('https://visuals.nullcore.net/SPT/data/profile_settings.json');
+            if (!response.ok) throw new Error('Failed to load settings');
+
+            const settings = await response.json();
+
+            // Does it exists?
+            if (settings[playerId]) {
+                const playerConfig = settings[playerId];
+
+                if (playerConfig) {
+                    player.profileAboutMe = playerConfig.profileAboutMe;
+                    player.usePrestigeStyling = playerConfig.usePrestigeStyling;
+                    player.profileTheme = playerConfig.profileTheme;
+                    player.bp_prestigebg = playerConfig.prestigeBackground;
+                    player.bp_cardbg = playerConfig.backgroundReward;
+                    player.bp_mainbg = playerConfig.mainBackgroundReward;
+                    player.bp_cat = playerConfig.catReward;
+                    player.bp_pfpstyle = playerConfig.pfpStyle;
+                    player.bp_pfpbordercolor = playerConfig.pfpBorder;
+                    player.bp_decal =  playerConfig.decal;
+                }
+
+                console.log('Settings done:', playerConfig);
+            } else {
+                console.log('No settings found');
+            }
+        } catch (error) {
+            console.error('Error loading settings:', error);
+        }
+    }
+
+    // await for it to end
+    await applyPlayerSettings(player.id);
 
     // Showing public profile
     showPublicProfile(modalContent, player);
@@ -307,7 +345,7 @@ function formatSeconds(seconds) {
 }
 
 // Public profile
-function showPublicProfile(container, player) {
+async function showPublicProfile(container, player) {
     const regDate = player.registrationDate
         ? new Date(player.registrationDate * 1000).toLocaleDateString('en-EN', {
             year: 'numeric',
@@ -315,15 +353,6 @@ function showPublicProfile(container, player) {
             day: 'numeric'
         })
         : 'Unknown';
-
-    // Profile Theme
-    const profileModal = document.querySelector('.profile-modal-content');
-    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
-    profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
-
-    // About me
-    const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
-
     // Generate badges
     const badgesHTML = generateBadgesHTML(player);
 
@@ -340,8 +369,16 @@ function showPublicProfile(container, player) {
     // Stattrack weapon
     const bestWeapon = getBestWeapon(player.id, player.modWeaponStats);
 
+    // Profile Theme
+    const profileModal = document.querySelector('.profile-modal-content');
+    profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
+    profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
+
+    // About me
+    const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
+
     container.innerHTML = `
-<div class="profile-grid-layout" id="profile-main-grid">
+<div class="profile-grid-layout profile-loading-overlay" id="profile-main-grid">
     <!-- Main -->
     <div class="profile-main-card" id="main-profile-card">
         <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
@@ -673,6 +710,14 @@ function showPublicProfile(container, player) {
         </div>
     </div>
 </div>
+
+    <div class="private-profile-overlay" id="profile-loader">
+        <div class="private-profile-content">
+          <div class="lock-icon"><img src="media/loading_bar.gif" width="30px" height="30px" style="position: relative; top: 5px;"></div>
+          <h3>Loading...</h3>
+        </div>
+      </div>
+    </div>
 `;
 
     // Init battlepass button once the profile has opened
@@ -683,6 +728,16 @@ function showPublicProfile(container, player) {
     const badgesBG = document.querySelector('.badges-container');
     badgesBG.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     badgesBG.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
+
+    closeLoader();
+}
+
+function closeLoader() {
+    const loader = document.getElementById('profile-loader');
+    const loaderblur = document.querySelector('.profile-grid-layout');
+
+    loaderblur.classList.remove('profile-loading-overlay');
+    loader.style.display = 'none';
 }
 
 function getBestWeapon(playerId, modWeaponStats) {
@@ -698,7 +753,7 @@ function getBestWeapon(playerId, modWeaponStats) {
     for (const [weaponName, weaponData] of Object.entries(playerWeapons)) {
         const kills = weaponData.stats?.kills || 0;
 
-        // Found best weapon by kills
+        // Found best weapon by kills and assign data
         if (kills > maxKills) {
             maxKills = kills;
             bestWeapon = {

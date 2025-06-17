@@ -1,0 +1,25 @@
+{
+    "684eb6720006294384c511ca": {
+        "profileTheme": "gradient",
+        "usePrestigeStyling": true,
+        "prestigeBackground": "killa",
+        "backgroundReward": "streets",
+        "mainBackgroundReward": "bear",
+        "catReward": true,
+        "pfpStyle": "wide",
+        "pfpBorder": "pink",
+        "decal": "cult-signs"
+    },
+    "684eb6840000e873016e737c": {
+        "profileAboutMe": "YES",
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "both",
+        "backgroundReward": "streets3",
+        "mainBackgroundReward": "usec",
+        "catReward": true,
+        "pfpStyle": "wide",
+        "pfpBorder": "red",
+        "decal": "cult-signs"
+    }
+}
