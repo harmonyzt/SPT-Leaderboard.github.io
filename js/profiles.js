@@ -63,7 +63,7 @@ async function openProfile(playerId) {
                 const playerConfig = settings[playerId];
 
                 if (playerConfig) {
-                    player.profileAboutMe = playerConfig.profileAboutMe;
+                    player.profileAboutMe = playerConfig.aboutMe;
                     player.usePrestigeStyling = playerConfig.usePrestigeStyling;
                     player.profileTheme = playerConfig.profileTheme;
                     player.bp_prestigebg = playerConfig.prestigeBackground;
@@ -72,7 +72,8 @@ async function openProfile(playerId) {
                     player.bp_cat = playerConfig.catReward;
                     player.bp_pfpstyle = playerConfig.pfpStyle;
                     player.bp_pfpbordercolor = playerConfig.pfpBorder;
-                    player.bp_decal =  playerConfig.decal;
+                    player.bp_decal = playerConfig.decal;
+                    player.profilePicture = playerConfig.pfp;
                 }
 
                 console.log('Settings done:', playerConfig);
