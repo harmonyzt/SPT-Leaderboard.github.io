@@ -609,6 +609,10 @@ function calculateRanks(data) {
         }
 
         player.totalScore = score;
+
+        if(player.isCasual){
+            player.totalScore = 0.15;
+        }
     });
 
     data.sort((a, b) => b.totalScore - a.totalScore);
