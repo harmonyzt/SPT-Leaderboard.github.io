@@ -608,11 +608,7 @@ function calculateRanks(data) {
             score *= 0.6; // -60% penalty
         }
 
-        if (player.isCasual) {
-            player.totalScore = 0.01;
-        } else {
-            player.totalScore = score;
-        }
+        player.totalScore = score;
     });
 
     data.sort((a, b) => b.totalScore - a.totalScore);
