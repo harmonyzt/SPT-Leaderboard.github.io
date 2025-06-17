@@ -674,7 +674,7 @@ function calculateOverallStats(data) {
 
     data.forEach(player => {
         const lastGame = formatLastPlayed(player.lastPlayed);
-        player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
+        player.isOnline = lastGame === `<span class="player-online">In game <div id="blink"></div></span>`;
 
         if (!player.disqualified && !player.isCasual) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
