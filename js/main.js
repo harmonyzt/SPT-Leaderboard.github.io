@@ -377,7 +377,7 @@ function displayLeaderboard(data) {
 
         // Format last played time
         const lastGame = formatLastPlayed(player.lastPlayed);
-        player.isOnline = lastGame === "In game <div id=\"blink\"></div>";
+        player.isOnline = lastGame === `<span class="player-online">In game <div id="blink"></div></span>`;
 
         // Add profile standing
         let badge = '';
