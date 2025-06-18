@@ -49,7 +49,7 @@ async function openProfile(playerId) {
         return;
     }
 
-    // Now that we've done that, get player profile settings if they exist
+    // Instantly try assigning info if it was changed (and then change it to actual on backend)
     async function applyPlayerSettings(playerId) {
         try {
             //
@@ -202,17 +202,16 @@ function showPrivateProfile(container, player) {
         </div>
       </div>
     </div>
-      
-      <div class="private-profile-overlay">
+
+        <div class="private-profile-overlay">
         <div class="private-profile-content">
-          <div class="lock-icon">🔒</div>
-          <h3>Private Profile</h3>
-          <p>This player has chosen to keep their stats hidden</p>
-          <div class="private-profile-hint">
-            <span>Stats behind are simulated</span>
-          </div>
+            <div class="lock-icon">🔒</div>
+            <h3>Profile is Private</h3>
+            <p>This player has chosen to keep their stats hidden</p>
+            <div class="private-profile-hint">
+                <span>Stats behind profile are simulated</span>
+            </div>
         </div>
-      </div>
     </div>
 
     `;
@@ -324,16 +323,21 @@ function showDisqualProfile(container, player) {
       </div>
     </div>
 
-      <div class="private-profile-overlay">
+    <div class="private-profile-overlay">
         <div class="private-profile-content">
-          <div class="lock-icon">👻</div>
-          <h3>Banned Profile</h3>
-          <p>This player was banned. Huzzah!</p>
-          <div class="private-profile-hint">
-            <span>Stats behind are simulated</span>
-          </div>
+            <img src="https://media1.tenor.com/m/N4XSv7AAXXMAAAAd/thanos-endgame.gif" class="ban-icon" alt="Banned">
+            <h3>Profile Banned</h3>
+            <p>This player has been suspended.</p>
+            <div class="ban-details">
+                <p><strong>Reason:</strong> ${player.banReason}</p>
+                <p><strong>${(player.tookAction === 'hrm' || player.tookAction === 'harmony' || player.tookAction === 'admin') ? `Admin:` : `Moderator:`}</strong> ${player.tookAction}</p>
+            </div>
+            <div class="private-profile-hint">
+                <span>Stats behind profile are simulated</span>
+            </div>
         </div>
-      </div>
+    </div>
+
     </div>
     `;
 }
@@ -713,11 +717,12 @@ async function showPublicProfile(container, player) {
 </div>
 
     <div class="private-profile-overlay" id="profile-loader">
-        <div class="private-profile-content">
-          <div class="lock-icon"><img src="media/loading_bar.gif" width="30px" height="30px" style="position: relative; top: 5px;"></div>
-          <h3>Loading...</h3>
+        <div class="loader-glass">
+            <div class="loader-content">
+            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
+            <h3>Loading...</h3>
+            </div>
         </div>
-      </div>
     </div>
 `;
 
@@ -730,15 +735,62 @@ async function showPublicProfile(container, player) {
     badgesBG.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     badgesBG.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
 
-    closeLoader();
+    closeLoaderAfterImagesLoad();
 }
 
+function closeLoaderAfterImagesLoad() {
+    const loaderBlur = document.querySelector('.profile-grid-layout');
+    const images = loaderBlur.querySelectorAll('img');
+    
+    // If not images
+    if (images.length === 0) {
+        closeLoader();
+        return;
+    }
+
+    let loadedCount = 0;
+    const totalImages = images.length;
+
+    const checkImageLoad = (img) => {
+        // If image is cached
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            img.addEventListener('load', () => {
+                loadedCount++;
+                checkAllLoaded();
+            });
+            img.addEventListener('error', () => {
+                loadedCount++;
+                checkAllLoaded();
+            });
+        }
+        checkAllLoaded();
+    };
+
+    const checkAllLoaded = () => {
+        if (loadedCount === totalImages) {
+            setTimeout(closeLoader, 300);
+        }
+    };
+
+    // Check all images
+    images.forEach(checkImageLoad);
+}
+
+// Модифицированная функция closeLoader
 function closeLoader() {
     const loader = document.getElementById('profile-loader');
-    const loaderblur = document.querySelector('.profile-grid-layout');
+    const loaderBlur = document.querySelector('.profile-grid-layout');
 
-    loaderblur.classList.remove('profile-loading-overlay');
-    loader.style.display = 'none';
+    // Плавное исчезновение
+    loader.classList.add('fade-out');
+    
+    // Через 300мс убираем размытие и скрываем лоадер
+    setTimeout(() => {
+        loaderBlur.classList.remove('profile-loading-overlay');
+        loader.style.display = 'none';
+    }, 300);
 }
 
 function getBestWeapon(playerId, modWeaponStats) {

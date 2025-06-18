@@ -1468,6 +1468,10 @@ button,
     justify-content: center;
 }
 
+.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
 .profile-modal-overlay {
     position: absolute;
     top: 0;
@@ -1680,31 +1684,83 @@ button,
     align-items: center;
     justify-content: center;
     z-index: 2;
+    backdrop-filter: blur(2px);
 }
 
 .private-profile-content {
-    background: rgb(30, 30, 45);
-    border: 1px solid rgb(255 255 255 / 10%);
-    border-radius: 10px;
+    background: rgb(25, 25, 40);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     padding: 30px;
-    max-width: 400px;
+    width: 350px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     animation: fadeIn 0.3s ease-out;
+}
+
+.private-profile-content h3 {
+    color: #ff6b6b;
+    margin: 15px 0;
 }
 
 .private-profile-content p {
     color: #b0b0c0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     line-height: 1.5;
+}
+
+.ban-details {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.ban-details p {
+    margin: 8px 0;
+}
+
+.ban-icon {
+    width: 200px;
+    height: 120px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.5));
 }
 
 .banned {
     filter: blur(5px);
 }
 
-.profile-loading-overlay {
-    filter: blur(5px);
+/* Profile loader container */
+.loader-glass {
+    background: rgba(255, 255, 255, 0.048);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loader-icon {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+}
+
+.loader-glass h3 {
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .lock-icon {
@@ -1714,21 +1770,19 @@ button,
 }
 
 .private-profile-hint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid rgb(255 255 255 / 10%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #888;
     font-size: 0.85em;
+    font-style: italic;
 }
 
 .hidden {
     display: none;
 }
 
+/* Player Profiles */
 .profile-grid-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
