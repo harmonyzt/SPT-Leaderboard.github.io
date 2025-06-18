@@ -3,7 +3,6 @@
 //    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
-
 document.addEventListener('DOMContentLoaded', function () {
     // ../fallbacks/shared/weapon_counters.json
     // https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error loading weapon data:', error);
         });
 
-    function processWeaponData(weaponData) {
+    async function processWeaponData(weaponData) {
         const weaponMap = new Map();
 
         // Get all maps and weapons info
@@ -148,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = '';
 
         allWeapons.forEach((weapon, index) => {
-            const card = document.createElement('div');
+        const card = document.createElement('div');
+        card.classList.add('weapon-card');
 
             const weaponTagsHTML = weapon.tags.map(tag =>
                 `<span class="weapon-tag weapon-tag--${tag.type}">${tag.text}</span>`
@@ -159,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
             ).join('');
 
             card.innerHTML = `
-        <div class="weapon-card animate__fadeIn">
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
                     ${weapon.name ? `<img src="../media/weapon_icons/${weapon.name}.webp" alt="${weapon.name}" class="weapon-icon">` : ''}
@@ -195,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="map-tags-container">
                 <div class="map-tags">${mapTagsHTML}</div>
             </div>
-        </div>
         `;
             container.appendChild(card);
         });
