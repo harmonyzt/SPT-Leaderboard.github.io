@@ -70,6 +70,18 @@ function showPlayerNotification(player) {
         let killStreak;
 
         switch (true) {
+            case player.lastRaidKills == 2:
+                streakNotificationKillText = `${player.name} JUST GOT OUT WITH DOUBLE KILL!`;
+                killStreak = new Audio('media/sounds/killstreak/2.wav');
+                killStreak.volume = 0.04;
+                killStreak.play();
+                break;
+            case player.lastRaidKills == 3:
+                streakNotificationKillText = `${player.name} IS ON TRIPLE KILL!`;
+                killStreak = new Audio('media/sounds/killstreak/3.wav');
+                killStreak.volume = 0.04;
+                killStreak.play();
+                break;
             case player.lastRaidKills >= 6 && player.lastRaidKills < 8:
                 streakNotificationKillText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/6.wav');
@@ -82,9 +94,15 @@ function showPlayerNotification(player) {
                 killStreak.volume = 0.04;
                 killStreak.play();
                 break;
-            case player.lastRaidKills >= 10 && player.lastRaidKills < 15:
+            case player.lastRaidKills >= 10 && player.lastRaidKills < 12:
                 streakNotificationKillText = `${player.name} IS A TARKOV DEMON!<br> ${player.lastRaidKills} KILLS!`;
                 killStreak = new Audio('media/sounds/killstreak/10.wav');
+                killStreak.volume = 0.04;
+                killStreak.play();
+                break;
+            case player.lastRaidKills == 12 && player.lastRaidKills < 15:
+                streakNotificationKillText = `${player.name} IS GODLIKE!<br> ${player.lastRaidKills} KILLS!`;
+                killStreak = new Audio('media/sounds/killstreak/12.wav');
                 killStreak.volume = 0.04;
                 killStreak.play();
                 break;
@@ -100,11 +118,11 @@ function showPlayerNotification(player) {
     // Sounds
     if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound && !player.banned) {
         const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
-        pmcRaid.volume = 0.07;
+        pmcRaid.volume = 0.05;
         pmcRaid.play();
     } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
         const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
-        pmcRaidDied.volume = 0.07;
+        pmcRaidDied.volume = 0.05;
         pmcRaidDied.play();
     }
 
