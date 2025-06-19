@@ -101,14 +101,5 @@ function formatLastSeen(timestamp) {
 // Initial load
 updateAdminsStatus();
 
-// Update every 20 seconds
-setInterval(updateAdminsStatus, 20000);
-
-// Add subtle animation when hovering the container
-const adminContainer = document.getElementById('admins-container');
-adminContainer.addEventListener('mouseenter', () => {
-    adminContainer.style.transform = 'translateY(-2px)';
-});
-adminContainer.addEventListener('mouseleave', () => {
-    adminContainer.style.transform = 'translateY(0)';
-});
+// Update every 60 seconds
+setInterval(updateAdminsStatus, 60000);
