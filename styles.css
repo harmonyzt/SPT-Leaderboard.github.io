@@ -3157,8 +3157,8 @@ button,
     top: 70px;
     left: 10px;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.048);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
     border-radius: 14px;
     padding: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -3288,6 +3288,22 @@ button,
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
     margin: 12px 0;
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #a78bfa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .error-message {
