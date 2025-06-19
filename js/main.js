@@ -383,19 +383,19 @@ function displayLeaderboard(data) {
         let badge = '';
         if (player?.suspicious == true && !player.isCasual) {
             badge = `<div class="badge-lb tooltip">
-            <em class='bx bxs-shield-x bx-flashing' style="color:rgb(255, 123, 100);"></em>
+            <em class='bx bxs-x-shield bx-flashing' style="color:rgb(255, 123, 100);"></em>
             <span class="tooltiptext">This player was marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
           </div>`;
         } else {
             badge = `<div class="badge-lb tooltip">
-            <em class='bx bxs-check-shield' style="color:rgb(100, 255, 165);"></em>
+            <em class='bx  bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
             <span class="tooltiptext">Profile in good standing</span>
           </div>`;
         }
 
         let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`
         if (player.publicProfile) {
-            profileOpenIcon = `Public <em class='bx bxs-lock-open' style="font-size: 23px"></em>`
+            profileOpenIcon = `Public`
         }
 
         // Account type handling
@@ -442,7 +442,7 @@ function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
-            <td>${profileOpenIcon} ${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')"><em class='bx bxs-share'></em></button>` : ``}</td>
+            <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
             <td>${badge}</td>
             <td>${player.pmcRaids}</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
