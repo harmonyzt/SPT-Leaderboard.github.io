@@ -3156,8 +3156,7 @@ button,
     position: fixed;
     top: 70px;
     left: 10px;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.082);
+    z-index: 10;
     backdrop-filter: blur(12px);
     border-radius: 14px;
     padding: 16px;
