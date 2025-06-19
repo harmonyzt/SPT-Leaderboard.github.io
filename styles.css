@@ -3297,7 +3297,7 @@ button,
     right: 0;
     bottom: 0;
     background: rgba(15, 23, 42, 0.61);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
     border-radius: 14px;
     display: flex;
     align-items: center;
