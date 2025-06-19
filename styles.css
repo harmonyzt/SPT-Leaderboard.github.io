@@ -3150,3 +3150,82 @@ button,
         top: 15px;
     }
 }
+
+/* Admins */
+#admins-container {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#admins-container h3 {
+    color: #fff;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-status {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.admin-status:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-status.online {
+    color: #4ade80;
+    border-left: 3px solid #4ade80;
+}
+
+.admin-status.offline {
+    color: #f87171;
+    border-left: 3px solid #f87171;
+}
+
+.admin-status .status-icon {
+    font-size: 12px;
+}
+
+.admin-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 8px 0;
+}
+
+.admin-status {
+    transition: all 0.3s ease;
+}
+
+.status-icon {
+    transition: transform 0.3s ease;
+}
+
+.admin-status.online .status-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

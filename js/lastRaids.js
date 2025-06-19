@@ -27,9 +27,9 @@ function initLastRaids(player, container) {
         statsContainer.style.display = 'none';
 
         // Move player profile to the right and last raids to left
+        // And also a close button (fuckass CSS)
         container.style.right = '200px';
         modal.style.left = '1200px';
-
         closeProfileBtn.style.right = '230px';
 
         fetchPlayerRaids();
@@ -105,19 +105,19 @@ function initLastRaids(player, container) {
 
                     <div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; color: #aaa;">Kills:</span>
+                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; ">PMC Kills:</span>
                             <span class="profile-stat-value" style="font-weight: bold;">${raid.raidKills ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; color: #aaa;">Damage:</span>
+                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Damage:</span>
                             <span class="profile-stat-value" style="font-weight: bold;">${raid.raidDamage ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; color: #aaa;">Player Hits:</span>
+                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Player Hits:</span>
                             <span class="profile-stat-value" style="font-weight: bold;">${raid.lastRaidHits ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; color: #aaa;">Loot EXP:</span>
+                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Loot EXP:</span>
                             <span class="profile-stat-value" style="font-weight: bold;">${raid.lastRaidEXP ?? 0}</span>
                         </div>
                     </div>
