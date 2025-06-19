@@ -10,19 +10,18 @@ async function updateAdminsStatus() {
         const users = await response.json();
         
         const container = document.getElementById('admins-container');
-        container.innerHTML = '<h3><i class="bx bx-shield-alt"></i> Admins</h3>';
+        container.innerHTML = '<h3><i class="bx bx-shield-alt"></i> Admins Online</h3>';
         
         const admins = users.filter(u => u.username === 'harmony');
         const moderators = users.filter(u => u.username !== 'harmony');
         
-        // display
+        // Display admins
         admins.forEach(user => {
             const isOnline = user.online || (Date.now()/1000 - user.last_seen < 300);
             const element = document.createElement('div');
             element.className = `admin-status ${isOnline ? 'online' : 'offline'}`;
             element.innerHTML = `
                 <span class="username">${user.username}</span>
-                <span class="status">${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
             `;
             container.appendChild(element);
         });
@@ -38,7 +37,6 @@ async function updateAdminsStatus() {
                 element.className = `admin-status ${isOnline ? 'online' : 'offline'}`;
                 element.innerHTML = `
                     <span class="username">${user.username}</span>
-                    <span class="status">${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
                 `;
                 container.appendChild(element);
             });
