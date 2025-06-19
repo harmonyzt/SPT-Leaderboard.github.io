@@ -14,7 +14,12 @@ async function updateAdminsStatus() {
 
     try {
         const response = await fetch('https://visuals.nullcore.net/SPT/admins_online.json');
-        const users = await response.json();
+        const usersObject = await response.json();
+        const users = Object.values(usersObject);
+
+        if (!users || users.length === 0) {
+            throw new Error('No users data');
+        }
 
         // Build HTML always clean
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
