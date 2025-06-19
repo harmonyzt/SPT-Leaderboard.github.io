@@ -14,7 +14,7 @@ async function updateAdminsStatus() {
 
     try {
         // Try adding random timestamp to prevent caching
-        const cacheBuster = forceUpdate ? `?force=${Date.now()}` : `?t=${Math.floor(Date.now() / 50000)}`;
+        const cacheBuster = `?force=${Date.now()}`;
         const response = await fetch(`https://visuals.nullcore.net/SPT/admins_online.json${cacheBuster}`, {
             headers: {
                 'Cache-Control': 'no-cache',
