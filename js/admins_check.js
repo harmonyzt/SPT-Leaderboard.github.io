@@ -13,28 +13,8 @@ async function updateAdminsStatus() {
     loadingOverlay.classList.add('active');
 
     try {
-        // Try adding random timestamp to prevent caching
-        const cacheBuster = `?force=${Date.now()}`;
-        const response = await fetch(`https://visuals.nullcore.net/SPT/admins_online.json${cacheBuster}`, {
-            headers: {
-                'Cache-Control': 'no-cache',
-                'Pragma': 'no-cache'
-            }
-        });
-
-        // Check if data has changed
+        const response = await fetch('https://visuals.nullcore.net/SPT/admins_online.json');
         const users = await response.json();
-        const currentDataHash = JSON.stringify(users);
-        const previousDataHash = contentWrapper.dataset.lastDataHash;
-
-        // If not, then don't update
-        if (currentDataHash === previousDataHash) {
-            loadingOverlay.classList.remove('active');
-            return;
-        }
-
-        // Save hash
-        contentWrapper.dataset.lastDataHash = currentDataHash;
 
         // Build HTML always clean
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
