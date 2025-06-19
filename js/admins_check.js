@@ -103,5 +103,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateAdminsStatus();
 });
 
-// Update every 60 seconds
-setInterval(updateAdminsStatus, 60000);
+// Update every 10 seconds
+setInterval(updateAdminsStatus, 10000);
