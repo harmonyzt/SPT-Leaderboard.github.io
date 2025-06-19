@@ -99,7 +99,7 @@ function formatLastSeen(timestamp) {
 }
 
 // Initial load
-updateAdminsStatus();
+document.addEventListener('DOMContentLoaded', updateAdminsStatus);
 
 // Update every 10 seconds
 setInterval(updateAdminsStatus, 10000);
