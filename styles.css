@@ -3157,76 +3157,158 @@ button,
     top: 70px;
     left: 10px;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.055);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    max-width: 300px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     user-select: none;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+#admins-container:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 #admins-container h3 {
     color: #fff;
-    margin: 0 0 12px 0;
+    margin: 0 0 14px 0;
     font-size: 16px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .admin-status {
-    padding: 8px 12px;
+    padding: 10px 14px;
     margin-bottom: 8px;
     border-radius: 8px;
     font-size: 14px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
+    justify-content: space-between;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .admin-status:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.admin-status::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    transition: all 0.3s ease;
 }
 
 .admin-status.online {
-    color: #4ade80;
-    border-left: 3px solid #4ade80;
+    color: #a5f3fc;
+}
+
+.admin-status.online::before {
+    background: linear-gradient(to bottom, #22d3ee, #0ea5e9);
 }
 
 .admin-status.offline {
-    color: #f87171;
-    border-left: 3px solid #f87171;
+    color: #94a3b8;
 }
 
-.admin-status .status-icon {
-    font-size: 12px;
+.admin-status.offline::before {
+    background: linear-gradient(to bottom, #64748b, #475569);
+}
+
+.admin-status .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.admin-status .username {
+    font-weight: 500;
+}
+
+.admin-status .role-badge {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.admin-status.admin .role-badge {
+    background: rgba(167, 139, 250, 0.15);
+    color: #a78bfa;
+}
+
+.admin-status.moderator .role-badge {
+    background: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+}
+
+.admin-status .status-info {
+    font-size: 11px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.admin-status .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.admin-status.online .status-dot {
+    background: #22d3ee;
+    box-shadow: 0 0 6px rgba(34, 211, 238, 0.5);
+}
+
+.admin-status.offline .status-dot {
+    background: #64748b;
 }
 
 .admin-divider {
     height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 8px 0;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 12px 0;
 }
 
-.admin-status {
-    transition: all 0.3s ease;
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #a78bfa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
 }
 
-.status-icon {
-    transition: transform 0.3s ease;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.admin-status.online .status-icon {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
+.error-message {
+    color: #f87171;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
 }
