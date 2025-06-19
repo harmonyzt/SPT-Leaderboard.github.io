@@ -13,10 +13,30 @@ async function updateAdminsStatus() {
     loadingOverlay.classList.add('active');
 
     try {
-        const response = await fetch('https://visuals.nullcore.net/SPT/admins_online.json');
-        const users = await response.json();
+        // Try adding random timestamp to prevent caching
+        const cacheBuster = forceUpdate ? `?force=${Date.now()}` : `?t=${Math.floor(Date.now() / 50000)}`;
+        const response = await fetch(`https://visuals.nullcore.net/SPT/admins_online.json${cacheBuster}`, {
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
+        });
 
-        // Build new content
+        // Check if data has changed
+        const users = await response.json();
+        const currentDataHash = JSON.stringify(users);
+        const previousDataHash = contentWrapper.dataset.lastDataHash;
+
+        // If not, then don't update
+        if (currentDataHash === previousDataHash) {
+            loadingOverlay.classList.remove('active');
+            return;
+        }
+
+        // Save hash
+        contentWrapper.dataset.lastDataHash = currentDataHash;
+
+        // Build HTML always clean
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
 
         // Separate admins and moderators
@@ -102,5 +122,5 @@ function formatLastSeen(timestamp) {
 // Initial load
 document.addEventListener('DOMContentLoaded', updateAdminsStatus);
 
-// Update every 10 seconds
+// Update every 50 seconds
 setInterval(updateAdminsStatus, 50000);

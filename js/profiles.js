@@ -74,6 +74,7 @@ async function openProfile(playerId) {
                     player.bp_pfpbordercolor = playerConfig.pfpBorder;
                     player.bp_decal = playerConfig.decal;
                     player.profilePicture = playerConfig.pfp;
+                    player.discordUser = playerConfig.discordUser ? playerConfig.discordUser : '';
                 }
 
                 console.log('Settings done:', playerConfig);
@@ -741,8 +742,8 @@ async function showPublicProfile(container, player) {
 function closeLoaderAfterImagesLoad() {
     const loaderBlur = document.querySelector('.profile-grid-layout');
     const images = loaderBlur.querySelectorAll('img');
-    
-    // If not images
+
+    // If no images, close loader (there should always be)
     if (images.length === 0) {
         closeLoader();
         return;
@@ -785,7 +786,7 @@ function closeLoader() {
 
     // Плавное исчезновение
     loader.classList.add('fade-out');
-    
+
     // Через 300мс убираем размытие и скрываем лоадер
     setTimeout(() => {
         loaderBlur.classList.remove('profile-loading-overlay');
