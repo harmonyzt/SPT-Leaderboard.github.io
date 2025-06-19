@@ -3203,7 +3203,6 @@ button,
 
 .admin-status:hover {
     background: rgba(255, 255, 255, 0.08);
-    transform: translateX(4px);
 }
 
 .admin-status::before {
