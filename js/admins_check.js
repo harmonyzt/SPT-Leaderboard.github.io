@@ -99,7 +99,9 @@ function formatLastSeen(timestamp) {
 }
 
 // Initial load
-updateAdminsStatus();
+document.addEventListener('DOMContentLoaded', () => {
+    updateAdminsStatus();
+});
 
 // Update every 60 seconds
 setInterval(updateAdminsStatus, 60000);
