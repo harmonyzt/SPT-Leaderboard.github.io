@@ -65,7 +65,7 @@ function showPlayerNotification(player) {
     }
 
     // Killstreak
-    if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound && !player.banned) {
+    if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 1 && allowToPlayLastRaidSound && !player.banned) {
         allowToPlayLastRaidSound = false;
         let killStreak;
         let soundFile;
