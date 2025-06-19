@@ -68,50 +68,49 @@ function showPlayerNotification(player) {
     if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 5 && allowToPlayLastRaidSound && !player.banned) {
         allowToPlayLastRaidSound = false;
         let killStreak;
+        let soundFile;
+        let notificationText;
+
+        const kills = player.lastRaidKills;
 
         switch (true) {
-            case player.lastRaidKills == 2:
-                streakNotificationKillText = `${player.name} JUST GOT OUT WITH DOUBLE KILL!`;
-                killStreak = new Audio('media/sounds/killstreak/2.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills === 2:
+                notificationText = `${player.name} JUST GOT OUT WITH DOUBLE KILL!`;
+                soundFile = '2.wav';
                 break;
-            case player.lastRaidKills == 3:
-                streakNotificationKillText = `${player.name} IS ON TRIPLE KILL!`;
-                killStreak = new Audio('media/sounds/killstreak/3.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills === 3:
+                notificationText = `${player.name} IS ON TRIPLE KILL!`;
+                soundFile = '3.wav';
                 break;
-            case player.lastRaidKills >= 6 && player.lastRaidKills < 8:
-                streakNotificationKillText = `${player.name} IS WHICKED WITH ${player.lastRaidKills} KILLS!`;
-                killStreak = new Audio('media/sounds/killstreak/6.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills >= 6 && kills < 8:
+                notificationText = `${player.name} IS WICKED WITH ${kills} KILLS!`;
+                soundFile = '6.wav';
                 break;
-            case player.lastRaidKills >= 8 && player.lastRaidKills < 10:
-                streakNotificationKillText = `${player.name} IS UNSTOPPABLE!<br> ${player.lastRaidKills} KILLS!`;
-                killStreak = new Audio('media/sounds/killstreak/8.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills >= 8 && kills < 10:
+                notificationText = `${player.name} IS UNSTOPPABLE!<br>${kills} KILLS!`;
+                soundFile = '8.wav';
                 break;
-            case player.lastRaidKills >= 10 && player.lastRaidKills < 12:
-                streakNotificationKillText = `${player.name} IS A TARKOV DEMON!<br> ${player.lastRaidKills} KILLS!`;
-                killStreak = new Audio('media/sounds/killstreak/10.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills >= 10 && kills < 12:
+                notificationText = `${player.name} IS A TARKOV DEMON!<br>${kills} KILLS!`;
+                soundFile = '10.wav';
                 break;
-            case player.lastRaidKills == 12 && player.lastRaidKills < 15:
-                streakNotificationKillText = `${player.name} IS GODLIKE!<br> ${player.lastRaidKills} KILLS!`;
-                killStreak = new Audio('media/sounds/killstreak/12.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills >= 12 && kills < 15:
+                notificationText = `${player.name} IS GODLIKE!<br>${kills} KILLS!`;
+                soundFile = '12.wav';
                 break;
-            case player.lastRaidKills >= 15:
-                streakNotificationKillText = `SOMEONE STOP THIS MACHINE!<br> ${player.lastRaidKills} KILLS IN ONE RAID!`;
-                killStreak = new Audio('media/sounds/killstreak/15.wav');
-                killStreak.volume = 0.04;
-                killStreak.play();
+            case kills >= 15:
+                notificationText = `SOMEONE STOP THIS MACHINE!<br>${kills} KILLS IN ONE RAID!`;
+                soundFile = '15.wav';
                 break;
+            default:
+                return;
+        }
+
+        streakNotificationKillText = notificationText;
+        if (soundFile) {
+            killStreak = new Audio(`media/sounds/killstreak/${soundFile}`);
+            killStreak.volume = 0.04;
+            killStreak.play().catch(e => console.error('Audio play failed:', e));
         }
     }
 
