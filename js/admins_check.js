@@ -27,6 +27,9 @@ async function updateAdminsStatus() {
         // Display admins
         if (admins.length > 0) {
             admins.forEach(user => {
+                if (user.username === null)
+                    return;
+
                 const isOnline = user.online || (Date.now() / 1000 - user.last_seen < 300);
                 html += `
                     <div class="admin-status admin ${isOnline ? 'online' : 'offline'}">
