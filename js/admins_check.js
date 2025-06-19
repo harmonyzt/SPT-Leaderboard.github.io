@@ -10,7 +10,7 @@ async function updateAdminsStatus() {
         const users = await response.json();
         
         const container = document.getElementById('admins-container');
-        container.innerHTML = '<h3><i class="bx bx-shield-alt"></i> Team</h3>';
+        container.innerHTML = '<h3><i class="bx bx-shield-alt"></i> Admins</h3>';
         
         const admins = users.filter(u => u.username === 'harmony');
         const moderators = users.filter(u => u.username !== 'harmony');
