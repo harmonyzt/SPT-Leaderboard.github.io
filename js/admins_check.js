@@ -102,5 +102,5 @@ function formatLastSeen(timestamp) {
 // Initial load
 document.addEventListener('DOMContentLoaded', updateAdminsStatus);
 
-// Update every 50 seconds
-setInterval(updateAdminsStatus, 50000);
+// Update every 60 seconds
+setInterval(updateAdminsStatus, 60000);
