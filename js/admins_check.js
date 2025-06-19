@@ -20,8 +20,9 @@ async function updateAdminsStatus() {
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
 
         // Separate admins and moderators
-        const admins = users.filter(u => u.username === 'harmony' || u.username === 'LeKita');
-        const moderators = users.filter(u => u.username !== 'harmony' || u.username !== 'LeKita');
+        const adminUsernames = ['harmony', 'LeKita'];
+        const admins = users.filter(u => adminUsernames.includes(u.username));
+        const moderators = users.filter(u => !adminUsernames.includes(u.username));
 
         // Display admins
         if (admins.length > 0) {
