@@ -6,19 +6,18 @@
 
 async function updateAdminsStatus() {
     const container = document.getElementById('admins-container');
+    const contentWrapper = container.querySelector('.content-wrapper');
+    const loadingOverlay = container.querySelector('.loading-overlay');
+
+    // Show loading overlay with smooth transition
+    loadingOverlay.classList.add('active');
 
     try {
-        // Show loading state
-        container.innerHTML = `
-            <h3><i class="bx bx-shield-alt"></i> Staff Online</h3>
-            <div class="loading-spinner"></div>
-        `;
-
         const response = await fetch('https://visuals.nullcore.net/SPT/admins_online.json');
         const users = await response.json();
 
-        // Clear container
-        container.innerHTML = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
+        // Build new content
+        let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
 
         // Separate admins and moderators
         const admins = users.filter(u => u.username === 'harmony');
@@ -28,57 +27,58 @@ async function updateAdminsStatus() {
         if (admins.length > 0) {
             admins.forEach(user => {
                 const isOnline = user.online || (Date.now() / 1000 - user.last_seen < 300);
-                const element = document.createElement('div');
-                element.className = `admin-status admin ${isOnline ? 'online' : 'offline'}`;
-                element.innerHTML = `
-                    <div class="user-info">
-                        <span class="username">${user.username}</span>
-                        <span class="role-badge">ADMIN</span>
-                    </div>
-                    <div class="status-info">
-                        <span class="status-dot"></span>
-                        <span>${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
+                html += `
+                    <div class="admin-status admin ${isOnline ? 'online' : 'offline'}">
+                        <div class="user-info">
+                            <span class="username">${user.username}</span>
+                            <span class="role-badge">ADMIN</span>
+                        </div>
+                        <div class="status-info">
+                            <span class="status-dot"></span>
+                            <span>${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
+                        </div>
                     </div>
                 `;
-                container.appendChild(element);
             });
         } else {
-            const noAdmins = document.createElement('div');
-            noAdmins.className = 'admin-status offline';
-            noAdmins.innerHTML = '<span>No admins online</span>';
-            container.appendChild(noAdmins);
+            html += '<div class="admin-status offline"><span>No admins online</span></div>';
         }
 
         // Display moderators if they exist
         if (moderators.length > 0) {
-            const divider = document.createElement('div');
-            divider.className = 'admin-divider';
-            container.appendChild(divider);
+            html += '<div class="admin-divider"></div>';
 
             moderators.forEach(user => {
                 const isOnline = user.online || (Date.now() / 1000 - user.last_seen < 300);
-                const element = document.createElement('div');
-                element.className = `admin-status moderator ${isOnline ? 'online' : 'offline'}`;
-                element.innerHTML = `
-                    <div class="user-info">
-                        <span class="username">${user.username}</span>
-                        <span class="role-badge">MOD</span>
-                    </div>
-                    <div class="status-info">
-                        <span class="status-dot"></span>
-                        <span>${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
+                html += `
+                    <div class="admin-status moderator ${isOnline ? 'online' : 'offline'}">
+                        <div class="user-info">
+                            <span class="username">${user.username}</span>
+                            <span class="role-badge">MOD</span>
+                        </div>
+                        <div class="status-info">
+                            <span class="status-dot"></span>
+                            <span>${isOnline ? 'Online' : formatLastSeen(user.last_seen)}</span>
+                        </div>
                     </div>
                 `;
-                container.appendChild(element);
             });
         }
 
+        // Update content
+        contentWrapper.innerHTML = html;
+
     } catch (error) {
         console.error('Error:', error);
-        container.innerHTML = `
+        contentWrapper.innerHTML = `
             <h3><i class="bx bx-shield-alt"></i> Staff Online</h3>
             <div class="error-message">Failed to load staff status</div>
         `;
+    } finally {
+        // Hide loading overlay
+        setTimeout(() => {
+            loadingOverlay.classList.remove('active');
+        }, 300);
     }
 }
 
@@ -99,9 +99,7 @@ function formatLastSeen(timestamp) {
 }
 
 // Initial load
-document.addEventListener('DOMContentLoaded', () => {
-    updateAdminsStatus();
-});
+updateAdminsStatus();
 
 // Update every 10 seconds
 setInterval(updateAdminsStatus, 10000);

@@ -3167,6 +3167,7 @@ button,
     user-select: none;
     transform: translateY(0);
     transition: all 0.3s ease;
+    min-height: 60px;
 }
 
 #admins-container:hover {
@@ -3289,14 +3290,36 @@ button,
     margin: 12px 0;
 }
 
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
 .loading-spinner {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 3px solid rgba(255, 255, 255, 0.1);
     border-top-color: #a78bfa;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin: 10px auto;
 }
 
 @keyframes spin {
