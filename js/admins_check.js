@@ -22,7 +22,7 @@ async function updateAdminsStatus() {
         }
 
         // Build HTML always clean
-        let html = '<h3><i class="bx bx-shield-alt"></i> Staff Online</h3>';
+        let html = '<h3><i class="bx bx-shield-alt"></i> Staff</h3>';
 
         // Separate admins and moderators
         const adminUsernames = ['harmony', 'LeKita'];
