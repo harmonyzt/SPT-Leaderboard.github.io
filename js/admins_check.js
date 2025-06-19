@@ -21,7 +21,7 @@ async function updateAdminsStatus() {
 
         // Separate admins and moderators
         const admins = users.filter(u => u.username === 'harmony' || u.username === 'LeKita');
-        const moderators = users.filter(u => u.username !== 'harmony');
+        const moderators = users.filter(u => u.username !== 'harmony' || u.username !== 'LeKita');
 
         // Display admins
         if (admins.length > 0) {
