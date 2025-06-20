@@ -25,14 +25,14 @@ async function updateAdminsStatus() {
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff</h3>';
 
         // Separate admins and moderators
-        const adminUsernames = ['harmony', 'LeKita'];
+        const adminUsernames = ['harmony', 'LeKita', 'YukkiPookie'];
         const admins = users.filter(u => adminUsernames.includes(u.username));
         const moderators = users.filter(u => !adminUsernames.includes(u.username));
 
         // Display admins
         if (admins.length > 0) {
             admins.forEach(user => {
-                if (user.username === null)
+                if (!user.username)
                     return;
 
                 const isOnline = (Date.now() / 1000 - user.last_seen < 600);

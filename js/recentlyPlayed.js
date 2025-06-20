@@ -65,21 +65,20 @@ function showPlayerNotification(player) {
     }
 
     // Killstreak
+    const kills = player.lastRaidKills;
     if (!isOnRaidStreak && player.lastRaidSurvived && player.lastRaidKills > 1 && allowToPlayLastRaidSound && !player.banned) {
         allowToPlayLastRaidSound = false;
         let killStreak;
         let soundFile;
         let notificationText;
 
-        const kills = player.lastRaidKills;
-
         switch (true) {
             case kills === 2:
-                notificationText = `${player.name} JUST GOT OUT WITH DOUBLE KILL!`;
+                notificationText = `${player.name} just made double kill!`;
                 soundFile = '2.wav';
                 break;
             case kills === 3:
-                notificationText = `${player.name} IS ON TRIPLE KILL!`;
+                notificationText = `${player.name} is on triple kill!`;
                 soundFile = '3.wav';
                 break;
             case kills >= 6 && kills < 8:
@@ -177,12 +176,15 @@ function showPlayerNotification(player) {
                 <span class="raid-meta-notify">
                     ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'}
                 </span>
-
-                ${streakNotificationKillText ? `
-                <span class="notification-last-raid-streak">
-                    ${streakNotificationKillText}
-                </span>
-                ` : ''}
+                ${kills > 3 ? `
+                    <span class="notification-last-raid-streak">
+                        ${streakNotificationKillText}
+                    </span>
+                    ` : `
+                    <span class="notification-last-raid-streak-common">
+                        ${streakNotificationKillText}
+                    </span>
+                    `}
             </div>
             `: ''}
         </div>
