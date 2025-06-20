@@ -25,7 +25,13 @@ async function updateServerStatus() {
     statusElement.className = 'live-data-label server-status';
     statusElement.removeAttribute('data-tooltip');
 
-    if (status.underWork) {
+    if(status.outage){
+        statusElement.textContent = 'API Recent Outage';
+        statusElement.classList.add('server-maintenance');
+        if (status.workText) {
+            statusElement.setAttribute('data-tooltip', status.workText);
+        }
+    } else if (status.underWork) {
         statusElement.textContent = 'API Maintenance';
         statusElement.classList.add('server-maintenance');
         if (status.workText) {
