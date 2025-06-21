@@ -6,7 +6,7 @@
 
 async function getServerStatus() {
     try {
-        const response = await fetch('https://visuals.nullcore.net/SPT/api/online.json');
+        const response = await fetch(`https://visuals.nullcore.net/SPT/api/online.json?t=${Date.now()}`);
         if (!response.ok) throw new Error('API is not responding');
         return await response.json();
     } catch (error) {
@@ -26,7 +26,7 @@ async function updateServerStatus() {
     statusElement.removeAttribute('data-tooltip');
 
     if(status.outage){
-        statusElement.textContent = 'API Recent Outage';
+        statusElement.textContent = 'API Degradation';
         statusElement.classList.add('server-maintenance');
         if (status.workText) {
             statusElement.setAttribute('data-tooltip', status.workText);
