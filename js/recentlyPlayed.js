@@ -126,12 +126,13 @@ function showPlayerNotification(player) {
 
     allowToPlayLastRaidSound = true;
 
+    // Create notification element
     const notification = document.createElement('div');
+
+    // Set backgrounds based on the game/ban
     if (player.banned) {
         notification.className = `player-notification-r died-bg border-died`;
-    }
-
-    if (player.publicProfile && !player.banned) {
+    } else if (player.publicProfile && !player.banned) {
         notification.className = `player-notification-r ${player.discFromRaid ? 'disconnected-bg border-died' : player.isTransition ? 'transit-bg' : player.lastRaidSurvived ? 'survived-bg border-survived' : 'died-bg border-died'}`;
     } else if (!player.publicProfile && !player.banned) {
         notification.className = `player-notification-r player-notification-private-background`;
@@ -241,6 +242,7 @@ function createNotificationsContainer() {
 function checkRecentPlayers(leaderboardData) {
     const currentTime = Math.floor(Date.now() / 1000);
     const fiveMinutesAgo = currentTime - 1200;
+    const twoHoursAgo = currentTime - 7200;
 
     console.debug(`[CHECK] Checking for recent players... Time now: ${currentTime}`);
 
@@ -250,7 +252,7 @@ function checkRecentPlayers(leaderboardData) {
             return;
         }
 
-        if (player.absoluteLastTime > fiveMinutesAgo || player.banTime > fiveMinutesAgo && player.banned) {
+        if (player.absoluteLastTime > fiveMinutesAgo || player.banTime > twoHoursAgo && player.banned) {
             console.debug(`[CHECK] Player ${player.name} finished raid at ${player.absoluteLastTime}, showing notification.`);
             showPlayerNotification(player);
         }
@@ -276,7 +278,7 @@ function createBanNotification(player) {
     notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-header-r">
-                <img src="${player.profilePicture || 'media/default_avatar.png'}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
+                <img src="media/default_avatar.png" alt="${player.name}'s avatar" class="notification-avatar-r">
                 <div class="notification-text">
                     <span class="notification-name-r">
                         ${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
@@ -285,7 +287,7 @@ function createBanNotification(player) {
             </div>
             <div class="raid-overview-notify">
                 <span class="notification-ban">
-                    Was permanently banned from Leaderboard.
+                    Was ${player.permBanned? `permanently` : ``} banned from Leaderboard.
                 </span>
                 <span class="ban-text">
                     Banned at: ${player.banTime}<br>
