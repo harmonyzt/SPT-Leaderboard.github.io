@@ -13,7 +13,7 @@ async function updateAdminsStatus() {
     loadingOverlay.classList.add('active');
 
     try {
-        const response = await fetch('https://visuals.nullcore.net/SPT/admins_online.json');
+        const response = await fetch(`https://visuals.nullcore.net/SPT/admins_online.json?t=${Date.now()}`);
         const usersObject = await response.json();
         const users = Object.values(usersObject);
 
