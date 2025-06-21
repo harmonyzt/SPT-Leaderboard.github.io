@@ -7,7 +7,6 @@
 function initLastRaids(player, container) {
     const closeBtn = document.getElementById('close-raids-stats');
     const modal = document.getElementById('raids-stats-modal');
-    const loadingSpinner = document.getElementById('loading-spinner');
     const statsContainer = document.getElementById('raids-stats-container');
     const showBtn = document.getElementById('show-raids-stats');
 
@@ -23,8 +22,14 @@ function initLastRaids(player, container) {
 
     showBtn.addEventListener('click', function () {
         modal.style.display = 'block';
-        loadingSpinner.style.display = 'flex';
-        statsContainer.style.display = 'none';
+        statsContainer.style.display = 'block';
+
+        // Show loader if user clicked show raids again
+        const loader = document.getElementById('lastraids-loader');
+        const loaderBlur = document.querySelector('.raids-modal-content');
+        loader.classList.remove('fade-out');
+        loaderBlur.classList.add('profile-loading-overlay');
+        loader.style.display = 'flex';
 
         // Move player profile to the right and last raids to left
         // And also a close button (fuckass CSS)
@@ -50,11 +55,9 @@ function initLastRaids(player, container) {
     });
 
     function fetchPlayerRaids() {
-        // /fallbacks/shared/player_raids.json
-        fetch(`https://visuals.nullcore.net/SPT/data/shared/player_raids.json`)
+        fetch(`${lastRaidsPath}`)
             .then(response => response.json())
             .then(data => {
-                loadingSpinner.style.display = 'none';
                 statsContainer.style.display = 'block';
 
                 if (data.raids && data.raids[player.id]) {
@@ -68,7 +71,6 @@ function initLastRaids(player, container) {
             })
             .catch(error => {
                 console.error('Error fetching raid data:', error);
-                loadingSpinner.style.display = 'none';
                 statsContainer.innerHTML = '<p style="color: #ff4444;">Error loading raid data :(</p>';
                 statsContainer.style.display = 'block';
             });
@@ -126,5 +128,22 @@ function initLastRaids(player, container) {
         });
 
         statsContainer.innerHTML = html;
+
+        setTimeout(closeLastRaidLoader, 100);
     }
+
+    function closeLastRaidLoader() {
+        const loader = document.getElementById('lastraids-loader');
+        const loaderBlur = document.querySelector('.raids-modal-content');
+
+        // Add fade to the blur before removing
+        loader.classList.add('fade-out');
+
+        // Remove blur complely
+        setTimeout(() => {
+            loaderBlur.classList.remove('profile-loading-overlay');
+            loader.style.display = 'none';
+        }, 300);
+    }
+
 }

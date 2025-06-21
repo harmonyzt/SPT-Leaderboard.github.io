@@ -3,10 +3,9 @@
 //    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
+
 document.addEventListener('DOMContentLoaded', function () {
-    // ../fallbacks/shared/weapon_counters.json
-    // https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json
-    fetch('https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json')
+    fetch(`${weaponStatsPath}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok >:(');

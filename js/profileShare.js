@@ -5,7 +5,7 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
 function copyProfile(playerId) {
-    const profileUrl = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=${encodeURIComponent(playerId)}`;
+    const profileUrl = `${profileUrlPath}${encodeURIComponent(playerId)}`;
 
     navigator.clipboard.writeText(profileUrl)
         .then(() => {
@@ -47,12 +47,11 @@ function checkUrlHash() {
     if (match && match[1]) {
         const playerId = match[1];
 
-        // If data is ready just open profile
+        // If season data is ready just open profile
         if (isDataReady) {
             openProfile(playerId);
-        }
-        // Waiting for data to be ready to open profile
-        else {
+        } else {
+            // Waiting for data to be ready to open profile
             waitForDataReady(() => openProfile(playerId));
         }
     }
@@ -60,7 +59,7 @@ function checkUrlHash() {
 
 function waitForDataReady(callback, timeout = 10000) {
     const startTime = Date.now();
-    const checkInterval = 100;
+    const checkInterval = 300;
 
     const intervalId = setInterval(() => {
         if (isDataReady) {

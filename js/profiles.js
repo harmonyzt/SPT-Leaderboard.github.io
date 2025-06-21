@@ -53,7 +53,7 @@ async function openProfile(playerId) {
     async function applyPlayerSettings(playerId) {
         try {
             //
-            const response = await fetch('https://visuals.nullcore.net/SPT/data/profile_settings.json');
+            const response = await fetch(`${profileSettingsPath}`);
             if (!response.ok) throw new Error('Failed to load settings');
 
             const settings = await response.json();
@@ -359,9 +359,11 @@ async function showPublicProfile(container, player) {
             day: 'numeric'
         })
         : 'Unknown';
+        
     // Generate badges
     const badgesHTML = generateBadgesHTML(player);
 
+    // Format UNIX timestamps
     const lastRaidDuration = formatSeconds(player.lastRaidTimeSeconds);
     const lastRaidAgo = formatLastPlayedRaid(player.lastPlayed);
     const lastAchivementAgo = formatLastPlayedRaid(player.latestAchievementTimestamp);
@@ -702,20 +704,27 @@ async function showPublicProfile(container, player) {
     </div>
 </div>
 
-<div>
-    <div class="raids-modal-content" id="raids-stats-modal">
-        <div class="modal-header" style="padding: 15px; border-bottom: 1px solid #444; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0;">Raid History</h3>
-            <button id="close-raids-stats" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">&times;</button>
-        </div>
-        <div class="raids-modal-body">
-            <div id="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                <img src="media/loading_bar.gif" alt="Loading..." style="width: 30px; height: 30px;">
+    <div>
+        <div class="raids-modal-content profile-loading-overlay" id="raids-stats-modal">
+            <div class="modal-header" style="padding: 15px; border-bottom: 1px solid #ffffff1a; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0;">Raid History</h3>
+                <button id="close-raids-stats" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">&times;</button>
             </div>
-            <div id="raids-stats-container" style="display: none;"></div>
+
+            <div class="raids-modal-body">
+                <div class="private-profile-overlay" id="lastraids-loader">
+                    <div class="loader-glass">
+                        <div class="loader-content">
+                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                            <h3>Loading...</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="raids-stats-container" style="display: none;"></div>
+
+            </div>
         </div>
     </div>
-</div>
 
     <div class="private-profile-overlay" id="profile-loader">
         <div class="loader-glass">
@@ -779,15 +788,15 @@ function closeLoaderAfterImagesLoad() {
     images.forEach(checkImageLoad);
 }
 
-// Модифицированная функция closeLoader
+// closeLoader
 function closeLoader() {
     const loader = document.getElementById('profile-loader');
     const loaderBlur = document.querySelector('.profile-grid-layout');
 
-    // Плавное исчезновение
+    // Add fade to the blur before removing
     loader.classList.add('fade-out');
 
-    // Через 300мс убираем размытие и скрываем лоадер
+    // Remove blur complely
     setTimeout(() => {
         loaderBlur.classList.remove('profile-loading-overlay');
         loader.style.display = 'none';

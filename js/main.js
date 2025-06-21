@@ -4,15 +4,15 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-// When data loaded
-document.addEventListener('DOMContentLoaded', detectSeasons);
-
 let leaderboardData = []; // For keeping current season data
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
+
+// For debugging purposes
+let debug = 0;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -26,10 +26,25 @@ let oldTotalPlayers = 0;
 let oldOnlinePlayers = 0;
 let oldTotalPlayTime = 0;
 
-// https://visuals.nullcore.net/SPT/data/seasons/season
-// fallbacks/season [DEBUG]
+// Paths
 let seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
-const seasonPathEnd = ".json";
+let seasonPathEnd = `.json?t=${Date.now()}`;
+let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids.json?t=${Date.now()}`;
+let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
+let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
+let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
+
+// Paths for local files if debug is on
+if (debug) {
+    seasonPath = "fallbacks/season";
+    lastRaidsPath = `fallbacks/shared/player_raids.json?t=${Date.now()}`;
+    profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
+    weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
+    profileUrlPath = `127.0.0.1:5500/#id=`;
+}
+
+// Call on DOM load
+document.addEventListener('DOMContentLoaded', detectSeasons);
 
 /**
  * Checks if a season with the given number exists on the server
@@ -230,7 +245,7 @@ async function loadSeasonData(season) {
             checkRecentPlayers(leaderboardData);
         }
     } finally {
-        
+
     }
 }
 
@@ -610,7 +625,7 @@ function calculateRanks(data) {
 
         player.totalScore = score;
 
-        if(player.isCasual){
+        if (player.isCasual) {
             player.totalScore = 0.15;
         }
     });
