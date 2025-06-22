@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../detailedreport/report.css">
+        <link rel="stylesheet" type="text/css" href="../gunmeta/weaponmeta.css">
+        <link rel="icon" href="../media/TP.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+        <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../detailedreport/js/report.js"></script>
+        <script src="../js/serverStatus.js"></script>
+        <title>SPT Leaderboard - Full Stats</title>
+    </head>
+
+    <body>
+        <nav class="navbar animate__animated animate__fadeIn">
+            <a href="#">
+                <img src="../media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
+            </a>
+            <div class="navbar-links-container">
+                <a href="../" class="navbar-link">Go back</a>
+            </div>
+        </nav>
+        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Data Report</h1>
+        <div class="top-stats-bar">
+            <div class="live-data-label" id="serverStatus">Getting API Status...</div>
+        </div>
+        <div class="tab-content active" id="general">
+            <div class="container">
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-community'  ></i> Players
+                    </h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Raids Recorded</span>
+                            <span class="stat-value" id="total-raids-recorded">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Players</span>
+                            <span class="stat-value" id="total-players">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Raid Time Recorded</span>
+                            <span class="stat-value" id="total-play-time">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Average PMC Level</span>
+                            <span class="stat-value" id="avg-level">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Trusted</span>
+                            <span class="stat-value" id="trusted-players">0</span>
+                            <span class="stat-diff" id="trusted-percent">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Has Kappa</span>
+                            <span class="stat-value" id="kappa-players">0</span>
+                            <span class="stat-diff" id="kappa-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-group'  ></i> PMC/SCAV Raid Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="pmcScavChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-bar-chart-big'  ></i> Survival Rate Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="survivalRateChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-sword-alt'  ></i> K/D Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="kdRatioChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-user-id-card'  ></i> Account Types
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="accountTypesChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-user-square'  ></i> PMC Sides
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="pmcSidesChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-blur'  ></i> PMC Level Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="levelsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-medal-star'  ></i> Prestige Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="prestigeChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-leaf'  ></i> Average Lifetime Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="lifetimeChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-bullseye'  ></i> Longest Shots Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="longestShotsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content" id="maps">
+            <div class="container">
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-location-alt-2'  ></i> Map Popularity
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="mapsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-street-view'  ></i> Map Raid Distribution
+                    </h2>
+                    <div class="map-stats" id="map-stats">
+                        <!-- Maps -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="modern-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                <div class="logo-slogan">
+                    <img src="../media/newlogo_transparent.png" class="footer-logo">
+                    <p class="slogan">Community driven project. With dedication and love.</p>
+                </div>
+                <div class="license-info">
+                    <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
+                    <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+                </div>
+                </div>
+                
+                <div class="footer-links">
+                <ul>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
+                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://hub.sp-tarkov.com/files/file/2787-spt-leaderboard/" target="_blank" rel="noopener">SPTarkov Mod</a></li>
+                </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>
