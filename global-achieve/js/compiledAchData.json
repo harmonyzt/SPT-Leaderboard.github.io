@@ -6,12 +6,6 @@
             "description": "Search the office in Factory while playing as a PMC",
             "name": "That's What She Said"
         },
-        "660fe21454670811e304c045": {
-            "imageUrl": "/files/achievement/Maslenitsa2024.png",
-            "rarity": "Legendary",
-            "description": "Сomplete the Maslenitsa 2024 event task line",
-            "name": "Maslenitsa"
-        },
         "6513efa1b49e3253755f47eb": {
             "imageUrl": "/files/achievement/Standard_10.png",
             "rarity": "Common",
@@ -78,12 +72,6 @@
             "description": "Eliminate Killa 15 times while playing as a PMC",
             "name": "What Not To Wear"
         },
-        "66742c003a67b164a300fcbf": {
-            "imageUrl": "/files/achievement/KeySalvation.png",
-            "rarity": "Legendary",
-            "description": "Help Therapist save lives and complete the Key to Salvation event task line",
-            "name": "A Key to Salvation"
-        },
         "6513f0a10dc723592b0f90cf": {
             "imageUrl": "/files/achievement/Standard_11.png",
             "rarity": "Common",
@@ -108,12 +96,6 @@
             "description": "Eliminate Kollontay 15 times while playing as a PMC",
             "name": "True Crime"
         },
-        "668bf47c781d446fdc083711": {
-            "imageUrl": "/files/achievement/ArmsRaceEvent2024.png",
-            "rarity": "Legendary",
-            "description": "Choose your side and complete the Arms Race event task line",
-            "name": "High Competition"
-        },
         "664f23e44702fd5db50ee732": {
             "imageUrl": "/files/achievement/Rare_35.png",
             "rarity": "Rare",
@@ -137,12 +119,6 @@
             "rarity": "Common",
             "description": "Eliminate Knight, Birdeye, and Big Pipe in a single raid for the first time while playing as a PMC",
             "name": "Now There Are Three of Them!"
-        },
-        "670feb95a4e71050310cc14b": {
-            "imageUrl": "/files/achievement/S24Q4_Halloween2.png",
-            "rarity": "Legendary",
-            "description": "Cure all the infected and complete the Halloween 2024 event task line",
-            "name": "Complete Remission"
         },
         "65140b55cf2f1c285e606414": {
             "imageUrl": "/files/achievement/Rare_6.png",
@@ -228,12 +204,6 @@
             "description": "Eliminate Reshala 15 times while playing as a PMC",
             "name": "This Is a Tarkov Showdown"
         },
-        "66e2a7e5919bad697104f4b3": {
-            "imageUrl": "/files/achievement/ArtShelling_Event.png",
-            "rarity": "Legendary",
-            "description": "Complete the Mortar Strike 2024 event task line",
-            "name": "Highway to the Danger Zone"
-        },
         "675709bef4e2a2ce0f058f56": {
             "imageUrl": "/files/achievement/Rare_78.png",
             "rarity": "Rare",
@@ -288,12 +258,6 @@
             "description": "Eliminate a PMC operative with a headshot while under the alcohol effect while playing as a PMC",
             "name": "Drunken Master"
         },
-        "6634ca69ee506a5c3e61be56": {
-            "imageUrl": "/files/achievement/S24Q2_ARRS2.png",
-            "rarity": "Legendary",
-            "description": "Eliminate a PMC operative with a headshot while under the alcohol effect while playing as a PMC",
-            "name": "Drunken Master"
-        },
         "6513f28cb49e3253755f47f3": {
             "imageUrl": "/files/achievement/Standard_13.png",
             "rarity": "Common",
@@ -342,12 +306,6 @@
             "description": "Earn the Prestige level 2",
             "name": "More Prestigious"
         },
-        "6634cae870af846d2868dada": {
-            "imageUrl": "/files/achievement/S24Q2_ARRS3.png",
-            "rarity": "Legendary",
-            "description": "Pick Skier's side and complete The Tarkov Mystery event task line",
-            "name": "Local Strong Man"
-        },
         "651417d6ec10ff011f17cc31": {
             "imageUrl": "/files/achievement/Standard_17.png",
             "rarity": "Common",
@@ -359,12 +317,6 @@
             "rarity": "Legendary",
             "description": "Earn the Prestige level 1",
             "name": "Prestigious"
-        },
-        "6634c8886e083a141f4aa3f4": {
-            "imageUrl": "/files/achievement/S24Q2_ARRS1.png",
-            "rarity": "Legendary",
-            "description": "Find out who actually controls Tarkov and complete The Tarkov Mystery event task line",
-            "name": "Cardinal Richelieu"
         }
     }
 }
