@@ -14,7 +14,7 @@ let isDataReady = false; // To tell whenever the live update was done
 let playerStates = {}
 
 // For debugging purposes
-let debug = 1;
+let debug = 0;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
