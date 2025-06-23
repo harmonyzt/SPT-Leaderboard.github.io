@@ -355,42 +355,97 @@ td {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.player-online {
-    background: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    border: 1px solid #10b981;
-    padding: 4px 10px;
-    border-radius: 14px;
-    display: block;
-    text-align: center;
-    min-width: 73px;
+/* Play status on leaderboard for heartbeats */
+.player-status-lb {
+  padding: 4px 10px;
+  border-radius: 14px;
+  display: inline;
+  text-align: center;
+  min-width: 50px;
+  border: 1px solid;
 }
 
+/* Online */
+.player-status-lb-online {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border-color: #10b981;
+}
+
+/* In menu */
+.player-status-lb-menu {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+/* IN raid */
+.player-status-lb-raid {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+  border-color: #f97316;
+}
+
+/* Finished raid */
+.player-status-lb-finished {
+  background: rgba(168, 85, 247, 0.2);
+  color: #a855f7;
+  border-color: #a855f7;
+}
+
+/* Offline */
+.player-status-lb-offline {
+  background: rgba(75, 85, 99, 0.2);
+  color: #4b5563;
+  border-color: #4b5563;
+}
+
+/* Blink for online */
 #blink {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: linear-gradient(135deg, #6affa3 0%, #00e676 100%);
-    box-shadow: 0 0 12px rgba(106, 255, 163, 0.6);
-    border-radius: 50%;
-    animation: blink 2s infinite;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+/* Online */
+.player-status-lb-online #blink {
+  background: linear-gradient(135deg, #6affa3 0%, #00e676 100%);
+  box-shadow: 0 0 12px rgba(106, 255, 163, 0.6);
+}
+
+/* In menu */
+.player-status-lb-menu #blink {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+}
+
+/* In raid */
+.player-status-lb-raid #blink {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+  box-shadow: 0 0 12px rgba(251, 146, 60, 0.6);
+}
+
+/* Raid end */
+.player-status-lb-finished #blink {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
 }
 
 @keyframes blink {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(106, 255, 163, 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(106, 255, 163, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(106, 255, 163, 0);
-    }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.233);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 td:nth-child(2) {

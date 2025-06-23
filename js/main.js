@@ -5,6 +5,7 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
 let leaderboardData = []; // For keeping current season data
+let heartbeatData = {};
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
@@ -12,7 +13,7 @@ let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -33,6 +34,7 @@ let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids.j
 let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
 let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
 let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
+let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
 
 // Paths for local files if debug is on
 if (debug) {
@@ -41,6 +43,7 @@ if (debug) {
     profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
     profileUrlPath = `127.0.0.1:5500/#id=`;
+    heartbeatsPath = `fallbacks/heartbeats.json?t=${Date.now()}`;
 }
 
 // Call on DOM load
@@ -224,6 +227,17 @@ async function loadSeasonData(season) {
     emptyLeaderboardNotification.style.display = 'none';
     isDataReady = false;
 
+    // Get heartbeats
+    try {
+        const response = await fetch(`${heartbeatsPath}`);
+        if (!response.ok) {
+            throw new Error('Failed to load heartbeats');
+        }
+        heartbeatData = await response.json();
+    } catch (error) {
+        console.error('Error loading heartbeats:', error);
+    }
+
     try {
         const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
 
@@ -372,9 +386,48 @@ function formatSeconds(seconds) {
 function displayLeaderboard(data) {
     const tableBody = document.querySelector('#leaderboardTable tbody');
     tableBody.innerHTML = '';
+    let lastGame;
 
     data.forEach(player => {
         const row = document.createElement('tr');
+
+
+        // Check if player ID exists in heartbeat data
+        if (heartbeatData[player.id]) {
+            const heartbeat = heartbeatData[player.id];
+            const timestamp = heartbeat.timestamp;
+
+            player.isOnHeartbeat = true;
+            player.lastHeartbeat = timestamp;
+            player.isOnline = true;
+
+            // Get some nice labels for online status
+            let statusClass, statusText;
+            switch (heartbeat.type) {
+                case 'online':
+                    statusClass = 'player-status-lb-online';
+                    statusText = 'Online';
+                    break;
+                case 'in_menu':
+                    statusClass = 'player-status-lb-menu';
+                    statusText = 'In Menu';
+                    break;
+                case 'in_raid':
+                    statusClass = 'player-status-lb-raid';
+                    statusText = 'In Raid';
+                    break;
+                case 'finished_raid':
+                    statusClass = 'player-status-lb-finished';
+                    statusText = 'Finished Raid';
+                    break;
+            }
+
+            lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
+        } else {
+            // Format last played time
+            lastGame = formatLastPlayed(player.lastPlayed);
+            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-online">In game <div id="blink"></div></span>`;
+        }
 
         // Determine rank classes
         let rankClass = '';
@@ -389,10 +442,6 @@ function displayLeaderboard(data) {
             rankClass = 'bronze';
             nameClass = 'bronze-name';
         }
-
-        // Format last played time
-        const lastGame = formatLastPlayed(player.lastPlayed);
-        player.isOnline = lastGame === `<span class="player-online">In game <div id="blink"></div></span>`;
 
         // Add profile standing
         let badge = '';

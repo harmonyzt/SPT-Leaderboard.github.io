@@ -4,18 +4,16 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../styles.css">
-        <link rel="stylesheet" type="text/css" href="../gunmeta/weaponmeta.css">
+        <link rel="stylesheet" type="text/css" href="../global-achieve/ach.css">
         <link rel="icon" href="../media/TP.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <script src="https://betterdiscord.app/js/vendor/countUp.min.js?v=DBxeQBHNMaYkRvB8uPOLm07cbQj54TDexlykb-Dcg28"></script>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
-        <script src="../js/main.js"></script>
-        <script src="../gunmeta/js/main.js"></script>
-        <script src="../js/recentlyPlayed.js"></script>
+        <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+        <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../global-achieve/js/achievements.js"></script>
         <script src="../js/serverStatus.js"></script>
-        <title>SPT Leaderboard - Weapon Meta</title>
+        <title>SPT Leaderboard - Full Stats</title>
     </head>
 
     <body>
@@ -27,11 +25,28 @@
                 <a href="../" class="navbar-link">Go back</a>
             </div>
         </nav>
-        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Weapon Meta</h1>
+        <h1 style="margin-top: 150px;" class="animate__animated animate__fadeInDown">Global Achievements</h1>
         <div class="top-stats-bar">
             <div class="live-data-label" id="serverStatus">Getting API Status...</div>
         </div>
-        <div id="weaponsContainer" class="weapons-container animate animate__animated animate__fadeIn"></div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="total-achievements">0</div>
+                <div class="stat-label">Total Achievements</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="total-players">0</div>
+                <div class="stat-label">Total Players</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="average-completion">0%</div>
+                <div class="stat-label">Average Completion</div>
+            </div>
+        </div>
+        <div id="achievements-container">
+            <div class="loading">Loading achievements data...</div>
+        </div>
+
         <footer class="modern-footer">
             <div class="footer-content">
                 <div class="footer-brand">
