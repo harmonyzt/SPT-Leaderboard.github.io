@@ -417,12 +417,12 @@ function displayLeaderboard(data) {
                     statusClass = 'player-status-lb-menu';
                     statusText = 'In Menu';
                     break;
-                case 'in_raid':
+                case 'raid_start':
                     statusClass = 'player-status-lb-raid';
                     statusText = 'In Raid';
                     player.isOnline = true;
                     break;
-                case 'finished_raid':
+                case 'raid_end':
                     statusClass = 'player-status-lb-finished';
                     statusText = 'Finished Raid';
                     break;
