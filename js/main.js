@@ -442,7 +442,8 @@ function displayLeaderboard(data) {
                 isRecentlyInRaid: false
             };
 
-           player.isOnline = playerStates[player.id].isOnline;
+            lastGame = formatLastPlayed(player.lastPlayed);
+            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
         }
 
         // Determine rank classes
