@@ -407,18 +407,22 @@ function displayLeaderboard(data) {
                 case 'online':
                     statusClass = 'player-status-lb-online';
                     statusText = 'Online';
+                    player.isOnline = true;
                     break;
                 case 'in_menu':
                     statusClass = 'player-status-lb-menu';
                     statusText = 'In Menu';
+                    player.isOnline = true;
                     break;
                 case 'in_raid':
                     statusClass = 'player-status-lb-raid';
                     statusText = 'In Raid';
+                    player.isOnline = true;
                     break;
                 case 'finished_raid':
                     statusClass = 'player-status-lb-finished';
                     statusText = 'Finished Raid';
+                    player.isOnline = true;
                     break;
             }
 
