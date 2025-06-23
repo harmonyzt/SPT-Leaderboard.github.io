@@ -556,7 +556,7 @@ function formatLastPlayed(unixTimestamp) {
     const diffInMinutes = Math.floor(diffInSeconds / 60);
 
     if (diffInMinutes < 60) {
-        return '<span class="player-online">In game <div id="blink"></div></span>';
+        return '<span class="player-status-lb player-status-lb-online">In game <div id="blink"></div></span>';
     }
 
     const diffInHours = Math.floor(diffInMinutes / 60);
