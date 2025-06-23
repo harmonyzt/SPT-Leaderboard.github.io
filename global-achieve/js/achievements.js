@@ -28,9 +28,9 @@ function calculateAchievementStats() {
 
     // Count how many players have each achievement
     for (const playerId in playerAchievements.achievements) {
-        const playerAchievements = playerAchievements.achievements[playerId][0];
+        const playerAchData = playerAchievements.achievements[playerId][0];
 
-        for (const achievementId in playerAchievements) {
+        for (const achievementId in playerAchData) {
             if (achievementStats.hasOwnProperty(achievementId)) {
                 achievementStats[achievementId].obtained++;
             }
