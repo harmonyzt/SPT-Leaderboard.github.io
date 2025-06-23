@@ -429,7 +429,7 @@ function displayLeaderboard(data) {
                     statusClass = 'player-status-lb-finished';
                     statusText = 'Finished Raid';
                     break;
-            }
+            
 
             lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
         } else {
@@ -442,7 +442,7 @@ function displayLeaderboard(data) {
                 isRecentlyInRaid: false
             };
 
-            player.isOnline = playerStates[player.id][isOnline];
+            player.isOnline = playerStates[player.id].isOnline;
         }
 
         // Determine rank classes
