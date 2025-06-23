@@ -171,8 +171,8 @@
         "66c328aca91e7d66fa1b0b7b": {
             "imageUrl": "/files/achievement/Standard75.png",
             "rarity": "Common",
-            "66c328aca91e7d66fa1b0b7b description": "Use the transit from any location",
-            "66c328aca91e7d66fa1b0b7b name": "Vagabond"
+            "description": "Use the transit from any location",
+            "name": "Vagabond"
         },
         "66b493bc2d8cd3b5e90a3648": {
             "imageUrl": "/files/achievement/Legendary77.png",
@@ -290,7 +290,9 @@
         },
         "65141ab70dc723592b0f9482": {
             "imageUrl": "/files/achievement/Standard_23.png",
-            "rarity": "Common"
+            "rarity": "Common",
+            "description": "Eliminate a PMC operative with a headshot while under the alcohol effect while playing as a PMC",
+            "name": "Drunken Master"
         },
         "6634ca69ee506a5c3e61be56": {
             "imageUrl": "/files/achievement/S24Q2_ARRS2.png",

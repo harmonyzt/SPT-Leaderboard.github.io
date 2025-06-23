@@ -9,17 +9,16 @@ let achievementsData = {};
 let leaderboardData = {};
 let totalPlayers = 0;
 
-// Function to load JSON data
 async function loadJSON(url) {
     const response = await fetch(url);
     return await response.json();
 }
 
-// Function to calculate achievement statistics
+// Calculate achievement statistics
 function calculateAchievementStats() {
     const achievementStats = {};
 
-    // Initialize stats for each achievement
+    // Initialize stats
     for (const achievementId in achievementsData.achievementCompiled) {
         achievementStats[achievementId] = {
             obtained: 0,
@@ -28,17 +27,19 @@ function calculateAchievementStats() {
     }
 
     // Count how many players have each achievement
-    for (const player of leaderboardData.leaderboard) {
-        if (player.allAchievements) {
-            for (const achievementId in player.allAchievements) {
-                if (achievementStats[achievementId]) {
-                    achievementStats[achievementId].obtained++;
-                }
+    for (const playerId in leaderboardData.achievements) {
+        const playerAchievements = leaderboardData.achievements[playerId][0];
+
+        for (const achievementId in playerAchievements) {
+            if (achievementStats.hasOwnProperty(achievementId)) {
+                achievementStats[achievementId].obtained++;
             }
         }
     }
 
-    // Calculate percentage for each achievement
+    // Percentage for each achievement
+    const totalPlayers = Object.keys(leaderboardData.achievements).length;
+
     for (const achievementId in achievementStats) {
         achievementStats[achievementId].percent = totalPlayers > 0
             ? (achievementStats[achievementId].obtained / totalPlayers * 100).toFixed(2)
@@ -48,67 +49,92 @@ function calculateAchievementStats() {
     return achievementStats;
 }
 
-// Function to render achievements
+// Render achievements
 function renderAchievements(stats, searchTerm = '') {
     const container = document.getElementById('achievements-container');
+    const searchTermLower = searchTerm.toLowerCase();
 
     // Filter achievements
     const filteredAchievements = Object.entries(achievementsData.achievementCompiled)
         .filter(([id, achievement]) => {
-            const matchesSearch = achievement.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                achievement.desc.toLowerCase().includes(searchTerm.toLowerCase());
-            return matchesSearch;
+            if (!achievement) return false;
+
+            const name = achievement.name || '';
+            const description = achievement.description || '';
+
+            const nameMatch = name.toLowerCase().includes(searchTermLower);
+            const descMatch = description.toLowerCase().includes(searchTermLower);
+
+            return nameMatch || descMatch;
         });
 
-    // Update stats display
-    document.getElementById('total-achievements').textContent = filteredAchievements.length;
-    document.getElementById('total-players').textContent = totalPlayers;
+    // Average completion percentage
+    const totalCompletion = filteredAchievements.reduce((sum, [id]) => {
+        return sum + parseFloat(stats[id]?.percent || 0);
+    }, 0);
 
-    // Calculate average completion percentage
-    const totalCompletion = filteredAchievements.reduce((sum, [id]) => sum + parseFloat(stats[id].percent), 0);
-    const averageCompletion = filteredAchievements.length > 0 ? (totalCompletion / filteredAchievements.length).toFixed(2) : 0;
-    document.getElementById('average-completion').textContent = `${averageCompletion}%`;
+    //const averageCompletion = filteredAchievements.length > 0
+    //    ? (totalCompletion / filteredAchievements.length).toFixed(2)
+    //    : 0;
 
-    if (filteredAchievements.length === 0) {
-        container.innerHTML = '<div class="loading">No achievements found matching your criteria.</div>';
-        return;
-    }
 
-    // Sort by rarity (you can customize the sorting logic)
-    const rarityOrder = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
-    filteredAchievements.sort((a, b) => rarityOrder[b[1].rarity] - rarityOrder[a[1].rarity]);
+    // Sort by rarity
+    const rarityOrder = { common: 1, rare: 2, legendary: 3 };
+    filteredAchievements.sort((a, b) => {
+        const rarityA = a[1]?.rarity?.toLowerCase() || 'common';
+        const rarityB = b[1]?.rarity?.toLowerCase() || 'common';
 
-    // Create HTML for each achievement
+        // First sort by rarity (descending)
+        if (rarityOrder[rarityB] !== rarityOrder[rarityA]) {
+            return rarityOrder[rarityB] - rarityOrder[rarityA];
+        }
+
+        // If rarity is equal, sort by completion rate (descending)
+        const completionA = parseFloat(stats[a[0]]?.percent || 0);
+        const completionB = parseFloat(stats[b[0]]?.percent || 0);
+        return completionB - completionA;
+    });
+
+    // Make HTML ELement first
     container.innerHTML = '<div class="achievements-grid"></div>';
     const grid = container.querySelector('.achievements-grid');
 
     filteredAchievements.forEach(([id, achievement]) => {
-        const achievementStat = stats[id];
+        if (!achievement) return;
+
+        const achievementStat = stats[id] || { percent: 0 };
+        const rarity = achievement.rarity?.toLowerCase() || 'common';
 
         const card = document.createElement('div');
         card.className = 'achievement-card';
 
-        // Set border color based on rarity
+        // Border color based on rarity
         let borderColor = '#444';
-        if (achievement.rarity === 'Common') borderColor = '#2e7d32';
-        else if (achievement.rarity === 'Rare') borderColor = '#1565c0';
-        else if (achievement.rarity === 'Legendary') borderColor = '#ff8f00';
+        if (rarity === 'common') borderColor = '#2e7d32';
+        else if (rarity === 'rare') borderColor = '#1565c0';
+        else if (rarity === 'legendary') borderColor = '#ff8f00';
 
         card.style.borderLeftColor = borderColor;
 
         card.innerHTML = `
-                    <div class="achievement-header">
-                        <img src="..${achievement.imageUrl}" alt="${achievement.name}" class="achievement-icon">
-                        <h3 class="achievement-title">${achievement.name}</h3>
-                    </div>
-                    <p class="achievement-description">${achievement.description}</p>
-                    <div class="achievement-meta">
-                        <span class="achievement-rarity rarity-${achievement.rarity}">
-                            ${achievement.rarity.charAt(0).toUpperCase() + achievement.rarity.slice(1)}
-                        </span>
-                        <span class="achievement-percent">${achievementStat.percent}% of players</span>
-                    </div>
-                `;
+            <div class="achievement-header">
+                <img src="..${achievement.imageUrl}" alt="${achievement.name}" class="achievement-icon">
+                <h3 class="achievement-title">${achievement.name}</h3>
+            </div>
+            <p class="achievement-description">${achievement.description}</p>
+            <div class="achievement-progress-container">
+                <div class="achievement-progress-label">
+                    <span>Completion Rate</span>
+                    <span class="achievement-progress-percent">${achievementStat.percent}%</span>
+                </div>
+                <div class="achievement-progress" style="--progress-width: ${achievementStat.percent}%"></div>
+            </div>
+            <div class="achievement-meta">
+                <span class="achievement-rarity rarity-${rarity}">
+                    ${rarity.charAt(0).toUpperCase() + rarity.slice(1)}
+                </span>
+            </div>
+        `;
 
         grid.appendChild(card);
     });
@@ -120,7 +146,7 @@ async function init() {
         // Load both JSON files in parallel
         [achievementsData, leaderboardData] = await Promise.all([
             loadJSON('../global-achieve/js/compiledAchData.json'),
-            loadJSON('../fallbacks/season3.json')
+            loadJSON('https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json')
         ]);
 
         // Get total number of players
@@ -129,7 +155,7 @@ async function init() {
         // Calculate achievement statistics
         const achievementStats = calculateAchievementStats();
 
-        // Initial render
+        // Render
         renderAchievements(achievementStats);
 
     } catch (error) {
@@ -139,5 +165,4 @@ async function init() {
     }
 }
 
-// Start the application
 init();
