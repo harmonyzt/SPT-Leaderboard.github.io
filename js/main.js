@@ -433,7 +433,6 @@ function displayLeaderboard(data) {
 
             lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
         } else {
-
             // Format last played time
             const isRecentlyPlayed = (Date.now() / 1000 - player.lastPlayed) < 3000;
             playerStates[player.id] = {
@@ -443,8 +442,7 @@ function displayLeaderboard(data) {
                 isRecentlyInRaid: false
             };
 
-            lastGame = formatLastPlayed(player.lastPlayed);
-            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
+            player.isOnline = playerStates[player.id][isOnline];
         }
 
         // Determine rank classes
