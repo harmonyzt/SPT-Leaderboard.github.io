@@ -1,13 +1,68 @@
 {
-    "684f205700011f164efd12a3": {
-        "id": "684f205700011f164efd12a3",
-        "timestamp": 1750694295,
+    "684f4398000155b9f4d43db8": {
+        "id": "684f4398000155b9f4d43db8",
+        "timestamp": 1750698296,
+        "type": "online",
+        "data": {
+            "type": "online",
+            "timestamp": 1750698296589,
+            "ver": "2.5.0",
+            "sessionId": "684f4398000155b9f4d43db8"
+        }
+    },
+    "6851d2940005442f592e6354": {
+        "id": "6851d2940005442f592e6354",
+        "timestamp": 1750696264,
         "type": "in_menu",
         "data": {
             "type": "in_menu",
-            "timestamp": 1750694295809,
+            "timestamp": 1750696264652,
+            "ver": "2.5.0",
+            "sessionId": "6851d2940005442f592e6354"
+        }
+    },
+    "684f205700011f164efd12a3": {
+        "id": "684f205700011f164efd12a3",
+        "timestamp": 1750698138,
+        "type": "in_stash",
+        "data": {
+            "type": "in_stash",
+            "timestamp": 1750698138217,
             "ver": "2.5.0",
             "sessionId": "684f205700011f164efd12a3"
+        }
+    },
+    "684eb6840000e873016e737c": {
+        "id": "684eb6840000e873016e737c",
+        "timestamp": 1750696210,
+        "type": "in_menu",
+        "data": {
+            "type": "in_menu",
+            "timestamp": 1750696211041,
+            "ver": "2.5.0",
+            "sessionId": "684eb6840000e873016e737c"
+        }
+    },
+    "685757740332827940002f11": {
+        "id": "685757740332827940002f11",
+        "timestamp": 1750695312,
+        "type": "in_menu",
+        "data": {
+            "type": "in_menu",
+            "timestamp": 1750695313475,
+            "ver": "2.5.0",
+            "sessionId": "685757740332827940002f11"
+        }
+    },
+    "6859780e000382e93146c21a": {
+        "id": "6859780e000382e93146c21a",
+        "timestamp": 1750697288,
+        "type": "in_menu",
+        "data": {
+            "type": "in_menu",
+            "timestamp": 1750697288298,
+            "ver": "2.5.0",
+            "sessionId": "6859780e000382e93146c21a"
         }
     }
 }
