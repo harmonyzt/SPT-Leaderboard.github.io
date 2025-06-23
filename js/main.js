@@ -426,7 +426,7 @@ function displayLeaderboard(data) {
         } else {
             // Format last played time
             lastGame = formatLastPlayed(player.lastPlayed);
-            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-online">In game <div id="blink"></div></span>`;
+            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
         }
 
         // Determine rank classes
@@ -556,7 +556,7 @@ function formatLastPlayed(unixTimestamp) {
     const diffInMinutes = Math.floor(diffInSeconds / 60);
 
     if (diffInMinutes < 60) {
-        return '<span class="player-status-lb player-status-lb-online">In game <div id="blink"></div></span>';
+        return '<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>';
     }
 
     const diffInHours = Math.floor(diffInMinutes / 60);
