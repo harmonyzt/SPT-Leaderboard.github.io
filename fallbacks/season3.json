@@ -670,37 +670,37 @@
         {
             "id": "684eb6840000e873016e737c",
             "name": "Guaperia",
-            "pmcLevel": 40,
-            "lastPlayed": 1750608991,
-            "damage": 247589,
+            "pmcLevel": 42,
+            "lastPlayed": 1750694399,
+            "damage": 251655,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 1,
             "longestShot": 279,
             "suspicious": false,
-            "pmcRaids": 157,
-            "averageLifeTime": 1120,
-            "killToDeathRatio": 11,
+            "pmcRaids": 158,
+            "averageLifeTime": 1118,
+            "killToDeathRatio": 11.08,
             "survivalRate": 73,
-            "profileAboutMe": "Recruiting for Spt Fika Server -> https:\/\/discord.gg\/zmRa8hfj",
-            "profilePicture": "https:\/\/i.pinimg.com\/736x\/2b\/ad\/d3\/2badd389764693ac0e89e919f39f23ce.jpg",
-            "profileTheme": "dark",
+            "profileAboutMe": "Hello! I am using SPT Leaderboard!",
+            "profilePicture": "",
+            "profileTheme": "default",
             "registrationDate": 1749989126,
-            "absoluteLastTime": 1750609834,
-            "lastRaidKills": 8,
+            "absoluteLastTime": 1750695291,
+            "lastRaidKills": 3,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 3404,
-            "lastRaidEXP": 2938,
+            "lastRaidDamage": 4066,
+            "lastRaidEXP": 2880,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "First Time Always Hurts",
-            "latestAchievementDescription": "Survive a raid without the Run-through status for the first time",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_27.png",
-            "latestAchievementTimestamp": 1750568711,
-            "lastRaidHits": 57,
+            "latestAchievementName": "Ready for Anything",
+            "latestAchievementDescription": "Survive 10 consecutive raids while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Rare_28.png",
+            "latestAchievementTimestamp": 1750634448,
+            "lastRaidHits": 68,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -709,9 +709,9 @@
                 "684eb6840000e873016e737c": {
                     "M1A": {
                         "stats": {
-                            "kills": 30,
-                            "headshots": 10,
-                            "totalShots": 298,
+                            "kills": 22,
+                            "headshots": 6,
+                            "totalShots": 254,
                             "timesLost": 0
                         },
                         "originalId": "5aafa857e5b5b00018480968"
@@ -801,34 +801,34 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 0,
+                    "salesSum": 1837063,
                     "unlocked": true,
-                    "standing": 0.23999999999999999,
-                    "loyaltyLevel": 1,
+                    "standing": 0.20999999999999999,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 3789699,
+                    "salesSum": 26410538,
                     "unlocked": true,
-                    "standing": 0.20999999999999999,
-                    "loyaltyLevel": 1,
+                    "standing": 0.23999999999999999,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 0,
+                    "salesSum": 503041,
                     "unlocked": true,
-                    "standing": 0.69999999999999996,
+                    "standing": 0.90000000000000002,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 0,
+                    "salesSum": 7497091,
                     "unlocked": true,
-                    "standing": 0.20999999999999999,
-                    "loyaltyLevel": 1,
+                    "standing": 0.23000000000000001,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
@@ -841,15 +841,15 @@
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 464747,
+                    "salesSum": 183435,
                     "unlocked": true,
-                    "standing": 0.20999999999999999,
+                    "standing": 0.23000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 236985,
+                    "salesSum": 8647,
                     "unlocked": true,
                     "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
@@ -874,29 +874,29 @@
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
                     "salesSum": 0,
-                    "unlocked": false,
-                    "standing": 0.20999999999999999,
+                    "unlocked": true,
+                    "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "bp_prestigebg": "both",
-            "bp_cardbg": "streets3",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
             "bp_mainbg": "default",
             "bp_cat": false,
-            "bp_pfpstyle": "wide",
+            "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 748,
-            "lastRaidMap": "Customs",
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 778,
+            "lastRaidMap": "Night Factory",
             "pmcSide": "Usec",
             "scavLevel": 3,
             "prestige": 0,
-            "bp_decal": "cult-signs",
+            "bp_decal": "default",
             "teamTag": "",
-            "pmcKills": 407,
+            "pmcKills": 410,
             "pmcDeaths": 37,
-            "survived": 115,
+            "survived": 116,
             "scavRaids": 2,
             "scavKills": 0,
             "scavDeaths": 2,
@@ -904,16 +904,24 @@
             "scavAverageLifeTime": 344,
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
-            "totalRaids": 158,
+            "totalRaids": 159,
             "usePrestigeStyling": true,
             "bp_name": null,
-            "totalPlayTime": 175419,
+            "totalPlayTime": 176197,
             "trusted": true,
             "isUsingSAIN": false,
             "isNew": false,
             "dev": false,
             "lastRaidRanThrough": false,
-            "allAchievements": null
+            "allAchievements": {
+                "65141c80ec10ff011f17cc3e": 1749995301,
+                "65141eb5c31fcb0e163577dd": 1750005061,
+                "6513efa1b49e3253755f47eb": 1750149504,
+                "6513ed89cf2f1c285e606068": 1750150053,
+                "6514184ec31fcb0e163577d2": 1750191129,
+                "6512ea46f7a078264a4376e4": 1750192019,
+                "664f23e44702fd5db50ee732": 1750630145
+            }
         },
         {
             "id": "680118d8000100c31d5658d8",
@@ -3147,69 +3155,69 @@
         {
             "id": "67d6be750005c1d885cec85b",
             "name": "ChristIsKing",
-            "pmcLevel": 44,
-            "lastPlayed": 1750601565,
-            "damage": 25882,
+            "pmcLevel": 45,
+            "lastPlayed": 1750686478,
+            "damage": 27791,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 3,
             "longestShot": 344,
             "suspicious": false,
-            "pmcRaids": 39,
-            "averageLifeTime": 1115,
-            "killToDeathRatio": 3.5699999999999998,
-            "survivalRate": 64,
+            "pmcRaids": 43,
+            "averageLifeTime": 1123,
+            "killToDeathRatio": 3.6000000000000001,
+            "survivalRate": 65,
             "profileAboutMe": "hampter",
             "profilePicture": "",
             "profileTheme": "steelshade",
             "registrationDate": 1742126809,
-            "absoluteLastTime": 1750602219,
-            "lastRaidKills": 0,
+            "absoluteLastTime": 1750687404,
+            "lastRaidKills": 1,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": null,
-            "lastRaidEXP": 0,
+            "lastRaidDamage": 679,
+            "lastRaidEXP": 335,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "Chris's Heir",
-            "latestAchievementDescription": "Eliminate a PMC operative with a headshot from over 500 meters away while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_16.png",
-            "latestAchievementTimestamp": 1750079368,
-            "lastRaidHits": 0,
+            "latestAchievementName": "Jack of All Trades",
+            "latestAchievementDescription": "Complete all of Gunsmith series tasks",
+            "latestAchievementImageUrl": "\/files\/achievement\/Rare_35.png",
+            "latestAchievementTimestamp": 1750674744,
+            "lastRaidHits": 23,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "67d6be750005c1d885cec85b": {
-                    "T-5000M": {
+                    "M4A1": {
                         "stats": {
-                            "kills": 21,
-                            "headshots": 15,
-                            "totalShots": 94,
+                            "kills": 42,
+                            "headshots": 22,
+                            "totalShots": 704,
                             "timesLost": 2
                         },
-                        "originalId": "5df24cf80dee1b22f862e9bc"
+                        "originalId": "5447a9cd4bdc2dbd208b4567"
                     },
                     "Glock 17": {
                         "stats": {
                             "kills": 6,
                             "headshots": 4,
-                            "totalShots": 162,
-                            "timesLost": 3
+                            "totalShots": 163,
+                            "timesLost": 4
                         },
                         "originalId": "5a7ae0c351dfba0017554310"
                     },
-                    "M4A1": {
+                    "T-5000M": {
                         "stats": {
-                            "kills": 32,
-                            "headshots": 17,
-                            "totalShots": 484,
-                            "timesLost": 2
+                            "kills": 21,
+                            "headshots": 15,
+                            "totalShots": 98,
+                            "timesLost": 3
                         },
-                        "originalId": "5447a9cd4bdc2dbd208b4567"
+                        "originalId": "5df24cf80dee1b22f862e9bc"
                     },
                     "M3 Super 90": {
                         "stats": {
@@ -3548,7 +3556,7 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 6779290,
+                    "salesSum": 6977533,
                     "unlocked": true,
                     "standing": 0.93000000000000005,
                     "loyaltyLevel": 4,
@@ -3556,7 +3564,7 @@
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 7341230,
+                    "salesSum": 7427879,
                     "unlocked": true,
                     "standing": 1.22,
                     "loyaltyLevel": 4,
@@ -3572,7 +3580,7 @@
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 3011096,
+                    "salesSum": 3317096,
                     "unlocked": true,
                     "standing": 1.05,
                     "loyaltyLevel": 4,
@@ -3580,17 +3588,17 @@
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 37709,
+                    "salesSum": 37965,
                     "unlocked": true,
-                    "standing": 0.47999999999999998,
+                    "standing": 0.55000000000000004,
                     "loyaltyLevel": 3,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 4063735,
+                    "salesSum": 4066535,
                     "unlocked": true,
-                    "standing": 0.93000000000000005,
+                    "standing": 1.28,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
@@ -3620,7 +3628,7 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 1996919,
+                    "salesSum": 2005844,
                     "unlocked": true,
                     "standing": 0.75,
                     "loyaltyLevel": 4,
@@ -3633,17 +3641,17 @@
             "bp_cat": false,
             "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 580,
-            "lastRaidMap": "Lighthouse",
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 863,
+            "lastRaidMap": "Shoreline",
             "pmcSide": "Bear",
             "scavLevel": 3,
             "prestige": 0,
             "bp_decal": "default",
             "teamTag": "",
-            "pmcKills": 50,
-            "pmcDeaths": 14,
-            "survived": 25,
+            "pmcKills": 54,
+            "pmcDeaths": 15,
+            "survived": 28,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -3651,15 +3659,16 @@
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
-            "totalRaids": 38,
+            "totalRaids": 42,
             "usePrestigeStyling": true,
             "bp_name": null,
-            "totalPlayTime": 43273,
+            "totalPlayTime": 48082,
             "trusted": false,
             "isUsingSAIN": false,
             "isNew": false,
             "dev": false,
-            "lastRaidRanThrough": false
+            "lastRaidRanThrough": false,
+            "allAchievements": null
         },
         {
             "id": "68333e5200006c5586c2f0d0",
@@ -4613,28 +4622,28 @@
             "id": "67f28dbb00041c923f9b5c7b",
             "name": "BFishY",
             "pmcLevel": 63,
-            "lastPlayed": 1750638256,
-            "damage": 169308,
+            "lastPlayed": 1750687608,
+            "damage": 171724,
             "accountType": "standard",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 3,
+            "currentWinstreak": 5,
             "longestShot": 565,
             "suspicious": false,
-            "pmcRaids": 131,
-            "averageLifeTime": 868,
-            "killToDeathRatio": 6.8200000000000003,
-            "survivalRate": 73,
+            "pmcRaids": 133,
+            "averageLifeTime": 883,
+            "killToDeathRatio": 6.96,
+            "survivalRate": 74,
             "profileAboutMe": "I've been escaping for like 3 years now...",
             "profilePicture": "https:\/\/i.imgur.com\/gk2i2ZA.png",
             "profileTheme": "default",
             "registrationDate": 1743949292,
-            "absoluteLastTime": 1750640321,
-            "lastRaidKills": 1,
+            "absoluteLastTime": 1750689814,
+            "lastRaidKills": 4,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 3105,
-            "lastRaidEXP": 2474,
+            "lastRaidDamage": 1895,
+            "lastRaidEXP": 2830,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -4642,18 +4651,36 @@
             "latestAchievementDescription": "Eliminate Knight 15 times while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Rare21.png",
             "latestAchievementTimestamp": 1750183877,
-            "lastRaidHits": 117,
+            "lastRaidHits": 61,
             "hasKappa": true,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "67f28dbb00041c923f9b5c7b": {
+                    "SKS": {
+                        "stats": {
+                            "kills": 15,
+                            "headshots": 4,
+                            "totalShots": 142,
+                            "timesLost": 0
+                        },
+                        "originalId": "574d967124597745970e7c94"
+                    },
+                    "Mk 16": {
+                        "stats": {
+                            "kills": 56,
+                            "headshots": 36,
+                            "totalShots": 875,
+                            "timesLost": 1
+                        },
+                        "originalId": "6184055050224f204c1da540"
+                    },
                     "AK-74M": {
                         "stats": {
-                            "kills": 38,
-                            "headshots": 19,
-                            "totalShots": 621,
+                            "kills": 42,
+                            "headshots": 22,
+                            "totalShots": 654,
                             "timesLost": 0
                         },
                         "originalId": "5ac4cd105acfc40016339859"
@@ -4711,15 +4738,6 @@
                             "timesLost": 0
                         },
                         "originalId": "57dc2fa62459775949412633"
-                    },
-                    "Mk 16": {
-                        "stats": {
-                            "kills": 56,
-                            "headshots": 36,
-                            "totalShots": 875,
-                            "timesLost": 1
-                        },
-                        "originalId": "6184055050224f204c1da540"
                     },
                     "M4A1": {
                         "stats": {
@@ -4801,15 +4819,6 @@
                             "timesLost": 0
                         },
                         "originalId": "5cdeb229d7f00c000e7ce174"
-                    },
-                    "SKS": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 4,
-                            "timesLost": 0
-                        },
-                        "originalId": "574d967124597745970e7c94"
                     },
                     "M700": {
                         "stats": {
@@ -5010,7 +5019,7 @@
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 47961526,
+                    "salesSum": 55611526,
                     "unlocked": true,
                     "standing": 1.8400000000000001,
                     "loyaltyLevel": 4,
@@ -5028,15 +5037,15 @@
                     "id": "5a7c2eca46aef81a7ca2145d",
                     "salesSum": 4319380,
                     "unlocked": true,
-                    "standing": 1.48,
+                    "standing": 1.49,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 6002617,
+                    "salesSum": 6089651,
                     "unlocked": true,
-                    "standing": 1.1699999999999999,
+                    "standing": 1.1899999999999999,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
@@ -5044,7 +5053,7 @@
                     "id": "638f541a29ffd1183d187f57",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.01,
+                    "standing": 0.02,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -5072,16 +5081,16 @@
             "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 2025,
-            "lastRaidMap": "Reserve",
+            "lastRaidTimeSeconds": 2166,
+            "lastRaidMap": "Woods",
             "pmcSide": "Usec",
             "scavLevel": 1,
             "prestige": 0,
             "bp_decal": "default",
             "teamTag": "",
-            "pmcKills": 191,
+            "pmcKills": 195,
             "pmcDeaths": 28,
-            "survived": 96,
+            "survived": 98,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -5089,10 +5098,10 @@
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
-            "totalRaids": 130,
+            "totalRaids": 132,
             "usePrestigeStyling": true,
             "bp_name": null,
-            "totalPlayTime": 113096,
+            "totalPlayTime": 116827,
             "trusted": false,
             "isUsingSAIN": false,
             "isNew": false,
@@ -28633,13 +28642,13 @@
         },
         {
             "id": "68478e5a0001d9d51c30acbe",
-            "name": "FaggyWaggy",
+            "name": "[BANNED] ",
             "pmcLevel": 14,
             "lastPlayed": 1749680529,
             "damage": 11766,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
-            "disqualified": false,
+            "disqualified": true,
             "publicProfile": true,
             "currentWinstreak": 0,
             "longestShot": 36,
@@ -28801,7 +28810,12 @@
             "totalRaids": 20,
             "totalPlayTime": 19053,
             "usePrestigeStyling": true,
-            "bp_name": null
+            "bp_name": null,
+            "banTime": 1750679658,
+            "banReason": "Vulgar\/Inappropriate Name",
+            "tookAction": "Yukki",
+            "banned": true,
+            "permBanned": true
         },
         {
             "id": "683ce3be0004b5bd0a49fcda",
@@ -39067,28 +39081,28 @@
             "id": "6838a13b00011454257b2e40",
             "name": "TembiTempest",
             "pmcLevel": 34,
-            "lastPlayed": 1750667910,
-            "damage": 13653,
+            "lastPlayed": 1750689218,
+            "damage": 14883,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 2,
             "longestShot": 162,
-            "pmcRaids": 41,
-            "averageLifeTime": 628,
-            "killToDeathRatio": 3.3100000000000001,
-            "survivalRate": 59,
+            "pmcRaids": 43,
+            "averageLifeTime": 647,
+            "killToDeathRatio": 3.54,
+            "survivalRate": 60,
             "profileAboutMe": "Left my estrogen in Tarkov",
             "profilePicture": "https:\/\/media1.tenor.com\/m\/BEaTrxfKSggAAAAd\/dead-by-daylight-the-huntress.gif",
             "profileTheme": "redshade",
             "registrationDate": 1748541911,
-            "absoluteLastTime": 1750668436,
+            "absoluteLastTime": 1750690358,
             "trusted": false,
-            "lastRaidKills": 0,
+            "lastRaidKills": 3,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": null,
-            "lastRaidEXP": 29,
+            "lastRaidDamage": 877,
+            "lastRaidEXP": 517,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -39096,13 +39110,40 @@
             "latestAchievementDescription": "Survive 10 consecutive raids while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Rare_28.png",
             "latestAchievementTimestamp": 1750493289,
-            "lastRaidHits": 0,
+            "lastRaidHits": 28,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "6838a13b00011454257b2e40": {
+                    "Sawed-off": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 2,
+                            "timesLost": 0
+                        },
+                        "originalId": "64748cb8de82c85eaf0a273a"
+                    },
+                    "AKS-74": {
+                        "stats": {
+                            "kills": 7,
+                            "headshots": 2,
+                            "totalShots": 290,
+                            "timesLost": 0
+                        },
+                        "originalId": "5bf3e0490db83400196199af"
+                    },
+                    "MP-43-1C": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 2,
+                            "timesLost": 0
+                        },
+                        "originalId": "5580223e4bdc2d1c128b457f"
+                    },
                     "590A1": {
                         "stats": {
                             "kills": 3,
@@ -39183,15 +39224,6 @@
                             "timesLost": 0
                         },
                         "originalId": "59ff346386f77477562ff5e2"
-                    },
-                    "AKS-74": {
-                        "stats": {
-                            "kills": 3,
-                            "headshots": 2,
-                            "totalShots": 0,
-                            "timesLost": 0
-                        },
-                        "originalId": "5bf3e0490db83400196199af"
                     },
                     "VSS Vintorez": {
                         "stats": {
@@ -39278,15 +39310,15 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 2983586,
+                    "salesSum": 2997869,
                     "unlocked": true,
-                    "standing": 0.53000000000000003,
+                    "standing": 0.55000000000000004,
                     "loyaltyLevel": 3,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 7858071,
+                    "salesSum": 8381610,
                     "unlocked": true,
                     "standing": 0.40000000000000002,
                     "loyaltyLevel": 3,
@@ -39302,7 +39334,7 @@
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 2774487,
+                    "salesSum": 2777550,
                     "unlocked": true,
                     "standing": 0.64000000000000001,
                     "loyaltyLevel": 3,
@@ -39350,9 +39382,9 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 2289832,
+                    "salesSum": 2298652,
                     "unlocked": true,
-                    "standing": 0.64000000000000001,
+                    "standing": 0.66000000000000003,
                     "loyaltyLevel": 4,
                     "disabled": false
                 }
@@ -39363,8 +39395,8 @@
             "bp_cat": false,
             "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 436,
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 1037,
             "lastRaidMap": "Streets of Tarkov",
             "pmcSide": "Usec",
             "scavLevel": 5,
@@ -39373,9 +39405,9 @@
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 43,
+            "pmcKills": 46,
             "pmcDeaths": 13,
-            "survived": 24,
+            "survived": 26,
             "scavRaids": 3,
             "scavKills": 1,
             "scavDeaths": 1,
@@ -39384,10 +39416,10 @@
             "scavKillToDeathRatio": 1,
             "scavSurvivalRate": 67,
             "suspicious": false,
-            "totalRaids": 43,
-            "totalPlayTime": 25494,
+            "totalRaids": 45,
+            "totalPlayTime": 27591,
             "dev": false,
-            "lastRaidRanThrough": true,
+            "lastRaidRanThrough": false,
             "usePrestigeStyling": false,
             "bp_name": null,
             "isCasual": true,
@@ -39716,87 +39748,60 @@
         {
             "id": "684eb6cb000388a30b9b3b94",
             "name": "harmonies",
-            "pmcLevel": 14,
-            "lastPlayed": 1750555482,
-            "damage": 22465,
+            "pmcLevel": 15,
+            "lastPlayed": 1750701043,
+            "damage": 23599,
             "accountType": "standard",
             "sptVer": "3.11.3",
             "disqualified": false,
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 1,
             "longestShot": 37,
-            "pmcRaids": 17,
-            "averageLifeTime": 750,
-            "killToDeathRatio": 4.8300000000000001,
-            "survivalRate": 65,
-            "profileAboutMe": "Recruiting for Spt Fika Server -> https:\/\/discord.gg\/zmRa8hfj",
-            "profilePicture": "https:\/\/i.pinimg.com\/736x\/2b\/ad\/d3\/2badd389764693ac0e89e919f39f23ce.jpg",
-            "profileTheme": "dark",
+            "pmcRaids": 18,
+            "averageLifeTime": 774,
+            "killToDeathRatio": 5.1699999999999999,
+            "survivalRate": 67,
+            "profileAboutMe": "Hello! I am using SPT Leaderboard!",
+            "profilePicture": "",
+            "profileTheme": "default",
             "registrationDate": 1749989434,
-            "absoluteLastTime": 1750556506,
+            "absoluteLastTime": 1750702443,
             "trusted": true,
             "lastRaidKills": 2,
-            "lastRaidAs": "SCAV",
-            "lastRaidDamage": 1323,
-            "lastRaidEXP": 604,
+            "lastRaidAs": "PMC",
+            "lastRaidDamage": 1134,
+            "lastRaidEXP": 712,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "PMC's Best Friend",
-            "latestAchievementDescription": "Survive and extract from Interchange through the Scav Co-Op extraction while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_2.png",
-            "latestAchievementTimestamp": 1750192019,
-            "lastRaidHits": 50,
+            "latestAchievementName": "Call Your Brother",
+            "latestAchievementDescription": "Eliminate Tagilla for the first time while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_6.png",
+            "latestAchievementTimestamp": 1750659864,
+            "lastRaidHits": 25,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "684eb6cb000388a30b9b3b94": {
-                    "VPO-209": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 0,
-                            "timesLost": 0
-                        },
-                        "originalId": "59e6687d86f77411d949b251"
-                    },
-                    "STM-9": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 0,
-                            "timesLost": 0
-                        },
-                        "originalId": "60339954d62c9b14ed777c06"
-                    },
-                    "MP-153": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 1,
-                            "totalShots": 0,
-                            "timesLost": 0
-                        },
-                        "originalId": "56dee2bdd2720bc8328b4567"
-                    },
-                    "M700": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 1,
-                            "totalShots": 2,
-                            "timesLost": 0
-                        },
-                        "originalId": "5bfea6e90db834001b7347f3"
-                    },
                     "AK-105": {
                         "stats": {
-                            "kills": 18,
-                            "headshots": 10,
-                            "totalShots": 286,
+                            "kills": 19,
+                            "headshots": 11,
+                            "totalShots": 327,
                             "timesLost": 1
                         },
                         "originalId": "5ac66d9b5acfc4001633997a"
+                    },
+                    "M700": {
+                        "stats": {
+                            "kills": 5,
+                            "headshots": 4,
+                            "totalShots": 13,
+                            "timesLost": 0
+                        },
+                        "originalId": "5bfea6e90db834001b7347f3"
                     },
                     "M4A1": {
                         "stats": {
@@ -39850,64 +39855,64 @@
                     "id": "6617beeaa9cfa777ca915b7c",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.26000000000000001,
-                    "loyaltyLevel": 2,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 1809275,
+                    "salesSum": 579891,
                     "unlocked": true,
-                    "standing": 1.4199999999999999,
-                    "loyaltyLevel": 3,
+                    "standing": 0.23999999999999999,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 32793354,
+                    "salesSum": 13402557,
                     "unlocked": true,
-                    "standing": 1.04,
-                    "loyaltyLevel": 4,
+                    "standing": 0.34000000000000002,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 18685,
+                    "salesSum": 1395352,
                     "unlocked": true,
-                    "standing": 1.95,
+                    "standing": 1.8100000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 2650450,
+                    "salesSum": 1776785,
                     "unlocked": true,
-                    "standing": 0.83999999999999997,
-                    "loyaltyLevel": 4,
+                    "standing": 0.42999999999999999,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 2200291,
+                    "salesSum": 2436,
                     "unlocked": true,
-                    "standing": 0.71999999999999997,
-                    "loyaltyLevel": 4,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 5417022,
+                    "salesSum": 1952157,
                     "unlocked": true,
-                    "standing": 0.25,
+                    "standing": 0.33000000000000002,
                     "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 3696150,
+                    "salesSum": 1723428,
                     "unlocked": true,
-                    "standing": 0.82999999999999996,
-                    "loyaltyLevel": 3,
+                    "standing": 0.28999999999999998,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "LIGHTKEEPER": {
@@ -39928,32 +39933,32 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 3825967,
+                    "salesSum": 1310227,
                     "unlocked": true,
-                    "standing": 0.69999999999999996,
-                    "loyaltyLevel": 4,
+                    "standing": 0.22,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 }
             },
-            "bp_prestigebg": "both",
-            "bp_cardbg": "streets3",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
             "bp_mainbg": "default",
             "bp_cat": false,
-            "bp_pfpstyle": "wide",
+            "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 839,
-            "lastRaidMap": "Reserve",
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 1183,
+            "lastRaidMap": "Ground Zero - Low",
             "pmcSide": "Bear",
             "scavLevel": 2,
             "prestige": 0,
-            "bp_decal": "cult-signs",
+            "bp_decal": "default",
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 29,
+            "pmcKills": 31,
             "pmcDeaths": 6,
-            "survived": 11,
+            "survived": 12,
             "scavRaids": 1,
             "scavKills": 2,
             "scavDeaths": 1,
@@ -39962,12 +39967,19 @@
             "scavKillToDeathRatio": 2,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 17,
-            "totalPlayTime": 12873,
-            "dev": true,
+            "totalRaids": 18,
+            "totalPlayTime": 14056,
+            "dev": false,
             "lastRaidRanThrough": false,
             "usePrestigeStyling": true,
-            "bp_name": null
+            "bp_name": null,
+            "allAchievements": {
+                "65141c80ec10ff011f17cc3e": 1749995288,
+                "6513ed89cf2f1c285e606068": 1750004694,
+                "65141eb5c31fcb0e163577dd": 1750005078,
+                "6513ee11a3dd9b6aa7159b4a": 1750104976,
+                "6513efa1b49e3253755f47eb": 1750153595
+            }
         },
         {
             "id": "684c54730001d16da6d6535f",
@@ -41287,35 +41299,35 @@
             "id": "684f16080003c59b0cfc72b0",
             "name": "IceLucidify",
             "pmcLevel": 22,
-            "lastPlayed": 1750660382,
-            "damage": 83937,
+            "lastPlayed": 1750701053,
+            "damage": 89828,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 1,
+            "currentWinstreak": 0,
             "longestShot": 8,
-            "pmcRaids": 64,
-            "averageLifeTime": 929,
-            "killToDeathRatio": 5.5300000000000002,
-            "survivalRate": 52,
-            "profileAboutMe": "Recruiting for Spt Fika Server -> https:\/\/discord.gg\/zmRa8hfj",
-            "profilePicture": "https:\/\/i.pinimg.com\/736x\/2b\/ad\/d3\/2badd389764693ac0e89e919f39f23ce.jpg",
-            "profileTheme": "dark",
+            "pmcRaids": 65,
+            "averageLifeTime": 932,
+            "killToDeathRatio": 5.6500000000000004,
+            "survivalRate": 51,
+            "profileAboutMe": "Hello! I am using SPT Leaderboard!",
+            "profilePicture": "",
+            "profileTheme": "default",
             "registrationDate": 1750013830,
-            "absoluteLastTime": 1750662676,
+            "absoluteLastTime": 1750702393,
             "trusted": true,
-            "lastRaidKills": 5,
+            "lastRaidKills": 9,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 4434,
-            "lastRaidEXP": 801,
+            "lastRaidDamage": 5891,
+            "lastRaidEXP": 625,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "Call Your Brother",
-            "latestAchievementDescription": "Eliminate Tagilla for the first time while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_6.png",
-            "latestAchievementTimestamp": 1750659864,
-            "lastRaidHits": 94,
+            "latestAchievementName": "Ready for Anything",
+            "latestAchievementDescription": "Survive 10 consecutive raids while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Rare_28.png",
+            "latestAchievementTimestamp": 1750634448,
+            "lastRaidHits": 95,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -41345,7 +41357,7 @@
                             "kills": 16,
                             "headshots": 11,
                             "totalShots": 172,
-                            "timesLost": 0
+                            "timesLost": 1
                         },
                         "originalId": "5bb2475ed4351e00853264e3"
                     },
@@ -41560,39 +41572,39 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 579891,
+                    "salesSum": 1914285,
                     "unlocked": true,
-                    "standing": 0.23999999999999999,
-                    "loyaltyLevel": 1,
+                    "standing": 0.22,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 11759997,
+                    "salesSum": 26421572,
                     "unlocked": true,
-                    "standing": 0.34000000000000002,
+                    "standing": 0.23999999999999999,
                     "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 1395352,
+                    "salesSum": 563738,
                     "unlocked": true,
-                    "standing": 1.6899999999999999,
+                    "standing": 0.90000000000000002,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 1317785,
+                    "salesSum": 7499161,
                     "unlocked": true,
-                    "standing": 0.42999999999999999,
+                    "standing": 0.23000000000000001,
                     "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 2436,
+                    "salesSum": 0,
                     "unlocked": true,
                     "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
@@ -41600,18 +41612,18 @@
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 1896157,
+                    "salesSum": 184993,
                     "unlocked": true,
-                    "standing": 0.32000000000000001,
-                    "loyaltyLevel": 2,
+                    "standing": 0.23000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 1723428,
+                    "salesSum": 8647,
                     "unlocked": true,
-                    "standing": 0.26000000000000001,
-                    "loyaltyLevel": 2,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "LIGHTKEEPER": {
@@ -41632,31 +41644,31 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 1310227,
+                    "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.22,
-                    "loyaltyLevel": 2,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "bp_prestigebg": "both",
-            "bp_cardbg": "streets3",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
             "bp_mainbg": "default",
             "bp_cat": false,
-            "bp_pfpstyle": "wide",
+            "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
-            "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 2245,
-            "lastRaidMap": "Interchange",
+            "lastRaidSurvived": false,
+            "lastRaidTimeSeconds": 1138,
+            "lastRaidMap": "Ground Zero - Low",
             "pmcSide": "Usec",
             "scavLevel": 1,
             "prestige": 0,
-            "bp_decal": "cult-signs",
+            "bp_decal": "default",
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 166,
-            "pmcDeaths": 30,
+            "pmcKills": 175,
+            "pmcDeaths": 31,
             "survived": 33,
             "scavRaids": 0,
             "scavKills": 0,
@@ -41666,13 +41678,24 @@
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 63,
-            "totalPlayTime": 58960,
+            "totalRaids": 64,
+            "totalPlayTime": 60098,
             "dev": false,
             "lastRaidRanThrough": false,
             "usePrestigeStyling": true,
             "bp_name": null,
-            "allAchievements": null
+            "allAchievements": {
+                "65141c80ec10ff011f17cc3e": 1750016486,
+                "65141eb5c31fcb0e163577dd": 1750041104,
+                "66c328de9dc78468f4040f35": 1750045705,
+                "6514184ec31fcb0e163577d2": 1750048309,
+                "6513eec00dc723592b0f90cc": 1750099445,
+                "65141e37cf2f1c285e606361": 1750108323,
+                "6512ea46f7a078264a4376e4": 1750191974,
+                "65141bdfcf2f1c285e606446": 1750604773,
+                "65141b9859647d2cb3213ca2": 1750606791,
+                "6513eb6e0dc723592b0f9095": 1750659864
+            }
         },
         {
             "id": "684f1f260005c2f0f9f334f4",
@@ -42027,86 +42050,122 @@
         {
             "id": "684f205700011f164efd12a3",
             "name": "daisling",
-            "pmcLevel": 24,
-            "lastPlayed": 1750632539,
-            "damage": 132972,
+            "pmcLevel": 26,
+            "lastPlayed": 1750701140,
+            "damage": 153044,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 10,
+            "currentWinstreak": 2,
             "longestShot": 81,
-            "pmcRaids": 50,
-            "averageLifeTime": 1037,
-            "killToDeathRatio": 14.359999999999999,
-            "survivalRate": 70,
-            "profileAboutMe": "Recruiting for Spt Fika Server -> https:\/\/discord.gg\/zmRa8hfj",
-            "profilePicture": "https:\/\/i.pinimg.com\/736x\/2b\/ad\/d3\/2badd389764693ac0e89e919f39f23ce.jpg",
-            "profileTheme": "dark",
+            "pmcRaids": 55,
+            "averageLifeTime": 1038,
+            "killToDeathRatio": 16,
+            "survivalRate": 71,
+            "profileAboutMe": "Hello! I am using SPT Leaderboard!",
+            "profilePicture": "",
+            "profileTheme": "default",
             "registrationDate": 1750023689,
-            "absoluteLastTime": 1750634452,
+            "absoluteLastTime": 1750702476,
             "trusted": true,
             "lastRaidKills": 6,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 6753,
-            "lastRaidEXP": 2375,
+            "lastRaidDamage": 5783,
+            "lastRaidEXP": 2204,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "Call Your Brother",
-            "latestAchievementDescription": "Eliminate Tagilla for the first time while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_6.png",
-            "latestAchievementTimestamp": 1750293450,
-            "lastRaidHits": 117,
+            "latestAchievementName": "Sanatorium Orderly",
+            "latestAchievementDescription": "Eliminate Sanitar for the first time while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_10.png",
+            "latestAchievementTimestamp": 1750153595,
+            "lastRaidHits": 122,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "684f205700011f164efd12a3": {
-                    "SR-25": {
+                    "Mk47": {
                         "stats": {
-                            "kills": 36,
-                            "headshots": 28,
-                            "totalShots": 439,
-                            "timesLost": 1
+                            "kills": 19,
+                            "headshots": 11,
+                            "totalShots": 310,
+                            "timesLost": 0
                         },
-                        "originalId": "5df8ce05b11454561e39243b"
+                        "originalId": "606587252535c57a13424cfd"
                     },
-                    "VPO-101 Vepr-Hunter": {
+                    "MP5": {
+                        "stats": {
+                            "kills": 16,
+                            "headshots": 4,
+                            "totalShots": 697,
+                            "timesLost": 0
+                        },
+                        "originalId": "5926bb2186f7744b1c6c6e60"
+                    },
+                    "M700": {
                         "stats": {
                             "kills": 2,
                             "headshots": 1,
-                            "totalShots": 29,
+                            "totalShots": 2,
                             "timesLost": 0
                         },
-                        "originalId": "5c501a4d2e221602b412b540"
+                        "originalId": "5bfea6e90db834001b7347f3"
                     },
-                    "HK 416A5": {
+                    "590A1": {
                         "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 19,
+                            "kills": 3,
+                            "headshots": 2,
+                            "totalShots": 20,
                             "timesLost": 0
                         },
-                        "originalId": "5bb2475ed4351e00853264e3"
+                        "originalId": "5e870397991fd70db46995c8"
                     },
-                    "AK-105": {
+                    "PP-91 Kedr": {
                         "stats": {
-                            "kills": 81,
-                            "headshots": 48,
-                            "totalShots": 2341,
+                            "kills": 2,
+                            "headshots": 2,
+                            "totalShots": 82,
                             "timesLost": 0
                         },
-                        "originalId": "5ac66d9b5acfc4001633997a"
+                        "originalId": "57d14d2524597714373db789"
                     },
-                    "Desert Eagle L5": {
+                    "PP-19-01": {
+                        "stats": {
+                            "kills": 12,
+                            "headshots": 9,
+                            "totalShots": 379,
+                            "timesLost": 0
+                        },
+                        "originalId": "59984ab886f7743e98271174"
+                    },
+                    "ADAR 2-15": {
                         "stats": {
                             "kills": 0,
                             "headshots": 0,
-                            "totalShots": 1,
+                            "totalShots": 9,
                             "timesLost": 0
                         },
-                        "originalId": "669fa3f88abd2662d80eee77"
+                        "originalId": "5c07c60e0db834002330051f"
+                    },
+                    "Glock 17": {
+                        "stats": {
+                            "kills": 2,
+                            "headshots": 1,
+                            "totalShots": 20,
+                            "timesLost": 0
+                        },
+                        "originalId": "5a7ae0c351dfba0017554310"
+                    },
+                    "Mk 17": {
+                        "stats": {
+                            "kills": 3,
+                            "headshots": 0,
+                            "totalShots": 62,
+                            "timesLost": 0
+                        },
+                        "originalId": "6183afd850224f204c1da514"
                     },
                     "AUG A1": {
                         "stats": {
@@ -42116,6 +42175,15 @@
                             "timesLost": 0
                         },
                         "originalId": "62e7c4fba689e8c9c50dfc38"
+                    },
+                    "AK-105": {
+                        "stats": {
+                            "kills": 61,
+                            "headshots": 41,
+                            "totalShots": 1828,
+                            "timesLost": 0
+                        },
+                        "originalId": "5ac66d9b5acfc4001633997a"
                     },
                     "AKS-74UN": {
                         "stats": {
@@ -42234,6 +42302,15 @@
                         },
                         "originalId": "66992b349950f5f4cd06029f"
                     },
+                    "SR-25": {
+                        "stats": {
+                            "kills": 11,
+                            "headshots": 7,
+                            "totalShots": 246,
+                            "timesLost": 1
+                        },
+                        "originalId": "5df8ce05b11454561e39243b"
+                    },
                     "Vector 9x19": {
                         "stats": {
                             "kills": 1,
@@ -42260,15 +42337,6 @@
                             "timesLost": 0
                         },
                         "originalId": "6499849fc93611967b034949"
-                    },
-                    "Mk47": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 8,
-                            "timesLost": 0
-                        },
-                        "originalId": "606587252535c57a13424cfd"
                     },
                     "RSASS": {
                         "stats": {
@@ -42331,63 +42399,63 @@
                     "id": "6617beeaa9cfa777ca915b7c",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 1712161,
+                    "salesSum": 601404,
                     "unlocked": true,
-                    "standing": 0.20999999999999999,
-                    "loyaltyLevel": 2,
+                    "standing": 0.089999999999999997,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 25432423,
+                    "salesSum": 4891716,
                     "unlocked": true,
-                    "standing": 0.20999999999999999,
-                    "loyaltyLevel": 2,
+                    "standing": 0.040000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 503041,
+                    "salesSum": 54472,
                     "unlocked": true,
-                    "standing": 0.90000000000000002,
+                    "standing": 0.46000000000000002,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 6578938,
+                    "salesSum": 28253,
                     "unlocked": true,
-                    "standing": 0.22,
-                    "loyaltyLevel": 2,
+                    "standing": 0.10000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 183435,
+                    "salesSum": 1063986,
                     "unlocked": true,
-                    "standing": 0.23000000000000001,
+                    "standing": 0.13,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 8647,
+                    "salesSum": 227787,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -42395,7 +42463,7 @@
                     "id": "638f541a29ffd1183d187f57",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.01,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -42403,38 +42471,38 @@
                     "id": "656f0f98d80a697f855d34b1",
                     "salesSum": 0,
                     "unlocked": false,
-                    "standing": 0.20000000000000001,
+                    "standing": 0,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 0,
+                    "salesSum": 53306,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.029999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "bp_prestigebg": "both",
-            "bp_cardbg": "streets3",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
             "bp_mainbg": "default",
             "bp_cat": false,
-            "bp_pfpstyle": "wide",
+            "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 1747,
-            "lastRaidMap": "Shoreline",
+            "lastRaidTimeSeconds": 1201,
+            "lastRaidMap": "Ground Zero - Low",
             "pmcSide": "Usec",
             "scavLevel": 3,
             "prestige": 0,
-            "bp_decal": "cult-signs",
+            "bp_decal": "default",
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 201,
-            "pmcDeaths": 14,
-            "survived": 35,
+            "pmcKills": 240,
+            "pmcDeaths": 15,
+            "survived": 39,
             "scavRaids": 1,
             "scavKills": 0,
             "scavDeaths": 1,
@@ -42443,13 +42511,26 @@
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 50,
-            "totalPlayTime": 50662,
+            "totalRaids": 55,
+            "totalPlayTime": 55884,
             "dev": false,
             "lastRaidRanThrough": false,
             "usePrestigeStyling": true,
             "bp_name": null,
-            "allAchievements": null
+            "allAchievements": {
+                "65141c80ec10ff011f17cc3e": 1750027056,
+                "6513f1feec10ff011f17c7ea": 1750119126,
+                "6514184ec31fcb0e163577d2": 1750195193,
+                "65141bdfcf2f1c285e606446": 1750277231,
+                "65141b9859647d2cb3213ca2": 1750278961,
+                "65141e37cf2f1c285e606361": 1750279154,
+                "65141eb5c31fcb0e163577dd": 1750291762,
+                "6513ee11a3dd9b6aa7159b4a": 1750292772,
+                "6513ed89cf2f1c285e606068": 1750292999,
+                "6513efa1b49e3253755f47eb": 1750293417,
+                "6513eb6e0dc723592b0f9095": 1750293450,
+                "65141cd2cf2f1c285e606449": 1750634448
+            }
         },
         {
             "id": "684f3ecf0002cb315764c8c0",
@@ -43849,36 +43930,36 @@
         {
             "id": "685042b7000554f651a9f4f9",
             "name": "harmony",
-            "pmcLevel": 2,
-            "lastPlayed": 1750610354,
+            "pmcLevel": 3,
+            "lastPlayed": 1750686375,
             "damage": 904,
             "accountType": "left_behind",
             "sptVer": "3.11.3",
             "publicProfile": true,
             "currentWinstreak": 0,
             "longestShot": 14,
-            "pmcRaids": 3,
-            "averageLifeTime": 241,
-            "killToDeathRatio": 1.6699999999999999,
+            "pmcRaids": 6,
+            "averageLifeTime": 156,
+            "killToDeathRatio": 1,
             "survivalRate": 0,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
             "registrationDate": 1750090507,
-            "absoluteLastTime": 1750610432,
+            "absoluteLastTime": 1750686450,
             "trusted": false,
-            "lastRaidKills": 1,
+            "lastRaidKills": 0,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 360,
-            "lastRaidEXP": 289,
+            "lastRaidDamage": null,
+            "lastRaidEXP": 100,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": null,
-            "latestAchievementDescription": null,
-            "latestAchievementImageUrl": null,
-            "latestAchievementTimestamp": 0,
-            "lastRaidHits": 9,
+            "latestAchievementName": "That's What She Said",
+            "latestAchievementDescription": "Search the office in Factory while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_30.png",
+            "latestAchievementTimestamp": 1750610406,
+            "lastRaidHits": 0,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -43951,7 +44032,7 @@
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 1,
+                    "salesSum": 3,
                     "unlocked": true,
                     "standing": 0,
                     "loyaltyLevel": 1,
@@ -44029,7 +44110,7 @@
             "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
             "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 42,
+            "lastRaidTimeSeconds": 35,
             "lastRaidMap": "Factory",
             "pmcSide": "Bear",
             "scavLevel": 2,
@@ -44039,7 +44120,7 @@
             "isUsingSAIN": false,
             "isNew": false,
             "pmcKills": 5,
-            "pmcDeaths": 3,
+            "pmcDeaths": 5,
             "survived": 0,
             "scavRaids": 1,
             "scavKills": 1,
@@ -44049,10 +44130,10 @@
             "scavKillToDeathRatio": 1,
             "scavSurvivalRate": 100,
             "suspicious": false,
-            "totalRaids": 3,
-            "totalPlayTime": 346,
+            "totalRaids": 6,
+            "totalPlayTime": 561,
             "dev": true,
-            "lastRaidRanThrough": false,
+            "lastRaidRanThrough": true,
             "allAchievements": {
                 "65141e37cf2f1c285e606361": 1750610406
             }
@@ -46615,59 +46696,86 @@
         {
             "id": "6851d2940005442f592e6354",
             "name": "Mac",
-            "pmcLevel": 15,
-            "lastPlayed": 1750331393,
-            "damage": 33038,
+            "pmcLevel": 20,
+            "lastPlayed": 1750695505,
+            "damage": 34376,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 2,
+            "currentWinstreak": 3,
             "longestShot": 30,
-            "pmcRaids": 15,
-            "averageLifeTime": 1064,
-            "killToDeathRatio": 15.67,
-            "survivalRate": 67,
-            "profileAboutMe": "Recruiting for Spt Fika Server -> https:\/\/discord.gg\/zmRa8hfj",
-            "profilePicture": "https:\/\/i.pinimg.com\/736x\/2b\/ad\/d3\/2badd389764693ac0e89e919f39f23ce.jpg",
-            "profileTheme": "dark",
+            "pmcRaids": 16,
+            "averageLifeTime": 1040,
+            "killToDeathRatio": 17,
+            "survivalRate": 69,
+            "profileAboutMe": "Hello! I am using SPT Leaderboard!",
+            "profilePicture": "",
+            "profileTheme": "default",
             "registrationDate": 1750193811,
-            "absoluteLastTime": 1750333441,
+            "absoluteLastTime": 1750696229,
             "trusted": true,
-            "lastRaidKills": 6,
+            "lastRaidKills": 4,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 4121,
-            "lastRaidEXP": 2107,
+            "lastRaidDamage": 1338,
+            "lastRaidEXP": 1253,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "PMC's Best Friend",
-            "latestAchievementDescription": "Survive and extract from Interchange through the Scav Co-Op extraction while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Standard_2.png",
-            "latestAchievementTimestamp": 1750192019,
-            "lastRaidHits": 81,
+            "latestAchievementName": "Jack of All Trades",
+            "latestAchievementDescription": "Complete all of Gunsmith series tasks",
+            "latestAchievementImageUrl": "\/files\/achievement\/Rare_35.png",
+            "latestAchievementTimestamp": 1750630145,
+            "lastRaidHits": 37,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "6851d2940005442f592e6354": {
-                    "SA58": {
+                    "Glock 18C": {
                         "stats": {
-                            "kills": 12,
-                            "headshots": 4,
-                            "totalShots": 226,
+                            "kills": 2,
+                            "headshots": 2,
+                            "totalShots": 22,
                             "timesLost": 0
                         },
-                        "originalId": "5b0bbe4e5acfc40dc528a72d"
+                        "originalId": "5b1fa9b25acfc40018633c01"
                     },
-                    "APS": {
+                    "AKS-74UB": {
+                        "stats": {
+                            "kills": 2,
+                            "headshots": 0,
+                            "totalShots": 34,
+                            "timesLost": 0
+                        },
+                        "originalId": "5839a40f24597726f856b511"
+                    },
+                    "AK-74N": {
+                        "stats": {
+                            "kills": 3,
+                            "headshots": 3,
+                            "totalShots": 133,
+                            "timesLost": 0
+                        },
+                        "originalId": "5644bd2b4bdc2d3b4c8b4572"
+                    },
+                    "MP9-N": {
+                        "stats": {
+                            "kills": 2,
+                            "headshots": 1,
+                            "totalShots": 53,
+                            "timesLost": 0
+                        },
+                        "originalId": "5de7bd7bfd6b4e6e2276dc25"
+                    },
+                    "M4A1": {
                         "stats": {
                             "kills": 0,
                             "headshots": 0,
-                            "totalShots": 21,
+                            "totalShots": 79,
                             "timesLost": 0
                         },
-                        "originalId": "5a17f98cfcdbcb0980087290"
+                        "originalId": "5447a9cd4bdc2dbd208b4567"
                     },
                     "X-17": {
                         "stats": {
@@ -46702,65 +46810,65 @@
                 "REF": {
                     "id": "6617beeaa9cfa777ca915b7c",
                     "salesSum": 0,
-                    "unlocked": false,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "unlocked": true,
+                    "standing": 0.28000000000000003,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 0,
+                    "salesSum": 2391552,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 1.6599999999999999,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 0,
+                    "salesSum": 42597855,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 1.04,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 0,
+                    "salesSum": 18685,
                     "unlocked": true,
-                    "standing": 0.5,
+                    "standing": 2.1000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 0,
+                    "salesSum": 2650450,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 0.88,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 0,
+                    "salesSum": 2201603,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 0.71999999999999997,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 0,
+                    "salesSum": 8463189,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 0.87,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 0,
+                    "salesSum": 3712824,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "standing": 0.85999999999999999,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "LIGHTKEEPER": {
@@ -46781,32 +46889,32 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 0,
-                    "unlocked": false,
-                    "standing": 0.20000000000000001,
-                    "loyaltyLevel": 1,
+                    "salesSum": 4088840,
+                    "unlocked": true,
+                    "standing": 0.69999999999999996,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 }
             },
-            "bp_prestigebg": "both",
-            "bp_cardbg": "streets3",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
             "bp_mainbg": "default",
             "bp_cat": false,
-            "bp_pfpstyle": "wide",
+            "bp_pfpstyle": "default",
             "bp_pfpbordercolor": "default",
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 1882,
-            "lastRaidMap": "Lighthouse",
+            "lastRaidTimeSeconds": 682,
+            "lastRaidMap": "Customs",
             "pmcSide": "Bear",
             "scavLevel": 1,
             "prestige": 0,
-            "bp_decal": "cult-signs",
+            "bp_decal": "default",
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 47,
+            "pmcKills": 51,
             "pmcDeaths": 3,
-            "survived": 10,
+            "survived": 11,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -46815,12 +46923,19 @@
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 14,
-            "totalPlayTime": 15352,
+            "totalRaids": 15,
+            "totalPlayTime": 16034,
             "dev": false,
             "lastRaidRanThrough": false,
             "usePrestigeStyling": true,
-            "bp_name": null
+            "bp_name": null,
+            "allAchievements": {
+                "65141c80ec10ff011f17cc3e": 1750198444,
+                "6514184ec31fcb0e163577d2": 1750203958,
+                "6513f0a10dc723592b0f90cf": 1750291724,
+                "65141eb5c31fcb0e163577dd": 1750291757,
+                "66c328de9dc78468f4040f35": 1750292098
+            }
         },
         {
             "id": "68494cdb0004ced8a9747f17",
@@ -48116,18 +48231,18 @@
         },
         {
             "id": "6852b0a60004609860fe4ab6",
-            "pmcLevel": 7,
-            "lastPlayed": 1750598048,
-            "damage": 5578,
+            "pmcLevel": 8,
+            "lastPlayed": 1750685240,
+            "damage": 6692,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 2,
+            "currentWinstreak": 3,
             "longestShot": 0,
-            "pmcRaids": 7,
-            "averageLifeTime": 658,
-            "killToDeathRatio": 2,
-            "survivalRate": 43,
+            "pmcRaids": 8,
+            "averageLifeTime": 823,
+            "killToDeathRatio": 2.75,
+            "survivalRate": 50,
             "profileAboutMe": "",
             "profilePicture": "",
             "profileTheme": "default",
@@ -48139,12 +48254,12 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750249822,
-            "absoluteLastTime": 1750598793,
+            "absoluteLastTime": 1750687275,
             "trusted": false,
-            "lastRaidKills": 0,
+            "lastRaidKills": 3,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 814,
-            "lastRaidEXP": 378,
+            "lastRaidDamage": 1114,
+            "lastRaidEXP": 2631,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -48152,13 +48267,40 @@
             "latestAchievementDescription": "Survive a raid without the Run-through status for the first time",
             "latestAchievementImageUrl": "\/files\/achievement\/Standard_27.png",
             "latestAchievementTimestamp": 1750252542,
-            "lastRaidHits": 27,
+            "lastRaidHits": 23,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "6852b0a60004609860fe4ab6": {
+                    "SVDS": {
+                        "stats": {
+                            "kills": 5,
+                            "headshots": 3,
+                            "totalShots": 26,
+                            "timesLost": 0
+                        },
+                        "originalId": "5c46fbd72e2216398b5a8c9c"
+                    },
+                    "PP-91 Kedr": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 1,
+                            "totalShots": 7,
+                            "timesLost": 0
+                        },
+                        "originalId": "57d14d2524597714373db789"
+                    },
+                    "OP-SKS": {
+                        "stats": {
+                            "kills": 4,
+                            "headshots": 3,
+                            "totalShots": 65,
+                            "timesLost": 0
+                        },
+                        "originalId": "587e02ff24597743df3deaeb"
+                    },
                     "AK-12": {
                         "stats": {
                             "kills": 10,
@@ -48271,9 +48413,9 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 119345,
+                    "salesSum": 119953,
                     "unlocked": true,
-                    "standing": 0.23000000000000001,
+                    "standing": 0.27000000000000002,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -48287,7 +48429,7 @@
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 47838,
+                    "salesSum": 54338,
                     "unlocked": true,
                     "standing": 0.69999999999999996,
                     "loyaltyLevel": 1,
@@ -48351,17 +48493,17 @@
                 }
             },
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 683,
-            "lastRaidMap": "Customs",
+            "lastRaidTimeSeconds": 1979,
+            "lastRaidMap": "Woods",
             "pmcSide": "Bear",
             "scavLevel": 2,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 8,
+            "pmcKills": 11,
             "pmcDeaths": 4,
-            "survived": 3,
+            "survived": 4,
             "scavRaids": 1,
             "scavKills": 1,
             "scavDeaths": 1,
@@ -48370,11 +48512,12 @@
             "scavKillToDeathRatio": 1,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 7,
-            "totalPlayTime": 5196,
+            "totalRaids": 8,
+            "totalPlayTime": 7175,
             "dev": false,
             "name": "ThisIsRazor",
-            "lastRaidRanThrough": false
+            "lastRaidRanThrough": false,
+            "allAchievements": null
         },
         {
             "id": "68459257000124366ff1d55d",
@@ -51145,17 +51288,17 @@
             "id": "684f7da10000328a2ba566a9",
             "name": "NullBinks",
             "pmcLevel": 18,
-            "lastPlayed": 1750544668,
-            "damage": 8226,
+            "lastPlayed": 1750687979,
+            "damage": 8256,
             "accountType": "standard",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 2,
             "longestShot": 96,
-            "pmcRaids": 11,
-            "averageLifeTime": 464,
+            "pmcRaids": 13,
+            "averageLifeTime": 469,
             "killToDeathRatio": 3.71,
-            "survivalRate": 36,
+            "survivalRate": 46,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -51167,12 +51310,12 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750040200,
-            "absoluteLastTime": 1750545855,
+            "absoluteLastTime": 1750688596,
             "trusted": false,
-            "lastRaidKills": 4,
+            "lastRaidKills": 0,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 758,
-            "lastRaidEXP": 1783,
+            "lastRaidDamage": 30,
+            "lastRaidEXP": 341,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -51180,7 +51323,7 @@
             "latestAchievementDescription": "Eliminate Reshala for the first time while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Standard_8.png",
             "latestAchievementTimestamp": 1750540801,
-            "lastRaidHits": 29,
+            "lastRaidHits": 1,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -51197,7 +51340,7 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 841248,
+                    "salesSum": 919422,
                     "unlocked": true,
                     "standing": 0.10000000000000001,
                     "loyaltyLevel": 1,
@@ -51205,7 +51348,7 @@
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 2806956,
+                    "salesSum": 2841337,
                     "unlocked": true,
                     "standing": 0.080000000000000002,
                     "loyaltyLevel": 1,
@@ -51221,7 +51364,7 @@
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 59209,
+                    "salesSum": 105109,
                     "unlocked": true,
                     "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
@@ -51229,7 +51372,7 @@
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 5766,
+                    "salesSum": 6239,
                     "unlocked": true,
                     "standing": 0.01,
                     "loyaltyLevel": 1,
@@ -51237,7 +51380,7 @@
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 1452138,
+                    "salesSum": 1573644,
                     "unlocked": true,
                     "standing": 0.050000000000000003,
                     "loyaltyLevel": 1,
@@ -51276,8 +51419,8 @@
                     "disabled": false
                 }
             },
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 1131,
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 564,
             "lastRaidMap": "Customs",
             "pmcSide": "Bear",
             "scavLevel": 1,
@@ -51287,7 +51430,7 @@
             "isNew": false,
             "pmcKills": 26,
             "pmcDeaths": 7,
-            "survived": 4,
+            "survived": 6,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -51296,10 +51439,11 @@
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 10,
-            "totalPlayTime": 4619,
+            "totalRaids": 12,
+            "totalPlayTime": 5616,
             "dev": false,
-            "lastRaidRanThrough": false
+            "lastRaidRanThrough": false,
+            "allAchievements": null
         },
         {
             "id": "6855c2d60004d5dc4e80f92c",
@@ -52560,16 +52704,16 @@
             "id": "6855e89d000069a14170ba99",
             "name": "Shepherd",
             "pmcLevel": 7,
-            "lastPlayed": 1750651969,
-            "damage": 3616,
+            "lastPlayed": 1750685594,
+            "damage": 4369,
             "accountType": "left_behind",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 2,
+            "currentWinstreak": 1,
             "longestShot": 88,
-            "pmcRaids": 4,
-            "averageLifeTime": 918,
-            "killToDeathRatio": 5,
+            "pmcRaids": 6,
+            "averageLifeTime": 888,
+            "killToDeathRatio": 3.6699999999999999,
             "survivalRate": 50,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
@@ -52582,12 +52726,12 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750460742,
-            "absoluteLastTime": 1750653843,
+            "absoluteLastTime": 1750686929,
             "trusted": false,
-            "lastRaidKills": 4,
+            "lastRaidKills": 0,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 947,
-            "lastRaidEXP": 1973,
+            "lastRaidDamage": 430,
+            "lastRaidEXP": 618,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -52595,7 +52739,7 @@
             "latestAchievementDescription": "Locate the crashed plane on Woods while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Standard_31.png",
             "latestAchievementTimestamp": 1750651078,
-            "lastRaidHits": 38,
+            "lastRaidHits": 10,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -52612,7 +52756,7 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 39500,
+                    "salesSum": 217712,
                     "unlocked": true,
                     "standing": 0.01,
                     "loyaltyLevel": 1,
@@ -52620,7 +52764,7 @@
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 236801,
+                    "salesSum": 255093,
                     "unlocked": true,
                     "standing": 0.01,
                     "loyaltyLevel": 1,
@@ -52644,7 +52788,7 @@
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 312,
+                    "salesSum": 571,
                     "unlocked": true,
                     "standing": 0,
                     "loyaltyLevel": 1,
@@ -52660,7 +52804,7 @@
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 270000,
+                    "salesSum": 295000,
                     "unlocked": true,
                     "standing": 0,
                     "loyaltyLevel": 1,
@@ -52692,17 +52836,17 @@
                 }
             },
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 1819,
-            "lastRaidMap": "Interchange",
+            "lastRaidTimeSeconds": 1251,
+            "lastRaidMap": "Lighthouse",
             "pmcSide": "Usec",
             "scavLevel": 1,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 10,
-            "pmcDeaths": 2,
-            "survived": 2,
+            "pmcKills": 11,
+            "pmcDeaths": 3,
+            "survived": 3,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -52711,8 +52855,8 @@
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
             "suspicious": false,
-            "totalRaids": 3,
-            "totalPlayTime": 3401,
+            "totalRaids": 5,
+            "totalPlayTime": 5054,
             "dev": false,
             "lastRaidRanThrough": false,
             "allAchievements": null
@@ -52720,18 +52864,18 @@
         {
             "id": "685286c80004ad059625d008",
             "name": "KROGun1235",
-            "pmcLevel": 19,
-            "lastPlayed": 1750671276,
-            "damage": 1323,
+            "pmcLevel": 20,
+            "lastPlayed": 1750678860,
+            "damage": 4189,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
             "currentWinstreak": 0,
             "longestShot": 289,
-            "pmcRaids": 3,
-            "averageLifeTime": 580,
-            "killToDeathRatio": 4,
-            "survivalRate": 67,
+            "pmcRaids": 5,
+            "averageLifeTime": 522,
+            "killToDeathRatio": 2,
+            "survivalRate": 40,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -52743,12 +52887,12 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750250161,
-            "absoluteLastTime": 1750671566,
+            "absoluteLastTime": 1750679277,
             "trusted": false,
-            "lastRaidKills": 3,
+            "lastRaidKills": 2,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 408,
-            "lastRaidEXP": 0,
+            "lastRaidDamage": 568,
+            "lastRaidEXP": 247,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -52756,7 +52900,7 @@
             "latestAchievementDescription": "Eliminate Reshala for the first time while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Standard_8.png",
             "latestAchievementTimestamp": 1750658329,
-            "lastRaidHits": 17,
+            "lastRaidHits": 29,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -52773,15 +52917,15 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 200752,
+                    "salesSum": 211421,
                     "unlocked": true,
-                    "standing": 0.23999999999999999,
+                    "standing": 0.32000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 2171003,
+                    "salesSum": 2230184,
                     "unlocked": true,
                     "standing": 0.28000000000000003,
                     "loyaltyLevel": 2,
@@ -52791,7 +52935,7 @@
                     "id": "579dc571d53a0658a154fbec",
                     "salesSum": 475357,
                     "unlocked": true,
-                    "standing": 0.80000000000000004,
+                    "standing": 0.84999999999999998,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -52799,13 +52943,13 @@
                     "id": "58330581ace78e27b8b10cee",
                     "salesSum": 896600,
                     "unlocked": true,
-                    "standing": 0.37,
+                    "standing": 0.53000000000000003,
                     "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 901,
+                    "salesSum": 5059,
                     "unlocked": true,
                     "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
@@ -52813,7 +52957,7 @@
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 464769,
+                    "salesSum": 599989,
                     "unlocked": true,
                     "standing": 0.28000000000000003,
                     "loyaltyLevel": 1,
@@ -52853,7 +52997,7 @@
                 }
             },
             "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 197,
+            "lastRaidTimeSeconds": 336,
             "lastRaidMap": "Factory",
             "pmcSide": "Bear",
             "scavLevel": 3,
@@ -52861,8 +53005,8 @@
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 4,
-            "pmcDeaths": 1,
+            "pmcKills": 6,
+            "pmcDeaths": 3,
             "survived": 2,
             "scavRaids": 0,
             "scavKills": 0,
@@ -52871,9 +53015,9 @@
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
-            "suspicious": true,
-            "totalRaids": 2,
-            "totalPlayTime": 929,
+            "suspicious": false,
+            "totalRaids": 4,
+            "totalPlayTime": 1799,
             "dev": false,
             "lastRaidRanThrough": false,
             "allAchievements": null
@@ -52881,18 +53025,18 @@
         {
             "id": "68590f4c0003b9ce782bbf4c",
             "name": "0fic9ntka",
-            "pmcLevel": 4,
-            "lastPlayed": 1750667486,
-            "damage": 2274,
+            "pmcLevel": 11,
+            "lastPlayed": 1750684238,
+            "damage": 6949,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 1,
+            "currentWinstreak": 0,
             "longestShot": 27,
-            "pmcRaids": 1,
-            "averageLifeTime": 2032,
-            "killToDeathRatio": 2,
-            "survivalRate": 100,
+            "pmcRaids": 5,
+            "averageLifeTime": 1342,
+            "killToDeathRatio": 12,
+            "survivalRate": 80,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -52904,20 +53048,20 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750667140,
-            "absoluteLastTime": 1750669559,
+            "absoluteLastTime": 1750685391,
             "trusted": false,
-            "lastRaidKills": 2,
+            "lastRaidKills": 5,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 2274,
-            "lastRaidEXP": 5406,
+            "lastRaidDamage": 1747,
+            "lastRaidEXP": 1868,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": null,
-            "latestAchievementDescription": null,
-            "latestAchievementImageUrl": null,
-            "latestAchievementTimestamp": 0,
-            "lastRaidHits": 58,
+            "latestAchievementName": "Time To Clean My Karma",
+            "latestAchievementDescription": "Eliminate Partisan for the first time while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard73.png",
+            "latestAchievementTimestamp": 1750681896,
+            "lastRaidHits": 60,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -52926,12 +53070,57 @@
                 "68590f4c0003b9ce782bbf4c": {
                     "M4A1": {
                         "stats": {
-                            "kills": 12,
-                            "headshots": 6,
-                            "totalShots": 131,
+                            "kills": 42,
+                            "headshots": 23,
+                            "totalShots": 484,
                             "timesLost": 0
                         },
                         "originalId": "5447a9cd4bdc2dbd208b4567"
+                    },
+                    "AKS-74N": {
+                        "stats": {
+                            "kills": 3,
+                            "headshots": 2,
+                            "totalShots": 53,
+                            "timesLost": 0
+                        },
+                        "originalId": "5ab8e9fcd8ce870019439434"
+                    },
+                    "ADAR 2-15": {
+                        "stats": {
+                            "kills": 2,
+                            "headshots": 0,
+                            "totalShots": 41,
+                            "timesLost": 0
+                        },
+                        "originalId": "5c07c60e0db834002330051f"
+                    },
+                    "AK-104": {
+                        "stats": {
+                            "kills": 2,
+                            "headshots": 2,
+                            "totalShots": 26,
+                            "timesLost": 0
+                        },
+                        "originalId": "5ac66d725acfc43b321d4b60"
+                    },
+                    "M700": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 1,
+                            "timesLost": 0
+                        },
+                        "originalId": "5bfea6e90db834001b7347f3"
+                    },
+                    "M9A3": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 14,
+                            "timesLost": 0
+                        },
+                        "originalId": "5cadc190ae921500103bb3b6"
                     },
                     "AKS-74": {
                         "stats": {
@@ -52955,17 +53144,17 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 40369,
+                    "salesSum": 221376,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 0,
+                    "salesSum": 11597,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -52973,15 +53162,15 @@
                     "id": "579dc571d53a0658a154fbec",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.5,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 17383,
+                    "salesSum": 36013,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.22,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -52995,9 +53184,9 @@
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 1558,
+                    "salesSum": 19599,
                     "unlocked": true,
-                    "standing": 0.20000000000000001,
+                    "standing": 0.23999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -53028,47 +53217,53 @@
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
                     "salesSum": 0,
-                    "unlocked": false,
+                    "unlocked": true,
                     "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 2032,
-            "lastRaidMap": "Ground Zero - Low",
+            "lastRaidSurvived": false,
+            "lastRaidTimeSeconds": 1089,
+            "lastRaidMap": "Customs",
             "pmcSide": "Usec",
             "scavLevel": 1,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
-            "isNew": true,
-            "pmcKills": 2,
-            "pmcDeaths": 0,
-            "survived": 1,
+            "isNew": false,
+            "pmcKills": 12,
+            "pmcDeaths": 1,
+            "survived": 4,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
             "scavSurvived": 0,
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
-            "scavSurvivalRate": 0
+            "scavSurvivalRate": 0,
+            "suspicious": true,
+            "totalRaids": 4,
+            "totalPlayTime": 4675,
+            "dev": false,
+            "lastRaidRanThrough": false,
+            "allAchievements": null
         },
         {
             "id": "684aee96000439863d142754",
             "name": "Christian2",
-            "pmcLevel": 23,
-            "lastPlayed": 1750673904,
-            "damage": 4237,
+            "pmcLevel": 24,
+            "lastPlayed": 1750681605,
+            "damage": 5983,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 4,
+            "currentWinstreak": 2,
             "longestShot": 392,
-            "pmcRaids": 4,
-            "averageLifeTime": 788,
-            "killToDeathRatio": 6,
-            "survivalRate": 100,
+            "pmcRaids": 8,
+            "averageLifeTime": 792,
+            "killToDeathRatio": 8,
+            "survivalRate": 75,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -53080,12 +53275,12 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1749746845,
-            "absoluteLastTime": 1750675007,
+            "absoluteLastTime": 1750683198,
             "trusted": false,
-            "lastRaidKills": 2,
+            "lastRaidKills": 3,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 3082,
-            "lastRaidEXP": 744,
+            "lastRaidDamage": 907,
+            "lastRaidEXP": 1462,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
@@ -53093,7 +53288,7 @@
             "latestAchievementDescription": "Eliminate Killa for the first time while playing as a PMC",
             "latestAchievementImageUrl": "\/files\/achievement\/Standard_5.png",
             "latestAchievementTimestamp": 1750520907,
-            "lastRaidHits": 96,
+            "lastRaidHits": 18,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
@@ -53110,15 +53305,15 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 2750328,
+                    "salesSum": 2795109,
                     "unlocked": true,
-                    "standing": 1.0700000000000001,
+                    "standing": 1.1000000000000001,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 19049955,
+                    "salesSum": 19598276,
                     "unlocked": true,
                     "standing": 1.1200000000000001,
                     "loyaltyLevel": 4,
@@ -53136,7 +53331,7 @@
                     "id": "58330581ace78e27b8b10cee",
                     "salesSum": 2837088,
                     "unlocked": true,
-                    "standing": 1.3700000000000001,
+                    "standing": 1.4099999999999999,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
@@ -53144,13 +53339,13 @@
                     "id": "5935c25fb3acc3127c3d8cd9",
                     "salesSum": 2600494,
                     "unlocked": true,
-                    "standing": 1,
+                    "standing": 1.01,
                     "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 4186892,
+                    "salesSum": 4373211,
                     "unlocked": true,
                     "standing": 1.1000000000000001,
                     "loyaltyLevel": 4,
@@ -53182,25 +53377,25 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 3348437,
+                    "salesSum": 3352424,
                     "unlocked": true,
-                    "standing": 1.05,
+                    "standing": 1.0600000000000001,
                     "loyaltyLevel": 4,
                     "disabled": false
                 }
             },
             "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 1066,
-            "lastRaidMap": "Customs",
+            "lastRaidTimeSeconds": 1558,
+            "lastRaidMap": "Woods",
             "pmcSide": "Bear",
             "scavLevel": 3,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
             "isNew": false,
-            "pmcKills": 6,
-            "pmcDeaths": 0,
-            "survived": 4,
+            "pmcKills": 16,
+            "pmcDeaths": 2,
+            "survived": 6,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -53208,9 +53403,9 @@
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
             "scavSurvivalRate": 0,
-            "suspicious": true,
-            "totalRaids": 3,
-            "totalPlayTime": 2385,
+            "suspicious": false,
+            "totalRaids": 7,
+            "totalPlayTime": 5573,
             "dev": false,
             "lastRaidRanThrough": false,
             "allAchievements": null
@@ -53218,18 +53413,18 @@
         {
             "id": "6851f073000104cf4b0b22b2",
             "name": "debisuchan",
-            "pmcLevel": 52,
-            "lastPlayed": 1750671326,
-            "damage": 1309,
+            "pmcLevel": 56,
+            "lastPlayed": 1750684197,
+            "damage": 6479,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 4,
             "longestShot": 246,
-            "pmcRaids": 1,
-            "averageLifeTime": 1425,
-            "killToDeathRatio": 4,
-            "survivalRate": 0,
+            "pmcRaids": 5,
+            "averageLifeTime": 1553,
+            "killToDeathRatio": 7,
+            "survivalRate": 80,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -53241,31 +53436,40 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750200721,
-            "absoluteLastTime": 1750673012,
+            "absoluteLastTime": 1750685269,
             "trusted": false,
-            "lastRaidKills": 4,
+            "lastRaidKills": 0,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 1309,
-            "lastRaidEXP": 132350,
+            "lastRaidDamage": 1417,
+            "lastRaidEXP": 160950,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "Ready for Anything",
-            "latestAchievementDescription": "Survive 10 consecutive raids while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Rare_28.png",
-            "latestAchievementTimestamp": 1750462490,
-            "lastRaidHits": 43,
+            "latestAchievementName": "Killer7",
+            "latestAchievementDescription": "Eliminate 7 PMC operatives in a single raid while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Rare_20.png",
+            "latestAchievementTimestamp": 1750679609,
+            "lastRaidHits": 57,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "6851f073000104cf4b0b22b2": {
+                    "RPK-16": {
+                        "stats": {
+                            "kills": 6,
+                            "headshots": 6,
+                            "totalShots": 155,
+                            "timesLost": 0
+                        },
+                        "originalId": "5beed0f50db834001c062b12"
+                    },
                     "M4A1": {
                         "stats": {
-                            "kills": 11,
-                            "headshots": 11,
-                            "totalShots": 111,
+                            "kills": 2,
+                            "headshots": 2,
+                            "totalShots": 34,
                             "timesLost": 0
                         },
                         "originalId": "5447a9cd4bdc2dbd208b4567"
@@ -53321,72 +53525,72 @@
                 "REF": {
                     "id": "6617beeaa9cfa777ca915b7c",
                     "salesSum": 0,
-                    "unlocked": false,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "unlocked": true,
+                    "standing": 0.33000000000000002,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 0,
+                    "salesSum": 3381716,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 1.6200000000000001,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 0,
+                    "salesSum": 20848305,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 1.6200000000000001,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 0,
+                    "salesSum": 261106,
                     "unlocked": true,
-                    "standing": 0.050000000000000003,
+                    "standing": 0.42999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "SKIER": {
                     "id": "58330581ace78e27b8b10cee",
-                    "salesSum": 0,
+                    "salesSum": 1665510,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 1.6399999999999999,
+                    "loyaltyLevel": 3,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 0,
+                    "salesSum": 39836,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 1.1599999999999999,
+                    "loyaltyLevel": 4,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 0,
+                    "salesSum": 7135948,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 0.28999999999999998,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 0,
+                    "salesSum": 1625794,
                     "unlocked": true,
-                    "standing": 0,
-                    "loyaltyLevel": 1,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 2,
                     "disabled": false
                 },
                 "LIGHTKEEPER": {
                     "id": "638f541a29ffd1183d187f57",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.01,
+                    "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -53394,54 +53598,66 @@
                     "id": "656f0f98d80a697f855d34b1",
                     "salesSum": 0,
                     "unlocked": false,
-                    "standing": 0,
+                    "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 0,
-                    "unlocked": false,
-                    "standing": 0,
+                    "salesSum": 224330,
+                    "unlocked": true,
+                    "standing": 0.88,
                     "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 1425,
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 1015,
             "lastRaidMap": "Reserve",
             "pmcSide": "Usec",
             "scavLevel": 15,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
-            "isNew": true,
-            "pmcKills": 4,
+            "isNew": false,
+            "pmcKills": 7,
             "pmcDeaths": 1,
-            "survived": 0,
+            "survived": 4,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
             "scavSurvived": 0,
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
-            "scavSurvivalRate": 0
+            "scavSurvivalRate": 0,
+            "suspicious": false,
+            "totalRaids": 4,
+            "totalPlayTime": 6339,
+            "dev": false,
+            "lastRaidRanThrough": false,
+            "allAchievements": null,
+            "banTime": 1750688920,
+            "banReason": "Use of very high EXP multipliers. Appeal is open.",
+            "tookAction": "harmony",
+            "disqualified": true,
+            "banned": true,
+            "permBanned": true
         },
         {
             "id": "6852f31f0003b29d4b0fb59c",
             "name": "KYARU12",
-            "pmcLevel": 55,
-            "lastPlayed": 1750671473,
-            "damage": 2240,
+            "pmcLevel": 57,
+            "lastPlayed": 1750684199,
+            "damage": 19594,
             "accountType": "unheard_edition",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 1,
+            "currentWinstreak": 0,
             "longestShot": 253,
-            "pmcRaids": 1,
-            "averageLifeTime": 1691,
-            "killToDeathRatio": 1,
-            "survivalRate": 100,
+            "pmcRaids": 5,
+            "averageLifeTime": 1450,
+            "killToDeathRatio": 17,
+            "survivalRate": 80,
             "profileAboutMe": "I didn't read mod configuration... Again.",
             "profilePicture": "",
             "profileTheme": "default",
@@ -53453,26 +53669,89 @@
             "bp_pfpbordercolor": "default",
             "bp_decal": "default",
             "registrationDate": 1750266886,
-            "absoluteLastTime": 1750673289,
+            "absoluteLastTime": 1750684457,
             "trusted": false,
-            "lastRaidKills": 1,
+            "lastRaidKills": 2,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 2240,
-            "lastRaidEXP": 183100,
+            "lastRaidDamage": 981,
+            "lastRaidEXP": 0,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "latestAchievementName": "Ready for Anything",
-            "latestAchievementDescription": "Survive 10 consecutive raids while playing as a PMC",
-            "latestAchievementImageUrl": "\/files\/achievement\/Rare_28.png",
-            "latestAchievementTimestamp": 1750579388,
-            "lastRaidHits": 78,
+            "latestAchievementName": "Grouse Hunting",
+            "latestAchievementDescription": "Eliminate Glukhar for the first time while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_9.png",
+            "latestAchievementTimestamp": 1750533626,
+            "lastRaidHits": 25,
             "hasKappa": false,
             "weaponMasteryId": 0,
             "weaponMasteryProgress": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "6852f31f0003b29d4b0fb59c": {
+                    "AKS-74UN": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 18,
+                            "timesLost": 0
+                        },
+                        "originalId": "583990e32459771419544dd2"
+                    },
+                    "AK-105": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 25,
+                            "timesLost": 0
+                        },
+                        "originalId": "5ac66d9b5acfc4001633997a"
+                    },
+                    "ADAR 2-15": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 10,
+                            "timesLost": 0
+                        },
+                        "originalId": "5c07c60e0db834002330051f"
+                    },
+                    "Mk 16": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 58,
+                            "timesLost": 0
+                        },
+                        "originalId": "6184055050224f204c1da540"
+                    },
+                    "Glock 19X": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 25,
+                            "timesLost": 0
+                        },
+                        "originalId": "63088377b5cd696784087147"
+                    },
+                    "M4A1": {
+                        "stats": {
+                            "kills": 21,
+                            "headshots": 10,
+                            "totalShots": 673,
+                            "timesLost": 0
+                        },
+                        "originalId": "5447a9cd4bdc2dbd208b4567"
+                    },
+                    "UZI": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 27,
+                            "timesLost": 0
+                        },
+                        "originalId": "66992b349950f5f4cd06029f"
+                    },
                     "TX-15 DML": {
                         "stats": {
                             "kills": 1,
@@ -53499,15 +53778,6 @@
                             "timesLost": 0
                         },
                         "originalId": "65290f395ae2ae97b80fdf2d"
-                    },
-                    "Glock 19X": {
-                        "stats": {
-                            "kills": 1,
-                            "headshots": 0,
-                            "totalShots": 23,
-                            "timesLost": 0
-                        },
-                        "originalId": "63088377b5cd696784087147"
                     },
                     "AK-104": {
                         "stats": {
@@ -53544,15 +53814,6 @@
                             "timesLost": 0
                         },
                         "originalId": "5cdeb229d7f00c000e7ce174"
-                    },
-                    "M4A1": {
-                        "stats": {
-                            "kills": 5,
-                            "headshots": 4,
-                            "totalShots": 165,
-                            "timesLost": 0
-                        },
-                        "originalId": "5447a9cd4bdc2dbd208b4567"
                     },
                     "AK-545 Short": {
                         "stats": {
@@ -53685,33 +53946,427 @@
             "traderInfo": {
                 "REF": {
                     "id": "6617beeaa9cfa777ca915b7c",
-                    "salesSum": 210000,
+                    "salesSum": 927703,
                     "unlocked": true,
-                    "standing": 0.59999999999999998,
+                    "standing": 0.56999999999999995,
                     "loyaltyLevel": 3,
                     "disabled": false
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 309139,
+                    "salesSum": 4262205,
                     "unlocked": true,
-                    "standing": 0.79000000000000004,
+                    "standing": 1.76,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "THERAPIST": {
+                    "id": "54cb57776803fa99248b456e",
+                    "salesSum": 7636014,
+                    "unlocked": true,
+                    "standing": 1.6799999999999999,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "FENCE": {
+                    "id": "579dc571d53a0658a154fbec",
+                    "salesSum": 0,
+                    "unlocked": true,
+                    "standing": 1.73,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "SKIER": {
+                    "id": "58330581ace78e27b8b10cee",
+                    "salesSum": 2858460,
+                    "unlocked": true,
+                    "standing": 1.8600000000000001,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "PEACEKEEPER": {
+                    "id": "5935c25fb3acc3127c3d8cd9",
+                    "salesSum": 37821,
+                    "unlocked": true,
+                    "standing": 1.4199999999999999,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "MECHANIC": {
+                    "id": "5a7c2eca46aef81a7ca2145d",
+                    "salesSum": 3641448,
+                    "unlocked": true,
+                    "standing": 1.4399999999999999,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "RAGMAN": {
+                    "id": "5ac3b934156ae10c4430e83c",
+                    "salesSum": 4438795,
+                    "unlocked": true,
+                    "standing": 1.26,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "LIGHTKEEPER": {
+                    "id": "638f541a29ffd1183d187f57",
+                    "salesSum": 0,
+                    "unlocked": true,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "BTR_DRIVER": {
+                    "id": "656f0f98d80a697f855d34b1",
+                    "salesSum": 0,
+                    "unlocked": false,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "JAEGER": {
+                    "id": "5c0647fdd443bc2504c2d371",
+                    "salesSum": 2385781,
+                    "unlocked": true,
+                    "standing": 1.3300000000000001,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                }
+            },
+            "lastRaidSurvived": false,
+            "lastRaidTimeSeconds": 208,
+            "lastRaidMap": "Reserve",
+            "pmcSide": "Usec",
+            "scavLevel": 19,
+            "prestige": 0,
+            "teamTag": "",
+            "isUsingSAIN": false,
+            "isNew": false,
+            "pmcKills": 17,
+            "pmcDeaths": 1,
+            "survived": 4,
+            "scavRaids": 0,
+            "scavKills": 0,
+            "scavDeaths": 0,
+            "scavSurvived": 0,
+            "scavAverageLifeTime": 0,
+            "scavKillToDeathRatio": 0,
+            "scavSurvivalRate": 0,
+            "suspicious": true,
+            "totalRaids": 4,
+            "totalPlayTime": 5559,
+            "dev": false,
+            "lastRaidRanThrough": false,
+            "allAchievements": null
+        },
+        {
+            "id": "685218490004205879c501ae",
+            "name": "Kasi-_-",
+            "pmcLevel": 57,
+            "lastPlayed": 1750681829,
+            "damage": 1685,
+            "accountType": "unheard_edition",
+            "sptVer": "3.11.3",
+            "publicProfile": true,
+            "currentWinstreak": 1,
+            "longestShot": 104,
+            "pmcRaids": 1,
+            "averageLifeTime": 1314,
+            "killToDeathRatio": 1,
+            "survivalRate": 100,
+            "profileAboutMe": "I didn't read mod configuration... Again.",
+            "profilePicture": "",
+            "profileTheme": "default",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
+            "bp_mainbg": "default",
+            "bp_cat": false,
+            "bp_pfpstyle": "default",
+            "bp_pfpbordercolor": "default",
+            "bp_decal": "default",
+            "registrationDate": 1750210775,
+            "absoluteLastTime": 1750683258,
+            "trusted": false,
+            "lastRaidKills": 1,
+            "lastRaidAs": "PMC",
+            "lastRaidDamage": 1685,
+            "lastRaidEXP": 100125,
+            "isTransition": false,
+            "lastRaidTransitionTo": "None",
+            "discFromRaid": false,
+            "latestAchievementName": "Grouse Hunting",
+            "latestAchievementDescription": "Eliminate Glukhar for the first time while playing as a PMC",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_9.png",
+            "latestAchievementTimestamp": 1750533626,
+            "lastRaidHits": 33,
+            "hasKappa": false,
+            "weaponMasteryId": 0,
+            "weaponMasteryProgress": null,
+            "isUsingStattrack": true,
+            "modWeaponStats": {
+                "685218490004205879c501ae": {
+                    "MDR": {
+                        "stats": {
+                            "kills": 13,
+                            "headshots": 4,
+                            "totalShots": 395,
+                            "timesLost": 0
+                        },
+                        "originalId": "5dcbd56fdbd3d91b3e5468d5"
+                    },
+                    "AKM": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 1,
+                            "totalShots": 0,
+                            "timesLost": 0
+                        },
+                        "originalId": "59d6088586f774275f37482f"
+                    },
+                    "M3 Super 90": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 14,
+                            "timesLost": 0
+                        },
+                        "originalId": "6259b864ebedf17603599e88"
+                    },
+                    "SR-2M": {
+                        "stats": {
+                            "kills": 1,
+                            "headshots": 0,
+                            "totalShots": 59,
+                            "timesLost": 0
+                        },
+                        "originalId": "62e14904c2699c0ec93adc47"
+                    },
+                    "M4A1": {
+                        "stats": {
+                            "kills": 4,
+                            "headshots": 2,
+                            "totalShots": 259,
+                            "timesLost": 0
+                        },
+                        "originalId": "5447a9cd4bdc2dbd208b4567"
+                    }
+                }
+            },
+            "traderInfo": {
+                "REF": {
+                    "id": "6617beeaa9cfa777ca915b7c",
+                    "salesSum": 927703,
+                    "unlocked": true,
+                    "standing": 0.55000000000000004,
+                    "loyaltyLevel": 3,
+                    "disabled": false
+                },
+                "PRAPOR": {
+                    "id": "54cb50c76803fa8b248b4571",
+                    "salesSum": 4262205,
+                    "unlocked": true,
+                    "standing": 1.77,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "THERAPIST": {
+                    "id": "54cb57776803fa99248b456e",
+                    "salesSum": 7635289,
+                    "unlocked": true,
+                    "standing": 1.6799999999999999,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "FENCE": {
+                    "id": "579dc571d53a0658a154fbec",
+                    "salesSum": 0,
+                    "unlocked": true,
+                    "standing": 1.73,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "SKIER": {
+                    "id": "58330581ace78e27b8b10cee",
+                    "salesSum": 2858460,
+                    "unlocked": true,
+                    "standing": 1.8600000000000001,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "PEACEKEEPER": {
+                    "id": "5935c25fb3acc3127c3d8cd9",
+                    "salesSum": 37821,
+                    "unlocked": true,
+                    "standing": 1.4199999999999999,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "MECHANIC": {
+                    "id": "5a7c2eca46aef81a7ca2145d",
+                    "salesSum": 3641448,
+                    "unlocked": true,
+                    "standing": 1.3,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "RAGMAN": {
+                    "id": "5ac3b934156ae10c4430e83c",
+                    "salesSum": 4438795,
+                    "unlocked": true,
+                    "standing": 1.26,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                },
+                "LIGHTKEEPER": {
+                    "id": "638f541a29ffd1183d187f57",
+                    "salesSum": 0,
+                    "unlocked": true,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "BTR_DRIVER": {
+                    "id": "656f0f98d80a697f855d34b1",
+                    "salesSum": 0,
+                    "unlocked": false,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "JAEGER": {
+                    "id": "5c0647fdd443bc2504c2d371",
+                    "salesSum": 2385781,
+                    "unlocked": true,
+                    "standing": 1.3300000000000001,
+                    "loyaltyLevel": 4,
+                    "disabled": false
+                }
+            },
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 1314,
+            "lastRaidMap": "Reserve",
+            "pmcSide": "Usec",
+            "scavLevel": 11,
+            "prestige": 0,
+            "teamTag": "",
+            "isUsingSAIN": false,
+            "isNew": true,
+            "pmcKills": 1,
+            "pmcDeaths": 0,
+            "survived": 1,
+            "scavRaids": 0,
+            "scavKills": 0,
+            "scavDeaths": 0,
+            "scavSurvived": 0,
+            "scavAverageLifeTime": 0,
+            "scavKillToDeathRatio": 0,
+            "scavSurvivalRate": 0
+        },
+        {
+            "id": "6859445b00036073f31c7662",
+            "name": "Yukki",
+            "pmcLevel": 5,
+            "lastPlayed": 1750689311,
+            "damage": 1643,
+            "accountType": "unheard_edition",
+            "sptVer": "3.11.3",
+            "publicProfile": true,
+            "currentWinstreak": 0,
+            "longestShot": 0,
+            "pmcRaids": 3,
+            "averageLifeTime": 750,
+            "killToDeathRatio": 0,
+            "survivalRate": 33,
+            "profileAboutMe": "I didn't read mod configuration... Again.",
+            "profilePicture": "",
+            "profileTheme": "default",
+            "bp_prestigebg": "none",
+            "bp_cardbg": "default",
+            "bp_mainbg": "default",
+            "bp_cat": false,
+            "bp_pfpstyle": "default",
+            "bp_pfpbordercolor": "default",
+            "bp_decal": "default",
+            "registrationDate": 1750681249,
+            "absoluteLastTime": 1750689952,
+            "trusted": false,
+            "lastRaidKills": 0,
+            "lastRaidAs": "PMC",
+            "lastRaidDamage": 643,
+            "lastRaidEXP": 1155,
+            "isTransition": false,
+            "lastRaidTransitionTo": "None",
+            "discFromRaid": false,
+            "latestAchievementName": "First Time Always Hurts",
+            "latestAchievementDescription": "Survive a raid without the Run-through status for the first time",
+            "latestAchievementImageUrl": "\/files\/achievement\/Standard_27.png",
+            "latestAchievementTimestamp": 1750685050,
+            "lastRaidHits": 29,
+            "hasKappa": false,
+            "weaponMasteryId": 0,
+            "weaponMasteryProgress": null,
+            "isUsingStattrack": true,
+            "modWeaponStats": {
+                "6859445b00036073f31c7662": {
+                    "PP-19-01": {
+                        "stats": {
+                            "kills": 10,
+                            "headshots": 4,
+                            "totalShots": 190,
+                            "timesLost": 0
+                        },
+                        "originalId": "59984ab886f7743e98271174"
+                    },
+                    "SR-25": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 4,
+                            "timesLost": 0
+                        },
+                        "originalId": "5df8ce05b11454561e39243b"
+                    },
+                    "VPO-101 Vepr-Hunter": {
+                        "stats": {
+                            "kills": 0,
+                            "headshots": 0,
+                            "totalShots": 12,
+                            "timesLost": 0
+                        },
+                        "originalId": "5c501a4d2e221602b412b540"
+                    }
+                }
+            },
+            "traderInfo": {
+                "REF": {
+                    "id": "6617beeaa9cfa777ca915b7c",
+                    "salesSum": 0,
+                    "unlocked": false,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
+                    "disabled": false
+                },
+                "PRAPOR": {
+                    "id": "54cb50c76803fa8b248b4571",
+                    "salesSum": 29495,
+                    "unlocked": true,
+                    "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 4881766,
+                    "salesSum": 1,
                     "unlocked": true,
-                    "standing": 0.47999999999999998,
-                    "loyaltyLevel": 3,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "FENCE": {
                     "id": "579dc571d53a0658a154fbec",
-                    "salesSum": 221084,
+                    "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.34000000000000002,
+                    "standing": 0.84999999999999998,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
@@ -53719,29 +54374,29 @@
                     "id": "58330581ace78e27b8b10cee",
                     "salesSum": 0,
                     "unlocked": true,
-                    "standing": 0.52000000000000002,
+                    "standing": 0.20999999999999999,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "PEACEKEEPER": {
                     "id": "5935c25fb3acc3127c3d8cd9",
-                    "salesSum": 330,
+                    "salesSum": 0,
                     "unlocked": true,
-                    "standing": 1.0800000000000001,
+                    "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "MECHANIC": {
                     "id": "5a7c2eca46aef81a7ca2145d",
-                    "salesSum": 996751,
+                    "salesSum": 29647,
                     "unlocked": true,
-                    "standing": 0.27000000000000002,
-                    "loyaltyLevel": 2,
+                    "standing": 0.20000000000000001,
+                    "loyaltyLevel": 1,
                     "disabled": false
                 },
                 "RAGMAN": {
                     "id": "5ac3b934156ae10c4430e83c",
-                    "salesSum": 512461,
+                    "salesSum": 0,
                     "unlocked": true,
                     "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
@@ -53765,24 +54420,24 @@
                 },
                 "JAEGER": {
                     "id": "5c0647fdd443bc2504c2d371",
-                    "salesSum": 28610,
-                    "unlocked": true,
-                    "standing": 0.46999999999999997,
+                    "salesSum": 0,
+                    "unlocked": false,
+                    "standing": 0.20000000000000001,
                     "loyaltyLevel": 1,
                     "disabled": false
                 }
             },
-            "lastRaidSurvived": true,
-            "lastRaidTimeSeconds": 1691,
-            "lastRaidMap": "Reserve",
-            "pmcSide": "Usec",
-            "scavLevel": 19,
+            "lastRaidSurvived": false,
+            "lastRaidTimeSeconds": 418,
+            "lastRaidMap": "Customs",
+            "pmcSide": "Bear",
+            "scavLevel": 1,
             "prestige": 0,
             "teamTag": "",
             "isUsingSAIN": false,
-            "isNew": true,
-            "pmcKills": 1,
-            "pmcDeaths": 0,
+            "isNew": false,
+            "pmcKills": 0,
+            "pmcDeaths": 2,
             "survived": 1,
             "scavRaids": 0,
             "scavKills": 0,
@@ -53790,7 +54445,13 @@
             "scavSurvived": 0,
             "scavAverageLifeTime": 0,
             "scavKillToDeathRatio": 0,
-            "scavSurvivalRate": 0
+            "scavSurvivalRate": 0,
+            "suspicious": false,
+            "totalRaids": 2,
+            "totalPlayTime": 1066,
+            "dev": false,
+            "lastRaidRanThrough": false,
+            "allAchievements": null
         }
     ]
 }
