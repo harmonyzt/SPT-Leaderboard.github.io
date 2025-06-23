@@ -6,7 +6,7 @@
 
 // Global variables to store our data
 let achievementsData = {};
-let leaderboardData = {};
+let playerAchievements = {};
 let totalPlayers = 0;
 
 async function loadJSON(url) {
@@ -27,8 +27,8 @@ function calculateAchievementStats() {
     }
 
     // Count how many players have each achievement
-    for (const playerId in leaderboardData.achievements) {
-        const playerAchievements = leaderboardData.achievements[playerId][0];
+    for (const playerId in playerAchievements.achievements) {
+        const playerAchievements = playerAchievements.achievements[playerId][0];
 
         for (const achievementId in playerAchievements) {
             if (achievementStats.hasOwnProperty(achievementId)) {
@@ -38,7 +38,7 @@ function calculateAchievementStats() {
     }
 
     // Percentage for each achievement
-    const totalPlayers = Object.keys(leaderboardData.achievements).length;
+    const totalPlayers = Object.keys(playerAchievements.achievements).length;
 
     for (const achievementId in achievementStats) {
         achievementStats[achievementId].percent = totalPlayers > 0
@@ -144,13 +144,13 @@ function renderAchievements(stats, searchTerm = '') {
 async function init() {
     try {
         // Load both JSON files in parallel
-        [achievementsData, leaderboardData] = await Promise.all([
+        [achievementsData, playerAchievements] = await Promise.all([
             loadJSON('../global-achieve/js/compiledAchData.json'),
             loadJSON('https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json')
         ]);
 
         // Get total number of players
-        totalPlayers = leaderboardData.leaderboard.length;
+        totalPlayers = playerAchievements.achievements.length;
 
         // Calculate achievement statistics
         const achievementStats = calculateAchievementStats();
