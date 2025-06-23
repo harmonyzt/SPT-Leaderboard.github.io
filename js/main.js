@@ -420,7 +420,10 @@ function displayLeaderboard(data) {
                 case 'raid_start':
                     statusClass = 'player-status-lb-raid';
                     statusText = 'In Raid';
-                    player.isOnline = true;
+                    break;
+                case 'in_stash':
+                    statusClass = 'player-status-lb-stash';
+                    statusText = 'In Stash';
                     break;
                 case 'raid_end':
                     statusClass = 'player-status-lb-finished';
@@ -430,6 +433,7 @@ function displayLeaderboard(data) {
 
             lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
         } else {
+
             // Format last played time
             const isRecentlyPlayed = (Date.now() / 1000 - player.lastPlayed) < 3000;
             playerStates[player.id] = {
@@ -438,6 +442,7 @@ function displayLeaderboard(data) {
                 status: isRecentlyPlayed ? 'last_played' : 'offline',
                 isRecentlyInRaid: false
             };
+
             lastGame = formatLastPlayed(player.lastPlayed);
             player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
         }
@@ -864,7 +869,7 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
 
 function isPlayerOnline(playerId) {
     const player = playerStates[playerId];
-    if (!player) return false; // нет данных → оффлайн
+    if (!player) return false; // No data = offline
 
     // Online if:
     // 1. has heartbeat or isOnline = true, or

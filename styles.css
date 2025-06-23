@@ -379,6 +379,12 @@ td {
   border-color: #3b82f6;
 }
 
+.player-status-lb-stash {
+  background: #1640f91c;
+  color: #1640f9;
+  border-color: #1640f9;
+}
+
 /* IN raid */
 .player-status-lb-raid {
   background: rgba(249, 115, 22, 0.2);
