@@ -393,7 +393,7 @@ function displayLeaderboard(data) {
 
         // Check if player ID exists in heartbeat data
         const ONE_HOUR_SEC = 60 * 60;
-        if (heartbeatData[player.id] && heartbeatData[player.id].timestamp > ONE_HOUR_SEC) {
+        if (heartbeatData[player.id] && heartbeatData[player.id].timestamp < ONE_HOUR_SEC) {
             const heartbeat = heartbeatData[player.id];
             const timestamp = heartbeat.timestamp;
 
