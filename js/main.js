@@ -11,9 +11,10 @@ let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
+let playerStates = {}
 
 // For debugging purposes
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -256,10 +257,9 @@ async function loadSeasonData(season) {
         } else {
             processSeasonData(leaderboardData);
             displayLeaderboard(leaderboardData);
-            checkRecentPlayers(leaderboardData);
         }
     } finally {
-
+        checkRecentPlayers(leaderboardData);
     }
 }
 
@@ -391,15 +391,20 @@ function displayLeaderboard(data) {
     data.forEach(player => {
         const row = document.createElement('tr');
 
-
         // Check if player ID exists in heartbeat data
         if (heartbeatData[player.id]) {
             const heartbeat = heartbeatData[player.id];
             const timestamp = heartbeat.timestamp;
 
-            player.isOnHeartbeat = true;
-            player.lastHeartbeat = timestamp;
+            const isRecentlyInRaid = (heartbeat.type === 'in_raid' && (Date.now() / 1000 - timestamp) < 3000);
             player.isOnline = true;
+
+            playerStates[player.id] = {
+                isOnline: true,
+                lastUpdate: timestamp,
+                status: heartbeat.type,
+                isRecentlyInRaid: isRecentlyInRaid
+            };
 
             // Get some nice labels for online status
             let statusClass, statusText;
@@ -407,12 +412,10 @@ function displayLeaderboard(data) {
                 case 'online':
                     statusClass = 'player-status-lb-online';
                     statusText = 'Online';
-                    player.isOnline = true;
                     break;
                 case 'in_menu':
                     statusClass = 'player-status-lb-menu';
                     statusText = 'In Menu';
-                    player.isOnline = true;
                     break;
                 case 'in_raid':
                     statusClass = 'player-status-lb-raid';
@@ -422,13 +425,19 @@ function displayLeaderboard(data) {
                 case 'finished_raid':
                     statusClass = 'player-status-lb-finished';
                     statusText = 'Finished Raid';
-                    player.isOnline = true;
                     break;
             }
 
             lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
         } else {
             // Format last played time
+            const isRecentlyPlayed = (Date.now() / 1000 - player.lastPlayed) < 3000;
+            playerStates[player.id] = {
+                isOnline: isRecentlyPlayed,
+                lastUpdate: player.lastPlayed,
+                status: isRecentlyPlayed ? 'last_played' : 'offline',
+                isRecentlyInRaid: false
+            };
             lastGame = formatLastPlayed(player.lastPlayed);
             player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
         }
@@ -741,9 +750,6 @@ function calculateOverallStats(data) {
     let totalPlayTime = 0;
 
     data.forEach(player => {
-        const lastGame = formatLastPlayed(player.lastPlayed);
-        player.isOnline = lastGame === `<span class="player-online">In game <div id="blink"></div></span>`;
-
         if (!player.disqualified && !player.isCasual) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
@@ -766,11 +772,10 @@ function calculateOverallStats(data) {
                     totalDamage += parseFloat(player.damage) || 0;
                 }
             }
-
         }
 
         // Check if player is online
-        if (player.isOnline) {
+        if (isPlayerOnline(player.id)) {
             onlinePlayers++;
         }
 
@@ -855,6 +860,17 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
     setTimeout(() => {
         element.innerHTML = formatValue(targetValue);
     }, 50); // slight delay to allow Odometer to detect change
+}
+
+function isPlayerOnline(playerId) {
+    const player = playerStates[playerId];
+    if (!player) return false; // нет данных → оффлайн
+
+    // Online if:
+    // 1. has heartbeat or isOnline = true, or
+    // 2. 50 min ago in raid
+    // 3. without heartbeat but 50 mins didn't pass
+    return player.isOnline || player.isRecentlyInRaid || player.status === 'last_played';
 }
 
 
