@@ -1,5 +1,5 @@
 {
-    "684eb6720006294384c511ca": {
+    "6855c2d60004d5dc4e80f92c": {
         "profileTheme": "gradient",
         "usePrestigeStyling": true,
         "prestigeBackground": "none",
@@ -23,8 +23,92 @@
         "pfpStyle": "wide",
         "pfpBorder": "red",
         "decal": "default",
-        "aboutMe": "Recruiting for Spt Fika Server -> https://discord.gg/zmRa8hfj",
+        "aboutMe": "Recruiting for SPT Fika Server -> https://discord.gg/zmRa8hfj",
         "discordUser": "Guaperia",
-        "pfp": "https://i.pinimg.com/736x/2b/ad/d3/2badd389764693ac0e89e919f39f23ce.jpg"
+        "pfp": "https://i.ibb.co/VWkWpBv3/giphy-1.gif"
+    },
+    "6859445b00036073f31c7662": {
+        "profileTheme": "steelshade",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "tagilla",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "box",
+        "pfpBorder": "pink",
+        "decal": "scratches",
+        "aboutMe": "Welcome to my palace, enjoy your stayy cutieeee~ <3\r\n\r\nTarkov Enjoyer =w=",
+        "discordUser": "_haalcyon.",
+        "pfp": "https://i.pinimg.com/736x/63/a9/42/63a94259a8c6306dae1a5f171694a449.jpg"
+    },
+    "684f205700011f164efd12a3": {
+        "profileTheme": "light",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "none",
+        "backgroundReward": "purple",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "default",
+        "pfpBorder": "pink",
+        "decal": "scratches",
+        "aboutMe": "penos",
+        "discordUser": "",
+        "pfp": "https://media.tenor.com/bHKLp74dNYQAAAAi/gato-guitarra.gif"
+    },
+    "680118d8000100c31d5658d8": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "none",
+        "backgroundReward": "labs",
+        "mainBackgroundReward": "bear",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "cult-signs2",
+        "aboutMe": "I did read the mod configuration.",
+        "discordUser": "",
+        "pfp": ""
+    },
+    "6859fe8f000544582534164e": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": true,
+        "prestigeBackground": "both",
+        "backgroundReward": "purple",
+        "mainBackgroundReward": "bear",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "white",
+        "decal": "cult-signs2",
+        "aboutMe": "1 profile all tarkov-spt",
+        "discordUser": "",
+        "pfp": "https://media1.tenor.com/m/_T647uuuA-IAAAAd/luffy-one-piece.gif"
+    },
+    "67d6be750005c1d885cec85b": {
+        "profileTheme": "steelshade",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "none",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "the most racist man alive",
+        "discordUser": "",
+        "pfp": ""
+    },
+    "685acc820005a5072916394e": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "both",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "Supa Simga",
+        "discordUser": "",
+        "pfp": ""
     }
 }
