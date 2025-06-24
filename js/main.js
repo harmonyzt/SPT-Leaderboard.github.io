@@ -393,7 +393,7 @@ function displayLeaderboard(data) {
 
         // Check if player ID exists in heartbeat data
         const ONE_HOUR_SEC = 60 * 60;
-        if (heartbeatData[player.id] && heartbeatData[player.id].timestamp < ONE_HOUR_SEC) {
+        if (heartbeatData[player.id] && (Date.now() / 1000 - heartbeatData[player.id].timestamp) > ONE_HOUR_SEC) {
             const heartbeat = heartbeatData[player.id];
             const timestamp = heartbeat.timestamp;
 
@@ -875,7 +875,7 @@ function isPlayerOnline(playerId) {
     if (!player) return false; // No data = offline
 
     // Online if:
-    // 1. has heartbeat or isOnline = true, or
+    // 1. has heartbeat or isOnline = true
     // 2. 50 min ago in raid
     // 3. without heartbeat but 50 mins didn't pass
     return player.isOnline || player.isRecentlyInRaid || player.status === 'last_played';
