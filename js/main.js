@@ -573,9 +573,6 @@ function formatLastPlayed(unixTimestamp) {
     const diffInSeconds = Math.floor((now - date) / 1000);
     const diffInMinutes = Math.floor(diffInSeconds / 60);
 
-    if (diffInMinutes < 29) {
-        return `${diffInMinutes}m ago`;
-    }
     if (diffInMinutes < 30) {
         return '<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>';
     }
