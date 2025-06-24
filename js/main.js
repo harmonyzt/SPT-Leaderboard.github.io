@@ -13,7 +13,7 @@ let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -381,12 +381,12 @@ function displayLeaderboard(data) {
 
         // Check HeartbeatMonitor
         const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
-        const lastOnlineTime = playerStatus.isOnline
+        const lastOnlineTime = heartbeatMonitor.isOnline(player.id)
             ? '<span class="player-status-lb-online">Online</span>'
             : window.heartbeatMonitor.getLastOnlineTime(playerStatus.lastUpdate || player.lastPlayed);
 
-        // For row lastGame
-        if (playerStatus.isOnline) {
+        // For lastGame
+        if (heartbeatMonitor.isOnline(player.id)) {
             lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
         } else {
             lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;

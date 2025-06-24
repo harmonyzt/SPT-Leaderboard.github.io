@@ -20,8 +20,21 @@ class HeartbeatMonitor {
     }
 
     getOnlineCount() {
-        return Object.keys(this.heartbeatData).length;
+        const currentTime = Date.now() / 1000;
+        let onlineCount = 0;
+        
+        for (const id in this.heartbeatData) {
+            const heartbeat = this.heartbeatData[id];
+            const timeDiff = currentTime - heartbeat.timestamp;
+            
+            if (timeDiff <= this.onlineThreshold) {
+                onlineCount++;
+            }
+        }
+        
+        return onlineCount;
     }
+
 
     isOnline(id) {
         const heartbeat = this.heartbeatData[id];
