@@ -1891,14 +1891,14 @@
         "67d6be750005c1d885cec85b": {
             "level": 45,
             "playedMaps": {
-                "Shoreline": 1
+                "bigmap": 1
             },
             "weapons": {
                 "M4A1": {
                     "stats": {
-                        "kills": 42,
-                        "headshots": 22,
-                        "totalShots": 704,
+                        "kills": 53,
+                        "headshots": 30,
+                        "totalShots": 847,
                         "timesLost": 2
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
@@ -10275,7 +10275,7 @@
         "68569d8500048937587e5f8c": {
             "level": 3,
             "playedMaps": {
-                "Sandbox": 1
+                "bigmap": 1
             },
             "weapons": {
                 "M870": {
@@ -10313,6 +10313,32 @@
                         "timesLost": 0
                     },
                     "originalId": "5ac4cd105acfc40016339859"
+                }
+            }
+        },
+        "684c0f390004b0d19ccfe329": {
+            "level": 71,
+            "playedMaps": {
+                "Woods": 1
+            },
+            "weapons": {
+                "AKS-74U": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 12,
+                        "timesLost": 0
+                    },
+                    "originalId": "57dc2fa62459775949412633"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 20,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 }
             }
         }

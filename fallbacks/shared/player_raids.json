@@ -3690,6 +3690,38 @@
                 "lastRaidHits": 23,
                 "lastRaidRanThrough": false,
                 "lastRaidSurvived": 1
+            },
+            {
+                "absoluteLastTime": 1750764537,
+                "lastRaidMap": "Customs",
+                "lastRaidAs": "PMC",
+                "raidResult": "Survived",
+                "raidKills": 5,
+                "raidDamage": 706,
+                "raidTime": 1751,
+                "discFromRaid": false,
+                "isTransition": false,
+                "lastRaidTransitionTo": "None",
+                "lastRaidEXP": 1684,
+                "lastRaidHits": 23,
+                "lastRaidRanThrough": false,
+                "lastRaidSurvived": 1
+            },
+            {
+                "absoluteLastTime": 1750768560,
+                "lastRaidMap": "Customs",
+                "lastRaidAs": "PMC",
+                "raidResult": "Survived",
+                "raidKills": 2,
+                "raidDamage": 390,
+                "raidTime": 1092,
+                "discFromRaid": false,
+                "isTransition": false,
+                "lastRaidTransitionTo": "None",
+                "lastRaidEXP": 751,
+                "lastRaidHits": 27,
+                "lastRaidRanThrough": false,
+                "lastRaidSurvived": 1
             }
         ],
         "6828fa74000108627b6eadfc": [
@@ -6910,7 +6942,7 @@
                 "lastRaidSurvived": 1
             }
         ],
-        "684eb6720006294384c511ca": [
+        "6855c2d60004d5dc4e80f92c": [
             {
                 "absoluteLastTime": 1749883859,
                 "lastRaidMap": "Labs",
@@ -25772,6 +25804,40 @@
                 "lastRaidTransitionTo": "None",
                 "lastRaidEXP": 980,
                 "lastRaidHits": 49,
+                "lastRaidRanThrough": false,
+                "lastRaidSurvived": 1
+            },
+            {
+                "absoluteLastTime": 1750767682,
+                "lastRaidMap": "Customs",
+                "lastRaidAs": "SCAV",
+                "raidResult": "Killed",
+                "raidKills": 0,
+                "raidDamage": 5,
+                "raidTime": 606,
+                "discFromRaid": false,
+                "isTransition": false,
+                "lastRaidTransitionTo": "None",
+                "lastRaidEXP": 231,
+                "lastRaidHits": 1,
+                "lastRaidRanThrough": false,
+                "lastRaidSurvived": 0
+            }
+        ],
+        "684c0f390004b0d19ccfe329": [
+            {
+                "absoluteLastTime": 1750767720,
+                "lastRaidMap": "Woods",
+                "lastRaidAs": "PMC",
+                "raidResult": "Survived",
+                "raidKills": 0,
+                "raidDamage": 510,
+                "raidTime": 838,
+                "discFromRaid": false,
+                "isTransition": false,
+                "lastRaidTransitionTo": "None",
+                "lastRaidEXP": 580,
+                "lastRaidHits": 9,
                 "lastRaidRanThrough": false,
                 "lastRaidSurvived": 1
             }
