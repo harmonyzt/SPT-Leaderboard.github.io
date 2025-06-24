@@ -11,7 +11,6 @@ let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
-let playerStates = {}
 
 // For debugging purposes
 let debug = 0;
@@ -228,17 +227,6 @@ async function loadSeasonData(season) {
     emptyLeaderboardNotification.style.display = 'none';
     isDataReady = false;
 
-    // Get heartbeats
-    try {
-        const response = await fetch(`${heartbeatsPath}`);
-        if (!response.ok) {
-            throw new Error('Failed to load heartbeats');
-        }
-        heartbeatData = await response.json();
-    } catch (error) {
-        console.error('Error loading heartbeats:', error);
-    }
-
     try {
         const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
 
@@ -391,59 +379,17 @@ function displayLeaderboard(data) {
     data.forEach(player => {
         const row = document.createElement('tr');
 
-        // Check if player ID exists in heartbeat data
-        if (heartbeatData[player.id]) {
-            const heartbeat = heartbeatData[player.id];
-            const timestamp = heartbeat.timestamp;
+        // Check HeartbeatMonitor
+        const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
+        const lastOnlineTime = playerStatus.isOnline
+            ? '<span class="player-status-lb-online">Online</span>'
+            : window.heartbeatMonitor.getLastOnlineTime(playerStatus.lastUpdate || player.lastPlayed);
 
-            const isRecentlyInRaid = (heartbeat.type === 'in_raid' && (Date.now() / 1000 - timestamp) < 3000);
-            player.isOnline = true;
-
-            playerStates[player.id] = {
-                isOnline: true,
-                lastUpdate: timestamp,
-                status: heartbeat.type,
-                isRecentlyInRaid: isRecentlyInRaid
-            };
-
-            // Get some nice labels for online status
-            let statusClass, statusText;
-            switch (heartbeat.type) {
-                case 'online':
-                    statusClass = 'player-status-lb-online';
-                    statusText = 'Online';
-                    break;
-                case 'in_menu':
-                    statusClass = 'player-status-lb-menu';
-                    statusText = 'In Menu';
-                    break;
-                case 'raid_start':
-                    statusClass = 'player-status-lb-raid';
-                    statusText = 'In Raid';
-                    break;
-                case 'in_stash':
-                    statusClass = 'player-status-lb-stash';
-                    statusText = 'In Stash';
-                    break;
-                case 'raid_end':
-                    statusClass = 'player-status-lb-finished';
-                    statusText = 'Finished Raid';
-                    break;
-            }
-
-            lastGame = `<span class="player-status-lb ${statusClass}">${statusText} <div id="blink"></div></span>`;
+        // For row lastGame
+        if (playerStatus.isOnline) {
+            lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
         } else {
-            // Format last played time
-            const isRecentlyPlayed = (Date.now() / 1000 - player.lastPlayed) < 3000;
-            playerStates[player.id] = {
-                isOnline: isRecentlyPlayed,
-                lastUpdate: player.lastPlayed,
-                status: isRecentlyPlayed ? 'last_played' : 'offline',
-                isRecentlyInRaid: false
-            };
-
-            lastGame = formatLastPlayed(player.lastPlayed);
-            player.isOnline = lastGame === `<span class="player-status-lb player-status-lb-finished">Finished Raid <div id="blink"></div></span>`;
+            lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;
         }
 
         // Determine rank classes
@@ -750,7 +696,7 @@ function calculateOverallStats(data) {
     let totalKDR = 0;
     let totalSurvival = 0;
     let validPlayers = 0;
-    let onlinePlayers = 0;
+    let onlinePlayers = heartbeatMonitor.getOnlineCount();;
     let totalPlayTime = 0;
 
     data.forEach(player => {
@@ -776,11 +722,6 @@ function calculateOverallStats(data) {
                     totalDamage += parseFloat(player.damage) || 0;
                 }
             }
-        }
-
-        // Check if player is online
-        if (isPlayerOnline(player.id)) {
-            onlinePlayers++;
         }
 
         if (player.totalPlayTime) {
@@ -865,18 +806,6 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
         element.innerHTML = formatValue(targetValue);
     }, 50); // slight delay to allow Odometer to detect change
 }
-
-function isPlayerOnline(playerId) {
-    const player = playerStates[playerId];
-    if (!player) return false; // No data = offline
-
-    // Online if:
-    // 1. has heartbeat or isOnline = true
-    // 2. 50 min ago in raid
-    // 3. without heartbeat but 50 mins didn't pass
-    return player.isOnline || player.isRecentlyInRaid || player.status === 'last_played';
-}
-
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

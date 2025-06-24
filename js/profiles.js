@@ -385,6 +385,8 @@ async function showPublicProfile(container, player) {
     // About me
     const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
 
+    const isOnline = heartbeatMonitor.isOnline(player.id);
+
     container.innerHTML = `
 <div class="profile-grid-layout profile-loading-overlay" id="profile-main-grid">
     <!-- Main -->
@@ -394,8 +396,8 @@ async function showPublicProfile(container, player) {
 
         <img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" />
         <div class="player-status">
-            <div class="status-indicator ${player.isOnline ? 'status-online' : 'status-offline'}"></div>
-            <span>${player.isOnline ? 'Online' : 'Offline'}</span>
+            <div class="status-indicator ${isOnline ? 'status-online' : 'status-offline'}"></div>
+            <span>${isOnline ? 'Online' : 'Offline'}</span>
         </div>
         <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}</h2>
         <div class="player-about">${aboutText}</div>
