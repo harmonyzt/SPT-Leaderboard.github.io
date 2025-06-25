@@ -1,6 +1,26 @@
 <?php
-// Note - this isn't a complete working PHP file ready to be deployed.
-// All of the updating code was given along with other stuff - you're free to implement your own system on how to store tokens and ids, or just completely get rid of them. 
+/**
+ * Player Statistics Handler (Season 2)
+ * 
+ * This PHP file processes incoming player data and updates a JSON-based statistics file (or at least it used to until season 3).
+ * Note: This is a simplified example and not a complete production-ready implementation.
+ * You should adapt the token and player ID handling to match your actual backend system along with other validation techniques.
+ */
+
+// What you NEED to know if you want to implement this on your server:
+// 1. Token-to-ID Binding:
+//    - The 'token' is permanently associated with a player ID.
+//    - Store it securely.
+//
+// 2. Storage:
+//    - This file uses a JSON file, but a database is, of course, better for mass storage.
+//    - File locks should be used to prevent race conditions. This is unrevelant if you're gonna use a WS or database.
+//
+// 3. Customization:
+//    - Modify data validation to fit your game/mod requirements. To see more, find the repository for my SPT Mod at my github
+//    - Remove or replace placeholder code as needed
+// Last note:
+// While I'd love to release a full backend, but due to security concerns I will restrain from doing so. Hope this somewhat helps!
 
 // Statistics where all players will be written to
 $STATS_FILE = __DIR__ . '/season3.json';
@@ -10,7 +30,90 @@ $STATS_FILE = __DIR__ . '/season3.json';
 // Token is forever tied to player ID. and is saved separately.
 // $player - Existing (OR NOT) player data
 
-function updatePlayerStats($data, $suspicious, $isBanned)
+// Configuration
+$STATS_FILE = __DIR__ . '/seasons/season3.json';
+
+// Allow only POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(230);
+    die(json_encode(['error' => 'Bad data.']));
+}
+
+// Get raw data
+// get() = $data
+
+
+$suspicious = false;
+$playerId = $data['id'];
+$receivedToken = $data['token'];
+
+// Teams (DEPRECATED)
+// Get the actual team tag
+$teamTag = strtoupper(trim($data['teamTag'] ?? ''));
+
+if ($teamTag !== '' && !preg_match('/^[A-Z0-9]{2,5}$/', $teamTag)) {
+    http_response_code(699);
+    die(json_encode(['error' => 'Invalid team tag']));
+}
+
+if (!empty($teamTag)) {
+    joinTeam($teamTag, $data['id'], $data['name']);
+}
+
+function joinTeam($teamTag, $id, $name)
+{
+    $PLAYER_TEAMS = __DIR__ . '/teams/player_teams3.json';
+    $playerTeams = file_exists($PLAYER_TEAMS)
+        ? json_decode(file_get_contents($PLAYER_TEAMS), true)
+        : ['teams' => []];
+
+    // Clean up old team players
+    foreach ($playerTeams['teams'] as $tag => &$team) {
+        foreach ($team as $i => $member) {
+            if ($member['id'] === $id) {
+                unset($team[$i]);
+                if (empty($team)) {
+                    unset($playerTeams['teams'][$tag]);
+                } else {
+                    $team = array_values($team); // reindex
+                }
+                break 2;
+            }
+        }
+    }
+    unset($team);
+
+    // Add to new team if tag is valid
+    if ($teamTag !== '') {
+        if (!isset($playerTeams['teams'][$teamTag])) {
+            $playerTeams['teams'][$teamTag] = [];
+        }
+
+        if (count($playerTeams['teams'][$teamTag]) >= 4) {
+            http_response_code(409);
+            die(json_encode(['success' => false, 'error' => 'Team is full (4 players max).']));
+        }
+
+        $playerTeams['teams'][$teamTag][] = [
+            'id' => $id,
+            'name' => $name,
+            'joined_at' => time(),
+        ];
+    }
+
+    $encodedTeams = json_encode($playerTeams, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    if ($encodedTeams === false) {
+        http_response_code(500);
+        die(json_encode(['success' => false, 'error' => 'Failed to encode team data']));
+    }
+
+    if (file_put_contents($PLAYER_TEAMS, $encodedTeams) === false) {
+        http_response_code(500);
+        die(json_encode(['success' => false, 'error' => 'Failed to save team data']));
+    }
+}
+
+function updatePlayerStats($data, $suspicious, $trusted, $isBanned, $teamTag)
 {
     global $STATS_FILE;
     $stats = file_exists($STATS_FILE) ? json_decode(file_get_contents($STATS_FILE), true) : ['leaderboard' => []];
@@ -72,7 +175,7 @@ function updatePlayerStats($data, $suspicious, $isBanned)
                 'accountType',
                 'sptVer',
                 'publicProfile',
-                'registrationDate',
+                'registrationDate'
             ];
 
             foreach ($updateFields as $field) {
@@ -86,6 +189,13 @@ function updatePlayerStats($data, $suspicious, $isBanned)
                 $player['profileAboutMe'] = $data['profileAboutMe'] ?? '';
                 $player['profilePicture'] = $data['profilePicture'] ?? '';
                 $player['profileTheme'] = $data['profileTheme'] ?? '';
+
+                // Add win raid streak 
+                if ($survived) {
+                    $player['currentWinstreak'] += 1;
+                } else {
+                    $player['currentWinstreak'] = 0;
+                }
 
                 // Last raid stats
                 $player['lastRaidEXP'] = $data['lastRaidEXP'];
@@ -124,24 +234,26 @@ function updatePlayerStats($data, $suspicious, $isBanned)
                 $player['bp_cat'] = $data['bp_cat'];
                 $player['bp_pfpstyle'] = $data['bp_pfpstyle'];
                 $player['bp_pfpbordercolor'] = $data['bp_pfpbordercolor'];
+                $player['bp_name'] = $data['bp_name'];
+                $player['bp_decal'] = $data['bp_decal'];
+                $player['teamTag'] = $teamTag;
             } else {
                 // To prevent any issues with frontend
                 $player['profileTheme'] = 'Default';
             }
 
-
-            // Add playtime to a profile
+            // Add total playtime to a profile
             $currentTime = (int) ($player['totalPlayTime'] ?? 0);
             $raidTimeToAdd = (int) ($data['raidTime'] ?? 0);
             $player['totalPlayTime'] = $currentTime + $raidTimeToAdd;
 
+            // Add absoluteLastTime for notifications to work
+            $unixTime = time();
+            $player['absoluteLastTime'] = $unixTime;
+
             $player['suspicious'] = $suspicious;
             $player['disqualified'] = $isBanned;
-
-            // Developer
-            if ($data['token'] === "no") {
-                $player['dev'] = true;
-            }
+            $player['trusted'] = $trusted;
 
             break;
         }
@@ -163,7 +275,7 @@ function calculateNewAverage($oldAverage, $totalRaids, $newRaidTime)
     return round((($oldAverage * ($totalRaids - 1)) + $newRaidTime) / $totalRaids);
 }
 
-function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
+function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev, $teamTag)
 {
     global $STATS_FILE;
     $stats = file_exists($STATS_FILE) ? json_decode(file_get_contents($STATS_FILE), true) : ['leaderboard' => []];
@@ -173,6 +285,9 @@ function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
     $survived = ($data['raidResult'] === 'Survived') ? 1 : 0;
     $died = ($data['raidResult'] === 'Killed') ? 1 : 0;
 
+    $unixTime = time();
+
+    // Dev check - don't give trusted role
     if (!$isDev && !$trusted) {
         $newPlayer['trusted'] = false;
     } else if ($trusted) {
@@ -191,7 +306,7 @@ function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
         'sptVer' => $data['sptVer'] ?? 'Unknown',
         'disqualified' => $isBanned,
         'publicProfile' => $data['publicProfile'] ?? false,
-        'currentWinstreak' => $data['winRaidStreak'] ?? 0,
+        'currentWinstreak' => $survived ? 1 : 0,
         'longestShot' => $data['longestShot'] ?? 0,
         'suspicious' => $suspicious
     ];
@@ -202,12 +317,14 @@ function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
     $newPlayer['killToDeathRatio'] = $died > 0 ? round($raidKills / $died, 2) : $raidKills;
     $newPlayer['survivalRate'] = $survived ? 100 : 0;
 
-
     // IF PROFILE IS PUBLIC
     if ($data['publicProfile']) {
         $newPlayer['profileAboutMe'] = $data['profileAboutMe'] ?? '';
         $newPlayer['profilePicture'] = $data['profilePicture'] ?? '';
+        $newPlayer['profileTheme'] = $data['profileTheme'] ?? '';
         $newPlayer['registrationDate'] = $data['registrationDate'] ?? '';
+        $newPlayer['absoluteLastTime'] = $unixTime;
+        $newPlayer['trusted'] = $trusted;
 
         // Last raid stats and ach
         $newPlayer['lastRaidKills'] = $data['raidKills'];
@@ -238,19 +355,14 @@ function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
         $newPlayer['bp_pfpstyle'] = $data['bp_pfpstyle'];
         $newPlayer['bp_pfpbordercolor'] = $data['bp_pfpbordercolor'];
 
-        if ($data['lastRaidMap'] === "east") {
-            $newPlayer['lastRaidMap'] = "Ground Zero - Low";
-        } else if ($data['lastRaidMap'] === "west") {
-            $newPlayer['lastRaidMap'] = "Ground Zero - High";
-        } else {
-            $newPlayer['lastRaidMap'] = $data['lastRaidMap'];
-        }
-
         $newPlayer['lastRaidSurvived'] = $survived ? true : false;
         $newPlayer['lastRaidTimeSeconds'] = $data['raidTime'];
+        $newPlayer['lastRaidMap'] = $data['lastRaidMap'];
         $newPlayer['pmcSide'] = $data['pmcSide'];
         $newPlayer['scavLevel'] = $data['scavLevel'];
         $newPlayer['prestige'] = $data['prestige'];
+        $newPlayer['bp_decal'] = $data['bp_decal'];
+        $newPlayer['teamTag'] = $teamTag;
 
         // SCAV stats
         if ($isScav) {
@@ -291,10 +403,18 @@ function addNewPlayer($data, $trusted, $suspicious, $isBanned, $isDev)
             $newPlayer['scavKillToDeathRatio'] = 0;
             $newPlayer['scavSurvivalRate'] = 0;
         }
+    } else {
+        // To prevent any issues with frontend
+        $newPlayer['profileTheme'] = 'default';
     }
 
     $stats['leaderboard'][] = $newPlayer;
     file_put_contents($STATS_FILE, json_encode($stats, JSON_PRETTY_PRINT));
 
     return ['status' => 'created', 'playerId' => $data['id']];
+}
+
+function saveTokens($tokens)
+{
+    // Save them however you want
 }
