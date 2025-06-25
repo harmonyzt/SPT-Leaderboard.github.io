@@ -106,7 +106,7 @@ class HeartbeatMonitor {
             'online': 'Online',
             'in_menu': 'In Menu',
             'raid_start': 'In Raid',
-            'in_stash': 'In Stash',
+            'in_stash': 'Gearing Up...',
             'raid_end': 'Finished Raid'
         };
         return texts[statusType] || 'Offline';
