@@ -736,11 +736,19 @@ async function showPublicProfile(container, player) {
             </div>
         </div>
     </div>
+
+    <div class="friend-list">
+        <h3>Friends</h3>
+        <div id="friends-container">
+            <div class="loading">Loading Friends...</div>
+        </div>
+    </div>
 `;
 
     // Init battlepass button once the profile has opened
     initHOF(player, bestWeapon);
     initLastRaids(player, container);
+    renderFriendList(player);
 
     // Get bg for badges
     const badgesBG = document.querySelector('.badges-container');

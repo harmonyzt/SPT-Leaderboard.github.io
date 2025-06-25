@@ -1728,7 +1728,7 @@ button,
     gap: 8px;
     position: absolute;
     left: -80px;
-    top: 150px;
+    top: 20px;
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 10px;
@@ -1795,6 +1795,98 @@ button,
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Friend List for profile */
+.friend-list {
+    position: absolute;
+    top: 450px;
+    right: 860px;
+    max-height: 400px;
+    background: rgba(255, 255, 255, 0.096);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    z-index: 10;
+    width: 280px;
+}
+
+.friend-container{
+        overflow-y: auto;
+}
+
+.friend-list h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.friend-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+
+}
+
+.friend-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(132, 210, 255, 0.7);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.friend-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.friend-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.friend-status {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 70px;
+}
+
+.no-friends {
+    color: rgba(255, 255, 255, 0.7);
+    width: max-content;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
 }
 
 /* Private Profile Styles */
