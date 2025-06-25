@@ -14,7 +14,6 @@ async function checkFriends(player) {
             return;
         }
 
-
         for (const playerId in leaderboardData) {
             const p = leaderboardData[playerId];
             if (p.friendLink === friendLink && p.id !== player.id) {
@@ -25,6 +24,21 @@ async function checkFriends(player) {
         resolve(friends);
 
     });
+}
+
+/**
+ * Gets a PFP of a player with given player id
+ * @param {string} playerId - Player ID
+ * @returns {Promise<string>} URL of PFP or default PFP
+ */
+async function getPlayerPfp(playerId) {
+    try {
+        return (await getPfp(playerId)) 
+               || leaderboardData[playerId]?.profilePicture 
+               || 'media/default_avatar.png';
+    } catch {
+        return 'media/default_avatar.png';
+    }
 }
 
 async function getPfp(playerId) {
@@ -42,9 +56,6 @@ async function getPfp(playerId) {
                 return playerConfig.pfp;
             }
 
-            console.log('Settings done:', playerConfig);
-        } else {
-            console.log('No settings found');
         }
     } catch (error) {
         console.error('Error loading settings:', error);
@@ -71,7 +82,7 @@ async function renderFriendList(player) {
             };
         }));
 
-        // Render
+        // Then render friendlist
         const html = friendsWithPfp.map(friend => {
             const playerStatus = window.heartbeatMonitor.getPlayerStatus(friend.id);
             const lastOnlineTime = heartbeatMonitor.isOnline(friend.id)
