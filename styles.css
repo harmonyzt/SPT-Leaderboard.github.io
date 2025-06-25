@@ -1848,7 +1848,7 @@ button,
     position: absolute;
     top: 450px;
     right: 860px;
-    max-height: 400px;
+    max-height: 370px;
     background: rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
