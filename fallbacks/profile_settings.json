@@ -110,5 +110,33 @@
         "aboutMe": "Supa Simga",
         "discordUser": "",
         "pfp": ""
+    },
+    "684eb6cb000388a30b9b3b94": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": true,
+        "prestigeBackground": "none",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "default",
+        "pfpBorder": "red",
+        "decal": "default",
+        "aboutMe": "womp womp :)",
+        "discordUser": "",
+        "pfp": "https://i.pinimg.com/736x/c0/46/ea/c046eaeb0aad54f53174f749a10b3b62.jpg"
+    },
+    "684f16080003c59b0cfc72b0": {
+        "profileTheme": "redshade",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "none",
+        "backgroundReward": "streets3",
+        "mainBackgroundReward": "default",
+        "catReward": false,
+        "pfpStyle": "wide",
+        "pfpBorder": "white",
+        "decal": "default",
+        "aboutMe": "Im trash at the game.",
+        "discordUser": "",
+        "pfp": "https://media1.tenor.com/m/fDnEXPxVFVsAAAAC/gundam-gundam-seed.gif"
     }
 }
