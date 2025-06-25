@@ -1814,6 +1814,7 @@ button,
     color: white;
     z-index: 10;
     width: 280px;
+    overflow-y: scroll;
 }
 
 .friend-container{
