@@ -22,13 +22,6 @@
 // Last note:
 // While I'd love to release a full backend, but due to security concerns I will restrain from doing so. Hope this somewhat helps!
 
-// Statistics where all players will be written to
-$STATS_FILE = __DIR__ . '/season3.json';
-
-// $data - Incoming data.
-// Feel free to tinker on how you get the data off SPT mod and process it later on
-// Token is forever tied to player ID. and is saved separately.
-// $player - Existing (OR NOT) player data
 
 // Configuration
 $STATS_FILE = __DIR__ . '/seasons/season3.json';
