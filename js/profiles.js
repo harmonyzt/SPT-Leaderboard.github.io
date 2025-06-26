@@ -331,7 +331,7 @@ function showDisqualProfile(container, player) {
             <p>This player has been suspended.</p>
             <div class="ban-details">
                 <p><strong>Reason:</strong> ${player.banReason}</p>
-                <p><strong>${(player.tookAction === 'hrm' || player.tookAction === 'harmony' || player.tookAction === 'admin') ? `Admin:` : `Moderator:`}</strong> ${player.tookAction}</p>
+                <p><strong>${(player.tookAction === 'harmony') ? `Admin:` : `Moderator:`}</strong> ${player.tookAction}</p>
             </div>
             <div class="private-profile-hint">
                 <span>Stats behind profile are simulated</span>
@@ -815,7 +815,7 @@ function closeLoader() {
 
 function getBestWeapon(playerId, modWeaponStats) {
     if (!modWeaponStats[playerId]) {
-        return;
+        return null;
     }
 
     let maxKills = 0;
