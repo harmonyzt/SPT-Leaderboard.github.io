@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="styles.css">
@@ -11,6 +12,9 @@
         <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
         <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
         <script src="js/main.js"></script>
         <script src="js/recentlyPlayed.js"></script>
         <script src="js/heartbeats.js"></script>
@@ -36,7 +40,6 @@
             <a href="#">
                 <img src="media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
             </a>
-            
             <div class="navbar-links-container">
                 <a href="global-weaponmeta/" class="navbar-link">Weapon Meta</a>
                 <a href="global-insights/" class="navbar-link">Global Insights</a>
@@ -155,30 +158,25 @@
                 <span class="close" aria-label="Close">&times;</span>
                 <h2 id="settingsTitle">Settings</h2>
                 <div class="settings-list">
-
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="timerToggle">
-                            Show Season Countdown Timer
-                        </label>
+                            <input type="checkbox" id="timerToggle"> Show Season Countdown Timer </label>
                         <p class="setting-description">Display or hide the time left until new season on the page.</p>
                     </div>
-                    
                     <div class="setting-item">
                         <h3>Player Watch List</h3>
                         <div class="player-compare-wrapper">
-                        <div class="player-input">
-                            <input type="text" id="playerOneId" placeholder="Enter Player Profile ID">
-                            <div id="playerOneStats"></div>
-                        </div>
-                        <div class="player-input">
-                            <input type="text" id="playerTwoId" placeholder="Enter Player Profile ID">
-                            <div id="playerTwoStats"></div>
-                        </div>
+                            <div class="player-input">
+                                <input type="text" id="playerOneId" placeholder="Enter Player Profile ID">
+                                <div id="playerOneStats"></div>
+                            </div>
+                            <div class="player-input">
+                                <input type="text" id="playerTwoId" placeholder="Enter Player Profile ID">
+                                <div id="playerTwoStats"></div>
+                            </div>
                         </div>
                         <div id="comparisonResult"></div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -188,7 +186,6 @@
                 <div class="loading-spinner"></div>
             </div>
         </div>
-
         <div class="top-stats-bar">
             <div class="live-data-label" id="serverStatus">Getting API Status...</div>
             <div class="stats-line">
@@ -205,7 +202,6 @@
                 <div class="stats-item online-count"><strong>Online:</strong> <span id="onlinePlayers" class="odometer">0</span></div>
             </div>
         </div>
-
         <div id="winners" class="animate animate__animated animate__fadeIn">
             <h2>Our previous season Champions!</h2>
             <div class="winners-container">
@@ -263,8 +259,7 @@
             <tbody>
             </tbody>
         </table>
-        <div id="seasonTimer">
-            Season ends in: <span id="timerDisplay"></span>
+        <div id="seasonTimer"> Season ends in: <span id="timerDisplay"></span>
         </div>
         <div class="notification-container">
             <div id="loadingNotification" class="animate animate__animated animate__fadeInUp" style="display: none;">Loading Players...</div>
@@ -272,7 +267,7 @@
         </div>
         <div id="playerProfileModal" class="profile-modal">
             <div class="profile-modal-overlay">
-            <!-- Here goes anything -->
+                <!-- Here goes anything -->
             </div>
             <div class="profile-modal-container">
                 <span class="profile-close-btn">&times;</span>
@@ -282,22 +277,21 @@
         <footer class="modern-footer">
             <div class="footer-content">
                 <div class="footer-brand">
-                <div class="logo-slogan">
-                    <img src="media/newlogo_transparent.png" class="footer-logo">
-                    <p class="slogan">Community driven project. With dedication and love.</p>
+                    <div class="logo-slogan">
+                        <img src="media/newlogo_transparent.png" class="footer-logo">
+                        <p class="slogan">Community driven project. With dedication and love.</p>
+                    </div>
+                    <div class="license-info">
+                        <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
+                        <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+                    </div>
                 </div>
-                <div class="license-info">
-                    <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
-                    <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
-                </div>
-                </div>
-                
                 <div class="footer-links">
-                <ul>
-                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
-                    <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://hub.sp-tarkov.com/files/file/2787-spt-leaderboard/" target="_blank" rel="noopener">SPTarkov Mod</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
+                        <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://hub.sp-tarkov.com/files/file/2787-spt-leaderboard/" target="_blank" rel="noopener">SPTarkov Mod</a></li>
+                    </ul>
                 </div>
             </div>
         </footer>

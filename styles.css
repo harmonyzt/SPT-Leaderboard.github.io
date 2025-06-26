@@ -44,11 +44,11 @@ html {
         width: 8px;
         height: 8px;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         background: #8892b0;
     }
-    
+
     :hover::-webkit-scrollbar-thumb {
         background: #8892b0;
     }
@@ -100,6 +100,16 @@ h1 {
     text-align: center;
     border-top: 1px solid var(--accent-teal);
     box-shadow: 0 -4px 12px rgba(100, 255, 218, 0.1);
+}
+
+#leaderboardTable tbody {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#leaderboardTable tbody.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #seasonTimer {
@@ -334,7 +344,7 @@ table {
 th,
 td {
     padding: 10px 20px;
-    border-bottom: 1px solid var(--accent-teal);
+    border-bottom: none;
     transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
@@ -398,7 +408,6 @@ td {
     text-align: center;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Play status on leaderboard for heartbeats */
@@ -571,12 +580,34 @@ button,
 }
 
 .player-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     transition: all 300ms ease-in-out;
+    cursor: pointer;
+    border-radius: 4px;
+    min-height: 32px;
 }
 
 .player-name:hover {
-    background-color: rgba(255, 255, 255, 0.103) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
     color: #ffffff !important;
+}
+
+.lb-profile-picture {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(132, 210, 255, 0.7);
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 300ms ease;
+}
+
+.player-name:hover .lb-profile-picture {
+    border-color: #84d2ff;
+    transform: scale(1.07);
+    box-shadow: 0 2px 6px rgba(132, 210, 255, 0.3);
 }
 
 /* Styling scorings by color */
@@ -618,15 +649,27 @@ button,
 
 /* Styling names */
 .gold-name {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(170deg, #0f3d3e, #b963ff, #1a4f4f);
-    background-clip: border-box;
-    background-size: 300% auto;
+    font-size: 1.5rem;
+    font-family: "Archivo Black", sans-serif;
+    color: transparent !important;
+    font-weight: 800;
+    background-size: 300%;
+    animation: shine 5s linear infinite, lights 5s linear infinite;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 600;
-    animation: lights 4s 750ms linear infinite;
-    font-size: 1.4rem;
+    background-clip: text;
+    background-image: linear-gradient(-60deg, #00a6ff, #8300e0, #e823a1, #f3d910, #ffffff, #ffa5d8, #ffffff, #f3d910, #e823a1, #8300e0, #00a6ff);
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes shine-reversed {
+    to {
+        background-position: -200% center;
+    }
 }
 
 @keyframes lights {
@@ -678,42 +721,31 @@ button,
 }
 
 .silver-name {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(170deg, #a1fffa, #80bbff, #a1e1ff);
-    background-clip: border-box;
-    background-size: 300% auto;
-    background-position: 0% 50%;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    color: transparent !important;
+    font-weight: bold;
+    background-size: 300%;
+    animation: shine 5s linear infinite;
     -webkit-background-clip: text;
-    animation: silveranim 4s ease-in-out infinite;
-    font-weight: 600;
-    font-size: 1.3em;
-}
-
-@keyframes silveranim {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+    background-clip: text;
+    background-image: linear-gradient(-60deg, #97d7d7, #d3d3ff, #e9f0d0, #5232c7, #6e0ea5, #7659fc, #4014a5, #7a4bb8, #e9f0d0, #d3d3ff, #97d7d7);
 }
 
 .bronze-name {
-    color: #cd7f32;
-    font-weight: bold;
-    font-size: 1.15em;
+    background-image: linear-gradient(-60deg, #c7a432, #ffce46, #fcec59, #a53614, #b8964b, #d7a197);
+    -webkit-background-clip: text;
+    color: transparent !important;
+    background-size: 300%;
+    background-clip: text;
+    font-style: normal;
+    font-size: 1.3em;
 }
 
 .account-icon {
     width: 20px;
     height: 20px;
-    vertical-align: sub;
+    object-fit: contain;
+    margin-right: 2px;
 }
 
 /* Stats bar */
@@ -1863,8 +1895,8 @@ button,
     overflow-y: scroll;
 }
 
-.friend-container{
-        overflow-y: auto;
+.friend-container {
+    overflow-y: auto;
 }
 
 .friend-list h3 {

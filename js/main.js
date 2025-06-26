@@ -14,7 +14,7 @@ let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -370,15 +370,25 @@ function formatSeconds(seconds) {
 /**
  * Renders player leaderboard data in a table
  * @param {Array<Object>} data - Leaderboard data with all the season entries
- * @returns {void}
+ * @returns {Promise<void>}
  */
-function displayLeaderboard(data) {
-    const tableBody = document.querySelector('#leaderboardTable tbody');
-    tableBody.innerHTML = '';
-    let lastGame;
+async function displayLeaderboard(data) {
+    const tempTableBody = document.createElement('tbody');
+    tempTableBody.style.display = 'none';
 
-    data.forEach(player => {
+    const playersWithData = await Promise.all(
+        data.map(async (player) => {
+            const pfp = await getPlayerPfp(player.id);
+            return { ...player, pfp };
+        })
+    );
+
+    const fragment = document.createDocumentFragment()
+
+    // Process players sequentially to ensure proper ordering
+    playersWithData.forEach((player) => {
         const row = document.createElement('tr');
+        let lastGame;
 
         // Check HeartbeatMonitor
         const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
@@ -425,9 +435,9 @@ function displayLeaderboard(data) {
           </div>`;
         }
 
-        let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`
+        let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`;
         if (player.publicProfile) {
-            profileOpenIcon = `Public`
+            profileOpenIcon = `Public`;
         }
 
         // Account type handling
@@ -445,7 +455,6 @@ function displayLeaderboard(data) {
                     break;
             }
         } else {
-            accountIcon = '';
             accountColor = '#787878';
         }
 
@@ -472,7 +481,7 @@ function displayLeaderboard(data) {
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
-            <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}"> ${accountIcon} ${player.name} ${prestigeImg}</td>
+            <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">${`<img class="lb-profile-picture" src="${player.pfp}">`} ${accountIcon} ${player.name} ${prestigeImg}</td>
             <td>${lastGame || 'N/A'}</td>
             <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
             <td>${badge}</td>
@@ -484,8 +493,15 @@ function displayLeaderboard(data) {
             <td>${player.sptVer}</td>
         `;
 
-        tableBody.appendChild(row);
+        fragment.appendChild(row);
     });
+
+    tempTableBody.appendChild(fragment);
+
+    const mainTable = document.querySelector('#leaderboardTable');
+    const currentTableBody = mainTable.querySelector('tbody');
+    mainTable.replaceChild(tempTableBody, currentTableBody);
+    tempTableBody.style.display = '';
 
     // Add click handlers for player names
     document.querySelectorAll('.player-name').forEach(element => {
