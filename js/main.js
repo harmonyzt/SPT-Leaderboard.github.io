@@ -13,7 +13,7 @@ let ranOnlyOnce = false;
 let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -649,12 +649,12 @@ function calculateRanks(data) {
     data.sort((a, b) => b.totalScore - a.totalScore);
 
     data.forEach((player, index) => {
-        if (player.isCasual) {
-            player.rank = 0;
-            player.medal = '';
-        } else {
+        if (!player.isCasual) {
             player.rank = index + 1;
             player.medal = ['🥇', '🥈', '🥉'][index] || '';
+        } else {
+            player.rank = 0;
+            player.medal = '';
         }
     });
 }
