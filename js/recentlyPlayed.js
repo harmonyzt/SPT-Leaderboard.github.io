@@ -10,7 +10,7 @@ const notificationStack = [];
 const playerNotificationData = new Map();
 let allowToPlayLastRaidSound = true;
 
-function showPlayerNotification(player) {
+async function showPlayerNotification(player) {
     if (!player.absoluteLastTime) {
         console.debug(`[NOTIFY] Skipping player ${player.name} – no absoluteLastTime data.`);
         return;
@@ -35,8 +35,8 @@ function showPlayerNotification(player) {
 
     let specialIconNotification = '';
     let accountColor = '';
-
-    loadTeamsData();
+    
+    const playerPfp = await getPlayerPfp(player.id)
 
     // Tester
     if (player.trusted) {
@@ -157,7 +157,7 @@ function showPlayerNotification(player) {
         notification.innerHTML = `
         <div class="notification-content-r">
             <div class="notification-header-r">
-                <img src="${getPlayerPfp(player.id)}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
+                <img src="${playerPfp}" alt="${player.name}'s avatar" class="notification-avatar-r" onerror="this.src='media/default_avatar.png';">
                 <div class="notification-text">
                     <span class="notification-name-r" style="color:${accountColor}">
                         ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
