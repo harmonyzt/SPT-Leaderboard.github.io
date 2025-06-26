@@ -815,7 +815,7 @@ function closeLoader() {
 
 function getBestWeapon(playerId, modWeaponStats) {
     if (!modWeaponStats[playerId]) {
-        return null;
+        return;
     }
 
     let maxKills = 0;
