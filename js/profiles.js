@@ -359,7 +359,7 @@ async function showPublicProfile(container, player) {
             day: 'numeric'
         })
         : 'Unknown';
-        
+
     // Generate badges
     const badgesHTML = generateBadgesHTML(player);
 

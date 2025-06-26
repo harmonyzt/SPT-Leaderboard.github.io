@@ -146,8 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = '';
 
         allWeapons.forEach((weapon, index) => {
-        const card = document.createElement('div');
-        card.classList.add('weapon-card');
+            const card = document.createElement('div');
+            card.classList.add('weapon-card');
 
             const weaponTagsHTML = weapon.tags.map(tag =>
                 `<span class="weapon-tag weapon-tag--${tag.type}">${tag.text}</span>`

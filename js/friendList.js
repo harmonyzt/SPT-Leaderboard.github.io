@@ -33,9 +33,9 @@ async function checkFriends(player) {
  */
 async function getPlayerPfp(playerId) {
     try {
-        return (await getPfp(playerId)) 
-               || leaderboardData[playerId]?.profilePicture 
-               || 'media/default_avatar.png';
+        return (await getPfp(playerId))
+            || leaderboardData[playerId]?.profilePicture
+            || 'media/default_avatar.png';
     } catch {
         return 'media/default_avatar.png';
     }

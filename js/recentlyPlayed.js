@@ -35,7 +35,7 @@ async function showPlayerNotification(player) {
 
     let specialIconNotification = '';
     let accountColor = '';
-    
+
     const playerPfp = await getPlayerPfp(player.id)
 
     // Tester
@@ -287,7 +287,7 @@ function createBanNotification(player) {
             </div>
             <div class="raid-overview-notify">
                 <span class="notification-ban">
-                    Was ${player.permBanned? `permanently` : ``} banned from Leaderboard.
+                    Was ${player.permBanned ? `permanently` : ``} banned from Leaderboard.
                 </span>
                 <span class="ban-text">
                     Banned at: ${player.banTime}<br>

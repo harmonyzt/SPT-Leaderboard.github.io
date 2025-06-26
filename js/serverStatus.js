@@ -25,7 +25,7 @@ async function updateServerStatus() {
     statusElement.className = 'live-data-label server-status';
     statusElement.removeAttribute('data-tooltip');
 
-    if(status.outage){
+    if (status.outage) {
         statusElement.textContent = 'API Degradation';
         statusElement.classList.add('server-maintenance');
         if (status.workText) {
@@ -48,7 +48,7 @@ async function updateServerStatus() {
         }
     }
 
-    if(seasonPath === "fallbacks/season"){
+    if (seasonPath === "fallbacks/season") {
         statusElement.textContent = 'API at Fallback';
         statusElement.setAttribute('data-tooltip', "Using local season files instead of connecting to API.")
         statusElement.classList.add('server-maintenance');

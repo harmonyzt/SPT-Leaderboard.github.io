@@ -72,7 +72,7 @@ function searchPlayers() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('playerSearch');
     const clearButton = document.getElementById('clearSearch');
 
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let searchTimeout;
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             setCookie('playerSearch', this.value, 7);
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
     });
 
-    clearButton.addEventListener('click', function() {
+    clearButton.addEventListener('click', function () {
         searchInput.value = '';
         setCookie('playerSearch', '', -1);
         searchPlayers();

@@ -69,9 +69,9 @@ function renderAchievements(stats, searchTerm = '') {
         });
 
     // Average completion percentage
-    const totalCompletion = filteredAchievements.reduce((sum, [id]) => {
-        return sum + parseFloat(stats[id]?.percent || 0);
-    }, 0);
+    //const totalCompletion = filteredAchievements.reduce((sum, [id]) => {
+    //    return sum + parseFloat(stats[id]?.percent || 0);
+    //}, 0);
 
     //const averageCompletion = filteredAchievements.length > 0
     //    ? (totalCompletion / filteredAchievements.length).toFixed(2)
@@ -141,7 +141,7 @@ function renderAchievements(stats, searchTerm = '') {
 }
 
 // Main function to load and process data
-async function init() {
+async function initAchievements() {
     try {
         // Load both JSON files in parallel
         [achievementsData, playerAchievements] = await Promise.all([
@@ -149,7 +149,7 @@ async function init() {
             loadJSON('https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json')
         ]);
 
-        // Get total number of players
+        // Get total number of players with achievements
         totalPlayers = playerAchievements.achievements.length;
 
         // Calculate achievement statistics
@@ -160,9 +160,7 @@ async function init() {
 
     } catch (error) {
         console.error('Error loading data:', error);
-        document.getElementById('achievements-container').innerHTML =
-            '<div class="loading">Error loading achievements data. Please check console for details.</div>';
     }
 }
 
-init();
+initAchievements();
