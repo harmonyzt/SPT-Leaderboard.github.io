@@ -381,15 +381,19 @@ function displayLeaderboard(data) {
 
         // Check HeartbeatMonitor
         const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
-        const lastOnlineTime = heartbeatMonitor.isOnline(player.id)
-            ? '<span class="player-status-lb-online">Online</span>'
-            : window.heartbeatMonitor.getLastOnlineTime(playerStatus.lastUpdate || player.lastPlayed);
+        if (!player.banned) {
+            const lastOnlineTime = heartbeatMonitor.isOnline(player.id)
+                ? '<span class="player-status-lb-online">Online</span>'
+                : window.heartbeatMonitor.getLastOnlineTime(playerStatus.lastUpdate || player.lastPlayed);
 
-        // For lastGame
-        if (heartbeatMonitor.isOnline(player.id)) {
-            lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
+            // For lastGame
+            if (heartbeatMonitor.isOnline(player.id)) {
+                lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
+            } else {
+                lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;
+            }
         } else {
-            lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;
+            lastGame = `<span class="last-online-time">Banned</span>`;
         }
 
         // Determine rank classes
