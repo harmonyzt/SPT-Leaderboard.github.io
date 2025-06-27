@@ -4,6 +4,14 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
+const profileSettingsCache = {
+    data: null,
+    lastFetchTime: 0,
+    cacheDuration: 5 * 60 * 1000,
+    playerPfps: {}
+};
+
+
 async function checkFriends(player) {
     return new Promise((resolve) => {
         const friends = [];
@@ -42,23 +50,36 @@ async function getPlayerPfp(playerId) {
 }
 
 async function getPfp(playerId) {
+    if (profileSettingsCache.playerPfps[playerId] !== undefined) {
+        return profileSettingsCache.playerPfps[playerId];
+    }
+
     try {
-        const response = await fetch(`${profileSettingsPath}`);
-        if (!response.ok) throw new Error('Failed to load settings');
+        // need to update cache?
+        const now = Date.now();
+        if (!profileSettingsCache.data || now - profileSettingsCache.lastFetchTime > profileSettingsCache.cacheDuration) {
+            const response = await fetch(`${profileSettingsPath}`);
+            if (!response.ok) throw new Error('Failed to load settings');
 
-        const settings = await response.json();
+            profileSettingsCache.data = await response.json();
+            profileSettingsCache.lastFetchTime = now;
 
-        // Does it exists?
-        if (settings[playerId]) {
-            const playerConfig = settings[playerId];
-
-            if (playerConfig) {
-                return playerConfig.pfp;
-            }
-
+            profileSettingsCache.playerPfps = {};
         }
+
+        if (profileSettingsCache.data[playerId]) {
+            const playerConfig = profileSettingsCache.data[playerId];
+            const pfp = playerConfig.pfp || null;
+
+            profileSettingsCache.playerPfps[playerId] = pfp;
+            return pfp;
+        }
+
+        profileSettingsCache.playerPfps[playerId] = null;
+        return null;
     } catch (error) {
         console.error('Error loading settings:', error);
+        return null;
     }
 }
 
