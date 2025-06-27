@@ -69,7 +69,7 @@ async function getPfp(playerId) {
 
         if (profileSettingsCache.data[playerId]) {
             const playerConfig = profileSettingsCache.data[playerId];
-            const pfp = playerConfig.pfp || null;
+            const pfp = playerConfig.pfp || leaderboardData[playerId]?.profilePicture || null;
 
             profileSettingsCache.playerPfps[playerId] = pfp;
             return pfp;
