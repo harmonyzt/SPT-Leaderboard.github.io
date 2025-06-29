@@ -1878,9 +1878,9 @@ button,
 /* Friend List for profile */
 .friend-list {
     position: absolute;
-    top: 450px;
+    top: 380px;
     right: 860px;
-    max-height: 370px;
+    max-height: 470px;
     background: rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
