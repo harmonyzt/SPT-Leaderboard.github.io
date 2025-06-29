@@ -1,0 +1,316 @@
+{
+    "achievementCompiled": {
+        "65141e37cf2f1c285e606361": {
+            "imageUrl": "/files/achievement/Standard_30.png",
+            "rarity": "Common",
+            "description": "Search the office in Factory while playing as a PMC",
+            "name": "That's What She Said"
+        },
+        "6513efa1b49e3253755f47eb": {
+            "imageUrl": "/files/achievement/Standard_10.png",
+            "rarity": "Common",
+            "description": "Eliminate Sanitar for the first time while playing as a PMC",
+            "name": "Sanatorium Orderly"
+        },
+        "65141dd6303df252af1c72c9": {
+            "imageUrl": "/files/achievement/Rare_29.png",
+            "rarity": "Rare",
+            "description": "Survive 300 raids while playing as a PMC",
+            "name": "PMC"
+        },
+        "6513ed89cf2f1c285e606068": {
+            "imageUrl": "/files/achievement/Standard_7.png",
+            "rarity": "Common",
+            "description": "Eliminate Shturman for the first time while playing as a PMC",
+            "name": "Silence of the Sawmill"
+        },
+        "651415feb49e3253755f4b68": {
+            "imageUrl": "/files/achievement/Rare_15.png",
+            "rarity": "Rare",
+            "description": "Eliminate every Boss once while playing as a PMC",
+            "name": "Long Live the King!"
+        },
+        "651419eea3dd9b6aa7159ee5": {
+            "imageUrl": "/files/achievement/Rare_21.png",
+            "rarity": "Rare",
+            "description": "Eliminate any enemy while suffering from the Flash effect while playing as a PMC",
+            "name": "Blind Fury"
+        },
+        "6527d3aac656a951ad1528ce": {
+            "imageUrl": "/files/achievement/Rare22.png",
+            "rarity": "Rare",
+            "description": "Eliminate Birdeye 15 times while playing as a PMC",
+            "name": "The Red Book"
+        },
+        "6514321bec10ff011f17ccac": {
+            "imageUrl": "/files/achievement/Legendary_42.png",
+            "rarity": "Legendary",
+            "description": "Meet Lightkeeper for the first time while playing as a PMC",
+            "name": "Firefly"
+        },
+        "6513eec00dc723592b0f90cc": {
+            "imageUrl": "/files/achievement/Standard_9.png",
+            "rarity": "Common",
+            "description": "Eliminate Glukhar for the first time while playing as a PMC",
+            "name": "Grouse Hunting"
+        },
+        "651412b8c31fcb0e163577c5": {
+            "imageUrl": "/files/achievement/Rare_11.png",
+            "rarity": "Rare",
+            "description": "Eliminate Kaban 15 times while playing as a PMC",
+            "name": "Old Dog With Old tricks"
+        },
+        "651411f1cf2f1c285e606423": {
+            "imageUrl": "/files/achievement/Rare_10.png",
+            "rarity": "Rare",
+            "description": "Eliminate Sanitar 15 times while playing as a PMC",
+            "name": "Who Called the Doctor?"
+        },
+        "65140ab8ec10ff011f17cc10": {
+            "imageUrl": "/files/achievement/Rare_5.png",
+            "rarity": "Rare",
+            "description": "Eliminate Killa 15 times while playing as a PMC",
+            "name": "What Not To Wear"
+        },
+        "6513f0a10dc723592b0f90cf": {
+            "imageUrl": "/files/achievement/Standard_11.png",
+            "rarity": "Common",
+            "description": "Eliminate Kaban for the first time while playing as a PMC",
+            "name": "Funny Graveyard Keeper"
+        },
+        "65141a3059647d2cb3213c9e": {
+            "imageUrl": "/files/achievement/Standard_22.png",
+            "rarity": "Common",
+            "description": "Eliminate 30 PMC operatives with a melee weapon while playing as a PMC",
+            "name": "Make a Notch"
+        },
+        "66c328de9dc78468f4040f35": {
+            "imageUrl": "/files/achievement/Standard73.png",
+            "rarity": "Common",
+            "description": "Eliminate Partisan for the first time while playing as a PMC",
+            "name": "Time To Clean My Karma"
+        },
+        "655b4a576689c676ce57acb6": {
+            "imageUrl": "/files/achievement/Rare_44.png",
+            "rarity": "Rare",
+            "description": "Eliminate Kollontay 15 times while playing as a PMC",
+            "name": "True Crime"
+        },
+        "664f23e44702fd5db50ee732": {
+            "imageUrl": "/files/achievement/Rare_35.png",
+            "rarity": "Rare",
+            "description": "Complete all of Gunsmith series tasks",
+            "name": "Jack of All Trades"
+        },
+        "6527d2e2c656a951ad1528c3": {
+            "imageUrl": "/files/achievement/Rare23.png",
+            "rarity": "Rare",
+            "description": "Eliminate Big Pipe 15 times while playing as a PMC",
+            "name": "Smoke the Peace Pipe"
+        },
+        "65141b9859647d2cb3213ca2": {
+            "imageUrl": "/files/achievement/Standard_24.png",
+            "rarity": "Common",
+            "description": "Eliminate 50 USEC PMC operatives",
+            "name": "U-SUCC"
+        },
+        "6513f1feec10ff011f17c7ea": {
+            "imageUrl": "/files/achievement/Standard_12.png",
+            "rarity": "Common",
+            "description": "Eliminate Knight, Birdeye, and Big Pipe in a single raid for the first time while playing as a PMC",
+            "name": "Now There Are Three of Them!"
+        },
+        "65140b55cf2f1c285e606414": {
+            "imageUrl": "/files/achievement/Rare_6.png",
+            "rarity": "Rare",
+            "description": "Eliminate Tagilla 15 times while playing as a PMC",
+            "name": "Hammer and Scythe"
+        },
+        "6512ea46f7a078264a4376e4": {
+            "imageUrl": "/files/achievement/Standard_2.png",
+            "rarity": "Common",
+            "description": "Survive and extract from Interchange through the Scav Co-Op extraction while playing as a PMC",
+            "name": "PMC's Best Friend"
+        },
+        "6514134eec10ff011f17cc26": {
+            "imageUrl": "/files/achievement/Rare21.png",
+            "rarity": "Rare",
+            "description": "Eliminate Knight 15 times while playing as a PMC",
+            "name": "I Hear the Voice of Darkness"
+        },
+        "65140bbec31fcb0e163577b9": {
+            "imageUrl": "/files/achievement/Rare_7.png",
+            "rarity": "Rare",
+            "description": "Eliminate Shturman 15 times while playing as a PMC",
+            "name": "King of the Sawmill"
+        },
+        "66c328aca91e7d66fa1b0b7b": {
+            "imageUrl": "/files/achievement/Standard75.png",
+            "rarity": "Common",
+            "description": "Use the transit from any location",
+            "name": "Vagabond"
+        },
+        "66b493bc2d8cd3b5e90a3648": {
+            "imageUrl": "/files/achievement/Legendary77.png",
+            "rarity": "Legendary",
+            "description": "Visit all locations in one raid as a PMC",
+            "name": "Marathon"
+        },
+        "6513ee11a3dd9b6aa7159b4a": {
+            "imageUrl": "/files/achievement/Standard_8.png",
+            "rarity": "Common",
+            "description": "Eliminate Reshala for the first time while playing as a PMC",
+            "name": "Deal to Make"
+        },
+        "6514143d59647d2cb3213c93": {
+            "imageUrl": "/files/achievement/Legendary_14.png",
+            "rarity": "Legendary",
+            "description": "Eliminate Killa 100 times while playing as a PMC",
+            "name": "Master of ULTRA"
+        },
+        "6512eb3ddfb0ae1ee75a0376": {
+            "imageUrl": "/files/achievement/Standard_3.png",
+            "rarity": "Common",
+            "description": "Survive and extract from every location in Tarkov while playing as a PMC ",
+            "name": "Traveler"
+        },
+        "65141cd2cf2f1c285e606449": {
+            "imageUrl": "/files/achievement/Rare_28.png",
+            "rarity": "Rare",
+            "description": "Survive 10 consecutive raids while playing as a PMC",
+            "name": "Ready for Anything"
+        },
+        "6529097eccf6aa5f8737b3d0": {
+            "imageUrl": "/files/achievement/Legendary_19.png",
+            "rarity": "Legendary",
+            "description": "Eliminate every Boss without dying while playing as a PMC",
+            "name": "Snowball"
+        },
+        "65141bdfcf2f1c285e606446": {
+            "imageUrl": "/files/achievement/Standard_25.png",
+            "rarity": "Common",
+            "description": "Eliminate 50 BEAR PMC operatives",
+            "name": "BEAR With Me"
+        },
+        "6513eb6e0dc723592b0f9095": {
+            "imageUrl": "/files/achievement/Standard_6.png",
+            "rarity": "Common",
+            "description": "Eliminate Tagilla for the first time while playing as a PMC",
+            "name": "Call Your Brother"
+        },
+        "65140c00b1c08b0feb216d50": {
+            "imageUrl": "/files/achievement/Rare_8.png",
+            "rarity": "Rare",
+            "description": "Eliminate Reshala 15 times while playing as a PMC",
+            "name": "This Is a Tarkov Showdown"
+        },
+        "675709bef4e2a2ce0f058f56": {
+            "imageUrl": "/files/achievement/Rare_78.png",
+            "rarity": "Rare",
+            "description": "Resolve the issue with the BTR driver one way or another",
+            "name": "All-Wheel Drive"
+        },
+        "6512f1e3be73cc7f07358ed5": {
+            "imageUrl": "/files/achievement/Standard_5.png",
+            "rarity": "Common",
+            "description": "Eliminate Killa for the first time while playing as a PMC",
+            "name": "Art of Style"
+        },
+        "65141032a3dd9b6aa7159ed3": {
+            "imageUrl": "/files/achievement/Rare_9.png",
+            "rarity": "Rare",
+            "description": "Eliminate Glukhar 15 times while playing as a PMC",
+            "name": "Another Cold Case"
+        },
+        "66c32996b4c0c017a3319cc3": {
+            "imageUrl": "/files/achievement/Rare73.png",
+            "rarity": "Rare",
+            "description": "Eliminate Partisan 15 times while playing as a PMC",
+            "name": "Samsara Wheel Spins Again"
+        },
+        "655b49bc91aa9e07687ae47c": {
+            "imageUrl": "/files/achievement/Standard_44.png",
+            "rarity": "Common",
+            "description": "Eliminate Kollontay for the first time while playing as a PMC",
+            "name": "Justice"
+        },
+        "664f1f8768508d74604bf556": {
+            "imageUrl": "/files/achievement/Legendary_52.png",
+            "rarity": "Legendary",
+            "description": "Obtain Secure container Kappa",
+            "name": "The Kappa Path"
+        },
+        "651413e9c31fcb0e163577c9": {
+            "imageUrl": "/files/achievement/Rare_13.png",
+            "rarity": "Rare",
+            "description": "Eliminate Zryachiy 15 times while playing as a PMC",
+            "name": "Now That's a Good Shot"
+        },
+        "65141ab70dc723592b0f9482": {
+            "imageUrl": "/files/achievement/Standard_23.png",
+            "rarity": "Common",
+            "description": "Eliminate a PMC operative with a headshot while under the alcohol effect while playing as a PMC",
+            "name": "Drunken Master"
+        },
+        "6513f28cb49e3253755f47f3": {
+            "imageUrl": "/files/achievement/Standard_13.png",
+            "rarity": "Common",
+            "description": "Eliminate Zryachiy for the first time while playing as a PMC",
+            "name": "The Blind Watcher"
+        },
+        "6512f16bde333c33d5127cbc": {
+            "imageUrl": "/files/achievement/Standard_4.png",
+            "rarity": "Common",
+            "description": "Eliminate one of the hooded men with their own knife at night time while playing as a PMC",
+            "name": "Killer of Killers"
+        },
+        "6514184ec31fcb0e163577d2": {
+            "imageUrl": "/files/achievement/Rare_20.png",
+            "rarity": "Rare",
+            "description": "Eliminate 7 PMC operatives in a single raid while playing as a PMC",
+            "name": "Killer7"
+        },
+        "65141eb5c31fcb0e163577dd": {
+            "imageUrl": "/files/achievement/Standard_31.png",
+            "rarity": "Common",
+            "description": "Locate the crashed plane on Woods while playing as a PMC",
+            "name": "Lost"
+        },
+        "6514174fb1c08b0feb216d73": {
+            "imageUrl": "/files/achievement/Standard_16.png",
+            "rarity": "Common",
+            "description": "Eliminate a PMC operative with a headshot from over 500 meters away while playing as a PMC",
+            "name": "Chris's Heir"
+        },
+        "6527ee4a647c29201011defe": {
+            "imageUrl": "/files/achievement/Standard_43.png",
+            "rarity": "Common",
+            "description": "Eliminate a Scav while playing as a Scav",
+            "name": "You Are Not My Brother"
+        },
+        "65141c80ec10ff011f17cc3e": {
+            "imageUrl": "/files/achievement/Standard_27.png",
+            "rarity": "Common",
+            "description": "Survive a raid without the Run-through status for the first time",
+            "name": "First Time Always Hurts"
+        },
+        "676094451fec2f7426093be6": {
+            "imageUrl": "/files/achievement/676093bf2a7be2d1f706f0ec.png",
+            "rarity": "Legendary",
+            "description": "Earn the Prestige level 2",
+            "name": "More Prestigious"
+        },
+        "651417d6ec10ff011f17cc31": {
+            "imageUrl": "/files/achievement/Standard_17.png",
+            "rarity": "Common",
+            "description": "Eliminate 4 PMC operatives with a headshot while using a pistol in a single raid while playing as a PMC",
+            "name": "John's Heir"
+        },
+        "676091c0f457869a94017a23": {
+            "imageUrl": "/files/achievement/676093b76e682163da028a28.png",
+            "rarity": "Legendary",
+            "description": "Earn the Prestige level 1",
+            "name": "Prestigious"
+        }
+    }
+}

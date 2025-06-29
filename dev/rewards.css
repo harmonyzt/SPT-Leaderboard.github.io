@@ -1,0 +1,172 @@
+.streets-bg {
+    background: url(media/rewards/card_background/streets1.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.streets2-bg {
+    background: url(media/rewards/card_background/streets2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.streets3-bg {
+    background: url(media/rewards/card_background/streets3.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.purple-bg {
+    background: url(media/rewards/card_background/purple.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.labs-bg {
+    background: url(media/rewards/card_background/labs.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.labs-bg {
+    background: url(media/rewards/card_background/labs.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.usec-background {
+    background: url(media/rewards/main_background/Usec.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bear-background {
+    background: url(media/rewards/main_background/Bear.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* PFP Styles */
+.box-style {
+    border-radius: 10%;
+}
+
+.wide-style {
+    border-radius: 10%;
+    width: 120px;
+    height: 120px;
+}
+
+/* PFP Borders */
+.red-border {
+    border-color: rgb(206, 89, 89);
+}
+
+.pink-border {
+    border-color: rgb(255, 138, 206);
+}
+
+.white-border {
+    border-color: rgba(255, 255, 255, 0.445);
+}
+
+.black-border {
+    border-color: rgb(0, 0, 0);
+}
+
+/* Prestige Only backgrounds for behind card profile */
+.prestige-killa {
+    background: url(media/rewards/prestige_only/killa.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.prestige-tagilla {
+    background: url(media/rewards/prestige_only/tagilla.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.prestige-both {
+    background: url(media/rewards/prestige_only/both.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Themes */
+.theme-default {
+    background-color: #1e1e2d;
+}
+
+.theme-dark {
+    background-color: #000000eb;
+}
+
+.theme-light {
+    background-color: rgb(61, 87, 106);
+}
+
+.theme-gradient {
+    background: linear-gradient(169deg, rgba(62, 150, 141, 1) 0%, rgba(49, 49, 92, 1) 42%, rgba(60, 62, 99, 1) 69%);
+}
+
+.theme-redshade {
+    background: linear-gradient(169deg, rgb(150, 62, 62) 0%, rgb(92, 49, 49) 42%, rgb(99, 61, 60) 69%);
+}
+
+.theme-steelshade {
+    background: linear-gradient(169deg, #808991 0%, #657583 42%, #3F4952 69%);
+}
+
+/* Kitties/Penguins :D */
+.kittyrew {
+    display: block;
+    position: absolute;
+    width: 150px;
+    top: 287px;
+    left: 100px;
+}
+
+.badger {
+    display: block;
+    position: absolute;
+    width: 100px;
+    top: 281px;
+    left: 650px;
+}
+
+/* Profile Decals */
+.scratches {
+    background-image: url(media/rewards/profile_decals_mastery/scratches.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-circle {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-signs {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point1.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.cult-signs2 {
+    background-image: url(media/rewards/profile_decals_mastery/cultist_point_moresigns.png);
+    background-position: center;
+    background-size: cover;
+}
