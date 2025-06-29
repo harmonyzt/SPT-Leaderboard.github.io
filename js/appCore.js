@@ -17,7 +17,7 @@ let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -33,13 +33,13 @@ let oldTotalPlayTime = 0;
 
 // TODO: #7 Fully support all paths for debug and not
 // Paths
-let seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
+let seasonPath = "https://visuals.nullcore.net/SPT/testEnv/data/seasons/season";
 let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids.json?t=${Date.now()}`;
-let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
-let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
-let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
-let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
+let lastRaidsPath = `https://visuals.nullcore.net/SPT/testEnv/data/shared/player_raids.json?t=${Date.now()}`;
+let profileSettingsPath = `https://visuals.nullcore.net/SPT/testEnv/data/profile_settings.json?t=${Date.now()}`;
+let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/testEnv/shared/weapon_counters.json?t=${Date.now()}`;
+let profileUrlPath = `https://harmonyzt.github.io/testEnv/SPT-Leaderboard.github.io/#id=`;
+let heartbeatsPath = `https://visuals.nullcore.net/SPT/testEnv/api/heartbeat/heartbeats.json?t=${Date.now()}`;
 
 // Paths for local files if debug is on
 if (debug) {

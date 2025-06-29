@@ -67,7 +67,7 @@ body {
 
 h1 {
     text-align: center;
-    color: var(--accent-blue);
+    color: rgba(255, 100, 100, 0.623);
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: 700;
@@ -75,8 +75,8 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow:
-        0 0 1px rgba(100, 255, 218, 0.4),
-        0 0 3px rgba(100, 255, 218, 0.2);
+        0 0 1px rgba(227, 255, 100, 0.4),
+        0 0 3px rgba(255, 100, 100, 0.2);
 }
 
 /* Leaderboard notifications */
