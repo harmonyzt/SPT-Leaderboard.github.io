@@ -52,11 +52,7 @@ async function openProfile(playerId) {
     // Instantly try assigning info if it was changed (and then change it to actual on backend)
     async function applyPlayerSettings(playerId) {
         try {
-            //
-            const response = await fetch(`${profileSettingsPath}`);
-            if (!response.ok) throw new Error('Failed to load settings');
-
-            const settings = await response.json();
+            const settings = await getProfileSettings();
 
             // Does it exists?
             if (settings[playerId]) {
@@ -73,7 +69,7 @@ async function openProfile(playerId) {
                     player.bp_pfpstyle = playerConfig.pfpStyle;
                     player.bp_pfpbordercolor = playerConfig.pfpBorder;
                     player.bp_decal = playerConfig.decal;
-                    player.profilePicture = playerConfig.pfp;
+                    player.profilePicture = await getPlayerPfp(playerId);
                     player.discordUser = playerConfig.discordUser ? playerConfig.discordUser : '';
                 }
 
@@ -385,7 +381,11 @@ async function showPublicProfile(container, player) {
     // About me
     const aboutText = player.profileAboutMe ? player.profileAboutMe : 'Nothing to see here.';
 
+    // Is online
     const isOnline = heartbeatMonitor.isOnline(player.id);
+
+    // Get profile picture
+    const profilePicture = await getPlayerPfp(player.id);
 
     container.innerHTML = `
 <div class="profile-grid-layout profile-loading-overlay" id="profile-main-grid">
@@ -394,7 +394,7 @@ async function showPublicProfile(container, player) {
         <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
         <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew" />
 
-        <img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" />
+        <img src="${profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" />
         <div class="player-status">
             <div class="status-indicator ${isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${isOnline ? 'Online' : 'Offline'}</span>

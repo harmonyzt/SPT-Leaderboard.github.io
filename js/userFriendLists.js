@@ -4,6 +4,30 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
+let profileSettingsData = null;
+let profileSettingsPromise = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    profileSettingsPromise = getProfileSettings();
+});
+
+async function getProfileSettings() {
+    try {
+        const response = await fetch(`${profileSettingsPath}`);
+        if (!response.ok) throw new Error('Failed to load settings');
+
+        profileSettingsData = await response.json();
+
+        return profileSettingsData;
+    } catch (error) {
+        console.error('Error loading settings:', error);
+
+        profileSettingsData = {};
+
+        throw error;
+    }
+}
+
 async function checkFriends(player) {
     return new Promise((resolve) => {
         const friends = [];
@@ -33,32 +57,27 @@ async function checkFriends(player) {
  */
 async function getPlayerPfp(playerId) {
     try {
-        return (await getPfp(playerId))
-            || leaderboardData[playerId]?.profilePicture
-            || 'media/default_avatar.png';
+        // Wait for leaderboard data to be ready before doing anything
+        waitForDataReady(() => {
+            if (leaderboardData[playerId]?.profilePicture) {
+                return leaderboardData[playerId].profilePicture;
+            }
+        });
+
+        if (profileSettingsData !== null) {
+            return profileSettingsData[playerId]?.pfp || 'media/default_avatar.png';
+        }
+
+        if (!profileSettingsPromise) {
+            profileSettingsPromise = getProfileSettings();
+        }
+
+        await profileSettingsPromise;
+
+        return profileSettingsData[playerId]?.pfp || 'media/default_avatar.png';
+
     } catch {
         return 'media/default_avatar.png';
-    }
-}
-
-async function getPfp(playerId) {
-    try {
-        const response = await fetch(`${profileSettingsPath}`);
-        if (!response.ok) throw new Error('Failed to load settings');
-
-        const settings = await response.json();
-
-        // Does it exists?
-        if (settings[playerId]) {
-            const playerConfig = settings[playerId];
-
-            if (playerConfig) {
-                return playerConfig.pfp;
-            }
-
-        }
-    } catch (error) {
-        console.error('Error loading settings:', error);
     }
 }
 
@@ -75,7 +94,7 @@ async function renderFriendList(player) {
 
         // First load all pfps
         const friendsWithPfp = await Promise.all(friends.map(async friend => {
-            const pfp = await getPfp(friend.id).catch(() => null);
+            const pfp = await getPlayerPfp(friend.id).catch(() => null);
             return {
                 ...friend,
                 displayPfp: pfp || friend.profilePicture
