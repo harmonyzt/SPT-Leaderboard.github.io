@@ -1297,92 +1297,74 @@ button,
     padding-left: 0;
 }
 
-/* Announcement / Notification */
-.leaderboard-notification {
-    position: fixed;
-    top: 120px;
-    left: 20px;
-    max-width: 350px;
-    background: rgba(255, 255, 255, 0.048);
-    border-left: 4px solid #64ffda;
-    padding: 15px 40px 15px 15px;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+/* Announcement */
+.announcement-wrapper {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: rgba(57, 89, 131, 0.205);
+    backdrop-filter: blur(15px);
+    border-left: 4px solid #FFC107;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     display: flex;
-    align-items: flex-start;
-    animation: slideIn 0.5s ease-out;
-    backdrop-filter: blur(5px);
-}
-
-.notification-content {
-    flex-grow: 1;
-    color: #ffffff;
-    font-size: 14px;
-    line-height: 1.5;
-    padding-right: 10px;
-}
-
-.notification-content p {
-    margin: 0 0 10px 0;
-}
-
-.notification-content p:last-child {
-    margin-bottom: 0;
-    font-weight: bold;
-    color: #bbfeff;
-}
-
-.close-notification {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
-    cursor: pointer;
-    padding: 5px;
-    width: 24px;
-    height: 24px;
-    display: flex;
+    gap: 15px;
     align-items: center;
-    justify-content: center;
-    border-radius: 3px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcement-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.announcement-content {
+    text-align: left;
+    color: #ffffff;
+}
+
+.announcement-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #FFC107;
+}
+
+.announcement-text {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.announcement-link {
+    color: #64fff7;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
     transition: all 0.2s ease;
 }
 
-.close-notification:hover {
+.announcement-link:hover {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.announcement-link::after {
+    content: "↗";
+    margin-left: 2px;
+    font-size: 0.9em;
+    display: inline-block;
 }
 
-.leaderboard-notification.hide {
-    animation: slideOut 0.5s ease-in forwards;
-}
-
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+.announcement-signature {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    text-align: right;
+    margin-top: 8px;
+    position: relative;
+    padding-right: 15px;
 }
 
 .close-btn {
