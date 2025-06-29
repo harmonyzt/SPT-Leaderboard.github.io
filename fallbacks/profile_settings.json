@@ -11,7 +11,7 @@
         "decal": "default",
         "aboutMe": "UwU - Femboy - Loot Goblin",
         "discordUser": "jub69",
-        "pfp": "https://i.pinimg.com/736x/eb/0b/e8/eb0be8efef60ad07dfde57a2afd5f132.jpg"
+        "pfp": "https://cdn.weasyl.com/~skizu/submissions/1158067/c8c75ec508e6d87c0886b9ee795861a9e361e8ab73a9b9918ce36c166d29e427/skizu-lav-hypno-booty.gif"
     },
     "684eb6840000e873016e737c": {
         "profileTheme": "dark",
@@ -138,5 +138,47 @@
         "aboutMe": "Im trash at the game.",
         "discordUser": "",
         "pfp": "https://media1.tenor.com/m/fDnEXPxVFVsAAAAC/gundam-gundam-seed.gif"
+    },
+    "683b140d0001697bd3dbcdde": {
+        "profileTheme": "gradient",
+        "usePrestigeStyling": true,
+        "prestigeBackground": "none",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "default",
+        "pfpBorder": "pink",
+        "decal": "default",
+        "aboutMe": "Yes. I am actually playing the game too. Can you believe that?",
+        "discordUser": "",
+        "pfp": "https://i.pinimg.com/736x/88/05/26/8805263160ad12dd2376ad47770147cb.jpg"
+    },
+    "684ee2c100006d7b848a98f3": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": true,
+        "prestigeBackground": "killa",
+        "backgroundReward": "streets2",
+        "mainBackgroundReward": "usec",
+        "catReward": true,
+        "pfpStyle": "box",
+        "pfpBorder": "pink",
+        "decal": "scratches",
+        "aboutMe": "Sneaky Beaky Like!",
+        "discordUser": "",
+        "pfp": "https://c.tenor.com/Sqf_YAdbK48AAAAd/tenor.gif"
+    },
+    "68609f000004722652c38800": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "killa",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "Go for Broke!",
+        "discordUser": "",
+        "pfp": ""
     }
 }

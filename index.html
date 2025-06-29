@@ -15,23 +15,24 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-        <script src="js/main.js"></script>
-        <script src="js/recentlyPlayed.js"></script>
-        <script src="js/heartbeats.js"></script>
-        <script src="js/searchBar.js"></script>
-        <script src="js/profiles.js"></script>
-        <script src="js/hallOfFame.js"></script>
-        <script src="js/rewardSystem.js"></script>
-        <script src="js/navbarModals.js"></script>
-        <script src="js/autoRefresh.js"></script>
-        <script src="js/serverStatus.js"></script>
-        <script src="js/settings.js"></script>
-        <script src="js/lastRaids.js"></script>
-        <script src="js/friendList.js"></script>
-        <script src="js/profileShare.js"></script>
-        <script src="js/teams.js"></script>
-        <script src="js/toasts.js"></script>
-        <script src="js/admins_check.js"></script>
+        <script src="js/appCore.js"></script>
+        <script src="js/displayWinners.js"></script>
+        <script src="js/recentActivity.js"></script>
+        <script src="js/heartbeatMonitor.js"></script>
+        <script src="js/userSearch.js"></script>
+        <script src="js/userProfiles.js"></script>
+        <script src="js/BPLevelCalculator.js"></script>
+        <script src="js/BPRewardSystem.js"></script>
+        <script src="js/navigationModals.js"></script>
+        <script src="js/liveUpdates.js"></script>
+        <script src="js/apiMonitor.js"></script>
+        <script src="js/userSettings.js"></script>
+        <script src="js/raidHistory.js"></script>
+        <script src="js/userFriendLists.js"></script>
+        <script src="js/userShareProfile.js"></script>
+        <script src="js/userTeams.js"></script>
+        <script src="js/notificationSystem.js"></script>
+        <script src="js/adminCheckup.js"></script>
         <title>SPT Leaderboard</title>
     </head>
 
@@ -205,24 +206,6 @@
         <div id="winners" class="animate animate__animated animate__fadeIn">
             <h2>Our previous season Champions!</h2>
             <div class="winners-container">
-                <div class="winner-card">
-                    <p class="winner-name">🥈 muertenis</p>
-                    <p class="winner-rank">Second place</p>
-                    <p class="winner-skill">Skill score: 29.68</p>
-                    <p class="winner-stats">Raids: 203 | KDR: 22.45</p>
-                </div>
-                <div class="winner-card">
-                    <p class="winner-name">🥇 Zetnork</p>
-                    <p class="winner-rank">👑 First place 👑</p>
-                    <p class="winner-skill">Skill score: 30.11</p>
-                    <p class="winner-stats">Raids: 120 | KDR: 32</p>
-                </div>
-                <div class="winner-card">
-                    <p class="winner-name">🥉 DiSir</p>
-                    <p class="winner-rank">Third place</p>
-                    <p class="winner-skill">Skill score: 28.40</p>
-                    <p class="winner-stats">Raids: 131 | KDR: 18.29</p>
-                </div>
             </div>
         </div>
         <p id="status"></p>
@@ -235,7 +218,7 @@
                 <div class="auto-update-control">
                     <label>
                         <input type="checkbox" id="autoUpdateToggle" checked /> Live Data Flow </label>
-                    <span id="timeToUpdate">Next update in: 3s</span>
+                    <span id="timeToUpdate"></span>
                 </div>
             </div>
         </div>
