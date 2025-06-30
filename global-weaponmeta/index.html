@@ -12,6 +12,7 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
         <script src="../js/appCore.js"></script>
+        <script src="../global-weaponmeta/js/loadManager.js"></script>
         <script src="../global-weaponmeta/js/main.js"></script>
         <script src="../js/recentActivity.js"></script>
         <script src="../js/apiMonitor.js"></script>
@@ -50,10 +51,24 @@
                 </select>
                 <select id="caliberFilter" class="category-dropdown">
                     <option value="all">All Calibers</option>
+                    <!-- JS -->
                 </select>
             </div>
         </div>
-        <div id="weaponsContainer" class="weapons-container animate animate__animated animate__fadeIn"></div>
+        <div id="weaponsContainer" class="weapons-container animate animate__animated animate__fadeIn">
+            <div class="loader-grid-item">
+                <div class="loader-glass">
+                    <div class="loader-content">
+                        <img src="../media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                        <h3 class="loader-text">Loading data...</h3>
+                        <div class="loader-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <p class="loader-details">Preparing weapons data...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class="modern-footer">
             <div class="footer-content">
                 <div class="footer-brand">

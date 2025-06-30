@@ -5,6 +5,48 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
 document.addEventListener('DOMContentLoaded', function () {
+    class LoaderManager {
+        constructor() {
+            this.loaderElement = document.querySelector('.loader-grid-item');
+            this.loaderText = document.querySelector('.loader-text');
+            this.loaderDetails = document.querySelector('.loader-details');
+            this.progressBar = document.querySelector('.progress-bar');
+            this.totalImages = 0;
+            this.loadedImages = 0;
+        }
+
+        show() {
+            this.loaderElement.style.display = 'flex';
+        }
+
+        hide() {
+            this.loaderElement.style.display = 'none';
+        }
+
+        updateProgress(loaded, total, message = '') {
+            this.loadedImages = loaded;
+            this.totalImages = total;
+            const percent = Math.round((loaded / total) * 100);
+
+            this.progressBar.style.width = `${percent}%`;
+            this.loaderText.textContent = `Loading weapons... ${loaded}/${total}`;
+
+            if (message) {
+                this.loaderDetails.textContent = message;
+            }
+        }
+
+        setMessage(message) {
+            this.loaderDetails.textContent = message;
+        }
+    }
+
+    const loader = new LoaderManager();
+
+    // Show loader initially
+    loader.show();
+    loader.setMessage('Fetching weapon stats...');
+
     fetch(`${weaponStatsPath}`)
         .then(response => {
             if (!response.ok) {
@@ -13,10 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(weaponData => {
+            loader.setMessage('Processing weapon data...');
             processWeaponData(weaponData);
         })
         .catch(error => {
             console.error('Error loading weapon data:', error);
+            loader.setMessage(`Error: ${error.message}`);
         });
 
     async function processWeaponData(weaponData) {
@@ -288,6 +332,16 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         });
 
+        // Preload images
+        loader.updateProgress(0, allWeapons.length, "Starting image loading...");
+        try {
+
+            await preloadImages(allWeapons, loader);
+        } catch (error) {
+            console.error("Image loading failed:", error);
+            loader.setMessage("Error loading some images, continuing...");
+        }
+
         // Sort by kills
         allWeapons.sort((a, b) => b.kills - a.kills);
 
@@ -388,6 +442,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             container.appendChild(card);
         });
+
+        // Hide loader when done
+        loader.hide();
 
         function filterWeapons() {
             const searchTerm = document.getElementById('weaponSearch').value.toLowerCase();
@@ -513,4 +570,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         document.getElementById('caliberFilter').addEventListener('change', filterWeapons);
     }
+
+    async function preloadImages(weapons) {
+        const promises = weapons.map(weapon => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = `../media/weapon_icons/${weapon.name}.webp`;
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+            });
+        });
+
+        let loadedCount = 0;
+        promises.forEach((promise, index) => {
+            promise.then(success => {
+                loadedCount++;
+                loader.updateProgress(
+                    loadedCount,
+                    weapons.length,
+                    `${success ? 'Loaded' : 'Failed'}: ${weapons[index].name}`
+                );
+            });
+        });
+
+        await Promise.all(promises);
+    }
+
 });
