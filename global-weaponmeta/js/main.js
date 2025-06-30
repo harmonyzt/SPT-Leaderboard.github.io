@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "5bf3e03b0db834001d2c4a9c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74
             "5ac4cd105acfc40016339859": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74M
             "5644bd2b4bdc2d3b4c8b4572": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74N
+            "5ab8e9fcd8ce870019439434": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AKS-74N
             "5ac66cb05acfc40198510a10": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-101
             "5ac66d015acfc400180ae6e4": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-102
             "5ac66d2e5acfc43b321d4b53": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AK-103
