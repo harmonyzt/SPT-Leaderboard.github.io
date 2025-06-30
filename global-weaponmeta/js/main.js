@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "5c07c60e0db834002330051f": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.56x45mm NATO" }, // ADAR
             "6410733d5dd49d77bd07847e": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x54mmR" }, // AVT-40
             "587e02ff24597743df3deaeb": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x39mm" }, // SKS
-            "5f2a9575926fd9352339381f": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62×51mm NATO" }, // RFB
+            "5f2a9575926fd9352339381f": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x51mm NATO" }, // RFB
             "628b5638ad252a16da6dd245": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.45x39mm" }, // SAG AK
             "628b9c37a733087d0d7fe84b": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.45x39mm" }, // SAG AK short
             "574d967124597745970e7c94": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x39mm" }, // SKS
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "57f3c6bd24597738e730fa2f": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x18mm" }, // PP-91-01 Kedr-B
             "5ea03f7400685063ec28bfa8": { main: "Primary Weapons", sub: "Submachine guns", caliber: "7.62x25mm" }, // PPSh-41
             "59f9cabd86f7743a10721f46": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // Saiga-9
-            "62e14904c2699c0ec93adc47": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x21" }, // SR-2M
+            "62e14904c2699c0ec93adc47": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x21mm" }, // SR-2M
             "60339954d62c9b14ed777c06": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // STM-9
             "5fc3e272f8b6a877a729eac5": { main: "Primary Weapons", sub: "Submachine guns", caliber: ".45 ACP" }, // UMP 45
             "66992b349950f5f4cd06029f": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // UZI
@@ -244,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "669fa409933e898cce0c2166": { main: "Secondary weapons", sub: "Pistols", caliber: ".357 Magnum" }, // Desert Eagle L5 .357
             "669fa39b48fc9f8db6035a0c": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle L6
             "668fe5a998b5ad715703ddd6": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle Mk XIX
-            "5d3eb3b0a4b93615055e84d2": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7
-            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7 FDE
+            "5d3eb3b0a4b93615055e84d2": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28mm" }, // FN 5-7
+            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28mm" }, // FN 5-7 FDE
             "5a7ae0c351dfba0017554310": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 17
             "5b1fa9b25acfc40018633c01": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 18C
             "63088377b5cd696784087147": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 19X
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "64748cb8de82c85eaf0a273a": { main: "Secondary weapons", sub: "Shotguns", caliber: "12/70" }, // MP-43 sawed-off
 
             "5d52cc5ba4b9367408500062": { main: "Stationary weapons", sub: "Automatic grenade launchers", caliber: "30x29mm" }, // AGS-30
-            "5cdeb229d7f00c000e7ce174": { main: "Stationary weapons", sub: "Heavy machine guns", caliber: "12.7x108" }, // NSV Utyos
+            "5cdeb229d7f00c000e7ce174": { main: "Stationary weapons", sub: "Heavy machine guns", caliber: "12.7x108mm" }, // NSV Utyos
 
             "5710c24ad2720bc3458b45a3": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" }, // F-1
             "58d3db5386f77426186285a0": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" }, // M67
