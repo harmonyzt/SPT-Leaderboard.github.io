@@ -300,14 +300,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            let caliber = "Unknown";
+            let caliber = "No caliber";
             if (stats.originalIds.length > 0) {
                 const mostCommonOriginalId = stats.originalIds.reduce((a, b, i, arr) =>
                     (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b));
 
                 const categoryInfo = weaponCategories[mostCommonOriginalId];
                 if (categoryInfo) {
-                    caliber = categoryInfo.caliber || "Unknown";
+                    caliber = categoryInfo.caliber || "No caliber";
                 }
             }
 
