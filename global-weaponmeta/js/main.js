@@ -72,158 +72,158 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const weaponCategories = {
             // Assault carabines
-            "644674a13d52156624001fbc": { main: "Primary Weapons", sub: "Assault Carabines" }, // 9A-91
-            "5c07c60e0db834002330051f": { main: "Primary Weapons", sub: "Assault Carabines" }, // ADAR
-            "6410733d5dd49d77bd07847e": { main: "Primary Weapons", sub: "Assault Carabines" }, // AVT-40
-            "587e02ff24597743df3deaeb": { main: "Primary Weapons", sub: "Assault Carabines" }, // SKS
-            "5f2a9575926fd9352339381f": { main: "Primary Weapons", sub: "Assault Carabines" }, // RFB
-            "628b5638ad252a16da6dd245": { main: "Primary Weapons", sub: "Assault Carabines" }, // SAG AK
-            "628b9c37a733087d0d7fe84b": { main: "Primary Weapons", sub: "Assault Carabines" }, // SAG AK short
-            "574d967124597745970e7c94": { main: "Primary Weapons", sub: "Assault Carabines" }, // SKS
-            "651450ce0e00edc794068371": { main: "Primary Weapons", sub: "Assault Carabines" }, // SR-3M
-            "643ea5b23db6f9f57107d9fd": { main: "Primary Weapons", sub: "Assault Carabines" }, // SVT-40
-            "5d43021ca4b9362eab4b5e25": { main: "Primary Weapons", sub: "Assault Carabines" }, // TX-15
-            "5c501a4d2e221602b412b540": { main: "Primary Weapons", sub: "Assault Carabines" }, // VPO-101
-            "59e6152586f77473dc057aa1": { main: "Primary Weapons", sub: "Assault Carabines" }, // VPO-136
-            "59e6687d86f77411d949b251": { main: "Primary Weapons", sub: "Assault Carabines" }, // VPO-209
-            "645e0c6b3b381ede770e1cc9": { main: "Primary Weapons", sub: "Assault Carabines" }, // VSK
+            "644674a13d52156624001fbc": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "9x39mm" }, // 9A-91
+            "5c07c60e0db834002330051f": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.56x45mm NATO" }, // ADAR
+            "6410733d5dd49d77bd07847e": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x54mmR" }, // AVT-40
+            "587e02ff24597743df3deaeb": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x39mm" }, // SKS
+            "5f2a9575926fd9352339381f": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62×51mm NATO" }, // RFB
+            "628b5638ad252a16da6dd245": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.45x39mm" }, // SAG AK
+            "628b9c37a733087d0d7fe84b": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.45x39mm" }, // SAG AK short
+            "574d967124597745970e7c94": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x39mm" }, // SKS
+            "651450ce0e00edc794068371": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "9x39mm" }, // SR-3M
+            "643ea5b23db6f9f57107d9fd": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x54mmR" }, // SVT-40
+            "5d43021ca4b9362eab4b5e25": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "5.56x45mm NATO" }, // TX-15
+            "5c501a4d2e221602b412b540": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x51mm NATO" }, // VPO-101
+            "59e6152586f77473dc057aa1": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "7.62x39mm" }, // VPO-136
+            "59e6687d86f77411d949b251": { main: "Primary Weapons", sub: "Assault Carabines", caliber: ".366 TKM" }, // VPO-209
+            "645e0c6b3b381ede770e1cc9": { main: "Primary Weapons", sub: "Assault Carabines", caliber: "9x39mm" }, // VSK
 
-            "6499849fc93611967b034949": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-12
-            "5bf3e03b0db834001d2c4a9c": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-74
-            "5ac4cd105acfc40016339859": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-74M
-            "5644bd2b4bdc2d3b4c8b4572": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-74N
-            "5ac66cb05acfc40198510a10": { main: "Primary Weapons", sub: "Assault Rifles" }, // Ak-101
-            "5ac66d015acfc400180ae6e4": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-102
-            "5ac66d2e5acfc43b321d4b53": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-103
-            "5ac66d725acfc43b321d4b60": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-104
-            "5ac66d9b5acfc4001633997a": { main: "Primary Weapons", sub: "Assault Rifles" }, // AK-105
-            "59d6088586f774275f37482f": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKM
-            "5a0ec13bfcdbcb00165aa685": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKMN
-            "59ff346386f77477562ff5e2": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKMS
-            "5abcbc27d8ce8700182eceeb": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKMSN
-            "5bf3e0490db83400196199af": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKS-74
-            "57dc2fa62459775949412633": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKS-74U
-            "5839a40f24597726f856b511": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKS-74UB
-            "583990e32459771419544dd2": { main: "Primary Weapons", sub: "Assault Rifles" }, // AKS-74UN
-            "57c44b372459772d2b39b8ce": { main: "Primary Weapons", sub: "Assault Rifles" }, // AS VAL
-            "5cadfbf7ae92152ac412eeef": { main: "Primary Weapons", sub: "Assault Rifles" }, // ASh-12
-            "62e7c4fba689e8c9c50dfc38": { main: "Primary Weapons", sub: "Assault Rifles" }, // AUG A1
-            "63171672192e68c5460cebc5": { main: "Primary Weapons", sub: "Assault Rifles" }, // AUG A3
-            "5c488a752e221602b412af63": { main: "Primary Weapons", sub: "Assault Rifles" }, // MDR
-            "623063e994fc3f7b302a9696": { main: "Primary Weapons", sub: "Assault Rifles" }, // G36
-            "5bb2475ed4351e00853264e3": { main: "Primary Weapons", sub: "Assault Rifles" }, // HK 416A5
-            "5447a9cd4bdc2dbd208b4567": { main: "Primary Weapons", sub: "Assault Rifles" }, // M4A1
-            "5fbcc1d9016cce60e8341ab3": { main: "Primary Weapons", sub: "Assault Rifles" }, // MCX .300 BLK
-            "65290f395ae2ae97b80fdf2d": { main: "Primary Weapons", sub: "Assault Rifles" }, // SPEAR 6.8
-            "606587252535c57a13424cfd": { main: "Primary Weapons", sub: "Assault Rifles" }, // Mk47
-            "628a60ae6b1d481ff772e9c8": { main: "Primary Weapons", sub: "Assault Rifles" }, // RD-704
-            "5b0bbe4e5acfc40dc528a72d": { main: "Primary Weapons", sub: "Assault Rifles" }, // SA58
-            "676176d362e0497044079f4c": { main: "Primary Weapons", sub: "Assault Rifles" }, // X-17 (SCAR)
-            "674d6121c09f69dfb201a888": { main: "Primary Weapons", sub: "Assault Rifles" }, // Velociraptor .300 BLK
+            "6499849fc93611967b034949": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-12
+            "5bf3e03b0db834001d2c4a9c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74
+            "5ac4cd105acfc40016339859": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74M
+            "5644bd2b4bdc2d3b4c8b4572": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74N
+            "5ac66cb05acfc40198510a10": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-101
+            "5ac66d015acfc400180ae6e4": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-102
+            "5ac66d2e5acfc43b321d4b53": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AK-103
+            "5ac66d725acfc43b321d4b60": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AK-104
+            "5ac66d9b5acfc4001633997a": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-105
+            "59d6088586f774275f37482f": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AKM
+            "5a0ec13bfcdbcb00165aa685": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AKMN
+            "59ff346386f77477562ff5e2": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AKMS
+            "5abcbc27d8ce8700182eceeb": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AKMSN
+            "5bf3e0490db83400196199af": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AKS-74
+            "57dc2fa62459775949412633": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AKS-74U
+            "5839a40f24597726f856b511": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AKS-74UB
+            "583990e32459771419544dd2": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AKS-74UN
+            "57c44b372459772d2b39b8ce": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "9x39mm" }, // AS VAL
+            "5cadfbf7ae92152ac412eeef": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "12.7x55mm" }, // ASh-12
+            "62e7c4fba689e8c9c50dfc38": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AUG A1
+            "63171672192e68c5460cebc5": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AUG A3
+            "5c488a752e221602b412af63": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // MDR
+            "623063e994fc3f7b302a9696": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // G36
+            "5bb2475ed4351e00853264e3": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // HK 416A5
+            "5447a9cd4bdc2dbd208b4567": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // M4A1
+            "5fbcc1d9016cce60e8341ab3": { main: "Primary Weapons", sub: "Assault Rifles", caliber: ".300 Blackout" }, // MCX .300 BLK
+            "65290f395ae2ae97b80fdf2d": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "6.8x51mm" }, // SPEAR 6.8
+            "606587252535c57a13424cfd": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // Mk47
+            "618428466ef05c2ce828f218": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // Mk16
+            "628a60ae6b1d481ff772e9c8": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // RD-704
+            "5b0bbe4e5acfc40dc528a72d": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // SA58
+            "676176d362e0497044079f4c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // X-17 (SCAR)
+            "674d6121c09f69dfb201a888": { main: "Primary Weapons", sub: "Assault Rifles", caliber: ".300 Blackout" }, // Velociraptor .300 BLK
 
-            "627e14b21713922ded6f2c15": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // AXMC
-            "588892092459774ac91d4b11": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // DVL-10
-            "5bfea6e90db834001b7347f3": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // M700
-            "5bfd297f0db834001a669119": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // Mosin Infantry
-            "5ae08f0a5acfc408fb1398a1": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // Mosin Sniper
-            "55801eed4bdc2d89578b4588": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // SV-98
-            "5df24cf80dee1b22f862e9bc": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // T-5000M
-            "673cab3e03c6a20581028bc1": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // TRG M10
-            "5de652c31b7e3716273428be": { main: "Primary Weapons", sub: "Bolt-action rifles" }, // VPO-215 Gornostay
+            "627e14b21713922ded6f2c15": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "8.6x70mm" }, // AXMC
+            "588892092459774ac91d4b11": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x51mm NATO" }, // DVL-10
+            "5bfea6e90db834001b7347f3": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x51mm NATO" }, // M700
+            "5bfd297f0db834001a669119": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x54mmR" }, // Mosin Infantry
+            "5ae08f0a5acfc408fb1398a1": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x54mmR" }, // Mosin Sniper
+            "55801eed4bdc2d89578b4588": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x54mmR" }, // SV-98
+            "5df24cf80dee1b22f862e9bc": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x51mm NATO" }, // T-5000M
+            "673cab3e03c6a20581028bc1": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "8.6x70mm" }, // TRG M10
+            "5de652c31b7e3716273428be": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: ".366 TKM" }, // VPO-215 Gornostay
 
-            "6176aca650224f204c1da3fb": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // G28
-            "5aafa857e5b5b00018480968": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // M1A
-            "5fc22d7c187fea44d52eda44": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // Mk-18
-            "5a367e5dc4a282000e49738f": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // RSASS
-            "5df8ce05b11454561e39243b": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // SR-25
-            "5c46fbd72e2216398b5a8c9c": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // SVDS
-            "57838ad32459774a17445cd2": { main: "Primary Weapons", sub: "Designated marksman rifles" }, // VSS Vintorez
+            "6176aca650224f204c1da3fb": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // G28
+            "5aafa857e5b5b00018480968": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // M1A
+            "5fc22d7c187fea44d52eda44": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "8.6x70mm" }, // Mk-18
+            "5a367e5dc4a282000e49738f": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // RSASS
+            "5df8ce05b11454561e39243b": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // SR-25
+            "5c46fbd72e2216398b5a8c9c": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x54mmR" }, // SVDS
+            "57838ad32459774a17445cd2": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "9x39mm" }, // VSS Vintorez
 
-            "5e81ebcd8e146c7080625e15": { main: "Primary Weapons", sub: "Grenade launchers" }, // FN40GL
-            "6275303a9f372d6ea97f9ec7": { main: "Primary Weapons", sub: "Grenade launchers" }, // MSGL
+            "5e81ebcd8e146c7080625e15": { main: "Primary Weapons", sub: "Grenade launchers", caliber: "40mm" }, // FN40GL
+            "6275303a9f372d6ea97f9ec7": { main: "Primary Weapons", sub: "Grenade launchers", caliber: "40mm" }, // MSGL
 
-            "661cec09b2c6356b4d0c7a36": { main: "Primary Weapons", sub: "Light machine guns" }, // M60E6
-            "64637076203536ad5600c990": { main: "Primary Weapons", sub: "Light machine guns" }, // PKM
-            "64ca3d3954fc657e230529cc": { main: "Primary Weapons", sub: "Light machine guns" }, // PKP
-            "6513ef33e06849f06c0957ca": { main: "Primary Weapons", sub: "Light machine guns" }, // RPD
-            "65268d8ecb944ff1e90ea385": { main: "Primary Weapons", sub: "Light machine guns" }, // RPDN
-            "5beed0f50db834001c062b12": { main: "Primary Weapons", sub: "Light machine guns" }, // RPK-16
+            "661cec09b2c6356b4d0c7a36": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x51mm NATO" }, // M60E6
+            "64637076203536ad5600c990": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x54mmR" }, // PKM
+            "64ca3d3954fc657e230529cc": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x54mmR" }, // PKP
+            "6513ef33e06849f06c0957ca": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPD
+            "65268d8ecb944ff1e90ea385": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPDN
+            "5beed0f50db834001c062b12": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPK-16
 
-            "66ffa9b66e19cc902401c5e8": { main: "Primary Weapons", sub: "Shotguns" }, // AA-12 Gen 1
-            "67124dcfa3541f2a1f0e788b": { main: "Primary Weapons", sub: "Shotguns" }, // AA-12 Gen 2
-            "5e848cc2988a8701445df1e8": { main: "Primary Weapons", sub: "Shotguns" }, // KS-23M
-            "6259b864ebedf17603599e88": { main: "Primary Weapons", sub: "Shotguns" }, // M3 Super 90
-            "5a7828548dc32e5a9c28b516": { main: "Primary Weapons", sub: "Shotguns" }, // M870
-            "61f7c9e189e6fb1a5e3ea78d": { main: "Primary Weapons", sub: "Shotguns" }, // MP-18
-            "5580223e4bdc2d1c128b457f": { main: "Primary Weapons", sub: "Shotguns" }, // MP-43-1C
-            "54491c4f4bdc2db1078b4568": { main: "Primary Weapons", sub: "Shotguns" }, // MP-133
-            "56dee2bdd2720bc8328b4567": { main: "Primary Weapons", sub: "Shotguns" }, // MP-153
-            "606dae0ab0e443224b421bb7": { main: "Primary Weapons", sub: "Shotguns" }, // MP-155
-            "60db29ce99594040e04c4a27": { main: "Primary Weapons", sub: "Shotguns" }, // MTs-255-12
-            "576165642459773c7a400233": { main: "Primary Weapons", sub: "Shotguns" }, // Saiga-12K
-            "674fe9a75e51f1c47c04ec23": { main: "Primary Weapons", sub: "Shotguns" }, // Saiga-12K FA
-            "5a38e6bac4a2826c6e06d79b": { main: "Primary Weapons", sub: "Shotguns" }, // TOZ-106
+            "66ffa9b66e19cc902401c5e8": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // AA-12 Gen 1
+            "67124dcfa3541f2a1f0e788b": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // AA-12 Gen 2
+            "5e848cc2988a8701445df1e8": { main: "Primary Weapons", sub: "Shotguns", caliber: "23x75mmR" }, // KS-23M
+            "6259b864ebedf17603599e88": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // M3 Super 90
+            "5a7828548dc32e5a9c28b516": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // M870
+            "61f7c9e189e6fb1a5e3ea78d": { main: "Primary Weapons", sub: "Shotguns", caliber: "7.62x54mmR" }, // MP-18
+            "5580223e4bdc2d1c128b457f": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-43-1C
+            "54491c4f4bdc2db1078b4568": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-133
+            "56dee2bdd2720bc8328b4567": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-153
+            "606dae0ab0e443224b421bb7": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-155
+            "60db29ce99594040e04c4a27": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MTs-255-12
+            "576165642459773c7a400233": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // Saiga-12K
+            "674fe9a75e51f1c47c04ec23": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // Saiga-12K FA
+            "5a38e6bac4a2826c6e06d79b": { main: "Primary Weapons", sub: "Shotguns", caliber: "20/70" }, // TOZ-106
 
-            "5926bb2186f7744b1c6c6e60": { main: "Primary Weapons", sub: "Submachine guns" }, // MP5
-            "5d2f0d8048f0356c925bc3b0": { main: "Primary Weapons", sub: "Submachine guns" }, // MP5K-N
-            "5ba26383d4351e00334c93d9": { main: "Primary Weapons", sub: "Submachine guns" }, // MP7A1
-            "5bd70322209c4d00d7167b8f": { main: "Primary Weapons", sub: "Submachine guns" }, // MP7A2
-            "5e00903ae9dc277128008b87": { main: "Primary Weapons", sub: "Submachine guns" }, // MP9
-            "5de7bd7bfd6b4e6e2276dc25": { main: "Primary Weapons", sub: "Submachine guns" }, // MP9-N
-            "58948c8e86f77409493f7266": { main: "Primary Weapons", sub: "Submachine guns" }, // MPX
-            "5cc82d76e24e8d00134b4b83": { main: "Primary Weapons", sub: "Submachine guns" }, // P90
+            "5926bb2186f7744b1c6c6e60": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP5
+            "5d2f0d8048f0356c925bc3b0": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP5K-N
+            "5ba26383d4351e00334c93d9": { main: "Primary Weapons", sub: "Submachine guns", caliber: "4.6x30mm" }, // MP7A1
+            "5bd70322209c4d00d7167b8f": { main: "Primary Weapons", sub: "Submachine guns", caliber: "4.6x30mm" }, // MP7A2
+            "5e00903ae9dc277128008b87": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP9
+            "5de7bd7bfd6b4e6e2276dc25": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP9-N
+            "58948c8e86f77409493f7266": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MPX
+            "5cc82d76e24e8d00134b4b83": { main: "Primary Weapons", sub: "Submachine guns", caliber: "5.7x28mm" }, // P90
 
-            "57f4c844245977379d5c14d1": { main: "Primary Weapons", sub: "Submachine guns" }, // PP-9 Klin
-            "59984ab886f7743e98271174": { main: "Primary Weapons", sub: "Submachine guns" }, // PP-19-01
-            "57d14d2524597714373db789": { main: "Primary Weapons", sub: "Submachine guns" }, // PP-91 Kedr
-            "57f3c6bd24597738e730fa2f": { main: "Primary Weapons", sub: "Submachine guns" }, // PP-91-01 Kedr-B
-            "5ea03f7400685063ec28bfa8": { main: "Primary Weapons", sub: "Submachine guns" }, // PPSh-41
-            "59f9cabd86f7743a10721f46": { main: "Primary Weapons", sub: "Submachine guns" }, // Saiga-9
-            "62e14904c2699c0ec93adc47": { main: "Primary Weapons", sub: "Submachine guns" }, // SR-2M
-            "60339954d62c9b14ed777c06": { main: "Primary Weapons", sub: "Submachine guns" }, // STM-9
-            "5fc3e272f8b6a877a729eac5": { main: "Primary Weapons", sub: "Submachine guns" }, // UMP 45
-            "66992b349950f5f4cd06029f": { main: "Primary Weapons", sub: "Submachine guns" }, // UZI
-            "6680304edadb7aa61d00cef0": { main: "Primary Weapons", sub: "Submachine guns" }, // UZI PRO Pistol
-            "668e71a8dadf42204c032ce1": { main: "Primary Weapons", sub: "Submachine guns" }, // UZI PRO SMG
-            "5fb64bc92b1b027b1f50bcf2": { main: "Primary Weapons", sub: "Submachine guns" }, // Vector .45
-            "5fc3f2d5900b1d5091531e57": { main: "Primary Weapons", sub: "Submachine guns" }, // Vector 9x19
+            "57f4c844245977379d5c14d1": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x18mm" }, // PP-9 Klin
+            "59984ab886f7743e98271174": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // PP-19-01
+            "57d14d2524597714373db789": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x18mm" }, // PP-91 Kedr
+            "57f3c6bd24597738e730fa2f": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x18mm" }, // PP-91-01 Kedr-B
+            "5ea03f7400685063ec28bfa8": { main: "Primary Weapons", sub: "Submachine guns", caliber: "7.62x25mm" }, // PPSh-41
+            "59f9cabd86f7743a10721f46": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // Saiga-9
+            "62e14904c2699c0ec93adc47": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x21" }, // SR-2M
+            "60339954d62c9b14ed777c06": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // STM-9
+            "5fc3e272f8b6a877a729eac5": { main: "Primary Weapons", sub: "Submachine guns", caliber: ".45 ACP" }, // UMP 45
+            "66992b349950f5f4cd06029f": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // UZI
+            "6680304edadb7aa61d00cef0": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // UZI PRO Pistol
+            "668e71a8dadf42204c032ce1": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // UZI PRO SMG
+            "5fb64bc92b1b027b1f50bcf2": { main: "Primary Weapons", sub: "Submachine guns", caliber: ".45 ACP" }, // Vector .45
+            "5fc3f2d5900b1d5091531e57": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // Vector 9x19
 
-            "5abccb7dd8ce87001773e277": { main: "Secondary weapons", sub: "Pistols" }, // APB
-            "5a17f98cfcdbcb0980087290": { main: "Secondary weapons", sub: "Pistols" }, // APS
-            "66015072e9f84d5680039678": { main: "Secondary weapons", sub: "Pistols" }, // Blicky
-            "669fa409933e898cce0c2166": { main: "Secondary weapons", sub: "Pistols" }, // Desert Eagle L5 .357
-            "669fa39b48fc9f8db6035a0c": { main: "Secondary weapons", sub: "Pistols" }, // Desert Eagle L6
-            "668fe5a998b5ad715703ddd6": { main: "Secondary weapons", sub: "Pistols" }, // Desert Eagle Mk XIX
-            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols" }, // FN 5-7
-            "5a7ae0c351dfba0017554310": { main: "Secondary weapons", sub: "Pistols" }, // Glock 17
-            "5b1fa9b25acfc40018633c01": { main: "Secondary weapons", sub: "Pistols" }, // Glock 18C
-            "63088377b5cd696784087147": { main: "Secondary weapons", sub: "Pistols" }, // Glock 19X
-            "5cadc190ae921500103bb3b6": { main: "Secondary weapons", sub: "Pistols" }, // M9A3
-            "5f36a0e5fbf956000b716b65": { main: "Secondary weapons", sub: "Pistols" }, // M45A1
-            "5e81c3cbac2bb513793cdc75": { main: "Secondary weapons", sub: "Pistols" }, // M1911A1
-            "576a581d2459771e7b1bc4f1": { main: "Secondary weapons", sub: "Pistols" }, // MP-443 Grach
-            "56d59856d2720bd8418b456a": { main: "Secondary weapons", sub: "Pistols" }, // P226R
-            "5abccb7dd8ce87001773e277": { main: "Secondary weapons", sub: "Pistols" }, // APB
-            "602a9740da11d6478d5a06dc": { main: "Secondary weapons", sub: "Pistols" }, // PL-15
-            "579204f224597773d619e051": { main: "Secondary weapons", sub: "Pistols" }, // PM (t) pistol
-            "5448bd6b4bdc2dfc2f8b4569": { main: "Secondary weapons", sub: "Pistols" }, // PM
-            "59f98b4986f7746f546d2cef": { main: "Secondary weapons", sub: "Pistols" }, // SR-1MP Gyurza
-            "571a12c42459771f627b58a0": { main: "Secondary weapons", sub: "Pistols" }, // TT
-            "5b3b713c5acfc4330140bd8d": { main: "Secondary weapons", sub: "Pistols" }, // TT Gold
-            "6193a720f8ee7e52e42109ed": { main: "Secondary weapons", sub: "Pistols" }, // USP .45
+            "5abccb7dd8ce87001773e277": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APB
+            "5a17f98cfcdbcb0980087290": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APS
+            "66015072e9f84d5680039678": { main: "Secondary weapons", sub: "Pistols", caliber: "20x1" }, // Blicky
+            "669fa409933e898cce0c2166": { main: "Secondary weapons", sub: "Pistols", caliber: ".357 Magnum" }, // Desert Eagle L5 .357
+            "669fa39b48fc9f8db6035a0c": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle L6
+            "668fe5a998b5ad715703ddd6": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle Mk XIX
+            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7
+            "5a7ae0c351dfba0017554310": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 17
+            "5b1fa9b25acfc40018633c01": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 18C
+            "63088377b5cd696784087147": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 19X
+            "5cadc190ae921500103bb3b6": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // M9A3
+            "5f36a0e5fbf956000b716b65": { main: "Secondary weapons", sub: "Pistols", caliber: ".45 ACP" }, // M45A1
+            "5e81c3cbac2bb513793cdc75": { main: "Secondary weapons", sub: "Pistols", caliber: ".45 ACP" }, // M1911A1
+            "576a581d2459771e7b1bc4f1": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // MP-443 Grach
+            "56d59856d2720bd8418b456a": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // P226R
+            "602a9740da11d6478d5a06dc": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // PL-15
+            "579204f224597773d619e051": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // PM (t) pistol
+            "5448bd6b4bdc2dfc2f8b4569": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // PM
+            "59f98b4986f7746f546d2cef": { main: "Secondary weapons", sub: "Pistols", caliber: "9x21mm" }, // SR-1MP Gyurza
+            "571a12c42459771f627b58a0": { main: "Secondary weapons", sub: "Pistols", caliber: "7.62x25mm" }, // TT
+            "5b3b713c5acfc4330140bd8d": { main: "Secondary weapons", sub: "Pistols", caliber: "7.62x25mm" }, // TT Gold
+            "6193a720f8ee7e52e42109ed": { main: "Secondary weapons", sub: "Pistols", caliber: ".45 ACP" }, // USP .45
 
-            "61a4c8884f95bc3b2c5dc96f": { main: "Secondary weapons", sub: "Revolvers" }, // CR 50DS
-            "624c2e8614da335f1e034d8c": { main: "Secondary weapons", sub: "Revolvers" }, // CR 200DS
-            "633ec7c2a6918cb895019c6c": { main: "Secondary weapons", sub: "Revolvers" }, // RSh-12
-            "64748cb8de82c85eaf0a273a": { main: "Secondary weapons", sub: "Shotguns" }, // MP-43 sawed-off
+            "61a4c8884f95bc3b2c5dc96f": { main: "Secondary weapons", sub: "Revolvers", caliber: ".357 Magnum" }, // CR 50DS
+            "624c2e8614da335f1e034d8c": { main: "Secondary weapons", sub: "Revolvers", caliber: "9x19mm" }, // CR 200DS
+            "633ec7c2a6918cb895019c6c": { main: "Secondary weapons", sub: "Revolvers", caliber: "12.7x55mm" }, // RSh-12
+            "64748cb8de82c85eaf0a273a": { main: "Secondary weapons", sub: "Shotguns", caliber: "12x70" }, // MP-43 sawed-off
 
-            "5d52cc5ba4b9367408500062": { main: "Stationary weapons", sub: "Automatic grenade launchers" }, // AGS-30
-            "5cdeb229d7f00c000e7ce174": { main: "Stationary weapons", sub: "Heavy machine guns" }, // NSV Utyos
+            "5d52cc5ba4b9367408500062": { main: "Stationary weapons", sub: "Automatic grenade launchers", caliber: "30x29mm" }, // AGS-30
+            "5cdeb229d7f00c000e7ce174": { main: "Stationary weapons", sub: "Heavy machine guns", caliber: "12.7x108" }, // NSV Utyos
 
-            "5710c24ad2720bc3458b45a3": { main: "Throwable weapons", sub: "Fragmentation grenades" }, // F-1
-            "58d3db5386f77426186285a0": { main: "Throwable weapons", sub: "Fragmentation grenades" }, // M67
-            "617fd91e5539a84ec44ce155": { main: "Throwable weapons", sub: "Fragmentation grenades" }, // RGN
-            "618a431df1eb8e24b8741deb": { main: "Throwable weapons", sub: "Fragmentation grenades" } // RGO
+            "5710c24ad2720bc3458b45a3": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" }, // F-1
+            "58d3db5386f77426186285a0": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" }, // M67
+            "617fd91e5539a84ec44ce155": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" }, // RGN
+            "618a431df1eb8e24b8741deb": { main: "Throwable weapons", sub: "Fragmentation grenades", caliber: "" } // RGO
         };
 
         const allWeapons = Array.from(weaponMap.entries()).map(([name, stats]) => {
@@ -250,10 +250,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+            let caliber = "Unknown";
+            if (stats.originalIds.length > 0) {
+                const mostCommonOriginalId = stats.originalIds.reduce((a, b, i, arr) =>
+                    (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b));
+
+                const categoryInfo = weaponCategories[mostCommonOriginalId];
+                if (categoryInfo) {
+                    caliber = categoryInfo.caliber || "Unknown";
+                }
+            }
+
             return {
                 name,
                 mainCategory,
                 subCategory,
+                caliber,
                 kills: stats.kills,
                 headshots: stats.headshots,
                 totalShots: stats.totalShots,
@@ -328,11 +340,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const mapTagsHTML = weapon.mapTags.map(tag =>
                 `<span class="map-tag map-tag--${tag.type}">${tag.text}</span>`
             ).join('');
-            card.innerHTML = `
+
+            const weaponCaliber =
+
+                card.innerHTML = `
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
                     ${weapon.name ? `<img src="../media/weapon_icons/${weapon.name}.webp" alt="${weapon.name}" class="weapon-icon">` : ''}
                     <div class="weapon-name-container">
+                        <span class="weapon-caliber">${weapon.caliber}</span>
                         <span class="weapon-name">${weapon.name}</span>
                         <div class="weapon-tags">${weaponTagsHTML}</div>
                     </div>
@@ -368,6 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add weapon categories to a card
             card.dataset.mainCategory = weapon.mainCategory;
             card.dataset.subCategory = weapon.subCategory;
+            card.dataset.caliber = weapon.caliber;
 
             container.appendChild(card);
         });
@@ -376,6 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const searchTerm = document.getElementById('weaponSearch').value.toLowerCase();
             const mainCategory = document.getElementById('mainCategory').value;
             const subCategory = document.getElementById('subCategory').value;
+            const caliber = document.getElementById('caliberFilter').value;
 
             const weaponCards = document.querySelectorAll('.weapon-card');
 
@@ -383,19 +401,70 @@ document.addEventListener('DOMContentLoaded', function () {
                 const weaponName = card.querySelector('.weapon-name').textContent.toLowerCase();
                 const weaponMainCat = card.dataset.mainCategory;
                 const weaponSubCat = card.dataset.subCategory;
+                const weaponCaliber = card.dataset.caliber;
 
                 const nameMatch = weaponName.includes(searchTerm);
                 const mainCatMatch = mainCategory === 'all' ||
                     weaponMainCat.toLowerCase() === mainCategory.toLowerCase();
                 const subCatMatch = subCategory === 'all' ||
                     weaponSubCat.toLowerCase() === subCategory.toLowerCase();
+                const caliberMatch = caliber === 'all' ||
+                    weaponCaliber.toLowerCase() === caliber.toLowerCase();
 
-                card.style.display = (nameMatch && mainCatMatch && subCatMatch) ? 'block' : 'none';
+                card.style.display = (nameMatch && mainCatMatch && subCatMatch && caliberMatch)
+                    ? 'block' : 'none';
             });
         }
 
-        // Call upon DOM load
-        populateSubCategories();
+        function populateCalibers() {
+            const mainCategory = document.getElementById('mainCategory').value;
+            const subCategory = document.getElementById('subCategory').value;
+            const caliberSelect = document.getElementById('caliberFilter');
+
+            caliberSelect.innerHTML = '<option value="all">All Calibers</option>';
+
+            // If main category is All, show all calibers
+            if (mainCategory === 'all') {
+                const allCalibers = new Set();
+                allWeapons.forEach(weapon => {
+                    if (weapon.caliber && weapon.caliber !== "") {
+                        allCalibers.add(weapon.caliber);
+                    }
+                });
+
+                Array.from(allCalibers).sort().forEach(caliber => {
+                    const option = document.createElement('option');
+                    option.value = caliber;
+                    option.textContent = caliber;
+                    caliberSelect.appendChild(option);
+                });
+                return;
+            }
+
+            // Filter calibers by sub and main cat
+            const filteredCalibers = new Set();
+
+            allWeapons.forEach(weapon => {
+                const matchesMainCat = weapon.mainCategory.toLowerCase() === mainCategory.toLowerCase();
+                const matchesSubCat = subCategory === 'all' ||
+                    weapon.subCategory.toLowerCase() === subCategory.toLowerCase();
+
+                if (matchesMainCat && matchesSubCat && weapon.caliber && weapon.caliber !== "") {
+                    filteredCalibers.add(weapon.caliber);
+                }
+            });
+
+            // Add filters
+            Array.from(filteredCalibers).sort().forEach(caliber => {
+                const option = document.createElement('option');
+                option.value = caliber;
+                option.textContent = caliber;
+                caliberSelect.appendChild(option);
+            });
+
+            // No calibers no dropdown
+            caliberSelect.disabled = filteredCalibers.size === 0;
+        }
 
         function populateSubCategories() {
             const mainCategory = document.getElementById('mainCategory').value;
@@ -428,11 +497,20 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        // Call upon DOM load
+        populateSubCategories();
+        populateCalibers();
+
         document.getElementById('weaponSearch').addEventListener('input', filterWeapons);
         document.getElementById('mainCategory').addEventListener('change', function () {
             populateSubCategories();
+            populateCalibers();
             filterWeapons();
         });
-        document.getElementById('subCategory').addEventListener('change', filterWeapons);
+        document.getElementById('subCategory').addEventListener('change', function () {
+            populateCalibers();
+            filterWeapons();
+        });
+        document.getElementById('caliberFilter').addEventListener('change', filterWeapons);
     }
 });

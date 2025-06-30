@@ -198,6 +198,18 @@
     letter-spacing: 0.5px;
 }
 
+.weapon-caliber {
+    background: rgba(255, 255, 255, 0.096);
+    border: 1px solid #ffffff3b;
+    border-radius: 5px;
+    width: fit-content;
+    font-size: 0.65rem;
+    padding: 1px;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .weapon-tag--level {
     background: rgba(99, 102, 241, 0.2);
     color: #6366f1;
@@ -360,6 +372,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
+    min-width: 180px;
+    flex-grow: 1;
 }
 
 .category-dropdown:hover {
@@ -433,4 +447,9 @@
 
 .dropdown-focused::after {
     color: var(--primary-color);
+}
+
+.category-dropdown:not([disabled]):not([value="all"]) {
+    border-color: #4d7ea8;
+    box-shadow: 0 0 0 1px rgba(77, 126, 168, 0.5);
 }
