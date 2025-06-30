@@ -11,8 +11,8 @@
 ---
 ## How does it work?
 
-To keep costs to a minimum, we use a static website with dynamic data in JSON format via a proxy API located on our server.
-Basically, you just send a request to the API and it outputs a nice JSON nearby which this is made for to use. Simple as that.
+To minimize costs, we use a static website (GitHub Pages) that pulls dynamic data in JSON format made by proxy API hosted on our server.
+SPtarkov mod sends a request to the API, and it turns your request into JSON - exactly what this system was designed to deliver. Straightforward.
 
 ---
 
