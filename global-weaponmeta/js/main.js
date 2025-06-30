@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "6499849fc93611967b034949": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-12
             "5bf3e03b0db834001d2c4a9c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74
             "5ac4cd105acfc40016339859": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74M
-            "5644bd2b4bdc2d3b4c8b4572": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74N
+            "5ab8e9fcd8ce870019439434": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.45x39mm" }, // AK-74N
             "5ac66cb05acfc40198510a10": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-101
             "5ac66d015acfc400180ae6e4": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AK-102
             "5ac66d2e5acfc43b321d4b53": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // AK-103
@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "65290f395ae2ae97b80fdf2d": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "6.8x51mm" }, // SPEAR 6.8
             "606587252535c57a13424cfd": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // Mk47
             "618428466ef05c2ce828f218": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // Mk16
+            "6183afd850224f204c1da514": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // Mk17
             "628a60ae6b1d481ff772e9c8": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x39mm" }, // RD-704
             "5b0bbe4e5acfc40dc528a72d": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // SA58
             "676176d362e0497044079f4c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // X-17 (SCAR)
@@ -188,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "6275303a9f372d6ea97f9ec7": { main: "Primary Weapons", sub: "Grenade launchers", caliber: "40mm" }, // MSGL
 
             "661cec09b2c6356b4d0c7a36": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x51mm NATO" }, // M60E6
+            "65fb023261d5829b2d090755": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x51mm NATO" }, // Mk 43 Mod 1
             "64637076203536ad5600c990": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x54mmR" }, // PKM
             "64ca3d3954fc657e230529cc": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x54mmR" }, // PKP
             "6513ef33e06849f06c0957ca": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPD
@@ -199,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "5e848cc2988a8701445df1e8": { main: "Primary Weapons", sub: "Shotguns", caliber: "23x75mmR" }, // KS-23M
             "6259b864ebedf17603599e88": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // M3 Super 90
             "5a7828548dc32e5a9c28b516": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // M870
+            "5e870397991fd70db46995c8": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // 590A1
             "61f7c9e189e6fb1a5e3ea78d": { main: "Primary Weapons", sub: "Shotguns", caliber: "7.62x54mmR" }, // MP-18
             "5580223e4bdc2d1c128b457f": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-43-1C
             "54491c4f4bdc2db1078b4568": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // MP-133
@@ -233,13 +236,16 @@ document.addEventListener('DOMContentLoaded', function () {
             "5fb64bc92b1b027b1f50bcf2": { main: "Primary Weapons", sub: "Submachine guns", caliber: ".45 ACP" }, // Vector .45
             "5fc3f2d5900b1d5091531e57": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // Vector 9x19
 
+            "62e7e7bbe6da9612f743f1e0": { main: "Secondary weapons", sub: "Underbarrels", caliber: "40mm" }, // GP-25
+
             "5abccb7dd8ce87001773e277": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APB
             "5a17f98cfcdbcb0980087290": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APS
             "66015072e9f84d5680039678": { main: "Secondary weapons", sub: "Pistols", caliber: "20x1" }, // Blicky
             "669fa409933e898cce0c2166": { main: "Secondary weapons", sub: "Pistols", caliber: ".357 Magnum" }, // Desert Eagle L5 .357
             "669fa39b48fc9f8db6035a0c": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle L6
             "668fe5a998b5ad715703ddd6": { main: "Secondary weapons", sub: "Pistols", caliber: ".50 Action Express" }, // Desert Eagle Mk XIX
-            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7
+            "5d3eb3b0a4b93615055e84d2": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7
+            "5d67abc1a4b93614ec50137f": { main: "Secondary weapons", sub: "Pistols", caliber: "5.7x28" }, // FN 5-7 FDE
             "5a7ae0c351dfba0017554310": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 17
             "5b1fa9b25acfc40018633c01": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 18C
             "63088377b5cd696784087147": { main: "Secondary weapons", sub: "Pistols", caliber: "9x19mm" }, // Glock 19X
@@ -259,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "61a4c8884f95bc3b2c5dc96f": { main: "Secondary weapons", sub: "Revolvers", caliber: ".357 Magnum" }, // CR 50DS
             "624c2e8614da335f1e034d8c": { main: "Secondary weapons", sub: "Revolvers", caliber: "9x19mm" }, // CR 200DS
             "633ec7c2a6918cb895019c6c": { main: "Secondary weapons", sub: "Revolvers", caliber: "12.7x55mm" }, // RSh-12
-            "64748cb8de82c85eaf0a273a": { main: "Secondary weapons", sub: "Shotguns", caliber: "12x70" }, // MP-43 sawed-off
+            "64748cb8de82c85eaf0a273a": { main: "Secondary weapons", sub: "Shotguns", caliber: "12/70" }, // MP-43 sawed-off
 
             "5d52cc5ba4b9367408500062": { main: "Stationary weapons", sub: "Automatic grenade launchers", caliber: "30x29mm" }, // AGS-30
             "5cdeb229d7f00c000e7ce174": { main: "Stationary weapons", sub: "Heavy machine guns", caliber: "12.7x108" }, // NSV Utyos
