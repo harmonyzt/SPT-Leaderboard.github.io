@@ -32,6 +32,24 @@
         <div class="top-stats-bar">
             <div class="live-data-label" id="serverStatus">Getting API Status...</div>
         </div>
+        <div class="weapon-filters">
+            <div class="search-box">
+                <input type="text" id="weaponSearch" placeholder="Search weapons...">
+            </div>
+            <div class="dropdown-filters">
+                <select id="mainCategory" class="category-dropdown">
+                    <option value="all">All Categories</option>
+                    <option value="Primary Weapons">Primary Weapons</option>
+                    <option value="Secondary Weapons">Secondary Weapons</option>
+                    <option value="Stationary Weapons">Stationary Weapons</option>
+                    <option value="Throwable Weapons">Throwable Weapons</option>
+                </select>
+                <select id="subCategory" class="category-dropdown" disabled>
+                    <option value="all">All Subcategories</option>
+                    <!-- JS -->
+                </select>
+            </div>
+        </div>
         <div id="weaponsContainer" class="weapons-container animate animate__animated animate__fadeIn"></div>
         <footer class="modern-footer">
             <div class="footer-content">
