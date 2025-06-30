@@ -9,6 +9,12 @@
 </p>
 
 ---
+## How does it work?
+
+To keep costs to a minimum, we use a static website with dynamic data in JSON format via a proxy API located on our server.
+Basically, you just send a request to the API and it outputs a nice JSON nearby which this is made for to use. Simple as that.
+
+---
 
 ## Contribution
 Pull requests and issue reports are welcome!
@@ -21,17 +27,16 @@ Don't like how the leaderboard is open for everyone else and want to set it up j
 
 ### Requirements
 - **SPT 3.11.3** (or latest compatible version)
-- Basic knowledge of **JS/PHP**
+- Interdemate knowledge of **PHP**, basic knowledge of **JavaScript**
 - Server with **PHP/JSON** support
 
 ### First Step
-1. Download the latest SPT Mod release (NOT HERE YET)
-2. Drop the zip contents in your SPT root game folder (`/SPT_GAME/`)
-
-Navigate to the mod config:
+1. [Download the latest SPT Mod release](https://github.com/harmonyzt/SPT-Leaderboard/releases)
+2. Drop the zip contents in your SPT root game folder (Extract at `/SPT_GAME/`)
+3. Navigate to the mod config:
 `mods/SPT-Leaderboard/config/config.js`
 
-Open `config.js` and edit the following values:
+4. Open `config.js` and edit the following values:
 
 `PHP_ENDPOINT: "your.domain.com", // Your server domain`
 
@@ -40,18 +45,15 @@ Open `config.js` and edit the following values:
 Change them accordingly where your PHP files will be hosted.
 
 ### Second Step
-Download the leaderboard frontend: https://github.com/harmonyzt/TPLeaderboard.github.io/archive/refs/heads/main.zip
+1. [Download Dynamic Leaderboard Website](https://github.com/harmonyzt/TPLeaderboard.github.io/archive/refs/heads/main.zip)
+2. Extract the contents to your web server's root or subdirectory. 
+3. Navigate to the BACKEND folder and configure which JSON file stores stats (Recommended to use `season` in both scenarios. The season system on frontend adds the number automatically.)
+4. Go to the `js` folder and open `appCore.js`. At the top you'll see all the paths the mod uses to fetch data. Put your paths that correspond your server.
+5. Update the URL (seasonPath) to match your own hosted path.
 
-Extract the contents to your web server's root or subdirectory.
-Navigate to the BACKEND folder and configure which JSON file stores stats
-(Recommended to use `season` in both scenarios. The season system on frontend adds the number automatically.)
+⚠️ AGAIN - Do not include a season number - the system adds that automatically when reading through files (FRONT-END).
 
-Go to the js folder and open main.js. At the top:
+⚠️ Note that there's no ready back-end to proccess the data - only its barebones. But website comes with latest accessible file of demo backend (BACKEND folder)
 
-`const seasonPath = "https://your.domain.com/backend/season";`
-
-`const seasonPathEnd = ".json";`
-
-Update the URL (seasonPath) to match your own hosted path.
-
-⚠️ AGAIN - Do not include a season number - the system adds that automatically when reading through files (FRONTEND).
+### You're good to go!
+Now you can play and rank up just like in present leaderboard with all of its features!
