@@ -342,7 +342,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Preload images
         loader.updateProgress(0, allWeapons.length, "Starting image loading...");
         try {
-
             await preloadImages(allWeapons, loader);
         } catch (error) {
             console.error("Image loading failed:", error);
@@ -402,9 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 `<span class="map-tag map-tag--${tag.type}">${tag.text}</span>`
             ).join('');
 
-            const weaponCaliber =
-
-                card.innerHTML = `
+            card.innerHTML = `
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
                     ${weapon.name ? `<img src="../media/weapon_icons/${weapon.name}.webp" alt="${weapon.name}" class="weapon-icon">` : ''}

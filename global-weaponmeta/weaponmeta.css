@@ -298,6 +298,9 @@
 }
 
 .weapon-filters {
+    position: sticky;
+    top: 140px;
+    z-index: 1;
     margin-bottom: 25px;
     margin-left: 90px;
     margin-right: 90px;
