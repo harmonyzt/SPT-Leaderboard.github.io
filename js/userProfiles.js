@@ -100,7 +100,7 @@ function showPrivateProfile(container, player) {
     const mainBackground = document.getElementById('playerProfileModal');
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
+    mainBackground.classList.remove('usec-background', 'labs-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
@@ -220,7 +220,7 @@ function showDisqualProfile(container, player) {
     const mainBackground = document.getElementById('playerProfileModal');
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
+    mainBackground.classList.remove('usec-background','labs-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 

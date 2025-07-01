@@ -54,6 +54,13 @@
     background-repeat: no-repeat;
 }
 
+.labs-background {
+    background: url(media/rewards/main_background/labs.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* PFP Styles */
 .box-style {
     border-radius: 10%;

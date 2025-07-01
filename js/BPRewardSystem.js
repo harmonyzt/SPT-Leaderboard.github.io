@@ -51,7 +51,7 @@ function refreshRewards(player) {
 function resetStyles(mainBackground, profileCard, profileAvatar, profileBackground) {
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.classList.remove('usec-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
+    mainBackground.classList.remove('usec-background', 'bear-background', 'labs-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
 
     profileBackground.classList.remove('scratches', 'cult-signs', 'cult-signs2', 'cult-circle');
 
@@ -112,6 +112,8 @@ function applyMainBackgroundReward(player, mainBackground) {
         mainBackground.classList.add('usec-background');
     } else if (reward === 'bear' && level >= 10) {
         mainBackground.classList.add('bear-background');
+    } else if (reward === 'labs' && level >= 20){
+        mainBackground.classList.add('labs-background');
     } else if (reward === 'none') {
         mainBackground.style.backgroundColor = 'none';
     } else {
