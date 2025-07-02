@@ -94,12 +94,14 @@
                 <p>Final skill score is calculated using these weighted factors:</p>
                 <ul>
                     <li><strong>KDR</strong></li>
-                    <li><strong>Survival Rate</strong> </li>
-                    <li><strong>Total Raids</strong></li>
+                    <li><strong>Survival Rate</strong></li>
+                    <li><strong>Average Life Time</strong></li>
+                    <li><strong>PMC Raids</strong></li>
                     <li><strong>This includes calibration:</strong>
                         <ul>
-                            <li>Minimum 100 raids required for proper skill score ranking</li>
+                            <li>Minimum 100 PMC raids required for proper skill score ranking</li>
                             <li>70% skill score penalty until player reaches 50 raids</li>
+                            <li>Skill score penalty if player has very low Life Time</li>
                             <li>Penalty decreases linearly until player reaches 100 raids</li>
                         </ul>
                     </li>
@@ -129,20 +131,24 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Legal Agreement / Terms of Service (LA/TOS)</h2>
-                <p>By submitting your statistics to the SPT Leaderboard, you agree to comply with the following Terms of Service. Violations may lead to removal from the leaderboard, temporary suspensions, or permanent bans.</p>
+                <p>By submitting your statistics to the SPT Leaderboard, you agree to comply with the following Terms of Service. Violations may lead to removal from the leaderboard, profile bans, or permanent bans.</p>
                 <h3>1. General Rules</h3>
                 <ul>
                     <li><strong>Fair Play:</strong> Use of cheats, exploits, stat manipulation, or any attempt to deceive the system will result in a permanent ban from the leaderboard.</li>
-                    <li><strong>Casual Mode:</strong> While gameplay-altering mods are allowed in Casual Mode, exploits, stat manipulation and cheating remain prohibited.</li>
-                    <li><strong>Allowed Mods:</strong> Cosmetic and quality-of-life (QoL) mods are permitted. However, gameplay-altering mods (e.g., god mode, unlimited ammo, faster reload speed, extra amount of loot, radar, revival after death) are strictly forbidden.</li>
-                    <li><strong>Profile Standing:</strong> Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be disqualified or banned without the right to appeal.</li>
-                    <li><strong>Content Guidelines:</strong> Usernames, profile pictures (PFP), and “About Me” sections must not contain offensive, discriminatory, hateful, or NSFW content. Violations may lead to disqualification, removal from leaderboard or permanent ban.</li>
+                    <li><strong>Casual Mode:</strong> While gameplay-altering mods are allowed in Casual Mode, exploits, or any harm towards Leaderboard remain prohibited.</li>
+                    <li><strong>Allowed Mods:</strong>
+                        Cosmetic, weapon and quality-of-life (QoL) mods are permitted. However, gameplay-altering mods (e.g., god mode, unlimited ammo, faster reload speed, extra amount of loot, radar, revival after death, debug mods) are strictly forbidden.
+                        The SPT Leaderboard team is not obligated to maintain or publish a definitive list of banned mods.
+                        Moderation decisions are based on the principle of fair play, and any mod providing an unfair advantage or potential may lead to you for.
+                    </li>
+                    <li><strong>Profile Standing:</strong> Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be banned without the right to appeal.</li>
+                    <li><strong>Content Guidelines:</strong> Usernames, profile pictures (PFP), and "About Me" sections must not contain offensive, discriminatory, hateful, or NSFW content. Violations lead to disqualification or permanent ban.</li>
                 </ul>
                 <h3>2. Eligibility & Participation</h3>
                 <p>Participation is open to all players who comply with the rules outlined in this agreement:</p>
                 <ul>
-                    <li><strong>Mod Policy:</strong> Any mod that provides a competitive or statistical advantage is prohibited and will result in disqualification or a ban (as stated in General Rules).</li>
-                    <li><strong>Multi-Account Policy:</strong> Players may link multiple accounts under the same token/identifier. However, if any of them violate the rules: All linked accounts will be held responsible and penalties (including disqualification, removals or bans) will be applied to the entire group of accounts.</li>
+                    <li><strong>Mod Policy:</strong> Any mod that provides a competitive or statistical advantage is prohibited and will result in disqualification or a permanent ban (as stated in General Rules).</li>
+                    <li><strong>Multi-Account Policy:</strong> Players may link multiple accounts under the same token/identifier. However, if any of them violate the rules: All linked accounts will be held responsible and penalties (including disqualification or bans) will be applied to the entire group of accounts.</li>
                     <li><strong>Honesty:</strong> All submitted statistics must reflect genuine gameplay. Any form of falsified or edited data will result in a disqualification from leaderboard, or permanent ban.</li>
                 </ul>
                 <h3>3. Data Usage & Rights</h3>
@@ -151,7 +157,7 @@
                     <li><strong>Moderation:</strong> Administrators reserve the right to review, modify, or remove any entries of the leaderboard at their sole discretion without prior notice.</li>
                     <li><strong>Policy Updates:</strong> These Terms may be updated at any time. Continued use of the mod, leaderboard, implies acceptance of the most recent version.</li>
                 </ul>
-                <p><em>Last updated: June 13, 2025</em></p>
+                <p><em>Last updated: July 2, 2025</em></p>
             </div>
         </div>
         <div id="settingsModal" class="modal" role="dialog" aria-labelledby="settingsTitle" aria-modal="true">
@@ -197,11 +203,10 @@
         <div class="announcement-wrapper animate animate__animated animate__fadeIn">
             <div class="announcement-icon">⚠️</div>
             <div class="announcement-content">
-                <div class="announcement-title">Attention warriors!</div>
+                <div class="announcement-title">Recent LA/TOS Update</div>
                 <div class="announcement-text">
-                    The configuration file for profile changes is being deprecated.
-                    It is recommended using <a href="https://visuals.nullcore.net/SPT/api/login/login.php" target="_blank" class="announcement-link">built-in profile editor</a> on our website for all future profile changes.
-                    This will ensure your profile settings won't be overwritten every mod update.
+                    <!--<a href="https://visuals.nullcore.net/SPT/api/login/login.php" target="_blank" class="announcement-link">-->
+                    We suggest taking a look at our updated LA/TOS of this project.
                 </div>
                 <div class="announcement-signature">
                     — Developer
