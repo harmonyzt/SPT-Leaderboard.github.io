@@ -113,7 +113,7 @@ function showPrivateProfile(container, player) {
           <div class="status-indicator status-offline"></div>
           <span>Offline</span>
         </div>
-        <h2 class="profile-player-name">${player.name}</h2>
+        <h2 class="profile-player-name">you are stinky >:)</h2>
           <div class="player-about">Hello!</div>
         <div class="player-reg-date">
           <span class="reg-date-text">Registered: 12.12.2000</span>
@@ -200,7 +200,7 @@ function showPrivateProfile(container, player) {
       </div>
     </div>
 
-        <div class="private-profile-overlay">
+    <div class="private-profile-overlay">
         <div class="private-profile-content">
             <div class="lock-icon">🔒</div>
             <h3>Profile is Private</h3>
@@ -896,8 +896,8 @@ function generateBadgesHTML(player) {
 
     if (player?.suspicious == true) {
         badges += `<div class="badge tooltip">
-        <em class='bx bxs-x-shield bx-flashing' style="color:rgb(255, 123, 100);"></em>
-        <span class="tooltiptext">This player was marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
+        <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+        <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™ or warned by Moderation. Their statistics may be innacurate</span>
       </div>`;
     } else {
         badges += `<div class="badge tooltip">

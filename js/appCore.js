@@ -379,8 +379,8 @@ async function displayLeaderboard(data) {
         let badge = '';
         if (player?.suspicious == true && !player.isCasual) {
             badge = `<div class="badge-lb tooltip">
-            <em class='bx bxs-x-shield bx-flashing' style="color:rgb(255, 123, 100);"></em>
-            <span class="tooltiptext">This player was marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
+            <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+            <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™ or warned by Moderation. Their statistics may be innacurate</span>
           </div>`;
         } else {
             badge = `<div class="badge-lb tooltip">
