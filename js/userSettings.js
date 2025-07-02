@@ -4,7 +4,7 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-const seasonEndDate = new Date(2025, 6, 12, 1, 1, 1);
+const seasonEndDate = new Date(2025, 6, 5, 1, 1, 1);
 let audioElements = {};
 let lastPlayed = null;
 let timerInterval;
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         });
 
-        const roundedMillions = Math.round(stats.totalSalesSum / 1_000_000);
+        const roundedBillions = Math.round(stats.totalSalesSum / 1_000_000_000);
 
         const overlay = document.createElement('div');
         overlay.id = 'seasonOverlay';
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="season-stats-grid">
                 <!-- Left Block -->
                 <div class="stats-block general-stats animate__animated animate__fadeInLeft">
-                    <h2>Global Statistics</h2>
+                    <h2>Season ${seasons[0]} Statistics</h2>
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-value">${leaderboardData.length}</div>
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="stat-card">
                             <div class="stat-value">${formatTime(stats.totalPlayTime)}</div>
-                            <div class="stat-label">TIME PLAYED</div>
+                            <div class="stat-label">SPENT IN RAID</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-value">${stats.averageSurvivalRate}%</div>
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="stat-label">HOTTEST MAP</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value">${roundedMillions}M</div>
+                            <div class="stat-value">${roundedBillions} Billion</div>
                             <div class="stat-label">RUBLES TRADED</div>
                         </div>
                     </div>
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         players.forEach(player => {
             if (!player.disqualified && !player.banned) {
-                const kd = player.killToDeathRatio ?? 0;
+                const kd = (player.killToDeathRatio && player.pmcRaids > 50) ?? 0;
                 const kills = player.pmcKills ?? 0;
                 const deaths = player.pmcDeaths ?? 0;
                 const playTime = player.totalPlayTime ?? 0;
@@ -375,9 +375,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function formatTime(seconds) {
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        return `${h}h ${m}m`;
+        const months = Math.floor(seconds / (3600 * 24 * 30));
+        const days = Math.floor((seconds % (3600 * 24 * 30)) / (3600 * 24));
+        const hours = Math.floor((seconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+
+        let result = [];
+        if (months > 0) result.push(`${months}mo`);
+        if (days > 0) result.push(`${days}d`);
+        if (hours > 0) result.push(`${hours}h`);
+        if (minutes > 0 && months === 0) result.push(`${minutes}m`);
+
+        return result.join(' ') || '0m';
     }
 
 });

@@ -8,11 +8,11 @@
 // TODO: #8 Use centralized function to load JSON data
 
 let leaderboardData = []; // For keeping current season data
-let heartbeatData = {};
+let heartbeatData = {}; // Remember heartbeats
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
-let ranOnlyOnce = false;
+let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
@@ -202,6 +202,7 @@ async function loadSeasonData(season) {
         }
     } finally {
         checkRecentPlayers(leaderboardData);
+        initProfileWatchList(leaderboardData);
     }
 }
 

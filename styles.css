@@ -1006,7 +1006,7 @@ button,
 .modal {
     display: none;
     position: fixed;
-    z-index: 1001;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -1249,52 +1249,105 @@ button,
     border-radius: 8px;
 }
 
-/* id input */
-.player-input input {
-    width: 200px;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: none;
-    font-family: monospace;
-    background-color: #3b4a5a;
-    color: #fff;
+/* Widget for watch list */
+.draggable-widget {
+    position: fixed;
+    background: rgba(10, 25, 47, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(2, 12, 27, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    overflow: hidden;
 }
 
-.player-input ul {
-    list-style: disc inside;
+.widget-header {
+    padding: 12px 16px;
+    background: rgba(34, 61, 95, 0.8);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.widget-header h3 {
     margin: 0;
-    padding: 0;
+    font-size: 15px;
 }
 
-#comparePlayers {
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #2563eb;
-    color: white;
+.close-widget {
+    background: none;
     border: none;
-    border-radius: 6px;
+    color: var(--accent-teal);
+    font-size: 18px;
     cursor: pointer;
-    font-weight: bold;
-    transition: all 300ms ease-in-out;
+    padding: 0 6px;
+    transition: color 0.2s ease;
 }
 
-#comparePlayers:hover {
-    background-color: #1d4ed8;
+.close-widget:hover {
+    color: var(--accent-blue);
 }
 
-#comparisonResult {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #243447;
-    border-radius: 8px;
-    color: #ffffff;
+/* Main content */
+.widget-content {
+    padding: 16px;
 }
 
-#comparisonResult ul {
-    list-style: disc inside;
-    padding-left: 0;
+.player-stats-container-watchlist  {
+
+}
+
+.player-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.player-input-group {
+    flex: 1;
+    min-width: 140px;
+}
+
+.player-input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.player-id-input {
+    width: 250px;
+    padding: 6px 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    color: var(--text-light);
+    border-radius: 5px;
+    font-size: 13px;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.player-id-input:focus {
+    border-color: var(--accent-teal);
+}
+
+.player-stats-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.not-found {
+    color: #ff5555;
+    font-size: 13px;
+    margin: 0;
 }
 
 /* Announcement */
