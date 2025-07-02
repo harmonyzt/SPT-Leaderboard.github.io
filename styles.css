@@ -1375,6 +1375,7 @@ button,
 .announcement-content {
     text-align: left;
     color: #ffffff;
+    width: -webkit-fill-available;
 }
 
 .announcement-title {
