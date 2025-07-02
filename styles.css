@@ -2287,6 +2287,7 @@ button,
 }
 
 .badge.tooltip {
+    display: contents;
     position: relative;
     cursor: pointer;
     z-index: 5;
