@@ -2287,7 +2287,6 @@ button,
 }
 
 .badge.tooltip {
-    display: contents;
     position: relative;
     cursor: pointer;
     z-index: 5;
@@ -2301,7 +2300,7 @@ button,
     visibility: hidden;
     width: max-content;
     max-width: 300px;
-    background: rgba(255, 255, 255, 0.075);
+    background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(15px);
     border: 1px solid #ffffff1a;
     color: #fff;

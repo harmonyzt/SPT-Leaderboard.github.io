@@ -17,7 +17,7 @@ let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
-let debug = 0;
+let debug = 1;
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
