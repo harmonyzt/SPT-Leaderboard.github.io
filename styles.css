@@ -2300,8 +2300,8 @@ button,
     visibility: hidden;
     width: max-content;
     max-width: 300px;
-    background: rgba(57, 89, 131, 0.205);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.075);
+    backdrop-filter: blur(15px);
     border: 1px solid #ffffff1a;
     color: #fff;
     text-align: center;
