@@ -2299,8 +2299,10 @@ button,
 .tooltip .tooltiptext {
     visibility: hidden;
     width: max-content;
-    max-width: 600px;
-    background-color: #1b1b1b;
+    max-width: 300px;
+    background: rgba(57, 89, 131, 0.205);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff1a;
     color: #fff;
     text-align: center;
     padding: 6px 8px;
@@ -2313,7 +2315,6 @@ button,
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-    white-space: nowrap;
 }
 
 .tooltip:hover .tooltiptext {
