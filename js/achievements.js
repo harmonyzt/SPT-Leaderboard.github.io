@@ -12,7 +12,7 @@ let achievementStats = {};
 async function loadAchievementsData() {
     try {
         [achievementsData, playerAchievements] = await Promise.all([
-            loadJSON('../global-achieve/js/compiledAchData.json'),
+            loadJSON('global-achieve/js/compiledAchData.json'),
             loadJSON(`${achievementsPath}`)
         ]);
         
