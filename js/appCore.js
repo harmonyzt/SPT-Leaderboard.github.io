@@ -40,6 +40,7 @@ let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_setting
 let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
 let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
 let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
+let achievementsPath = `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
 
 // Paths for local files if debug is on
 if (debug) {
@@ -49,6 +50,7 @@ if (debug) {
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
     profileUrlPath = `127.0.0.1:5500/#id=`;
     heartbeatsPath = `fallbacks/heartbeats.json?t=${Date.now()}`;
+    achievementsPath = `../fallbacks/shared/achievement_counters.json`;
 }
 
 // Call on DOM load

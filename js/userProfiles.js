@@ -6,6 +6,10 @@
 
 let openedPlayerData = [];
 
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadAchievementsData();
+});
+
 async function openProfile(playerId) {
     const modal = document.getElementById('playerProfileModal');
     const modalContent = document.getElementById('modalPlayerInfo');
@@ -95,7 +99,7 @@ async function openProfile(playerId) {
 }
 
 // Private profile HTML
-function showPrivateProfile(container, player) {
+function showPrivateProfile(container) {
     const profileModal = document.querySelector('.profile-modal-content');
     const mainBackground = document.getElementById('playerProfileModal');
     mainBackground.style.backgroundImage = '';
@@ -220,7 +224,7 @@ function showDisqualProfile(container, player) {
     const mainBackground = document.getElementById('playerProfileModal');
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.classList.remove('usec-background','labs-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
+    mainBackground.classList.remove('usec-background', 'labs-background', 'bear-background', 'prestige-tagilla', 'prestige-killa', 'prestige-both');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add('theme-default');
 
@@ -362,13 +366,12 @@ async function showPublicProfile(container, player) {
     // Format UNIX timestamps
     const lastRaidDuration = formatSeconds(player.lastRaidTimeSeconds);
     const lastRaidAgo = formatLastPlayedRaid(player.lastPlayed);
-    const lastAchivementAgo = formatLastPlayedRaid(player.latestAchievementTimestamp);
 
-    let lastAchievementIconResult = '';
-    if (player.latestAchievementImageUrl) {
-        let lastAchievementIcon = player.latestAchievementImageUrl
-        lastAchievementIconResult = lastAchievementIcon.slice(1)
-    }
+    // Get latest achievement
+    const lastAchivement = await processPlayerAchievements(player);
+
+    const achievementId = lastAchivement.id;
+    const globalPercentage = await getAchievementPercentage(achievementId);
 
     // Stattrack weapon
     const bestWeapon = getBestWeapon(player.id, player.modWeaponStats);
@@ -399,7 +402,7 @@ async function showPublicProfile(container, player) {
             <div class="status-indicator ${isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${isOnline ? 'Online' : 'Offline'}</span>
         </div>
-        <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}</h2>
+        <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name} ${player.discordUser ? `<div class="player-discord">Discord: ${player.discordUser}</div>` : ``}</h2>
         <div class="player-about">${aboutText}</div>
         <div class="player-reg-date">
             <span class="reg-date-text">Registered: ${regDate}</span>
@@ -421,15 +424,20 @@ async function showPublicProfile(container, player) {
             Last Raid
         </h3>
 
-        <div class="raid-overview">
-            <span class="raid-result ${player.lastRaidRanThrough ? 'run-through' : player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
-                ${player.lastRaidRanThrough ? `<i class='bx  bxs-walking'></i> Runner` : player.discFromRaid ? `<i class='bx  bxs-arrow-out-left-square-half'></i> Left` : player.isTransition ? `<i class='bx bxs-refresh-cw bx-spin'></i>  In Transit (${player.lastRaidMap}
-                <i class='bx  bxs-chevrons-right'></i>  ${player.lastRaidTransitionTo || 'Unknown'})` : player.lastRaidSurvived ? `<i class='bx  bxs-walking'></i> Survived` : `
-                <em class="bx bxs-skull"></em> Killed in Action`}
-            </span>
-            <span class="raid-meta">
-                ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
-            </span>
+        <div class="raid-overview-container">
+            <div class="raid-text-content">
+                <span class="raid-result ${player.lastRaidRanThrough ? 'run-through' : player.discFromRaid ? 'disconnected' : player.isTransition ? 'transit' : player.lastRaidSurvived ? 'survived' : 'died'}">
+                    ${player.lastRaidRanThrough ? `<i class='bx  bxs-walking'></i> Runner` : player.discFromRaid ? `<i class='bx  bxs-arrow-out-left-square-half'></i> Left` : player.isTransition ? `<i class='bx bxs-refresh-cw bx-spin'></i>  In Transit (${player.lastRaidMap}
+                    <i class='bx  bxs-chevrons-right'></i>  ${player.lastRaidTransitionTo || 'Unknown'})` : player.lastRaidSurvived ? `<i class='bx  bxs-walking'></i> Survived` : `
+                    <em class="bx bxs-skull"></em> Killed in Action`}
+                </span>
+                <span class="raid-meta">
+                    ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
+                </span>
+            </div>
+            <div class="last-raid-map ${player.lastRaidRanThrough ? 'run-through-border' : player.discFromRaid ? 'disconnected-border' : player.isTransition ? 'transit-border' : player.lastRaidSurvived ? 'survived-border' : 'died-border'}">
+                <img src="media/leaderboard_icons/maps/${player.lastRaidMap}.png">
+            </div>
         </div>
 
         <div class="raid-stats-grid">
@@ -453,15 +461,16 @@ async function showPublicProfile(container, player) {
 
         <!-- Latest Achievement Block -->
         <div class="stat-block achievement-block">
-            <h3 class="section-title">Latest Achievement</h3>
+            <div class="achievement-title ${lastAchivement.rarity}">Latest Achievement</div>
             <div class="achievement-content">
                 <div class="achievement-icon">
-                    <img src="${lastAchievementIconResult || 'files/achievement/Standard_35_1.png'}" alt="Achievement Icon" />
-                    <div class="achievement-time">${lastAchivementAgo || 'N/A'}</div>
+                    <img src="${lastAchivement.imageUrl || 'files/achievement/Standard_35_1.png'}" alt="Achievement Icon" />
+                    <div class="achievement-time">${lastAchivement.timestamp || 'N/A'}</div>
                 </div>
                 <div class="achievement-info">
-                    <div class="achievement-title">${player.latestAchievementName || 'Nothing to see here yet...'}</div>
-                    <div class="achievement-description">${player.latestAchievementDescription || 'Nothing to see here yet...'}</div>
+                    <div class="achievement-title ${lastAchivement.rarity}">${lastAchivement.name || 'Nothing to see here yet...'}</div>
+                    <div class="achievement-description">${lastAchivement.description || 'Nothing to see here yet...'}</div>
+                    ${globalPercentage > 0 ? `<div class="achievement-percentage">${globalPercentage}% of players have this achievement</div>` : ``}
                 </div>
             </div>
         </div>
@@ -978,4 +987,85 @@ function formatLastPlayedRaid(unixTimestamp) {
     }
 
     return `${diffInYears} years ago`;
+}
+
+async function fetchAchievementData() {
+    try {
+        const response = await fetch('../global-achieve/js/compiledAchData.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch achievement data');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error loading achievement data:', error);
+        return { achievementCompiled: {} };
+    }
+}
+
+function getLatestAchievement(player, achievementData) {
+    if (!player.allAchievements || Object.keys(player.allAchievements).length === 0) {
+        return {
+            id: 0,
+            timestamp: 0,
+            imageUrl: 0,
+            rarity: "Common",
+            description: "Nothing here yet",
+            name: "No achievements"
+        };
+    }
+
+    // Find recent achievement
+    const [latestId, latestTimestamp] = Object.entries(player.allAchievements)
+        .reduce((latest, [id, timestamp]) =>
+            timestamp > latest[1] ? [id, timestamp] : latest, ['', 0]);
+
+    if (!latestId) {
+        return {
+            id: 0,
+            timestamp: 0,
+            imageUrl: 0,
+            rarity: "Common",
+            description: "Nothing here yet",
+            name: "No achievements"
+        };
+    };
+
+    // Get achievement data
+    const achievement = achievementData.achievementCompiled[latestId] || {};
+    const timestamp = formatLastPlayedRaid(latestTimestamp);
+    let imageUrl = 0;
+
+    try {
+        imageUrl = achievement.imageUrl.slice(1);
+    } catch (error) {
+        return {
+            id: 0,
+            timestamp: 0,
+            imageUrl: 0,
+            rarity: "Common",
+            description: "Nothing here yet",
+            name: "No achievements"
+        };
+    }
+
+    return {
+        id: latestId,
+        timestamp: timestamp,
+        imageUrl: imageUrl,
+        rarity: achievement.rarity,
+        description: achievement.description,
+        name: achievement.name
+    };
+}
+
+
+async function processPlayerAchievements(player) {
+    const achievementData = await fetchAchievementData();
+    const latestAchievement = getLatestAchievement(player, achievementData);
+
+    if (latestAchievement) {
+        return latestAchievement;
+    }
+
+    return latestAchievement;
 }
