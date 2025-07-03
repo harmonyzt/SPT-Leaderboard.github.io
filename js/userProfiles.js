@@ -991,7 +991,7 @@ function formatLastPlayedRaid(unixTimestamp) {
 
 async function fetchAchievementData() {
     try {
-        const response = await fetch('../global-achieve/js/compiledAchData.json');
+        const response = await fetch('global-achieve/js/compiledAchData.json');
         if (!response.ok) {
             throw new Error('Failed to fetch achievement data');
         }
