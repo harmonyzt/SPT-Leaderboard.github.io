@@ -40,12 +40,7 @@ function refreshRewards(player) {
         profileCat.style.display = 'none';
     }
 
-    // Requested by Badger
-    if (player.id === "6800024300038077fb7eea53") {
-        badgerPenguin.style.display = 'block';
-    } else {
-        badgerPenguin.style.display = 'none';
-    }
+    badgerPenguin.style.display = 'none';
 }
 
 function resetStyles(mainBackground, profileCard, profileAvatar, profileBackground) {
