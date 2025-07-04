@@ -376,6 +376,10 @@ async function showPublicProfile(container, player) {
     // Stattrack weapon
     const bestWeapon = getBestWeapon(player.id, player.modWeaponStats);
 
+    if (bestWeapon === null) {
+        player.isUsingStattrack = false;
+    }
+
     // Profile Theme
     const profileModal = document.querySelector('.profile-modal-content');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
