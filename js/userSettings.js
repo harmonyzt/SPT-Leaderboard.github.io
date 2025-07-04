@@ -4,7 +4,8 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-const seasonEndDate = new Date(2025, 6, 5, 1, 1, 1);
+const seasonEndDate = new Date(2025, 6, 4, 18, 1, 1);
+
 let audioElements = {};
 let lastPlayed = null;
 let timerInterval;
