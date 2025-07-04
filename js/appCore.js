@@ -673,7 +673,7 @@ function calculateOverallStats(data) {
     let totalKDR = 0;
     let totalSurvival = 0;
     let validPlayers = 0;
-    let onlinePlayers = heartbeatMonitor.getOnlineCount();;
+    let onlinePlayers = heartbeatMonitor.getOnlineCount();
     let totalPlayTime = 0;
 
     data.forEach(player => {

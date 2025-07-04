@@ -94,7 +94,7 @@ class HeartbeatMonitor {
         const classes = {
             'online': 'player-status-lb-online',
             'in_menu': 'player-status-lb-menu',
-            'raid_start': 'player-status-lb-raid',
+            'in_raid': 'player-status-lb-raid',
             'in_stash': 'player-status-lb-stash',
             'raid_end': 'player-status-lb-finished'
         };
@@ -105,7 +105,7 @@ class HeartbeatMonitor {
         const texts = {
             'online': 'Online',
             'in_menu': 'In Menu',
-            'raid_start': 'In Raid',
+            'in_raid': 'In Raid',
             'in_stash': 'Gearing Up...',
             'raid_end': 'Finished Raid'
         };
