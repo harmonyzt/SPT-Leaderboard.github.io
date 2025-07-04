@@ -374,9 +374,8 @@ async function showPublicProfile(container, player) {
     const globalPercentage = await getAchievementPercentage(achievementId);
 
     // Stattrack weapon
-    const bestWeapon = getBestWeapon(player.id, player.modWeaponStats);
-
-    if (bestWeapon === null) {
+    const bestWeapon = getBestWeapon(player.id, player.modWeaponStats || {});
+    if (!bestWeapon) {
         player.isUsingStattrack = false;
     }
 
@@ -827,7 +826,7 @@ function closeLoader() {
 }
 
 function getBestWeapon(playerId, modWeaponStats) {
-    if (!modWeaponStats[playerId]) {
+    if (!modWeaponStats || !modWeaponStats[playerId]) {
         return null;
     }
 
