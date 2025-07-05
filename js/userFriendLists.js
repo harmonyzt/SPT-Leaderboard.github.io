@@ -81,6 +81,33 @@ async function getPlayerPfp(playerId) {
     }
 }
 
+/**
+ * Gets a name or custom name of a player
+ * @param {string} playerId - Player ID
+ * @returns {Promise<string>} Name or Custom name
+ */
+async function getPlayerName(playerId) {
+    try {
+        // Wait for leaderboard data to be ready before doing anything
+        waitForDataReady(() => {
+            // Get custom name
+            if (!profileSettingsPromise) {
+                profileSettingsPromise = getProfileSettings();
+            }
+
+            if (profileSettingsData !== null) {
+                return profileSettingsData[playerId].name || leaderboardData[playerId].name;
+            }
+        });
+
+        await profileSettingsPromise;
+
+        return profileSettingsData[playerId]?.name || leaderboardData[playerId].name;
+    } catch {
+        return leaderboardData[playerId]?.name;
+    }
+}
+
 async function renderFriendList(player) {
     const container = document.getElementById('friends-container');
 

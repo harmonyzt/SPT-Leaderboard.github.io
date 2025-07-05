@@ -2043,33 +2043,42 @@
             "id": "684b3d470002c5f816fe8017",
             "name": "Subs",
             "pmcLevel": 22,
-            "lastPlayed": 1751677988,
-            "damage": 2378,
+            "lastPlayed": 1751681102,
+            "damage": 3778,
             "accountType": "standard",
             "sptVer": "3.11.3",
             "publicProfile": true,
-            "currentWinstreak": 0,
+            "currentWinstreak": 1,
             "longestShot": 383,
-            "pmcRaids": 2,
-            "averageLifeTime": 541,
+            "pmcRaids": 4,
+            "averageLifeTime": 701,
             "killToDeathRatio": 1,
             "survivalRate": 50,
             "registeredOnLeaderboard": 1751677160,
             "registrationDate": 1750072564,
-            "absoluteLastTime": 1751678147,
+            "absoluteLastTime": 1751681760,
             "trusted": false,
             "lastRaidKills": 0,
             "lastRaidAs": "PMC",
-            "lastRaidDamage": 17,
-            "lastRaidEXP": 31,
+            "lastRaidDamage": null,
+            "lastRaidEXP": 129,
             "isTransition": false,
             "lastRaidTransitionTo": "None",
             "discFromRaid": false,
-            "lastRaidHits": 1,
+            "lastRaidHits": 0,
             "hasKappa": null,
             "isUsingStattrack": true,
             "modWeaponStats": {
                 "684b3d470002c5f816fe8017": {
+                    "PP-91-01 Kedr-B": {
+                        "stats": {
+                            "kills": 11,
+                            "headshots": 4,
+                            "totalShots": 461,
+                            "timesLost": 2
+                        },
+                        "originalId": "57f3c6bd24597738e730fa2f"
+                    },
                     "MPX": {
                         "stats": {
                             "kills": 38,
@@ -2168,15 +2177,6 @@
                             "timesLost": 0
                         },
                         "originalId": "5447a9cd4bdc2dbd208b4567"
-                    },
-                    "PP-91-01 Kedr-B": {
-                        "stats": {
-                            "kills": 6,
-                            "headshots": 2,
-                            "totalShots": 288,
-                            "timesLost": 2
-                        },
-                        "originalId": "57f3c6bd24597738e730fa2f"
                     },
                     "AK-74M": {
                         "stats": {
@@ -2335,7 +2335,7 @@
                 },
                 "PRAPOR": {
                     "id": "54cb50c76803fa8b248b4571",
-                    "salesSum": 3256634,
+                    "salesSum": 3388937,
                     "unlocked": true,
                     "standing": 0.33000000000000002,
                     "loyaltyLevel": 2,
@@ -2343,7 +2343,7 @@
                 },
                 "THERAPIST": {
                     "id": "54cb57776803fa99248b456e",
-                    "salesSum": 5306044,
+                    "salesSum": 5332478,
                     "unlocked": true,
                     "standing": 0.28000000000000003,
                     "loyaltyLevel": 2,
@@ -2414,8 +2414,8 @@
                     "disabled": false
                 }
             },
-            "lastRaidSurvived": false,
-            "lastRaidTimeSeconds": 110,
+            "lastRaidSurvived": true,
+            "lastRaidTimeSeconds": 608,
             "lastRaidMap": "Customs",
             "pmcSide": "Bear",
             "scavLevel": 1,
@@ -2432,9 +2432,9 @@
                 "6513eb6e0dc723592b0f9095": 1751288659,
                 "6512f1e3be73cc7f07358ed5": 1751628151
             },
-            "pmcKills": 1,
-            "pmcDeaths": 1,
-            "survived": 1,
+            "pmcKills": 2,
+            "pmcDeaths": 2,
+            "survived": 2,
             "scavRaids": 0,
             "scavKills": 0,
             "scavDeaths": 0,
@@ -2445,8 +2445,8 @@
             "profileTheme": "default",
             "friendLink": "3755e7ae07bce6b3849965382e4b27e928c4d4543c6cd138f8af8a86ee5f5379",
             "suspicious": false,
-            "totalRaids": 1,
-            "totalPlayTime": 110,
+            "totalRaids": 3,
+            "totalPlayTime": 1832,
             "dev": false,
             "lastRaidRanThrough": false
         }

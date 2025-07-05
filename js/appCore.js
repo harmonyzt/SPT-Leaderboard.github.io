@@ -45,7 +45,7 @@ let achievementsPath = `https://visuals.nullcore.net/SPT/data/shared/achievement
 // Paths for local files if debug is on
 if (debug) {
     seasonPath = "fallbacks/season";
-    lastRaidsPath = `fallbacks/shared/player_raids.json?t=${Date.now()}`;
+    lastRaidsPath = `fallbacks/shared/player_raids4.json?t=${Date.now()}`;
     profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
     profileUrlPath = `127.0.0.1:5500/#id=`;
@@ -335,7 +335,8 @@ async function displayLeaderboard(data) {
     const playersWithData = await Promise.all(
         data.map(async (player) => {
             const pfp = await getPlayerPfp(player.id);
-            return { ...player, pfp };
+            const customName = await getPlayerName(player.id);
+            return { ...player, pfp, customName };
         })
     );
 
@@ -446,7 +447,7 @@ async function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
                 ${`<img class="lb-profile-picture" src="${player.pfp}">`}
-                ${accountIcon} ${player.name} ${prestigeImg}
+                ${accountIcon} ${player.customName? player.customName : player.name} ${prestigeImg}
                 ${playerGameMode ? 
                     `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
                     :
