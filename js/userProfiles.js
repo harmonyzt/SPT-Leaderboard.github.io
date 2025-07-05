@@ -437,9 +437,9 @@ async function showPublicProfile(container, player) {
                 <span class="raid-meta">
                     ${player.lastRaidMap || 'Unknown'} • ${player.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
                 </span>
-                <div class="last-raid-map ${player.lastRaidRanThrough ? 'run-through-border' : player.discFromRaid ? 'disconnected-border' : player.isTransition ? 'transit-border' : player.lastRaidSurvived ? 'survived-border' : 'died-border'}">
-                    <img src="media/leaderboard_icons/maps/${player.lastRaidMap}.png">
-                </div>
+            </div>
+            <div class="last-raid-map ${player.lastRaidRanThrough ? 'run-through-border' : player.discFromRaid ? 'disconnected-border' : player.isTransition ? 'transit-border' : player.lastRaidSurvived ? 'survived-border' : 'died-border'}">
+                <img src="media/leaderboard_icons/maps/${player.lastRaidMap}.png">
             </div>
         </div>
 
