@@ -104,10 +104,6 @@ function initLastRaids(player, container) {
                             ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
                         </span>
                     </div>
-                    
-                    <div class="last-raid-map ${player.lastRaidRanThrough ? 'run-through-border' : player.discFromRaid ? 'disconnected-border' : player.isTransition ? 'transit-border' : player.lastRaidSurvived ? 'survived-border' : 'died-border'}">
-                        <img src="media/leaderboard_icons/maps/${player.lastRaidMap}.png">
-                    </div>
 
                     <div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
                         <div class="raid-stat-block">
