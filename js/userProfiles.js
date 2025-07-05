@@ -393,6 +393,8 @@ async function showPublicProfile(container, player) {
     // Get profile picture
     const profilePicture = await getPlayerPfp(player.id);
 
+    const profileName = await getPlayerName(player.id);
+
     container.innerHTML = `
 <div class="profile-grid-layout profile-loading-overlay" id="profile-main-grid">
     <!-- Main -->
@@ -405,7 +407,7 @@ async function showPublicProfile(container, player) {
             <div class="status-indicator ${isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${isOnline ? 'Online' : 'Offline'}</span>
         </div>
-        <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name} ${player.discordUser ? `<div class="player-discord">Discord: ${player.discordUser}</div>` : ``}</h2>
+        <h2 class="profile-player-name">${player.teamTag ? `[${player.teamTag}]` : ``} ${profileName} ${player.discordUser ? `<div class="player-discord">Discord: ${player.discordUser}</div>` : ``}</h2>
         <div class="player-about">${aboutText}</div>
         <div class="player-reg-date">
             <span class="reg-date-text">Registered: ${regDate}</span>
