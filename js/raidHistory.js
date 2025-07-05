@@ -96,13 +96,16 @@ function initLastRaids(player, container) {
 
                     <div class="raid-overview" style="margin-bottom: 10px;">
                         <span class="raid-result ${raid.lastRaidRanThrough ? 'run-through' : raid.discFromRaid ? 'disconnected' : raid.isTransition ? 'transit' : raid.lastRaidSurvived ? 'survived' : 'died'}" style="font-weight: bold;">
-                            ${raid.lastRaidRanThrough ? `<em class="bx bx-walk"></em> Runner` : raid.discFromRaid ? `<em class="bx bxs-log-out"></em> Left` : raid.isTransition ? `<i class="bx bx-loader-alt bx-spin" style="line-height: 0 !important;"></i> In Transit (${raid.lastRaidMap}
-                            <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${raid.lastRaidTransitionTo || 'Unknown'})` : raid.lastRaidSurvived ? `<em class="bx bx-walk"></em> Survived` : `
+                            ${raid.lastRaidRanThrough ? `<i class='bx bxs-walking'></i> Runner` : raid.discFromRaid ? `<i class='bx bxs-arrow-out-left-square-half'></i> Left` : raid.isTransition ? `<i class='bx bxs-refresh-cw bx-spin'></i> In Transit (${raid.lastRaidMap}
+                            <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${raid.lastRaidTransitionTo || 'Unknown'})` : raid.lastRaidSurvived ? `<i class='bx bxs-walking'></i> Survived` : `
                             <em class="bx bxs-skull"></em> Killed in Action`}
                         </span>
                         <span class="raid-meta" style="display: block; color: #aaa; font-size: 0.9em;">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo}
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
                         </span>
+                    </div>
+                    <div class="last-raid-map ${player.lastRaidRanThrough ? 'run-through-border' : player.discFromRaid ? 'disconnected-border' : player.isTransition ? 'transit-border' : player.lastRaidSurvived ? 'survived-border' : 'died-border'}">
+                        <img src="media/leaderboard_icons/maps/${player.lastRaidMap}.png">
                     </div>
 
                     <div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
