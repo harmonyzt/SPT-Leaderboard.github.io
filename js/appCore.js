@@ -420,6 +420,13 @@ async function displayLeaderboard(data) {
             accountColor = '#ba8bdb';
         }
 
+        let playerGameMode = ''
+        if(player.isUsingFika){
+            playerGameMode = 'FIKA'
+        } else if (player.isUsingRealism){
+            playerGameMode = 'REALISM'
+        }
+
         // Developer
         if (player.dev) {
             accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
@@ -437,7 +444,15 @@ async function displayLeaderboard(data) {
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
-            <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">${`<img class="lb-profile-picture" src="${player.pfp}">`} ${accountIcon} ${player.name} ${prestigeImg}</td>
+            <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
+                ${`<img class="lb-profile-picture" src="${player.pfp}">`}
+                ${accountIcon} ${player.name} ${prestigeImg}
+                ${playerGameMode ? 
+                    `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
+                    :
+                    ``
+                }
+            </td>
             <td>${lastGame || 'N/A'}</td>
             <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
             <td>${badge}</td>
@@ -573,8 +588,8 @@ function convertTimeToSeconds(time) {
 function calculateRanks(data) {
     const MIN_RAIDS = 50;
     const SOFT_CAP_RAIDS = 100;
-    const MIN_LIFE_TIME = 8; // tracking skill issue
-    const MAX_LIFE_TIME = 45;
+    const MIN_LIFE_TIME = 10; // tracking skill issue
+    const MAX_LIFE_TIME = 50;
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio));
     const maxSurvival = Math.max(...data.map(p => p.survivalRate));
@@ -598,18 +613,18 @@ function calculateRanks(data) {
         const clampedLifeTime = Math.min(player.averageLifeTime, MAX_LIFE_TIME);
         const normAvgLifeTime = maxAvgLifeTime ? clampedLifeTime / maxAvgLifeTime : 0;
 
-        let score = (normKDR * 0.10) + (normSurvival * 0.1) + (normRaids * 0.4) + (normAvgLifeTime * 0.3);
+        let score = (normKDR * 0.10) + (normSurvival * 0.1) + (normRaids * 0.35) + (normAvgLifeTime * 0.3);
 
         // Soft Cap for raids
         if (player.pmcRaids <= MIN_RAIDS) {
             score *= 0.3;
         } else if (player.pmcRaids < SOFT_CAP_RAIDS) {
             const progress = (player.pmcRaids - MIN_RAIDS) / (SOFT_CAP_RAIDS - MIN_RAIDS);
-            score *= 0.3 + (0.7 * progress);
+            score *= 0.3 + (0.65 * progress);
         }
 
         if ((player.averageLifeTime / 60) < MIN_LIFE_TIME) {
-            score *= 0.6; // -60% penalty
+            score *= 0.6; // -40% penalty
         }
 
         player.totalScore = score;

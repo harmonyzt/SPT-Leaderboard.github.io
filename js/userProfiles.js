@@ -873,29 +873,36 @@ function generateBadgesHTML(player) {
     // Prestige badge
     if (player.prestige && player.prestige > 0) {
         badges += `<div class="badge tooltip">
-        <img src="media/prestige${player.prestige}.png" width="40" height="40" alt="Prestige">
-        <span class="tooltiptext">This player has reached prestige level ${player.prestige}</span>
-      </div>`;
+            <img src="media/prestige${player.prestige}.png" width="40" height="40" alt="Prestige">
+            <span class="tooltiptext">This player has reached prestige level ${player.prestige}</span>
+        </div>`;
     }
 
     if (player.hasKappa) {
         badges += `<div class="badge tooltip">
-        <img src="media/kappa.png" width="35" height="35" alt="Kappa">
-        <span class="tooltiptext">This player acquired Kappa!</span>
-      </div>`;
+            <img src="media/kappa.png" width="35" height="35" alt="Kappa">
+            <span class="tooltiptext">This player acquired Kappa!</span>
+        </div>`;
     }
 
     if (player.dev) {
         badges += `<div class="badge tooltip">
-                     <img src="media/leaderboard_icons/icon_developer.png" style="width: 20px; height: 20px">
-                     <span class="tooltiptext">Developer playing the game.. Seriously?</span>
-                   </div>`;
+            <img src="media/leaderboard_icons/icon_developer.png" style="width: 20px; height: 20px">
+            <span class="tooltiptext">Developer playing the game.. Seriously?</span>
+        </div>`;
     }
 
-    if (playerData && playerData.seasonsCount > 1) {
+    if (playerData && playerData.seasonsCount > 1 && playerData.seasonsCount <= 3) {
         badges += `<div class="badge tooltip">
-        <em class='bx bxs-joystick'></em>
-        <span class="tooltiptext">This player has been around for ${playerData.seasonsCount} seasons!</span>
+            <em class='bx bxs-joystick'></em>
+            <span class="tooltiptext">This player has been around for ${playerData.seasonsCount} seasons!</span>
+      </div>`;
+    }
+
+    if (playerData && playerData.seasonsCount > 3) {
+        badges += `<div class="badge tooltip">
+            <em class='bx  bxs-medal-star' style="color:rgb(255, 221, 70)" ></em> 
+            <span class="tooltiptext">${playerData.seasonsCount} seasons of service. A true gamer!</span>
       </div>`;
     }
 

@@ -594,6 +594,31 @@ button,
     color: #ffffff !important;
 }
 
+.player-mode {
+    background: rgba(255, 255, 255, 0.096);
+    color: white;
+    font-family: monospace;
+    border: 1px solid #ffffff3b;
+    border-radius: 5px;
+    width: fit-content;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px;
+    text-transform: uppercase;
+    display: flex;
+    position: relative;
+    bottom: 5px;
+    right: 3px;
+}
+
+.FIKA {
+    color: #55c3ff;
+}
+
+.REALISM {
+    color: #474747;
+}
+
 .lb-profile-picture {
     width: 34px;
     height: 34px;
