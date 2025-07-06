@@ -5,7 +5,7 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
 let teamData = [];
-const teamsPath = "https://visuals.nullcore.net/hidden/teams/player_teams3.json"
+const teamsPath = ""
 
 async function loadTeamsData() {
     try {
