@@ -158,20 +158,22 @@ async function fetchData() {
         initCharts();
 
         // Fetch data from all
-        const [season2Response, season3Response, season4Response, mapsResponse] = await Promise.all([
+        const [season1Response, season2Response, season3Response, season4Response, mapsResponse] = await Promise.all([
+            fetch('../fallbacks/season1.json'),
             fetch('../fallbacks/season2.json'),
             fetch('../fallbacks/season3.json'),
             fetch('../fallbacks/season4.json'),
             fetch('https://visuals.nullcore.net/SPT/data/shared/global_counters.json')
         ]);
 
+        const season1Data = await season1Response.json();
         const season2Data = await season2Response.json();
         const season3Data = await season3Response.json();
         const season4Data = await season4Response.json();
         mapsData = await mapsResponse.json();
 
         // Combine
-        playersData = [...season2Data.leaderboard, ...season3Data.leaderboard, ...season4Data.leaderboard];
+        playersData = [...season1Data.leaderboard, ...season2Data.leaderboard, ...season3Data.leaderboard, ...season4Data.leaderboard];
 
         // display
         processPlayersData();
