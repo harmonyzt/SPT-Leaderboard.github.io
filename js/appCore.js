@@ -15,11 +15,7 @@ let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
 
-// For debugging purposes
-// Will use local paths for some files/fallbacks
-let debug = 0;
-
-// For dynamic stats counters
+// Dynamic statistics for odometer
 let oldTotalRaids = 0;
 let oldTotalKills = 0;
 let oldTotalDeaths = 0;
@@ -33,25 +29,17 @@ let oldTotalPlayTime = 0;
 
 // TODO: #7 Fully support all paths for debug and not
 // Paths
-let seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
-let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids4.json?t=${Date.now()}`;
-let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
-let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
-let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
-let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
-let achievementsPath = `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const basePath = isLocalhost ? 'fallbacks' : 'https://visuals.nullcore.net/SPT/data';
 
-// Paths for local files if debug is on
-if (debug) {
-    seasonPath = "fallbacks/season";
-    lastRaidsPath = `fallbacks/shared/player_raids4.json?t=${Date.now()}`;
-    profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
-    weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
-    profileUrlPath = `127.0.0.1:5500/#id=`;
-    heartbeatsPath = `fallbacks/heartbeats.json?t=${Date.now()}`;
-    achievementsPath = `../fallbacks/shared/achievement_counters.json`;
-}
+let seasonPath = isLocalhost ? "fallbacks/season" : "https://visuals.nullcore.net/SPT/data/seasons/season";
+let seasonPathEnd = `.json?t=${Date.now()}`;
+let lastRaidsPath = isLocalhost ? `fallbacks/shared/player_raids4.json?t=${Date.now()}` : `https://visuals.nullcore.net/SPT/data/shared/player_raids4.json?t=${Date.now()}`;
+let profileSettingsPath = isLocalhost ? `fallbacks/profile_settings.json?t=${Date.now()}` : `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
+let weaponStatsPath = isLocalhost ? `../fallbacks/shared/weapon_counters.json?t=${Date.now()}` : `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
+let profileUrlPath = isLocalhost ? `127.0.0.1:5500/#id=` : `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
+let heartbeatsPath = isLocalhost ? `fallbacks/heartbeats.json?t=${Date.now()}` : `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
+let achievementsPath = isLocalhost ? `../fallbacks/shared/achievement_counters.json` : `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
 
 // Call on DOM load
 document.addEventListener('DOMContentLoaded', initAllSeasons);
@@ -422,9 +410,9 @@ async function displayLeaderboard(data) {
         }
 
         let playerGameMode = ''
-        if(player.isUsingFika){
+        if (player.isUsingFika) {
             playerGameMode = 'FIKA'
-        } else if (player.isUsingRealism){
+        } else if (player.isUsingRealism) {
             playerGameMode = 'REALISM'
         }
 
@@ -447,12 +435,12 @@ async function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
                 ${`<img class="lb-profile-picture" src="${player.pfp}">`}
-                ${accountIcon} ${player.customName? player.customName : player.name} ${prestigeImg}
-                ${playerGameMode ? 
-                    `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
-                    :
-                    ``
-                }
+                ${accountIcon} ${player.customName ? player.customName : player.name} ${prestigeImg}
+                ${playerGameMode ?
+                `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
+                :
+                ``
+            }
             </td>
             <td>${lastGame || 'N/A'}</td>
             <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
