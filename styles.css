@@ -287,21 +287,6 @@ h1 {
     color: var(--text-muted);
 }
 
-#manualUpdate {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-}
-
-#manualUpdate svg {
-    transition: transform 0.3s ease;
-}
-
-#manualUpdate:active svg {
-    transform: rotate(180deg);
-}
-
 #playerSearch {
     flex-grow: 1;
     padding: 12px 16px;
@@ -496,9 +481,16 @@ td {
     box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
 }
 
+/* In hideout */
+.player-status-lb-hideout #blink {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    box-shadow: 0 0 12px rgba(232, 251, 60, 0.6);
+}
+
+
 /* In raid */
 .player-status-lb-raid #blink {
-    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    background: linear-gradient(135deg, #eefb3c 0%, #f97316 100%);
     box-shadow: 0 0 12px rgba(251, 146, 60, 0.6);
 }
 
