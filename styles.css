@@ -441,6 +441,13 @@ td {
     border-color: #1640f9;
 }
 
+/* In  hideout */
+.player-status-lb-hideout {
+    background: rgba(245, 249, 22, 0.2);
+    color: #f6ff77;
+    border-color: #eaf916;
+}
+
 /* IN raid */
 .player-status-lb-raid {
     background: rgba(249, 115, 22, 0.2);
