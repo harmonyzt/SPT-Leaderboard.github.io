@@ -176,11 +176,6 @@ h1 {
     min-width: 0;
 }
 
-.navbar-links {
-    display: flex;
-    gap: 20px;
-}
-
 .navbar-link {
     background-color: #ffffff0e;
     color: var(--text-light);

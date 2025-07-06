@@ -13,7 +13,7 @@ let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
-let isDataReady = false; // To tell whenever the live update was done
+
 
 // Dynamic statistics for odometer
 let oldTotalRaids = 0;
@@ -40,48 +40,6 @@ let weaponStatsPath = isLocalhost ? `../fallbacks/shared/weapon_counters.json?t=
 let profileUrlPath = isLocalhost ? `127.0.0.1:5500/#id=` : `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
 let heartbeatsPath = isLocalhost ? `fallbacks/heartbeats.json?t=${Date.now()}` : `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
 let achievementsPath = isLocalhost ? `../fallbacks/shared/achievement_counters.json` : `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
-
-// Call on DOM load
-document.addEventListener('DOMContentLoaded', initAllSeasons);
-
-/**
- * Detects all available seasons by calling checkSeasonExists(seasonNumber) until 404 is received
- * @returns {Promise<void>}
- */
-async function initAllSeasons() {
-    // Seasons start from 1
-    // Clean up before initialize
-    let seasonNumber = 1;
-    seasons = [];
-
-    while (true) {
-        const exists = await checkSeasonExists(seasonNumber);
-        if (!exists) break;
-
-        seasons.push(seasonNumber);
-        seasonNumber++;
-    }
-
-    // Load previous winners and run it only once
-    if (seasons.length > 1 && !ranOnlyOnce) {
-        ranOnlyOnce = true;
-        loadPreviousSeasonWinners();
-    }
-
-    // Sort from newest to oldest
-    seasons.sort((a, b) => b - a);
-
-    populateSeasonDropdown();
-
-    // Load data if we found any seasons
-    if (seasons.length > 0) {
-        await Promise.all([
-            loadAllSeasonsData(),
-            loadSeasonData(seasons[0])
-        ]);
-        saveCurrentStats();
-    }
-}
 
 /**
  * Checks if a season with the given number exists on the server
@@ -162,50 +120,6 @@ function populateSeasonDropdown() {
 }
 
 /**
- * Loads and processes data for specified season called by other functions
- * @param {number} season - Season number to load
- * @returns {Promise<void>}
- */
-async function loadSeasonData(season) {
-    const emptyLeaderboardNotification = document.getElementById('emptyLeaderboardNotification');
-    emptyLeaderboardNotification.style.display = 'none';
-    isDataReady = false;
-
-    try {
-        const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
-
-        if (!response.ok) {
-            throw new Error('Failed to load season data');
-        }
-
-        const data = await response.json();
-
-        leaderboardData = data.leaderboard || [];
-
-        // Leaderboard data is empty. Clean and do nothing
-        if (leaderboardData.length === 0 || (leaderboardData.length === 1 && Object.keys(leaderboardData[0]).length === 0)) {
-            emptyLeaderboardNotification.style.display = 'block';
-            resetStats();
-        } else {
-            processSeasonData(leaderboardData);
-            displayLeaderboard(leaderboardData);
-        }
-    } finally {
-        checkRecentPlayers(leaderboardData);
-        initProfileWatchList(leaderboardData);
-    }
-}
-
-function getHash(obj) {
-    const str = JSON.stringify(obj, Object.keys(obj).sort());
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        hash = (hash << 5) - hash + str.charCodeAt(i);
-        hash |= 0;
-    }
-    return hash;
-}
-/**
  * Loads all of the seasons and determines who played in previous seasons
  * @returns {Promise<void>}
  */
@@ -223,17 +137,10 @@ async function loadAllSeasonsData() {
                 data.leaderboard.forEach(player => {
                     const playerKey = player.id || player.name;
 
-                    if (!uniquePlayers[playerKey]) {
-                        // New player - initialize with current season data
-                        uniquePlayers[playerKey] = {
-                            ...player,
-                            seasonsPlayed: [season],
-                            seasonsCount: 1
-                        };
-                    } else {
+                    if(uniquePlayers[playerKey]) {
                         // Existing player - update if this season is more recent
                         if (compareLastPlayed(player.lastPlayed, uniquePlayers[playerKey].lastPlayed) > 0) {
-                            const { seasonsPlayed, seasonsCount, ...rest } = uniquePlayers[playerKey];
+                            const { seasonsPlayed, seasonsCount } = uniquePlayers[playerKey];
                             uniquePlayers[playerKey] = {
                                 ...player,
                                 seasonsPlayed: seasonsPlayed.includes(season) ? seasonsPlayed : [...seasonsPlayed, season],
@@ -876,31 +783,3 @@ function sortLeaderboard(sortKey) {
 
     displayLeaderboard(currentData);
 }
-
-// Welcome popup
-document.addEventListener('DOMContentLoaded', function () {
-    const continueBtn = document.getElementById('continueBtn');
-    const welcomePopup = document.getElementById('welcomePopup');
-
-    if (localStorage.getItem('welPopupClosed') === 'true') {
-        welcomePopup.style.display = 'none';
-    } else {
-        welcomePopup.style.display = 'flex';
-        setTimeout(() => {
-            welcomePopup.style.opacity = '1';
-            welcomePopup.style.transform = 'translateY(0)';
-        }, 10);
-    }
-
-    continueBtn.addEventListener('click', function () {
-        welcomePopup.style.opacity = '0';
-        welcomePopup.style.transform = 'translateY(-20px)';
-        welcomePopup.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
-        localStorage.setItem('welPopupClosed', 'true');
-
-        setTimeout(() => {
-            welcomePopup.style.display = 'none';
-        }, 300);
-    });
-});
