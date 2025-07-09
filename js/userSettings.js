@@ -10,27 +10,41 @@ let audioElements = {};
 let lastPlayed = null;
 let timerInterval;
 
+function updateVisibility(toggle, element, cookieName) {
+    element.style.display = toggle.checked ? 'block' : 'none';
+    setCookie(cookieName, toggle.checked);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const timerToggle = document.getElementById('timerToggle');
     const seasonTimer = document.getElementById('seasonTimer');
+    const winnersToggle = document.getElementById('winnersToggle');
+    const winnersElement = document.getElementById('winners');
+    const staffToggle = document.getElementById('staffToggle');
+    const staffElement = document.getElementById('admins-container');
+
+
+    // If no cookies are found, enable everything
+    timerToggle.checked = getCookie('showTimer') !== 'false';
+    winnersToggle.checked = getCookie('showWinners') !== 'false';
+    staffToggle.checked = getCookie('showStaff') !== 'false';
+
+    // Should we display or hide elements
+    seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
+    winnersElement.style.display = winnersToggle.checked ? 'block' : 'none';
+    staffElement.style.display = staffToggle.checked ? 'block' : 'none';
+
+    // Then update visibility
+    timerToggle.addEventListener('change', () => updateVisibility(timerToggle, seasonTimer, 'showTimer'));
+    winnersToggle.addEventListener('change', () => updateVisibility(winnersToggle, winnersElement, 'showWinners'));
+    staffToggle.addEventListener('change', () => updateVisibility(staffToggle, staffElement, 'showStaff'));
+
+    // Timer functionality
     const timerDisplay = document.getElementById('timerDisplay');
     const endDateDisplay = document.getElementById('endDateDisplay');
-
     if (endDateDisplay) {
         endDateDisplay.textContent = `Season ends: ${formatDate(seasonEndDate)}`;
     }
-
-    timerToggle.checked = getCookie('showTimer') === 'true';
-    seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
-
-    preloadAudio();
-    updateTimer();
-    timerInterval = setInterval(updateTimer, 1000);
-
-    timerToggle.addEventListener('change', () => {
-        setCookie('showTimer', timerToggle.checked);
-        seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
-    });
 
     function formatDate(date) {
         return date.toLocaleDateString('en-US', {
@@ -43,6 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
             timeZoneName: 'short'
         });
     }
+
+    // Update timer and preload audio for season end
+    preloadAudio();
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
 
     function preloadAudio() {
         const files = [
