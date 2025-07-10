@@ -426,7 +426,7 @@ td {
     border-color: #1640f9;
 }
 
-/* In  hideout */
+/* In hideout */
 .player-status-lb-hideout {
     background: rgba(245, 249, 22, 0.2);
     color: #f6ff77;
@@ -438,6 +438,13 @@ td {
     background: rgba(249, 115, 22, 0.2);
     color: #f97316;
     border-color: #f97316;
+}
+
+/* In Transit */
+.player-status-lb-transit {
+    background: rgba(249, 115, 22, 0.2);
+    color: #f9e216;
+    border-color: #fff387;
 }
 
 /* Finished raid */
@@ -483,13 +490,18 @@ td {
 
 /* In hideout */
 .player-status-lb-hideout #blink {
-    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    background: linear-gradient(135deg, #fb923c 0%, rgba(232, 251, 60, 0.6) 100%);
     box-shadow: 0 0 12px rgba(232, 251, 60, 0.6);
 }
 
-
 /* In raid */
 .player-status-lb-raid #blink {
+    background: linear-gradient(135deg, #eefb3c 0%, #f97316 100%);
+    box-shadow: 0 0 12px rgba(251, 146, 60, 0.6);
+}
+
+/* In transit */
+.player-status-lb-transit #blink {
     background: linear-gradient(135deg, #eefb3c 0%, #f97316 100%);
     box-shadow: 0 0 12px rgba(251, 146, 60, 0.6);
 }
@@ -615,7 +627,7 @@ button,
 }
 
 .REALISM {
-    color: #474747;
+    color: #ff7c7c;
 }
 
 .lb-profile-picture {
