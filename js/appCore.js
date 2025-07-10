@@ -424,7 +424,8 @@ async function displayLeaderboard(data) {
         let playerGameMode = ''
         if(player.isUsingFika){
             playerGameMode = 'FIKA'
-        } else if (player.isUsingRealism){
+        }
+        if (player.isUsingRealism){
             playerGameMode = 'REALISM'
         }
 

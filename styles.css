@@ -442,7 +442,7 @@ td {
 
 /* In Transit */
 .player-status-lb-transit {
-    background: rgba(249, 115, 22, 0.2);
+    background: rgba(249, 215, 22, 0.2);
     color: #f9e216;
     border-color: #fff387;
 }
