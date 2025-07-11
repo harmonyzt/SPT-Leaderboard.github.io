@@ -217,6 +217,7 @@ function getHash(obj) {
     }
     return hash;
 }
+
 /**
  * Loads all of the seasons and determines who played in previous seasons
  * @returns {Promise<void>}
@@ -421,11 +422,12 @@ async function displayLeaderboard(data) {
             accountColor = '#ba8bdb';
         }
 
+        // TODO: #10 Add tags altogether if they exist
         let playerGameMode = ''
-        if(player.isUsingFika){
+        if (player.isUsingFika) {
             playerGameMode = 'FIKA'
         }
-        if (player.isUsingRealism){
+        if (player.isUsingRealism) {
             playerGameMode = 'REALISM'
         }
 
@@ -448,12 +450,12 @@ async function displayLeaderboard(data) {
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
                 ${`<img class="lb-profile-picture" src="${player.pfp}">`}
-                ${accountIcon} ${player.customName? player.customName : player.name} ${prestigeImg}
-                ${playerGameMode ? 
-                    `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
-                    :
-                    ``
-                }
+                ${accountIcon} ${player.customName ? player.customName : player.name} ${prestigeImg}
+                ${playerGameMode ?
+                `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
+                :
+                ``
+            }
             </td>
             <td>${lastGame || 'N/A'}</td>
             <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
