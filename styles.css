@@ -1725,7 +1725,7 @@ button,
     }
 }
 
-/* SPT profiles */
+/* Main Overlay where profile goes */
 .profile-modal {
     display: none;
     position: fixed;
@@ -1742,21 +1742,9 @@ button,
     animation: fadeOut 0.3s ease-out forwards;
 }
 
-.profile-modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    transition: all 300ms ease-in-out;
-}
-
 .profile-modal-container {
     position: relative;
     width: 100%;
-    max-width: 850px;
     z-index: 1001;
     margin: 0 auto;
     margin-top: 10px;
@@ -1772,31 +1760,6 @@ button,
     padding: 25px;
     min-height: 800px;
     transition: all 300ms ease-in-out;
-}
-
-.profile-close-btn {
-    color: #b8b8b8;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    z-index: 1002;
-    background: rgba(30, 30, 45, 0.404);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    border-radius: 20%;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.profile-close-btn:hover {
-    color: #ffffff;
-    background: rgba(70, 70, 90, 0.7);
-    transform: scale(1.1);
 }
 
 /* Player Info */

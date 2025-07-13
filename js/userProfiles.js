@@ -11,37 +11,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function openProfile(playerId) {
-    const modal = document.getElementById('playerProfileModal');
-    const modalContent = document.getElementById('modalPlayerInfo');
-
+    const modalContent = document.getElementById('playerProfileModal');
     modalContent.innerHTML = '';
-
-    // If no id data-player-id="0" (shouldn't be happening)
-    if (!playerId || playerId === '0') {
-        showPrivateProfile(modalContent, "Unknown Player");
-        modal.style.display = 'flex';
-        setupModalCloseHandlers(modal);
-        return;
-    }
 
     // Finding Player in data
     const player = leaderboardData.find(p => p.id === playerId);
-
-    // Couldn't find
-    if (!player) {
-        showPrivateProfile(modalContent, "Player Not Found");
-        modal.style.display = 'flex';
-        setupModalCloseHandlers(modal);
-        return;
-    }
-
     const isPublic = player.publicProfile;
 
     // If disqualified
     if (player.disqualified) {
         modal.style.display = 'flex';
         showDisqualProfile(modalContent, player);
-        setupModalCloseHandlers(modal, player);
         return;
     }
 
@@ -49,11 +29,10 @@ async function openProfile(playerId) {
     if (!isPublic) {
         modal.style.display = 'flex';
         showPrivateProfile(modalContent, player);
-        setupModalCloseHandlers(modal, player);
         return;
     }
 
-    // Instantly try assigning info if it was changed (and then change it to actual on backend)
+    // Instantly try assigning info if it was changed
     async function applyPlayerSettings(playerId) {
         try {
             const settings = await getProfileSettings();
@@ -87,13 +66,13 @@ async function openProfile(playerId) {
     }
 
     // await for it to end
-    await applyPlayerSettings(player.id);
+    //await applyPlayerSettings(player.id);
 
     // Showing public profile
     showPublicProfile(modalContent, player);
     openedPlayerData = player;
-    modal.style.display = 'flex';
-    setupModalCloseHandlers(modal);
+    modalContent.style.display = 'flex';
+    setupModalCloseHandlers(modalContent);
 
     return;
 }
@@ -380,7 +359,7 @@ async function showPublicProfile(container, player) {
     }
 
     // Profile Theme
-    const profileModal = document.querySelector('.profile-modal-content');
+    const profileModal = document.querySelector('.profile-modal');
     profileModal.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
     profileModal.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
 
@@ -392,17 +371,14 @@ async function showPublicProfile(container, player) {
 
     // Get profile picture
     const profilePicture = await getPlayerPfp(player.id);
-
     const profileName = await getPlayerName(player.id);
 
     container.innerHTML = `
-<div class="profile-grid-layout profile-loading-overlay" id="profile-main-grid">
+<div class="profile-grid-layout" id="profile-main-grid">
     <!-- Main -->
     <div class="profile-main-card" id="main-profile-card">
-        <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
-        <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew" />
-
         <img src="${profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" />
+
         <div class="player-status">
             <div class="status-indicator ${isOnline ? 'status-online' : 'status-offline'}"></div>
             <span>${isOnline ? 'Online' : 'Offline'}</span>
@@ -742,22 +718,13 @@ async function showPublicProfile(container, player) {
         </div>
     </div>
 
-    <div class="private-profile-overlay" id="profile-loader">
-        <div class="loader-glass">
-            <div class="loader-content">
-            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-            <h3>Loading...</h3>
-            </div>
-        </div>
-    </div>
-
     <div class="friend-list">
         <h3>Friends</h3>
         <div id="friends-container">
             <div class="loading">Loading Friends...</div>
         </div>
     </div>
-`;
+    `;
 
     // Init battlepass button once the profile has opened
     initHOF(player, bestWeapon);
