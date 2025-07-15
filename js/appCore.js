@@ -618,7 +618,7 @@ function calculateRanks(data) {
         }
 
         if ((player.averageLifeTime / 60) < MIN_LIFE_TIME) {
-            score *= 0.3; // -70% penalty
+            score *= 0.1; // -90% penalty
         }
 
         player.totalScore = score;
