@@ -982,7 +982,7 @@
             "damage": 2561,
             "accountType": "edge_of_darkness",
             "sptVer": "3.11.3",
-            "publicProfile": true,
+            "publicProfile": false,
             "currentWinstreak": 2,
             "longestShot": 75,
             "pmcRaids": 4,

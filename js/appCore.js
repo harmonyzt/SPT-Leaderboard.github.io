@@ -208,16 +208,6 @@ async function loadSeasonData(season) {
     }
 }
 
-function getHash(obj) {
-    const str = JSON.stringify(obj, Object.keys(obj).sort());
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        hash = (hash << 5) - hash + str.charCodeAt(i);
-        hash |= 0;
-    }
-    return hash;
-}
-
 /**
  * Loads all of the seasons and determines who played in previous seasons
  * @returns {Promise<void>}
@@ -628,7 +618,7 @@ function calculateRanks(data) {
         }
 
         if ((player.averageLifeTime / 60) < MIN_LIFE_TIME) {
-            score *= 0.6; // -40% penalty
+            score *= 0.3; // -70% penalty
         }
 
         player.totalScore = score;
