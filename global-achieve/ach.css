@@ -4,9 +4,9 @@
     --card-bg: rgba(255, 255, 255, 0.05);
     --card-border: rgba(51, 65, 85, 0.5);
     --text-main: #f8fafc;
-    --common: #2e7d32;
-    --rare: #1565c0;
-    --legendary: #ff8f00;
+    --common: #b9b9b9;
+    --rare: #6515c0;
+    --legendary: #ffd900;
     --neon-glow: 0 0 10px rgba(99, 102, 241, 0.7);
     --card-glow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
