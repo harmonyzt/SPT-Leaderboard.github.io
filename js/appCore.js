@@ -53,7 +53,7 @@ if (debug) {
     achievementsPath = `../fallbacks/shared/achievement_counters.json`;
 }
 
-// Call on DOM load
+// Call main init on DOM load
 document.addEventListener('DOMContentLoaded', initAllSeasons);
 
 /**
