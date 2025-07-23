@@ -8,7 +8,7 @@ class HeartbeatMonitor {
     constructor() {
         this.heartbeatData = {};
         this.lastUpdateTime = 0;
-        this.onlineThreshold = 1200;
+        this.onlineThreshold = 1800;
     }
 
     async fetchHeartbeats() {
