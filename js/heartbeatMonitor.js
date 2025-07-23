@@ -54,9 +54,13 @@ class HeartbeatMonitor {
 
     getPlayerStatus(playerId) {
         const heartbeat = this.heartbeatData[playerId];
+        const currentTime = Date.now() / 1000;
 
-        if (heartbeat) {
-            const isRecentlyInRaid = (heartbeat.type === 'in_raid' && (Date.now() / 1000 - heartbeat.timestamp) < 3000);
+        // no Heartbeat or last online > 30m - offline
+        const isOnline = heartbeat && (currentTime - heartbeat.timestamp <= this.onlineThreshold);
+
+        if (isOnline) {
+            const isRecentlyInRaid = (heartbeat.type === 'in_raid' && (currentTime - heartbeat.timestamp) < 3000);
 
             return {
                 isOnline: true,
@@ -73,7 +77,7 @@ class HeartbeatMonitor {
             status: 'offline',
             statusClass: 'player-status-lb-offline',
             statusText: 'Offline',
-            lastUpdate: null
+            lastUpdate: heartbeat?.timestamp || null
         };
     }
 
