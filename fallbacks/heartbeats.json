@@ -1,233 +1,226 @@
 {
-    "684eb6cb000388a30b9b3b94": {
-        "id": "684eb6cb000388a30b9b3b94",
-        "timestamp": 1750899323,
+    "687497300002083de659d590": {
+        "id": "687497300002083de659d590",
+        "timestamp": 1753300333,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750899324755,
-            "ver": "2.5.0",
-            "sessionId": "684eb6cb000388a30b9b3b94"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "6859cace000319977f9a8b78": {
-        "id": "6859cace000319977f9a8b78",
-        "timestamp": 1750899497,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899496717,
-            "ver": "2.5.0",
-            "sessionId": "6859cace000319977f9a8b78"
-        }
-    },
-    "685c1f7600003018d50fe628": {
-        "id": "685c1f7600003018d50fe628",
-        "timestamp": 1750897933,
+    "6879a0990004d1144530ccb8": {
+        "id": "6879a0990004d1144530ccb8",
+        "timestamp": 1753300339,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750897932224,
-            "ver": "2.5.0",
-            "sessionId": "685c1f7600003018d50fe628"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "685c59e50005c17df50989f9": {
-        "id": "685c59e50005c17df50989f9",
-        "timestamp": 1750899479,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899478835,
-            "ver": "2.5.0",
-            "sessionId": "685c59e50005c17df50989f9"
-        }
-    },
-    "6840d51c00036fda004ca1c4": {
-        "id": "6840d51c00036fda004ca1c4",
-        "timestamp": 1750897519,
+    "687cf0d400045edf21b19fa0": {
+        "id": "687cf0d400045edf21b19fa0",
+        "timestamp": 1753300308,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750897519768,
-            "ver": "2.5.0",
-            "sessionId": "6840d51c00036fda004ca1c4"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "685a0d7b000143ff59caddc8": {
-        "id": "685a0d7b000143ff59caddc8",
-        "timestamp": 1750897829,
+    "687d046d00003ca1d36a7409": {
+        "id": "687d046d00003ca1d36a7409",
+        "timestamp": 1753300345,
+        "type": "in_menu",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687ab7e300058884b4b70a53": {
+        "id": "687ab7e300058884b4b70a53",
+        "timestamp": 1753300294,
+        "type": "online",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687ee1a80005790af74c3a08": {
+        "id": "687ee1a80005790af74c3a08",
+        "timestamp": 1753300302,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "68811c26000361c8a2135140": {
+        "id": "68811c26000361c8a2135140",
+        "timestamp": 1753300341,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "688123050004addd2d42c0c7": {
+        "id": "688123050004addd2d42c0c7",
+        "timestamp": 1753300306,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687a69d9a400cd07b8002263": {
+        "id": "687a69d9a400cd07b8002263",
+        "timestamp": 1753300060,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "683cc0710000eba275367174": {
+        "id": "683cc0710000eba275367174",
+        "timestamp": 1753300321,
+        "type": "online",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687e12350000b22c2f85951f": {
+        "id": "687e12350000b22c2f85951f",
+        "timestamp": 1753298929,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750897828407,
-            "ver": "2.5.0",
-            "sessionId": "685a0d7b000143ff59caddc8"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "6859d62d0000bd6c9bb5fdd1": {
-        "id": "6859d62d0000bd6c9bb5fdd1",
-        "timestamp": 1750899526,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899525975,
-            "ver": "2.5.0",
-            "sessionId": "6859d62d0000bd6c9bb5fdd1"
-        }
-    },
-    "685765f300039f7f0b3a673b": {
-        "id": "685765f300039f7f0b3a673b",
-        "timestamp": 1750897323,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750897324447,
-            "ver": "2.5.0",
-            "sessionId": "685765f300039f7f0b3a673b"
-        }
-    },
-    "68517fa50002f9e5fb7b5f98": {
-        "id": "68517fa50002f9e5fb7b5f98",
-        "timestamp": 1750899436,
+    "687c65950000f9c3ac0aa5da": {
+        "id": "687c65950000f9c3ac0aa5da",
+        "timestamp": 1753300319,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750899436267,
-            "ver": "2.5.0",
-            "sessionId": "68517fa50002f9e5fb7b5f98"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "68786da60006247020dffd20": {
+        "id": "68786da60006247020dffd20",
+        "timestamp": 1753300105,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687aca0a000595d2a480ea10": {
+        "id": "687aca0a000595d2a480ea10",
+        "timestamp": 1753300037,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "68727be200056708069105be": {
+        "id": "68727be200056708069105be",
+        "timestamp": 1753300337,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "68702b6e0005649ff4dee258": {
+        "id": "68702b6e0005649ff4dee258",
+        "timestamp": 1753299611,
+        "type": "in_stash",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687eee2b0004616ffbc3ee9f": {
+        "id": "687eee2b0004616ffbc3ee9f",
+        "timestamp": 1753300309,
+        "type": "in_stash",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "6873dcd30002fd0e50b37c8a": {
+        "id": "6873dcd30002fd0e50b37c8a",
+        "timestamp": 1753300345,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "6870e9b400048c2694f7de00": {
+        "id": "6870e9b400048c2694f7de00",
+        "timestamp": 1753300228,
+        "type": "in_menu",
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
     "68459257000124366ff1d55d": {
         "id": "68459257000124366ff1d55d",
-        "timestamp": 1750896280,
+        "timestamp": 1753298653,
         "type": "online",
-        "data": {
-            "type": "online",
-            "timestamp": 1750896273729,
-            "ver": "2.5.0",
-            "sessionId": "68459257000124366ff1d55d"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "6859fe7f00019a8ab67f5357": {
-        "id": "6859fe7f00019a8ab67f5357",
-        "timestamp": 1750899207,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899206819,
-            "ver": "2.5.0",
-            "sessionId": "6859fe7f00019a8ab67f5357"
-        }
+    "6817d1060003886474d2663e": {
+        "id": "6817d1060003886474d2663e",
+        "timestamp": 1763300332,
+        "type": "in_raid",
+        "map": "Interchange",
+        "side": "Bear",
+        "gameTime": "21:52:34"
     },
-    "685b39460000aa2e53c4515c": {
-        "id": "685b39460000aa2e53c4515c",
-        "timestamp": 1750897557,
+    "687e5ed00003230c9cd9f6e0": {
+        "id": "687e5ed00003230c9cd9f6e0",
+        "timestamp": 1753299594,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750897557268,
-            "ver": "2.5.0",
-            "sessionId": "685b39460000aa2e53c4515c"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "6851908d000303a8d05e2f2f": {
-        "id": "6851908d000303a8d05e2f2f",
-        "timestamp": 1750899021,
+    "68742e9e00030cd4d12317dc": {
+        "id": "68742e9e00030cd4d12317dc",
+        "timestamp": 1753298602,
         "type": "in_menu",
-        "data": {
-            "type": "in_menu",
-            "timestamp": 1750899019005,
-            "ver": "2.5.0",
-            "sessionId": "6851908d000303a8d05e2f2f"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "685239590001d10eecdf1ddc": {
-        "id": "685239590001d10eecdf1ddc",
-        "timestamp": 1750899284,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899281591,
-            "ver": "2.5.0",
-            "sessionId": "685239590001d10eecdf1ddc"
-        }
+    "687d2c1300010f36de757521": {
+        "id": "687d2c1300010f36de757521",
+        "timestamp": 1753299029,
+        "type": "in_menu",
+        "map": null,
+        "side": null,
+        "gameTime": null
     },
-    "684f185900010902cba4c5cf": {
-        "id": "684f185900010902cba4c5cf",
-        "timestamp": 1750899639,
+    "68811eb80004254f0bcff340": {
+        "id": "68811eb80004254f0bcff340",
+        "timestamp": 1753300307,
+        "type": "online",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "685c84e50003c74784bd7fc0": {
+        "id": "685c84e50003c74784bd7fc0",
+        "timestamp": 1753299781,
+        "type": "in_raid",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "687a54b60005de9aa602cbbe": {
+        "id": "687a54b60005de9aa602cbbe",
+        "timestamp": 1753299866,
+        "type": "online",
+        "map": null,
+        "side": null,
+        "gameTime": null
+    },
+    "688092e8000637a38bfaedc8": {
+        "id": "688092e8000637a38bfaedc8",
+        "timestamp": 1753300339,
         "type": "in_stash",
-        "data": {
-            "type": "in_stash",
-            "timestamp": 1750899640611,
-            "ver": "2.5.0",
-            "sessionId": "684f185900010902cba4c5cf"
-        }
-    },
-    "685757740332827940002f11": {
-        "id": "685757740332827940002f11",
-        "timestamp": 1750898415,
-        "type": "in_menu",
-        "data": {
-            "type": "in_menu",
-            "timestamp": 1750898417063,
-            "ver": "2.5.0",
-            "sessionId": "685757740332827940002f11"
-        }
-    },
-    "6855c2d60004d5dc4e80f92c": {
-        "id": "6855c2d60004d5dc4e80f92c",
-        "timestamp": 1750898359,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750898361982,
-            "ver": "2.5.0",
-            "sessionId": "6855c2d60004d5dc4e80f92c"
-        }
-    },
-    "684f4398000155b9f4d43db8": {
-        "id": "684f4398000155b9f4d43db8",
-        "timestamp": 1750898796,
-        "type": "in_menu",
-        "data": {
-            "type": "in_menu",
-            "timestamp": 1750898798276,
-            "ver": "2.5.0",
-            "sessionId": "684f4398000155b9f4d43db8"
-        }
-    },
-    "680118d8000100c31d5658d8": {
-        "id": "680118d8000100c31d5658d8",
-        "timestamp": 1750899574,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899574341,
-            "ver": "2.5.0",
-            "sessionId": "680118d8000100c31d5658d8"
-        }
-    },
-    "6859d7c2000265ea4faf7e30": {
-        "id": "6859d7c2000265ea4faf7e30",
-        "timestamp": 1750899484,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899483765,
-            "ver": "2.5.0",
-            "sessionId": "6859d7c2000265ea4faf7e30"
-        }
-    },
-    "684f16080003c59b0cfc72b0": {
-        "id": "684f16080003c59b0cfc72b0",
-        "timestamp": 1750899558,
-        "type": "raid_start",
-        "data": {
-            "type": "raid_start",
-            "timestamp": 1750899559352,
-            "ver": "2.5.0",
-            "sessionId": "684f16080003c59b0cfc72b0"
-        }
+        "map": null,
+        "side": null,
+        "gameTime": null
     }
 }
