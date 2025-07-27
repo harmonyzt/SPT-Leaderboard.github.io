@@ -1034,9 +1034,9 @@
         "pfpBorder": "default",
         "decal": "default",
         "aboutMe": "",
-        "discordUser": "fallenq",
-        "pfp": "https://i.postimg.cc/pTSGsC3t/Bez-tytu-u.png",
-        "name": "fallenq"
+        "discordUser": "",
+        "pfp": "",
+        "name": "[Profile Deleted]"
     },
     "68758cfe000065548f9de056": {
         "profileTheme": "gradient",
@@ -1577,5 +1577,35 @@
         "discordUser": "",
         "pfp": "",
         "name": "Drakon"
+    },
+    "6885898d0003047dc83cd6db": {
+        "profileTheme": "steelshade",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "killa",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": true,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "",
+        "discordUser": "",
+        "pfp": "",
+        "name": "CrimsonChin"
+    },
+    "68864b2700010d42b2689f48": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "none",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "",
+        "discordUser": "",
+        "pfp": "",
+        "name": "JabbaTheJ"
     }
 }
