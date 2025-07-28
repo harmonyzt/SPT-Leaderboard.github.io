@@ -77,53 +77,33 @@ async function assignLeaderboardData(players) {
     const settings = await getProfileSettings();
 
     // Use const here
-    const playerUpdates = players.map(async (player) => {
+    const updatePromises = players.map(async player => {
         if (player.banned) return player;
 
         const playerConfig = settings[player.id];
         if (!playerConfig) return player;
 
-        const {
-            aboutMe,
-            usePrestigeStyling,
-            profileTheme,
-            prestigeBackground,
-            backgroundReward,
-            mainBackgroundReward,
-            catReward,
-            pfpStyle,
-            pfpBorder,
-            decal,
-            discordUser = "",
-            name: customName,
-            pfp: configPfp
-        } = playerConfig;
+        // Make this an object
+        Object.assign(player, {
+            profileAboutMe: playerConfig.aboutMe,
+            usePrestigeStyling: playerConfig.usePrestigeStyling,
+            profileTheme: playerConfig.profileTheme,
+            bp_prestigebg: playerConfig.prestigeBackground,
+            bp_cardbg: playerConfig.backgroundReward,
+            bp_mainbg: playerConfig.mainBackgroundReward,
+            bp_cat: playerConfig.catReward,
+            bp_pfpstyle: playerConfig.pfpStyle,
+            bp_pfpbordercolor: playerConfig.pfpBorder,
+            bp_decal: playerConfig.decal,
+            discordUser: playerConfig.discordUser || "",
+            name: playerConfig.name || player.name,
+            profilePicture: `${await determinePlayerPfp(player.id, playerConfig.pfp)}?${Date.now()}`
+        });
 
-        // Get the pfp while we update
-        const [playerPfp] = await Promise.all([
-            determinePlayerPfp(player.id, configPfp),
-        ]);
-
-        return {
-            ...player,
-            profileAboutMe: aboutMe,
-            usePrestigeStyling,
-            profileTheme,
-            bp_prestigebg: prestigeBackground,
-            bp_cardbg: backgroundReward,
-            bp_mainbg: mainBackgroundReward,
-            bp_cat: catReward,
-            bp_pfpstyle: pfpStyle,
-            bp_pfpbordercolor: pfpBorder,
-            bp_decal: decal,
-            discordUser,
-            name: customName || player.name,
-            profilePicture: playerPfp
-        };
+        return player;
     });
 
-    // await all updates
-    return Promise.all(playerUpdates);
+    await Promise.all(updatePromises);
 }
 
 async function determinePlayerPfp(playerId, configPfp) {

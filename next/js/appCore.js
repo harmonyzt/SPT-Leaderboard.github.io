@@ -14,6 +14,7 @@ let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
+let isFirstPfpLoad = true;
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
@@ -208,14 +209,52 @@ async function loadSeasonData(season) {
             return;
         }
 
-    } finally {
+        // await assignLeaderboardData
         await assignLeaderboardData(leaderboardData);
 
-        processSeasonData(leaderboardData);
-        displayLeaderboard(leaderboardData);
+        // For first launch ONLY
+        if (isFirstPfpLoad) {
+            processSeasonData(leaderboardData);
+            displayLeaderboard(leaderboardData);
+            isFirstPfpLoad = false;
+        } else {
+            updateExistingLeaderboard(leaderboardData);
+        }
+
         checkRecentPlayers(leaderboardData);
         initProfileWatchList(leaderboardData);
+    } catch (error) {
+        console.error('Error loading season data:', error);
+        emptyLeaderboardNotification.style.display = 'block';
+    } finally {
+        isDataReady = true;
     }
+}
+
+function updateExistingLeaderboard(players) {
+    const tableBody = document.querySelector('#leaderboardTable tbody');
+    if (!tableBody) return;
+
+    players.forEach(player => {
+        const row = tableBody.querySelector(`tr[data-player-id="${player.id}"]`);
+        if (!row) return;
+
+        const nameCell = row.querySelector('.player-name');
+        const avatarImg = row.querySelector('.player-avatar img');
+
+        if (nameCell && player.name) {
+            nameCell.textContent = player.name;
+        }
+
+        if (avatarImg && player.profilePicture) {
+            const timestamp = new Date().getTime();
+            avatarImg.src = `${player.profilePicture}?${timestamp}`;
+
+            avatarImg.onerror = () => {
+                avatarImg.src = 'media/default_avatar.png';
+            };
+        }
+    });
 }
 
 /**
