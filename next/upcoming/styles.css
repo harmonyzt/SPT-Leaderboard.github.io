@@ -1,0 +1,92 @@
+:root {
+    --primary-color: #6366f1;
+    --primary-light: rgba(99, 102, 241, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(51, 65, 85, 0.5);
+    --text-main: #f8fafc;
+    --neon-glow: 0 0 10px rgba(99, 102, 241, 0.7);
+    --card-glow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.update-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--card-glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 50px;
+}
+
+.update-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--primary-light);
+    padding-bottom: 10px;
+}
+
+.update-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.update-date {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.update-content ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.update-content li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.update-content li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.badge-upd {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.badge-new {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.badge-fix {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f87171;
+}
+
+.badge-improvement {
+    background-color: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+}
+
+.version-tag {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    background: var(--primary-light);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
