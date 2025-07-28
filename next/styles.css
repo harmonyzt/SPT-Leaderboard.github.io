@@ -422,28 +422,28 @@ td {
 /* In stash */
 .player-status-lb-stash {
     background: #1640f928;
-    color: #4b6cff;
+    color: #899fff;
     border-color: #1640f9;
 }
 
 /* In hideout */
 .player-status-lb-hideout {
     background: rgba(245, 249, 22, 0.2);
-    color: #f6ff77;
+    color: #f7ff87;
     border-color: #eaf916;
 }
 
 /* IN raid */
 .player-status-lb-raid {
     background: rgba(249, 115, 22, 0.2);
-    color: #f97316;
+    color: #ffa362;
     border-color: #f97316;
 }
 
 /* In Transit */
 .player-status-lb-transit {
     background: rgba(249, 215, 22, 0.2);
-    color: #f9e216;
+    color: #fff384;
     border-color: #fff387;
 }
 
