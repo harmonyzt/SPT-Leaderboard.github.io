@@ -45,7 +45,7 @@ async function assignLeaderboardData(players) {
             decal,
             discordUser = "",
             name: customName,
-            profilePicture: configPfp
+            pfp: configPfp
         } = playerConfig;
 
         const playerName = customName || player.name;
