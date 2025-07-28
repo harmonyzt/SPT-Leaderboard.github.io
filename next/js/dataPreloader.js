@@ -75,14 +75,14 @@ async function getProfileSettings() {
 
 async function assignLeaderboardData(players) {
     const settings = await getProfileSettings();
-    
+
     // Use const here
     const playerUpdates = players.map(async (player) => {
         if (player.banned) return player;
-        
+
         const playerConfig = settings[player.id];
         if (!playerConfig) return player;
-        
+
         const {
             aboutMe,
             usePrestigeStyling,
@@ -98,12 +98,12 @@ async function assignLeaderboardData(players) {
             name: customName,
             pfp: configPfp
         } = playerConfig;
-        
+
         // Get the pfp while we update
         const [playerPfp] = await Promise.all([
             determinePlayerPfp(player.id, configPfp),
         ]);
-        
+
         return {
             ...player,
             profileAboutMe: aboutMe,
@@ -121,7 +121,7 @@ async function assignLeaderboardData(players) {
             profilePicture: playerPfp
         };
     });
-    
+
     // await all updates
     return Promise.all(playerUpdates);
 }
