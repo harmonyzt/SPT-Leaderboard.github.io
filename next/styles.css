@@ -1898,8 +1898,9 @@ button,
 
 /* Player full height preview */
 .playermodel-image img {
-    width: -webkit-fill-available;
+    width: 100%;
     display: flex;
+    height: auto;
     justify-self: center;
 }
 
@@ -2040,15 +2041,13 @@ button,
     font-family: sans-serif;
 }
 
-
 .weapon-icon-fav {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-    width: -webkit-fill-available;
+    width: 100%;
     height: auto;
     margin-top: 10px;
     place-self: center;
 }
-
 
 /* Weapons List */
 .weapon-stats-container {

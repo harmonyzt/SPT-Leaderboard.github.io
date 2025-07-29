@@ -29,9 +29,9 @@ function resetStyles({ mainBackground, profileCard, profileAvatar, profileBackgr
     // Reset main background
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.className = mainBackground.className.replace(/(usec|bear|labs|prestige-(tagilla|killa|both))-background/g, '');
+    mainBackground.className = mainBackground.className.replace(/(usec|bear|labs)-background|prestige-(tagilla|killa|both)/g, '');
 
-    // Reset profile background
+    // Reset weapon 
     profileBackground.className = profileBackground.className.replace(/(scratches|cult-(signs|signs2|circle))/g, '');
 
     // Reset profile card
