@@ -6,21 +6,57 @@
             "playedMaps": {
                 "Shoreline": 6,
                 "RezervBase": 2,
-                "Woods": 10,
-                "bigmap": 13,
+                "Woods": 14,
+                "bigmap": 16,
                 "Interchange": 5,
-                "factory4_day": 5,
+                "factory4_day": 7,
                 "factory4_night": 6,
                 "Lighthouse": 1,
                 "laboratory": 4
             },
             "weapons": {
+                "M1A": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 8,
+                        "totalShots": 137,
+                        "timesLost": 1
+                    },
+                    "originalId": "5aafa857e5b5b00018480968"
+                },
+                "Mosin Sniper": {
+                    "stats": {
+                        "kills": 16,
+                        "headshots": 15,
+                        "totalShots": 52,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ae08f0a5acfc408fb1398a1"
+                },
+                "MP7A1": {
+                    "stats": {
+                        "kills": 42,
+                        "headshots": 31,
+                        "totalShots": 616,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ba26383d4351e00334c93d9"
+                },
+                "M700": {
+                    "stats": {
+                        "kills": 26,
+                        "headshots": 19,
+                        "totalShots": 91,
+                        "timesLost": 2
+                    },
+                    "originalId": "5bfea6e90db834001b7347f3"
+                },
                 "AA-12 Gen 1": {
                     "stats": {
                         "kills": 10,
                         "headshots": 7,
                         "totalShots": 64,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "66ffa9b66e19cc902401c5e8"
                 },
@@ -32,15 +68,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5bb2475ed4351e00853264e3"
-                },
-                "MP7A1": {
-                    "stats": {
-                        "kills": 34,
-                        "headshots": 24,
-                        "totalShots": 447,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ba26383d4351e00334c93d9"
                 },
                 "AXMC": {
                     "stats": {
@@ -78,15 +105,6 @@
                     },
                     "originalId": "65290f395ae2ae97b80fdf2d"
                 },
-                "M700": {
-                    "stats": {
-                        "kills": 26,
-                        "headshots": 19,
-                        "totalShots": 90,
-                        "timesLost": 2
-                    },
-                    "originalId": "5bfea6e90db834001b7347f3"
-                },
                 "M4A1": {
                     "stats": {
                         "kills": 300,
@@ -113,15 +131,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5ac66d9b5acfc4001633997a"
-                },
-                "Mosin Sniper": {
-                    "stats": {
-                        "kills": 8,
-                        "headshots": 8,
-                        "totalShots": 36,
-                        "timesLost": 1
-                    },
-                    "originalId": "5ae08f0a5acfc408fb1398a1"
                 },
                 "MP-133": {
                     "stats": {
@@ -1497,29 +1506,47 @@
         },
         "68671156000087914d8fc6f2": {
             "lastUpdate": 1752088803,
-            "level": 15,
+            "level": 19,
             "playedMaps": {
                 "laboratory": 35,
-                "bigmap": 22,
+                "bigmap": 26,
                 "Lighthouse": 1,
                 "RezervBase": 1,
                 "Woods": 3,
                 "Sandbox_high": 2,
-                "factory4_day": 15,
+                "factory4_day": 17,
                 "Shoreline": 7,
                 "Interchange": 4,
                 "TarkovStreets": 2,
                 "Sandbox": 3
             },
             "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 40,
+                        "headshots": 17,
+                        "totalShots": 409,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
                 "Mk 16": {
                     "stats": {
-                        "kills": 28,
-                        "headshots": 20,
-                        "totalShots": 158,
+                        "kills": 66,
+                        "headshots": 45,
+                        "totalShots": 405,
                         "timesLost": 0
                     },
                     "originalId": "618428466ef05c2ce828f218"
+                },
+                "RPK-16": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 36,
+                        "timesLost": 0
+                    },
+                    "originalId": "5beed0f50db834001c062b12"
                 },
                 "SVDS": {
                     "stats": {
@@ -1557,15 +1584,6 @@
                     },
                     "originalId": "5aafa857e5b5b00018480968"
                 },
-                "M4A1": {
-                    "stats": {
-                        "kills": 34,
-                        "headshots": 14,
-                        "totalShots": 378,
-                        "timesLost": 0
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
-                },
                 "RSASS": {
                     "stats": {
                         "kills": 78,
@@ -1574,15 +1592,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5a367e5dc4a282000e49738f"
-                },
-                "RPK-16": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 1,
-                        "totalShots": 29,
-                        "timesLost": 0
-                    },
-                    "originalId": "5beed0f50db834001c062b12"
                 },
                 "AKMS": {
                     "stats": {
@@ -1823,33 +1832,33 @@
                 "laboratory": 6,
                 "Interchange": 1,
                 "RezervBase": 1,
-                "Woods": 1
+                "Woods": 2
             },
             "weapons": {
-                "AK-74M": {
-                    "stats": {
-                        "kills": 4,
-                        "headshots": 4,
-                        "totalShots": 42,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
-                },
                 "MDR": {
                     "stats": {
-                        "kills": 54,
-                        "headshots": 24,
-                        "totalShots": 556,
+                        "kills": 61,
+                        "headshots": 25,
+                        "totalShots": 620,
                         "timesLost": 1
                     },
                     "originalId": "5dcbd56fdbd3d91b3e5468d5"
+                },
+                "AK-74M": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 5,
+                        "totalShots": 96,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
                 },
                 "P90": {
                     "stats": {
                         "kills": 4,
                         "headshots": 1,
                         "totalShots": 109,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5cc82d76e24e8d00134b4b83"
                 },
@@ -1876,7 +1885,7 @@
                         "kills": 22,
                         "headshots": 12,
                         "totalShots": 255,
-                        "timesLost": 1
+                        "timesLost": 2
                     },
                     "originalId": "5bb2475ed4351e00853264e3"
                 },
@@ -1885,7 +1894,7 @@
                         "kills": 0,
                         "headshots": 0,
                         "totalShots": 4,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5b3b713c5acfc4330140bd8d"
                 },
@@ -3548,15 +3557,34 @@
                 "Woods": 7,
                 "factory4_day": 28,
                 "Shoreline": 7,
-                "RezervBase": 1
+                "RezervBase": 2,
+                "TarkovStreets": 1
             },
             "weapons": {
+                "AKS-74UB": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 4,
+                        "totalShots": 77,
+                        "timesLost": 0
+                    },
+                    "originalId": "5839a40f24597726f856b511"
+                },
+                "HK 416A5": {
+                    "stats": {
+                        "kills": 36,
+                        "headshots": 13,
+                        "totalShots": 681,
+                        "timesLost": 2
+                    },
+                    "originalId": "5bb2475ed4351e00853264e3"
+                },
                 "M4A1": {
                     "stats": {
                         "kills": 58,
                         "headshots": 26,
                         "totalShots": 1710,
-                        "timesLost": 5
+                        "timesLost": 6
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
@@ -3731,15 +3759,6 @@
                     },
                     "originalId": "5c488a752e221602b412af63"
                 },
-                "HK 416A5": {
-                    "stats": {
-                        "kills": 26,
-                        "headshots": 9,
-                        "totalShots": 434,
-                        "timesLost": 2
-                    },
-                    "originalId": "5bb2475ed4351e00853264e3"
-                },
                 "FN 5-7 FDE": {
                     "stats": {
                         "kills": 6,
@@ -3780,11 +3799,11 @@
         },
         "680118d8000100c31d5658d8": {
             "lastUpdate": 1752110896,
-            "level": 39,
+            "level": 40,
             "playedMaps": {
-                "bigmap": 5,
-                "Woods": 9,
-                "RezervBase": 2,
+                "bigmap": 6,
+                "Woods": 10,
+                "RezervBase": 8,
                 "Lighthouse": 5,
                 "Interchange": 2,
                 "Shoreline": 5,
@@ -3792,6 +3811,69 @@
                 "TarkovStreets": 1
             },
             "weapons": {
+                "AA-12 Gen 2": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 0,
+                        "totalShots": 203,
+                        "timesLost": 0
+                    },
+                    "originalId": "67124dcfa3541f2a1f0e788b"
+                },
+                "FN 5-7 FDE": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 4,
+                        "totalShots": 108,
+                        "timesLost": 1
+                    },
+                    "originalId": "5d67abc1a4b93614ec50137f"
+                },
+                "AK-105": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 4,
+                        "totalShots": 402,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ac66d9b5acfc4001633997a"
+                },
+                "RSh-12": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 4,
+                        "totalShots": 53,
+                        "timesLost": 2
+                    },
+                    "originalId": "633ec7c2a6918cb895019c6c"
+                },
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 144,
+                        "timesLost": 0
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
+                },
+                "P90": {
+                    "stats": {
+                        "kills": 21,
+                        "headshots": 9,
+                        "totalShots": 596,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cc82d76e24e8d00134b4b83"
+                },
+                "PP-91 Kedr": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 53,
+                        "timesLost": 0
+                    },
+                    "originalId": "57d14d2524597714373db789"
+                },
                 "AK-12": {
                     "stats": {
                         "kills": 13,
@@ -3954,15 +4036,6 @@
                     },
                     "originalId": "5f36a0e5fbf956000b716b65"
                 },
-                "FN 5-7 FDE": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 60,
-                        "timesLost": 1
-                    },
-                    "originalId": "5d67abc1a4b93614ec50137f"
-                },
                 "TRG M10": {
                     "stats": {
                         "kills": 2,
@@ -4089,15 +4162,6 @@
                     },
                     "originalId": "65290f395ae2ae97b80fdf2d"
                 },
-                "AK-105": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 1,
-                        "totalShots": 120,
-                        "timesLost": 1
-                    },
-                    "originalId": "5ac66d9b5acfc4001633997a"
-                },
                 "SKS": {
                     "stats": {
                         "kills": 6,
@@ -4125,15 +4189,6 @@
                     },
                     "originalId": "62e14904c2699c0ec93adc47"
                 },
-                "RSh-12": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 30,
-                        "timesLost": 2
-                    },
-                    "originalId": "633ec7c2a6918cb895019c6c"
-                },
                 "AS VAL": {
                     "stats": {
                         "kills": 2,
@@ -4142,15 +4197,6 @@
                         "timesLost": 0
                     },
                     "originalId": "57c44b372459772d2b39b8ce"
-                },
-                "P90": {
-                    "stats": {
-                        "kills": 14,
-                        "headshots": 4,
-                        "totalShots": 301,
-                        "timesLost": 0
-                    },
-                    "originalId": "5cc82d76e24e8d00134b4b83"
                 },
                 "MP-153": {
                     "stats": {
@@ -5987,19 +6033,19 @@
         },
         "686c3f7400020a04c3e520d0": {
             "lastUpdate": 1752140026,
-            "level": 36,
+            "level": 37,
             "playedMaps": {
-                "Lighthouse": 27,
+                "Lighthouse": 35,
                 "bigmap": 111,
-                "factory4_day": 177,
+                "factory4_day": 179,
                 "Sandbox": 14,
                 "Sandbox_high": 2,
-                "Woods": 37,
+                "Woods": 38,
                 "factory4_night": 3,
                 "laboratory": 3,
                 "RezervBase": 8,
-                "Shoreline": 37,
-                "TarkovStreets": 16,
+                "Shoreline": 40,
+                "TarkovStreets": 19,
                 "Interchange": 5
             },
             "weapons": []
@@ -6016,9 +6062,19 @@
                 "Sandbox_high": 2,
                 "Interchange": 8,
                 "laboratory": 1,
-                "factory4_night": 1
+                "factory4_night": 1,
+                "TarkovStreets": 1
             },
             "weapons": {
+                "AKS-74UB": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 6,
+                        "totalShots": 205,
+                        "timesLost": 0
+                    },
+                    "originalId": "5839a40f24597726f856b511"
+                },
                 "SKS": {
                     "stats": {
                         "kills": 2,
@@ -7154,9 +7210,9 @@
             "level": 33,
             "playedMaps": {
                 "Interchange": 3,
-                "Shoreline": 7,
-                "bigmap": 9,
-                "factory4_day": 33,
+                "Shoreline": 8,
+                "bigmap": 12,
+                "factory4_day": 35,
                 "RezervBase": 3,
                 "Woods": 6,
                 "TarkovStreets": 2,
@@ -7165,14 +7221,14 @@
                 "laboratory": 1
             },
             "weapons": {
-                "SR-25": {
+                "SA58": {
                     "stats": {
-                        "kills": 11,
-                        "headshots": 6,
-                        "totalShots": 96,
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 9,
                         "timesLost": 0
                     },
-                    "originalId": "5df8ce05b11454561e39243b"
+                    "originalId": "5b0bbe4e5acfc40dc528a72d"
                 },
                 "PKP": {
                     "stats": {
@@ -7182,6 +7238,15 @@
                         "timesLost": 1
                     },
                     "originalId": "64ca3d3954fc657e230529cc"
+                },
+                "SR-25": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 4,
+                        "totalShots": 55,
+                        "timesLost": 0
+                    },
+                    "originalId": "5df8ce05b11454561e39243b"
                 },
                 "TX-15 DML": {
                     "stats": {
@@ -7209,11 +7274,11 @@
             "lastUpdate": 1752159648,
             "level": 33,
             "playedMaps": {
-                "Shoreline": 6,
-                "bigmap": 14,
+                "Shoreline": 7,
+                "bigmap": 17,
                 "RezervBase": 3,
                 "Interchange": 2,
-                "factory4_day": 29,
+                "factory4_day": 41,
                 "Woods": 5,
                 "TarkovStreets": 4,
                 "factory4_night": 2,
@@ -7384,25 +7449,43 @@
         },
         "67f28dbb00041c923f9b5c7b": {
             "lastUpdate": 1752162419,
-            "level": 68,
+            "level": 69,
             "playedMaps": {
-                "Woods": 14,
+                "Woods": 15,
                 "Lighthouse": 10,
-                "Shoreline": 4,
+                "Shoreline": 6,
                 "Interchange": 6,
                 "RezervBase": 37,
                 "bigmap": 17,
                 "factory4_day": 5,
-                "TarkovStreets": 11,
+                "TarkovStreets": 13,
                 "factory4_night": 16,
                 "laboratory": 7
             },
             "weapons": {
+                "SR-25": {
+                    "stats": {
+                        "kills": 41,
+                        "headshots": 31,
+                        "totalShots": 274,
+                        "timesLost": 0
+                    },
+                    "originalId": "5df8ce05b11454561e39243b"
+                },
+                "Desert Eagle L6": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 8,
+                        "timesLost": 0
+                    },
+                    "originalId": "669fa3d876116c89840b1217"
+                },
                 "G28": {
                     "stats": {
-                        "kills": 228,
-                        "headshots": 150,
-                        "totalShots": 1801,
+                        "kills": 232,
+                        "headshots": 154,
+                        "totalShots": 1816,
                         "timesLost": 3
                     },
                     "originalId": "6176aca650224f204c1da3fb"
@@ -7430,7 +7513,7 @@
                         "kills": 123,
                         "headshots": 59,
                         "totalShots": 3039,
-                        "timesLost": 1
+                        "timesLost": 2
                     },
                     "originalId": "5ba26383d4351e00334c93d9"
                 },
@@ -7962,7 +8045,7 @@
             "lastUpdate": 1752169612,
             "level": 18,
             "playedMaps": {
-                "factory4_day": 20,
+                "factory4_day": 21,
                 "Sandbox": 3,
                 "Woods": 4,
                 "RezervBase": 3,
@@ -9600,20 +9683,29 @@
             "lastUpdate": 1752239592,
             "level": 12,
             "playedMaps": {
-                "factory4_day": 32,
+                "factory4_day": 34,
                 "RezervBase": 1,
                 "Woods": 1,
-                "bigmap": 2
+                "bigmap": 3
             },
             "weapons": {
-                "RFB": {
+                "AKMSN": {
                     "stats": {
-                        "kills": 3,
-                        "headshots": 2,
-                        "totalShots": 43,
+                        "kills": 9,
+                        "headshots": 5,
+                        "totalShots": 58,
                         "timesLost": 0
                     },
-                    "originalId": "5f2a9575926fd9352339381f"
+                    "originalId": "5abcbc27d8ce8700182eceeb"
+                },
+                "PP-91 Kedr": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "57d14d2524597714373db789"
                 },
                 "SR-2M": {
                     "stats": {
@@ -9776,6 +9868,15 @@
                         "timesLost": 0
                     },
                     "originalId": "5fc3f2d5900b1d5091531e57"
+                },
+                "RFB": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 17,
+                        "timesLost": 0
+                    },
+                    "originalId": "5f2a9575926fd9352339381f"
                 },
                 "Saiga-12K FA": {
                     "stats": {
@@ -10950,22 +11051,31 @@
         },
         "6871bba20000595e30d86198": {
             "lastUpdate": 1752284670,
-            "level": 40,
+            "level": 41,
             "playedMaps": {
-                "RezervBase": 19,
-                "Woods": 10,
+                "RezervBase": 24,
+                "Woods": 12,
                 "Sandbox": 4,
-                "bigmap": 19,
-                "factory4_day": 3,
+                "bigmap": 20,
+                "factory4_day": 6,
                 "TarkovStreets": 5,
                 "Shoreline": 7,
                 "laboratory": 2,
                 "Interchange": 2,
                 "factory4_night": 1,
-                "Lighthouse": 5,
-                "Sandbox_high": 1
+                "Lighthouse": 6,
+                "Sandbox_high": 2
             },
             "weapons": {
+                "AK-102": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac66d015acfc400180ae6e4"
+                },
                 "VSS Vintorez": {
                     "stats": {
                         "kills": 4,
@@ -11107,19 +11217,37 @@
         },
         "67f7236d0005f7927ba595d6": {
             "lastUpdate": 1752296767,
-            "level": 31,
+            "level": 32,
             "playedMaps": {
-                "factory4_day": 7,
+                "factory4_day": 10,
                 "RezervBase": 5,
-                "bigmap": 4
+                "bigmap": 6
             },
             "weapons": {
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 11,
+                        "headshots": 6,
+                        "totalShots": 107,
+                        "timesLost": 0
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
+                },
+                "PKP": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 40,
+                        "timesLost": 0
+                    },
+                    "originalId": "64ca3d3954fc657e230529cc"
+                },
                 "MP-155": {
                     "stats": {
                         "kills": 32,
                         "headshots": 12,
                         "totalShots": 77,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "606dae0ab0e443224b421bb7"
                 },
@@ -11303,7 +11431,7 @@
             "lastUpdate": 1752308921,
             "level": 69,
             "playedMaps": {
-                "factory4_day": 30
+                "factory4_day": 32
             },
             "weapons": {
                 "PP-91 Kedr": {
@@ -12473,29 +12601,38 @@
             "level": 52,
             "playedMaps": {
                 "RezervBase": 1,
-                "factory4_day": 8,
-                "bigmap": 1,
+                "factory4_day": 10,
+                "bigmap": 3,
                 "Shoreline": 1,
                 "factory4_night": 1
             },
             "weapons": {
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 25,
+                        "headshots": 9,
+                        "totalShots": 334,
+                        "timesLost": 1
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
+                },
+                "Mk-18 Mj\u00f6lnir": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 15,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc22d7c187fea44d52eda44"
+                },
                 "MP-155": {
                     "stats": {
                         "kills": 1,
                         "headshots": 0,
                         "totalShots": 6,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "606dae0ab0e443224b421bb7"
-                },
-                "VSS Vintorez": {
-                    "stats": {
-                        "kills": 12,
-                        "headshots": 3,
-                        "totalShots": 175,
-                        "timesLost": 0
-                    },
-                    "originalId": "57838ad32459774a17445cd2"
                 },
                 "AK-103": {
                     "stats": {
@@ -12621,10 +12758,37 @@
             "level": 25,
             "playedMaps": {
                 "laboratory": 2,
-                "factory4_day": 4,
-                "bigmap": 1
+                "factory4_day": 5,
+                "bigmap": 2
             },
             "weapons": {
+                "MP-153": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "56dee2bdd2720bc8328b4567"
+                },
+                "Mk 16": {
+                    "stats": {
+                        "kills": 9,
+                        "headshots": 6,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "618428466ef05c2ce828f218"
+                },
+                "AKS-74U": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "57dc2fa62459775949412633"
+                },
                 "AA-12 Gen 1": {
                     "stats": {
                         "kills": 12,
@@ -12755,23 +12919,113 @@
         },
         "686f09770000a6d276bf7e19": {
             "lastUpdate": 1752356189,
-            "level": 12,
+            "level": 23,
             "playedMaps": {
-                "factory4_day": 32,
-                "bigmap": 52,
-                "Woods": 14,
-                "Shoreline": 12,
+                "factory4_day": 36,
+                "bigmap": 63,
+                "Woods": 16,
+                "Shoreline": 15,
                 "Interchange": 15,
                 "RezervBase": 13,
                 "Sandbox_high": 15,
-                "Sandbox": 3
+                "Sandbox": 4
             },
             "weapons": {
+                "MP-43-1C": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 1,
+                        "timesLost": 0
+                    },
+                    "originalId": "5580223e4bdc2d1c128b457f"
+                },
+                "MDR": {
+                    "stats": {
+                        "kills": 44,
+                        "headshots": 29,
+                        "totalShots": 299,
+                        "timesLost": 0
+                    },
+                    "originalId": "5c488a752e221602b412af63"
+                },
+                "AK-545": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 4,
+                        "totalShots": 28,
+                        "timesLost": 0
+                    },
+                    "originalId": "628b5638ad252a16da6dd245"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 119,
+                        "headshots": 79,
+                        "totalShots": 1604,
+                        "timesLost": 2
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "AK-104": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 10,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac66d725acfc43b321d4b60"
+                },
+                "Glock 19X": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 6,
+                        "timesLost": 0
+                    },
+                    "originalId": "63088377b5cd696784087147"
+                },
+                "FN 5-7": {
+                    "stats": {
+                        "kills": 24,
+                        "headshots": 19,
+                        "totalShots": 189,
+                        "timesLost": 1
+                    },
+                    "originalId": "5d3eb3b0a4b93615055e84d2"
+                },
+                "PP-19-01": {
+                    "stats": {
+                        "kills": 20,
+                        "headshots": 13,
+                        "totalShots": 196,
+                        "timesLost": 0
+                    },
+                    "originalId": "59984ab886f7743e98271174"
+                },
+                "AKS-74UB": {
+                    "stats": {
+                        "kills": 29,
+                        "headshots": 15,
+                        "totalShots": 350,
+                        "timesLost": 0
+                    },
+                    "originalId": "5839a40f24597726f856b511"
+                },
+                "SR-25": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 3,
+                        "totalShots": 7,
+                        "timesLost": 0
+                    },
+                    "originalId": "5df8ce05b11454561e39243b"
+                },
                 "AKS-74U": {
                     "stats": {
-                        "kills": 10,
+                        "kills": 11,
                         "headshots": 5,
-                        "totalShots": 116,
+                        "totalShots": 150,
                         "timesLost": 0
                     },
                     "originalId": "57dc2fa62459775949412633"
@@ -12790,7 +13044,7 @@
                         "kills": 84,
                         "headshots": 50,
                         "totalShots": 1055,
-                        "timesLost": 1
+                        "timesLost": 2
                     },
                     "originalId": "6499849fc93611967b034949"
                 },
@@ -12820,15 +13074,6 @@
                         "timesLost": 1
                     },
                     "originalId": "651450ce0e00edc794068371"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 88,
-                        "headshots": 58,
-                        "totalShots": 1380,
-                        "timesLost": 2
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
                 "P90": {
                     "stats": {
@@ -12865,15 +13110,6 @@
                         "timesLost": 0
                     },
                     "originalId": "57838ad32459774a17445cd2"
-                },
-                "MP-43-1C": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 1,
-                        "timesLost": 0
-                    },
-                    "originalId": "5580223e4bdc2d1c128b457f"
                 },
                 "PM": {
                     "stats": {
@@ -12919,15 +13155,6 @@
                         "timesLost": 0
                     },
                     "originalId": "59f98b4986f7746f546d2cef"
-                },
-                "AKS-74UB": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 1,
-                        "timesLost": 0
-                    },
-                    "originalId": "5839a40f24597726f856b511"
                 },
                 "Desert Eagle L6": {
                     "stats": {
@@ -13100,15 +13327,6 @@
                     },
                     "originalId": "587e02ff24597743df3deaeb"
                 },
-                "Glock 19X": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 2,
-                        "timesLost": 0
-                    },
-                    "originalId": "63088377b5cd696784087147"
-                },
                 "VPO-136 Vepr-KM": {
                     "stats": {
                         "kills": 1,
@@ -13172,15 +13390,6 @@
                     },
                     "originalId": "5a38e6bac4a2826c6e06d79b"
                 },
-                "MDR": {
-                    "stats": {
-                        "kills": 28,
-                        "headshots": 17,
-                        "totalShots": 192,
-                        "timesLost": 0
-                    },
-                    "originalId": "5c488a752e221602b412af63"
-                },
                 "AK-545 Short": {
                     "stats": {
                         "kills": 2,
@@ -13198,15 +13407,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5ac66d015acfc400180ae6e4"
-                },
-                "FN 5-7": {
-                    "stats": {
-                        "kills": 7,
-                        "headshots": 6,
-                        "totalShots": 31,
-                        "timesLost": 1
-                    },
-                    "originalId": "5d3eb3b0a4b93615055e84d2"
                 },
                 "MP9": {
                     "stats": {
@@ -14170,17 +14370,44 @@
                 "factory4_night": 1,
                 "Woods": 6,
                 "RezervBase": 20,
-                "Interchange": 7,
+                "Interchange": 9,
                 "Lighthouse": 2,
                 "bigmap": 1,
-                "laboratory": 3
+                "laboratory": 6
             },
             "weapons": {
+                "SVDS": {
+                    "stats": {
+                        "kills": 55,
+                        "headshots": 22,
+                        "totalShots": 339,
+                        "timesLost": 2
+                    },
+                    "originalId": "5c46fbd72e2216398b5a8c9c"
+                },
+                "P90": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 19,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cc82d76e24e8d00134b4b83"
+                },
+                "AKS-74UN": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 2,
+                        "totalShots": 145,
+                        "timesLost": 0
+                    },
+                    "originalId": "583990e32459771419544dd2"
+                },
                 "M4A1": {
                     "stats": {
-                        "kills": 64,
-                        "headshots": 33,
-                        "totalShots": 1125,
+                        "kills": 66,
+                        "headshots": 34,
+                        "totalShots": 1157,
                         "timesLost": 3
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
@@ -14211,15 +14438,6 @@
                         "timesLost": 1
                     },
                     "originalId": "55801eed4bdc2d89578b4588"
-                },
-                "AKS-74UN": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 2,
-                        "totalShots": 83,
-                        "timesLost": 0
-                    },
-                    "originalId": "583990e32459771419544dd2"
                 },
                 "Saiga-12K FA": {
                     "stats": {
@@ -14265,15 +14483,6 @@
                         "timesLost": 1
                     },
                     "originalId": "5ac66d2e5acfc43b321d4b53"
-                },
-                "SVDS": {
-                    "stats": {
-                        "kills": 49,
-                        "headshots": 17,
-                        "totalShots": 327,
-                        "timesLost": 2
-                    },
-                    "originalId": "5c46fbd72e2216398b5a8c9c"
                 },
                 "T-5000M": {
                     "stats": {
@@ -15138,7 +15347,7 @@
             "playedMaps": {
                 "Sandbox": 7,
                 "factory4_day": 79,
-                "laboratory": 9,
+                "laboratory": 10,
                 "RezervBase": 7,
                 "Woods": 9,
                 "bigmap": 19,
@@ -15234,35 +15443,89 @@
         },
         "6874a9450005acc881f4dc27": {
             "lastUpdate": 1752482170,
-            "level": 43,
+            "level": 45,
             "playedMaps": {
-                "bigmap": 9,
+                "bigmap": 10,
                 "Sandbox": 3,
                 "Woods": 4,
-                "RezervBase": 4,
+                "RezervBase": 6,
                 "Shoreline": 2,
                 "factory4_day": 2,
                 "Lighthouse": 1,
                 "Interchange": 2
             },
             "weapons": {
-                "SPEAR 6.8": {
+                "HK 416A5": {
                     "stats": {
-                        "kills": 9,
-                        "headshots": 2,
-                        "totalShots": 191,
+                        "kills": 15,
+                        "headshots": 3,
+                        "totalShots": 330,
                         "timesLost": 0
                     },
-                    "originalId": "65290f395ae2ae97b80fdf2d"
+                    "originalId": "5bb2475ed4351e00853264e3"
+                },
+                "X-17": {
+                    "stats": {
+                        "kills": 23,
+                        "headshots": 6,
+                        "totalShots": 226,
+                        "timesLost": 0
+                    },
+                    "originalId": "676176d362e0497044079f4c"
+                },
+                "TRG M10": {
+                    "stats": {
+                        "kills": 42,
+                        "headshots": 8,
+                        "totalShots": 177,
+                        "timesLost": 0
+                    },
+                    "originalId": "673cab3e03c6a20581028bc1"
+                },
+                "FN 5-7 FDE": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 34,
+                        "timesLost": 0
+                    },
+                    "originalId": "5d67abc1a4b93614ec50137f"
+                },
+                "P90": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 29,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cc82d76e24e8d00134b4b83"
                 },
                 "Mk47": {
                     "stats": {
                         "kills": 4,
                         "headshots": 2,
-                        "totalShots": 24,
+                        "totalShots": 26,
                         "timesLost": 0
                     },
                     "originalId": "606587252535c57a13424cfd"
+                },
+                "SPEAR 6.8": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 2,
+                        "totalShots": 204,
+                        "timesLost": 0
+                    },
+                    "originalId": "65290f395ae2ae97b80fdf2d"
+                },
+                "MP-153": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 1,
+                        "totalShots": 18,
+                        "timesLost": 0
+                    },
+                    "originalId": "56dee2bdd2720bc8328b4567"
                 },
                 "SVDS": {
                     "stats": {
@@ -15335,15 +15598,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5d3eb3b0a4b93615055e84d2"
-                },
-                "TRG M10": {
-                    "stats": {
-                        "kills": 27,
-                        "headshots": 5,
-                        "totalShots": 136,
-                        "timesLost": 0
-                    },
-                    "originalId": "673cab3e03c6a20581028bc1"
                 },
                 "Velociraptor .300 BLK": {
                     "stats": {
@@ -15796,14 +16050,14 @@
         },
         "68747d620000d68190679b0e": {
             "lastUpdate": 1752510635,
-            "level": 19,
+            "level": 20,
             "playedMaps": {
                 "Sandbox_high": 7,
                 "Sandbox": 38,
-                "factory4_day": 25,
+                "factory4_day": 31,
                 "Lighthouse": 1,
-                "TarkovStreets": 1,
-                "Shoreline": 1,
+                "TarkovStreets": 2,
+                "Shoreline": 2,
                 "Woods": 42,
                 "bigmap": 29
             },
@@ -15904,14 +16158,41 @@
         },
         "6875661900012820c7e66143": {
             "lastUpdate": 1752524765,
-            "level": 19,
+            "level": 20,
             "playedMaps": {
                 "factory4_day": 66,
                 "Sandbox": 6,
-                "Woods": 8,
+                "Woods": 10,
                 "laboratory": 10
             },
             "weapons": {
+                "MP9": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 71,
+                        "timesLost": 0
+                    },
+                    "originalId": "5e00903ae9dc277128008b87"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 35,
+                        "headshots": 22,
+                        "totalShots": 785,
+                        "timesLost": 3
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "G36": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 5,
+                        "totalShots": 102,
+                        "timesLost": 0
+                    },
+                    "originalId": "623063e994fc3f7b302a9696"
+                },
                 "Mk 16": {
                     "stats": {
                         "kills": 11,
@@ -15956,15 +16237,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5cc82d76e24e8d00134b4b83"
-                },
-                "MP9": {
-                    "stats": {
-                        "kills": 4,
-                        "headshots": 2,
-                        "totalShots": 69,
-                        "timesLost": 0
-                    },
-                    "originalId": "5e00903ae9dc277128008b87"
                 },
                 "MP7A1": {
                     "stats": {
@@ -16127,15 +16399,6 @@
                         "timesLost": 0
                     },
                     "originalId": "59ff346386f77477562ff5e2"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 34,
-                        "headshots": 21,
-                        "totalShots": 777,
-                        "timesLost": 3
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
                 "M3 Super 90": {
                     "stats": {
@@ -16895,48 +17158,120 @@
             "level": 23,
             "playedMaps": {
                 "bigmap": 6,
-                "Woods": 24,
-                "Shoreline": 6,
-                "Sandbox_high": 4,
-                "factory4_day": 23,
+                "Woods": 25,
+                "Shoreline": 7,
+                "Sandbox_high": 5,
+                "factory4_day": 38,
                 "factory4_night": 2
             },
             "weapons": {
-                "M9A3": {
+                "AKS-74UB": {
+                    "stats": {
+                        "kills": 25,
+                        "headshots": 15,
+                        "totalShots": 330,
+                        "timesLost": 0
+                    },
+                    "originalId": "5839a40f24597726f856b511"
+                },
+                "ADAR 2-15": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 6,
+                        "totalShots": 474,
+                        "timesLost": 4
+                    },
+                    "originalId": "5c07c60e0db834002330051f"
+                },
+                "STM-9": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "60339954d62c9b14ed777c06"
+                },
+                "AKS-74U": {
                     "stats": {
                         "kills": 7,
-                        "headshots": 5,
-                        "totalShots": 145,
-                        "timesLost": 2
+                        "headshots": 2,
+                        "totalShots": 165,
+                        "timesLost": 0
                     },
-                    "originalId": "5cadc190ae921500103bb3b6"
-                },
-                "HK 416A5": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 118,
-                        "timesLost": 1
-                    },
-                    "originalId": "5bb2475ed4351e00853264e3"
+                    "originalId": "57dc2fa62459775949412633"
                 },
                 "M4A1": {
                     "stats": {
-                        "kills": 33,
-                        "headshots": 14,
-                        "totalShots": 1031,
-                        "timesLost": 9
+                        "kills": 63,
+                        "headshots": 23,
+                        "totalShots": 2223,
+                        "timesLost": 14
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
+                "M9A3": {
+                    "stats": {
+                        "kills": 22,
+                        "headshots": 7,
+                        "totalShots": 609,
+                        "timesLost": 1
+                    },
+                    "originalId": "5cadc190ae921500103bb3b6"
+                },
+                "Saiga-12K": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "576165642459773c7a400233"
+                },
+                "AKS-74N": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ab8e9fcd8ce870019439434"
+                },
+                "SKS": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "574d967124597745970e7c94"
+                },
                 "Glock 17": {
                     "stats": {
-                        "kills": 4,
-                        "headshots": 3,
-                        "totalShots": 254,
-                        "timesLost": 5
+                        "kills": 11,
+                        "headshots": 4,
+                        "totalShots": 558,
+                        "timesLost": 4
                     },
                     "originalId": "5a7ae0c351dfba0017554310"
+                },
+                "SV-98": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 7,
+                        "timesLost": 1
+                    },
+                    "originalId": "55801eed4bdc2d89578b4588"
+                },
+                "UMP 45": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 20,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc3e272f8b6a877a729eac5"
                 },
                 "MP7A1": {
                     "stats": {
@@ -17533,11 +17868,11 @@
         },
         "687497300002083de659d590": {
             "lastUpdate": 1752626810,
-            "level": 32,
+            "level": 4,
             "playedMaps": {
                 "factory4_day": 40,
                 "bigmap": 40,
-                "Sandbox": 3,
+                "Sandbox": 4,
                 "Woods": 16,
                 "Shoreline": 12,
                 "Interchange": 6,
@@ -17548,104 +17883,14 @@
                 "Lighthouse": 2
             },
             "weapons": {
-                "ASh-12": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 2,
-                        "totalShots": 27,
-                        "timesLost": 0
-                    },
-                    "originalId": "5cadfbf7ae92152ac412eeef"
-                },
-                "RSASS": {
-                    "stats": {
-                        "kills": 7,
-                        "headshots": 5,
-                        "totalShots": 15,
-                        "timesLost": 0
-                    },
-                    "originalId": "5a367e5dc4a282000e49738f"
-                },
-                "AS VAL": {
-                    "stats": {
-                        "kills": 7,
-                        "headshots": 2,
-                        "totalShots": 105,
-                        "timesLost": 0
-                    },
-                    "originalId": "57c44b372459772d2b39b8ce"
-                },
-                "SR-25": {
-                    "stats": {
-                        "kills": 17,
-                        "headshots": 5,
-                        "totalShots": 122,
-                        "timesLost": 0
-                    },
-                    "originalId": "5df8ce05b11454561e39243b"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 31,
-                        "headshots": 11,
-                        "totalShots": 418,
-                        "timesLost": 0
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
-                },
-                "Mk 16": {
-                    "stats": {
-                        "kills": 35,
-                        "headshots": 15,
-                        "totalShots": 495,
-                        "timesLost": 2
-                    },
-                    "originalId": "618428466ef05c2ce828f218"
-                },
-                "MP7A1": {
-                    "stats": {
-                        "kills": 12,
-                        "headshots": 5,
-                        "totalShots": 263,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ba26383d4351e00334c93d9"
-                },
-                "590A1": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 4,
-                        "timesLost": 0
-                    },
-                    "originalId": "5e870397991fd70db46995c8"
-                },
-                "AK-105": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 1,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac66d9b5acfc4001633997a"
-                },
                 "AK-74M": {
                     "stats": {
-                        "kills": 35,
-                        "headshots": 15,
-                        "totalShots": 465,
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 21,
                         "timesLost": 0
                     },
                     "originalId": "5ac4cd105acfc40016339859"
-                },
-                "AKM": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 1,
-                        "totalShots": 20,
-                        "timesLost": 0
-                    },
-                    "originalId": "59d6088586f774275f37482f"
                 }
             }
         },
@@ -17799,25 +18044,70 @@
         },
         "6840ec5100000ede12336522": {
             "lastUpdate": 1752638503,
-            "level": 23,
+            "level": 24,
             "playedMaps": {
                 "Sandbox": 36,
-                "factory4_day": 11,
-                "bigmap": 14,
+                "factory4_day": 12,
+                "bigmap": 15,
                 "factory4_night": 3,
                 "Woods": 2,
-                "Interchange": 9,
+                "Interchange": 12,
                 "Sandbox_high": 1
             },
             "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 94,
+                        "headshots": 50,
+                        "totalShots": 1489,
+                        "timesLost": 1
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "AKS-74UB": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 2,
+                        "totalShots": 47,
+                        "timesLost": 0
+                    },
+                    "originalId": "5839a40f24597726f856b511"
+                },
+                "AKS-74N": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 7,
+                        "totalShots": 196,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ab8e9fcd8ce870019439434"
+                },
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 3,
+                        "totalShots": 43,
+                        "timesLost": 0
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
+                },
                 "OP-SKS": {
                     "stats": {
-                        "kills": 8,
-                        "headshots": 3,
-                        "totalShots": 69,
+                        "kills": 14,
+                        "headshots": 6,
+                        "totalShots": 184,
                         "timesLost": 0
                     },
                     "originalId": "587e02ff24597743df3deaeb"
+                },
+                "AK-74M": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 43,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
                 },
                 "AK-545 Short": {
                     "stats": {
@@ -17882,24 +18172,6 @@
                     },
                     "originalId": "6680304edadb7aa61d00cef0"
                 },
-                "AKS-74N": {
-                    "stats": {
-                        "kills": 9,
-                        "headshots": 5,
-                        "totalShots": 159,
-                        "timesLost": 1
-                    },
-                    "originalId": "5ab8e9fcd8ce870019439434"
-                },
-                "AK-74M": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 39,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
-                },
                 "VPO-136 Vepr-KM": {
                     "stats": {
                         "kills": 26,
@@ -17962,15 +18234,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5c07c60e0db834002330051f"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 77,
-                        "headshots": 40,
-                        "totalShots": 1215,
-                        "timesLost": 1
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
                 "UMP 45": {
                     "stats": {
@@ -18217,15 +18480,16 @@
         },
         "6878064600056b39993dd0cc": {
             "lastUpdate": 1752699272,
-            "level": 13,
+            "level": 14,
             "playedMaps": {
-                "Sandbox": 13,
-                "Woods": 18,
-                "factory4_day": 19,
+                "Sandbox": 19,
+                "Woods": 20,
+                "factory4_day": 27,
                 "TarkovStreets": 2,
                 "Sandbox_high": 4,
-                "bigmap": 2,
-                "Interchange": 1
+                "bigmap": 4,
+                "Interchange": 1,
+                "laboratory": 1
             },
             "weapons": []
         },
@@ -18237,36 +18501,45 @@
                 "Sandbox": 5,
                 "Woods": 6,
                 "bigmap": 6,
-                "factory4_night": 16,
+                "factory4_night": 17,
                 "Sandbox_high": 1
             },
             "weapons": {
-                "M700": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 4,
-                        "totalShots": 12,
-                        "timesLost": 1
-                    },
-                    "originalId": "5bfea6e90db834001b7347f3"
-                },
-                "VPO-136 Vepr-KM": {
+                "Mosin Sniper": {
                     "stats": {
                         "kills": 3,
-                        "headshots": 0,
-                        "totalShots": 22,
+                        "headshots": 2,
+                        "totalShots": 12,
                         "timesLost": 0
                     },
-                    "originalId": "59e6152586f77473dc057aa1"
+                    "originalId": "5ae08f0a5acfc408fb1398a1"
                 },
-                "MP9-N": {
+                "MDR": {
                     "stats": {
                         "kills": 1,
                         "headshots": 0,
-                        "totalShots": 6,
+                        "totalShots": 41,
                         "timesLost": 0
                     },
-                    "originalId": "5de7bd7bfd6b4e6e2276dc25"
+                    "originalId": "5dcbd56fdbd3d91b3e5468d5"
+                },
+                "STM-9": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 2,
+                        "totalShots": 44,
+                        "timesLost": 0
+                    },
+                    "originalId": "60339954d62c9b14ed777c06"
+                },
+                "G28": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 2,
+                        "totalShots": 21,
+                        "timesLost": 0
+                    },
+                    "originalId": "6176aca650224f204c1da3fb"
                 },
                 "APS": {
                     "stats": {
@@ -18402,6 +18675,15 @@
                         "timesLost": 0
                     },
                     "originalId": "583990e32459771419544dd2"
+                },
+                "M700": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 1,
+                        "timesLost": 1
+                    },
+                    "originalId": "5bfea6e90db834001b7347f3"
                 },
                 "FN 5-7": {
                     "stats": {
@@ -19100,18 +19382,27 @@
             "level": 35,
             "playedMaps": {
                 "RezervBase": 13,
-                "Shoreline": 10,
+                "Shoreline": 13,
                 "bigmap": 9,
                 "factory4_day": 2,
                 "TarkovStreets": 11,
                 "Woods": 3
             },
             "weapons": {
+                "SV-98": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 5,
+                        "totalShots": 62,
+                        "timesLost": 5
+                    },
+                    "originalId": "55801eed4bdc2d89578b4588"
+                },
                 "MP7A2": {
                     "stats": {
-                        "kills": 8,
-                        "headshots": 5,
-                        "totalShots": 72,
+                        "kills": 17,
+                        "headshots": 11,
+                        "totalShots": 188,
                         "timesLost": 0
                     },
                     "originalId": "5bd70322209c4d00d7167b8f"
@@ -19187,15 +19478,6 @@
                         "timesLost": 3
                     },
                     "originalId": "57dc2fa62459775949412633"
-                },
-                "SV-98": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 1,
-                        "totalShots": 17,
-                        "timesLost": 5
-                    },
-                    "originalId": "55801eed4bdc2d89578b4588"
                 },
                 "AS VAL": {
                     "stats": {
@@ -19528,7 +19810,7 @@
             "playedMaps": {
                 "bigmap": 16,
                 "Interchange": 5,
-                "factory4_day": 5,
+                "factory4_day": 7,
                 "TarkovStreets": 9,
                 "Shoreline": 6,
                 "Sandbox_high": 10,
@@ -19537,12 +19819,30 @@
                 "RezervBase": 1
             },
             "weapons": {
+                "MCX .300 BLK": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 32,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
+                },
+                "HK 416A5": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 3,
+                        "totalShots": 55,
+                        "timesLost": 0
+                    },
+                    "originalId": "5bb2475ed4351e00853264e3"
+                },
                 "SPEAR 6.8": {
                     "stats": {
                         "kills": 4,
                         "headshots": 1,
                         "totalShots": 94,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "65290f395ae2ae97b80fdf2d"
                 },
@@ -19564,15 +19864,6 @@
                     },
                     "originalId": "5d67abc1a4b93614ec50137f"
                 },
-                "HK 416A5": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 2,
-                        "totalShots": 13,
-                        "timesLost": 0
-                    },
-                    "originalId": "5bb2475ed4351e00853264e3"
-                },
                 "MP7A2": {
                     "stats": {
                         "kills": 2,
@@ -19587,7 +19878,7 @@
                         "kills": 9,
                         "headshots": 2,
                         "totalShots": 188,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "628a60ae6b1d481ff772e9c8"
                 },
@@ -19596,7 +19887,7 @@
                         "kills": 9,
                         "headshots": 7,
                         "totalShots": 480,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "58948c8e86f77409493f7266"
                 },
@@ -19880,11 +20171,11 @@
         },
         "6877cfce0004824c0589e924": {
             "lastUpdate": 1752788388,
-            "level": 17,
+            "level": 19,
             "playedMaps": {
-                "bigmap": 3,
-                "factory4_day": 20,
-                "Woods": 11,
+                "bigmap": 11,
+                "factory4_day": 29,
+                "Woods": 12,
                 "Sandbox": 1
             },
             "weapons": []
@@ -19943,11 +20234,56 @@
             "playedMaps": {
                 "factory4_day": 26,
                 "Sandbox": 3,
-                "factory4_night": 24,
+                "factory4_night": 25,
                 "Woods": 1,
                 "Sandbox_high": 1
             },
             "weapons": {
+                "Vector .45ACP": {
+                    "stats": {
+                        "kills": 11,
+                        "headshots": 7,
+                        "totalShots": 154,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fb64bc92b1b027b1f50bcf2"
+                },
+                "M1A": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 2,
+                        "totalShots": 64,
+                        "timesLost": 0
+                    },
+                    "originalId": "5aafa857e5b5b00018480968"
+                },
+                "UMP 45": {
+                    "stats": {
+                        "kills": 14,
+                        "headshots": 6,
+                        "totalShots": 249,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc3e272f8b6a877a729eac5"
+                },
+                "MPX": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 9,
+                        "totalShots": 200,
+                        "timesLost": 0
+                    },
+                    "originalId": "58948c8e86f77409493f7266"
+                },
+                "MP5K-N": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 5,
+                        "totalShots": 322,
+                        "timesLost": 0
+                    },
+                    "originalId": "5d2f0d8048f0356c925bc3b0"
+                },
                 "M4A1": {
                     "stats": {
                         "kills": 23,
@@ -20038,15 +20374,6 @@
                     },
                     "originalId": "606587252535c57a13424cfd"
                 },
-                "UMP 45": {
-                    "stats": {
-                        "kills": 8,
-                        "headshots": 3,
-                        "totalShots": 180,
-                        "timesLost": 0
-                    },
-                    "originalId": "5fc3e272f8b6a877a729eac5"
-                },
                 "AKMN": {
                     "stats": {
                         "kills": 3,
@@ -20109,15 +20436,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5839a40f24597726f856b511"
-                },
-                "MPX": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 3,
-                        "totalShots": 57,
-                        "timesLost": 0
-                    },
-                    "originalId": "58948c8e86f77409493f7266"
                 },
                 "AK-74": {
                     "stats": {
@@ -20208,24 +20526,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5b0bbe4e5acfc40dc528a72d"
-                },
-                "M1A": {
-                    "stats": {
-                        "kills": 4,
-                        "headshots": 2,
-                        "totalShots": 27,
-                        "timesLost": 0
-                    },
-                    "originalId": "5aafa857e5b5b00018480968"
-                },
-                "MP5K-N": {
-                    "stats": {
-                        "kills": 8,
-                        "headshots": 5,
-                        "totalShots": 265,
-                        "timesLost": 0
-                    },
-                    "originalId": "5d2f0d8048f0356c925bc3b0"
                 },
                 "M700": {
                     "stats": {
@@ -20325,15 +20625,6 @@
                         "timesLost": 0
                     },
                     "originalId": "6718817435e3cfd9550d2c27"
-                },
-                "Vector .45ACP": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 40,
-                        "timesLost": 0
-                    },
-                    "originalId": "5fb64bc92b1b027b1f50bcf2"
                 },
                 "VPO-209": {
                     "stats": {
@@ -21447,12 +21738,13 @@
         },
         "6875a58a0004afe8cb19f3ca": {
             "lastUpdate": 1752810734,
-            "level": 20,
+            "level": 22,
             "playedMaps": {
-                "factory4_day": 1,
+                "factory4_day": 2,
                 "bigmap": 7,
                 "Lighthouse": 2,
-                "Woods": 1
+                "Woods": 1,
+                "Shoreline": 1
             },
             "weapons": []
         },
@@ -22637,20 +22929,47 @@
         },
         "687a54b60005de9aa602cbbe": {
             "lastUpdate": 1752869509,
-            "level": 12,
+            "level": 13,
             "playedMaps": {
-                "Sandbox": 9,
+                "Sandbox": 14,
                 "Woods": 1,
                 "bigmap": 10,
                 "factory4_day": 7
             },
             "weapons": {
+                "AK-74M": {
+                    "stats": {
+                        "kills": 46,
+                        "headshots": 20,
+                        "totalShots": 694,
+                        "timesLost": 3
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
+                },
+                "SR-2M": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 37,
+                        "timesLost": 0
+                    },
+                    "originalId": "62e14904c2699c0ec93adc47"
+                },
+                "AKM": {
+                    "stats": {
+                        "kills": 16,
+                        "headshots": 8,
+                        "totalShots": 257,
+                        "timesLost": 1
+                    },
+                    "originalId": "59d6088586f774275f37482f"
+                },
                 "AK-12": {
                     "stats": {
-                        "kills": 5,
-                        "headshots": 2,
-                        "totalShots": 54,
-                        "timesLost": 0
+                        "kills": 14,
+                        "headshots": 5,
+                        "totalShots": 153,
+                        "timesLost": 1
                     },
                     "originalId": "6499849fc93611967b034949"
                 },
@@ -22672,15 +22991,6 @@
                     },
                     "originalId": "571a12c42459771f627b58a0"
                 },
-                "AKM": {
-                    "stats": {
-                        "kills": 13,
-                        "headshots": 6,
-                        "totalShots": 177,
-                        "timesLost": 1
-                    },
-                    "originalId": "59d6088586f774275f37482f"
-                },
                 "VPO-101 Vepr-Hunter": {
                     "stats": {
                         "kills": 4,
@@ -22689,15 +22999,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5c501a4d2e221602b412b540"
-                },
-                "AK-74M": {
-                    "stats": {
-                        "kills": 44,
-                        "headshots": 19,
-                        "totalShots": 630,
-                        "timesLost": 3
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
                 },
                 "Mk 17": {
                     "stats": {
@@ -22858,16 +23159,34 @@
         },
         "687ab7e300058884b4b70a53": {
             "lastUpdate": 1752923000,
-            "level": 19,
+            "level": 21,
             "playedMaps": {
                 "Sandbox": 18,
-                "bigmap": 15,
+                "bigmap": 19,
                 "Woods": 4,
-                "Sandbox_high": 12,
+                "Sandbox_high": 13,
                 "factory4_day": 21,
                 "TarkovStreets": 1
             },
             "weapons": {
+                "SA58": {
+                    "stats": {
+                        "kills": 8,
+                        "headshots": 2,
+                        "totalShots": 65,
+                        "timesLost": 0
+                    },
+                    "originalId": "5b0bbe4e5acfc40dc528a72d"
+                },
+                "AK-104": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 4,
+                        "totalShots": 111,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac66d725acfc43b321d4b60"
+                },
                 "HK 416A5": {
                     "stats": {
                         "kills": 12,
@@ -23106,43 +23425,26 @@
         },
         "687b0fa700048c13dfb336cb": {
             "lastUpdate": 1752946962,
-            "level": 19,
+            "level": 20,
             "playedMaps": {
-                "factory4_day": 33,
+                "factory4_day": 34,
                 "factory4_night": 16,
                 "Sandbox": 14,
-                "bigmap": 48,
+                "bigmap": 50,
                 "laboratory": 2,
                 "Interchange": 2,
-                "RezervBase": 2
+                "RezervBase": 2,
+                "Woods": 1
             },
             "weapons": {
                 "M4A1": {
                     "stats": {
-                        "kills": 9,
-                        "headshots": 7,
-                        "totalShots": 61,
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 16,
                         "timesLost": 0
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
-                },
-                "AKS-74U": {
-                    "stats": {
-                        "kills": 27,
-                        "headshots": 10,
-                        "totalShots": 479,
-                        "timesLost": 3
-                    },
-                    "originalId": "57dc2fa62459775949412633"
-                },
-                "AA-12 Gen 1": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 0,
-                        "totalShots": 2,
-                        "timesLost": 0
-                    },
-                    "originalId": "66ffa9b66e19cc902401c5e8"
                 },
                 "P90": {
                     "stats": {
@@ -23221,7 +23523,7 @@
                         "kills": 35,
                         "headshots": 17,
                         "totalShots": 419,
-                        "timesLost": 4
+                        "timesLost": 5
                     },
                     "originalId": "5ab8e9fcd8ce870019439434"
                 },
@@ -23242,6 +23544,15 @@
                         "timesLost": 1
                     },
                     "originalId": "58948c8e86f77409493f7266"
+                },
+                "AKS-74U": {
+                    "stats": {
+                        "kills": 26,
+                        "headshots": 9,
+                        "totalShots": 469,
+                        "timesLost": 3
+                    },
+                    "originalId": "57dc2fa62459775949412633"
                 },
                 "MP-153": {
                     "stats": {
@@ -23715,10 +24026,10 @@
         },
         "687c2a8800005dd9d76bdc90": {
             "lastUpdate": 1752969146,
-            "level": 13,
+            "level": 14,
             "playedMaps": {
-                "factory4_day": 12,
-                "bigmap": 6,
+                "factory4_day": 13,
+                "bigmap": 8,
                 "Sandbox": 8,
                 "Woods": 4,
                 "RezervBase": 1
@@ -24054,7 +24365,7 @@
         },
         "687d19640000ea97453e5c64": {
             "lastUpdate": 1753031561,
-            "level": 20,
+            "level": 21,
             "playedMaps": {
                 "Sandbox": 4,
                 "Woods": 20,
@@ -24062,26 +24373,26 @@
                 "Lighthouse": 1,
                 "factory4_day": 5,
                 "Shoreline": 2,
-                "Interchange": 2
+                "Interchange": 5
             },
             "weapons": {
+                "RD-704": {
+                    "stats": {
+                        "kills": 63,
+                        "headshots": 36,
+                        "totalShots": 640,
+                        "timesLost": 1
+                    },
+                    "originalId": "628a60ae6b1d481ff772e9c8"
+                },
                 "AKMSN": {
                     "stats": {
-                        "kills": 27,
-                        "headshots": 14,
-                        "totalShots": 313,
+                        "kills": 52,
+                        "headshots": 33,
+                        "totalShots": 593,
                         "timesLost": 1
                     },
                     "originalId": "5abcbc27d8ce8700182eceeb"
-                },
-                "RD-704": {
-                    "stats": {
-                        "kills": 50,
-                        "headshots": 29,
-                        "totalShots": 510,
-                        "timesLost": 0
-                    },
-                    "originalId": "628a60ae6b1d481ff772e9c8"
                 },
                 "M45A1": {
                     "stats": {
@@ -24124,7 +24435,7 @@
                         "kills": 63,
                         "headshots": 43,
                         "totalShots": 401,
-                        "timesLost": 2
+                        "timesLost": 3
                     },
                     "originalId": "618428466ef05c2ce828f218"
                 },
@@ -24720,23 +25031,41 @@
         },
         "687e12350000b22c2f85951f": {
             "lastUpdate": 1753094143,
-            "level": 11,
+            "level": 13,
             "playedMaps": {
                 "Sandbox": 4,
-                "factory4_day": 20,
+                "factory4_day": 30,
                 "bigmap": 7,
-                "Woods": 11,
+                "Woods": 12,
                 "TarkovStreets": 1,
                 "RezervBase": 1,
-                "Shoreline": 2,
-                "Interchange": 3
+                "Shoreline": 3,
+                "Interchange": 6
             },
             "weapons": {
+                "MP5": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 131,
+                        "timesLost": 0
+                    },
+                    "originalId": "5926bb2186f7744b1c6c6e60"
+                },
+                "AK-74M": {
+                    "stats": {
+                        "kills": 17,
+                        "headshots": 6,
+                        "totalShots": 226,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
+                },
                 "AK-74": {
                     "stats": {
-                        "kills": 9,
-                        "headshots": 2,
-                        "totalShots": 133,
+                        "kills": 17,
+                        "headshots": 7,
+                        "totalShots": 414,
                         "timesLost": 0
                     },
                     "originalId": "5bf3e03b0db834001d2c4a9c"
@@ -24821,15 +25150,6 @@
                         "timesLost": 0
                     },
                     "originalId": "624c2e8614da335f1e034d8c"
-                },
-                "MP5": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 0,
-                        "totalShots": 71,
-                        "timesLost": 0
-                    },
-                    "originalId": "5926bb2186f7744b1c6c6e60"
                 },
                 "AKS-74": {
                     "stats": {
@@ -24920,126 +25240,73 @@
                         "timesLost": 0
                     },
                     "originalId": "62e14904c2699c0ec93adc47"
-                },
-                "AK-74M": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 0,
-                        "totalShots": 113,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
                 }
             }
         },
         "687e2ac00003716944501dc0": {
             "lastUpdate": 1753099850,
-            "level": 14,
+            "level": 16,
             "playedMaps": {
-                "Sandbox": 13,
-                "bigmap": 12,
-                "Woods": 3,
-                "Lighthouse": 1
+                "Sandbox": 21,
+                "bigmap": 17,
+                "Woods": 6,
+                "Lighthouse": 1,
+                "RezervBase": 1
             },
             "weapons": {
-                "AKM": {
+                "MP7A2": {
                     "stats": {
-                        "kills": 4,
-                        "headshots": 3,
-                        "totalShots": 37,
+                        "kills": 11,
+                        "headshots": 8,
+                        "totalShots": 135,
                         "timesLost": 0
                     },
-                    "originalId": "59d6088586f774275f37482f"
+                    "originalId": "5bd70322209c4d00d7167b8f"
                 },
-                "VSK-94": {
-                    "stats": {
-                        "kills": 9,
-                        "headshots": 6,
-                        "totalShots": 47,
-                        "timesLost": 0
-                    },
-                    "originalId": "645e0c6b3b381ede770e1cc9"
-                },
-                "M9A3": {
+                "M4A1": {
                     "stats": {
                         "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 3,
+                        "headshots": 0,
+                        "totalShots": 29,
                         "timesLost": 0
                     },
-                    "originalId": "5cadc190ae921500103bb3b6"
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "MCX .300 BLK": {
+                    "stats": {
+                        "kills": 9,
+                        "headshots": 4,
+                        "totalShots": 86,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
+                },
+                "MDR": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 6,
+                        "totalShots": 22,
+                        "timesLost": 0
+                    },
+                    "originalId": "5c488a752e221602b412af63"
                 },
                 "HK 416A5": {
                     "stats": {
-                        "kills": 18,
-                        "headshots": 15,
-                        "totalShots": 97,
+                        "kills": 29,
+                        "headshots": 18,
+                        "totalShots": 135,
                         "timesLost": 0
                     },
                     "originalId": "5bb2475ed4351e00853264e3"
                 },
-                "STM-9": {
+                "P226R": {
                     "stats": {
-                        "kills": 3,
-                        "headshots": 3,
-                        "totalShots": 97,
-                        "timesLost": 0
-                    },
-                    "originalId": "60339954d62c9b14ed777c06"
-                },
-                "AK-12": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 2,
-                        "totalShots": 20,
-                        "timesLost": 0
-                    },
-                    "originalId": "6499849fc93611967b034949"
-                },
-                "MP7A1": {
-                    "stats": {
-                        "kills": 8,
-                        "headshots": 3,
-                        "totalShots": 111,
-                        "timesLost": 1
-                    },
-                    "originalId": "5ba26383d4351e00334c93d9"
-                },
-                "MP5": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 2,
-                        "totalShots": 33,
-                        "timesLost": 0
-                    },
-                    "originalId": "5926bb2186f7744b1c6c6e60"
-                },
-                "OP-SKS": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 1,
-                        "totalShots": 16,
-                        "timesLost": 0
-                    },
-                    "originalId": "587e02ff24597743df3deaeb"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 1,
-                        "totalShots": 78,
-                        "timesLost": 1
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
-                },
-                "P90": {
-                    "stats": {
-                        "kills": 1,
+                        "kills": 0,
                         "headshots": 0,
-                        "totalShots": 11,
+                        "totalShots": 15,
                         "timesLost": 0
                     },
-                    "originalId": "5cc82d76e24e8d00134b4b83"
+                    "originalId": "56d59856d2720bd8418b456a"
                 }
             }
         },
@@ -25047,17 +25314,28 @@
             "lastUpdate": 1753099858,
             "level": 12,
             "playedMaps": {
-                "Sandbox": 14,
-                "bigmap": 12,
+                "Sandbox": 16,
+                "bigmap": 13,
                 "Woods": 4,
-                "Lighthouse": 1
+                "Lighthouse": 1,
+                "RezervBase": 1,
+                "factory4_day": 1
             },
             "weapons": {
+                "RPK-16": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 3,
+                        "totalShots": 57,
+                        "timesLost": 0
+                    },
+                    "originalId": "5beed0f50db834001c062b12"
+                },
                 "P90": {
                     "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 2,
+                        "kills": 5,
+                        "headshots": 3,
+                        "totalShots": 65,
                         "timesLost": 0
                     },
                     "originalId": "5cc82d76e24e8d00134b4b83"
@@ -25979,17 +26257,26 @@
             "level": 64,
             "playedMaps": {
                 "laboratory": 1,
-                "RezervBase": 11
+                "RezervBase": 12
             },
             "weapons": {
                 "MCX .300 BLK": {
                     "stats": {
-                        "kills": 11,
-                        "headshots": 5,
-                        "totalShots": 187,
+                        "kills": 21,
+                        "headshots": 10,
+                        "totalShots": 316,
                         "timesLost": 0
                     },
                     "originalId": "5fbcc1d9016cce60e8341ab3"
+                },
+                "SA58": {
+                    "stats": {
+                        "kills": 12,
+                        "headshots": 2,
+                        "totalShots": 209,
+                        "timesLost": 0
+                    },
+                    "originalId": "5b0bbe4e5acfc40dc528a72d"
                 },
                 "AXMC": {
                     "stats": {
@@ -26162,15 +26449,6 @@
                     },
                     "originalId": "5cadfbf7ae92152ac412eeef"
                 },
-                "SA58": {
-                    "stats": {
-                        "kills": 11,
-                        "headshots": 1,
-                        "totalShots": 131,
-                        "timesLost": 0
-                    },
-                    "originalId": "5b0bbe4e5acfc40dc528a72d"
-                },
                 "SPEAR 6.8": {
                     "stats": {
                         "kills": 0,
@@ -26221,28 +26499,28 @@
         },
         "6879abf700015296fa31610f": {
             "lastUpdate": 1753127785,
-            "level": 28,
+            "level": 29,
             "playedMaps": {
                 "factory4_day": 34,
-                "laboratory": 4,
-                "bigmap": 12,
+                "laboratory": 8,
+                "bigmap": 13,
                 "Interchange": 2,
                 "Shoreline": 13,
                 "RezervBase": 2,
-                "Woods": 3,
+                "Woods": 4,
                 "TarkovStreets": 1,
-                "Lighthouse": 1
+                "Lighthouse": 6
             },
             "weapons": []
         },
         "6879a0990004d1144530ccb8": {
             "lastUpdate": 1753127801,
-            "level": 25,
+            "level": 26,
             "playedMaps": {
                 "factory4_day": 6,
                 "laboratory": 5,
-                "bigmap": 3,
-                "Woods": 5,
+                "bigmap": 4,
+                "Woods": 6,
                 "Shoreline": 4,
                 "Sandbox": 2
             },
@@ -26264,11 +26542,11 @@
         },
         "687dc8730003dc5a6eb3b06a": {
             "lastUpdate": 1753136518,
-            "level": 23,
+            "level": 24,
             "playedMaps": {
                 "bigmap": 28,
                 "factory4_day": 4,
-                "Woods": 2,
+                "Woods": 4,
                 "Shoreline": 3,
                 "laboratory": 3,
                 "RezervBase": 1
@@ -26277,17 +26555,18 @@
         },
         "687b3f4500029c3f9d76b973": {
             "lastUpdate": 1753136565,
-            "level": 19,
+            "level": 21,
             "playedMaps": {
                 "laboratory": 10,
                 "factory4_day": 19,
-                "RezervBase": 1,
+                "RezervBase": 4,
                 "TarkovStreets": 2,
                 "Lighthouse": 2,
-                "Interchange": 8,
+                "Interchange": 13,
                 "Woods": 3,
-                "bigmap": 3,
-                "Shoreline": 1
+                "bigmap": 4,
+                "Shoreline": 1,
+                "factory4_night": 1
             },
             "weapons": []
         },
@@ -26345,20 +26624,38 @@
         },
         "687efd2e0005b10087bc0f4e": {
             "lastUpdate": 1753153848,
-            "level": 11,
+            "level": 12,
             "playedMaps": {
                 "Sandbox": 16,
-                "Woods": 7,
+                "Woods": 11,
                 "factory4_day": 1,
                 "bigmap": 3,
-                "RezervBase": 1
+                "RezervBase": 3
             },
             "weapons": {
+                "ADAR 2-15": {
+                    "stats": {
+                        "kills": 17,
+                        "headshots": 9,
+                        "totalShots": 308,
+                        "timesLost": 1
+                    },
+                    "originalId": "5c07c60e0db834002330051f"
+                },
+                "Vector 9x19": {
+                    "stats": {
+                        "kills": 15,
+                        "headshots": 7,
+                        "totalShots": 405,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc3f2d5900b1d5091531e57"
+                },
                 "MP-443 Grach": {
                     "stats": {
                         "kills": 3,
                         "headshots": 3,
-                        "totalShots": 52,
+                        "totalShots": 57,
                         "timesLost": 0
                     },
                     "originalId": "576a581d2459771e7b1bc4f1"
@@ -26371,24 +26668,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5bfd297f0db834001a669119"
-                },
-                "Vector 9x19": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 45,
-                        "timesLost": 0
-                    },
-                    "originalId": "5fc3f2d5900b1d5091531e57"
-                },
-                "ADAR 2-15": {
-                    "stats": {
-                        "kills": 9,
-                        "headshots": 4,
-                        "totalShots": 235,
-                        "timesLost": 1
-                    },
-                    "originalId": "5c07c60e0db834002330051f"
                 },
                 "PP-19-01": {
                     "stats": {
@@ -26413,7 +26692,7 @@
                         "kills": 15,
                         "headshots": 6,
                         "totalShots": 435,
-                        "timesLost": 2
+                        "timesLost": 3
                     },
                     "originalId": "59e6152586f77473dc057aa1"
                 },
@@ -26509,24 +26788,142 @@
         },
         "687f28f700031b9d2ac599e0": {
             "lastUpdate": 1753165670,
-            "level": 27,
+            "level": 29,
             "playedMaps": {
                 "Sandbox": 15,
                 "RezervBase": 5,
                 "Woods": 3,
                 "bigmap": 20,
-                "factory4_day": 11,
-                "Interchange": 1
+                "factory4_day": 12,
+                "Interchange": 9,
+                "Shoreline": 2
             },
             "weapons": {
+                "Mk 16": {
+                    "stats": {
+                        "kills": 40,
+                        "headshots": 22,
+                        "totalShots": 641,
+                        "timesLost": 1
+                    },
+                    "originalId": "6184055050224f204c1da540"
+                },
+                "MP9": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 4,
+                        "timesLost": 0
+                    },
+                    "originalId": "5e00903ae9dc277128008b87"
+                },
+                "Desert Eagle L5": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 14,
+                        "timesLost": 0
+                    },
+                    "originalId": "669fa3f88abd2662d80eee77"
+                },
                 "MP7A2": {
                     "stats": {
                         "kills": 47,
                         "headshots": 25,
-                        "totalShots": 730,
+                        "totalShots": 731,
                         "timesLost": 0
                     },
                     "originalId": "5bd70322209c4d00d7167b8f"
+                },
+                "SR-25": {
+                    "stats": {
+                        "kills": 8,
+                        "headshots": 3,
+                        "totalShots": 59,
+                        "timesLost": 0
+                    },
+                    "originalId": "5df8ce05b11454561e39243b"
+                },
+                "AK-74N": {
+                    "stats": {
+                        "kills": 37,
+                        "headshots": 14,
+                        "totalShots": 485,
+                        "timesLost": 1
+                    },
+                    "originalId": "5644bd2b4bdc2d3b4c8b4572"
+                },
+                "RPK-16": {
+                    "stats": {
+                        "kills": 11,
+                        "headshots": 5,
+                        "totalShots": 160,
+                        "timesLost": 0
+                    },
+                    "originalId": "5beed0f50db834001c062b12"
+                },
+                "OP-SKS": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 33,
+                        "timesLost": 0
+                    },
+                    "originalId": "587e02ff24597743df3deaeb"
+                },
+                "AK-74M": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 4,
+                        "totalShots": 22,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
+                },
+                "RSASS": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 0,
+                        "totalShots": 43,
+                        "timesLost": 0
+                    },
+                    "originalId": "5a367e5dc4a282000e49738f"
+                },
+                "Glock 17": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 49,
+                        "timesLost": 0
+                    },
+                    "originalId": "5a7ae0c351dfba0017554310"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 42,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 4,
+                        "headshots": 2,
+                        "totalShots": 39,
+                        "timesLost": 0
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
+                },
+                "MCX .300 BLK": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 10,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
                 },
                 "AKS-74UN": {
                     "stats": {
@@ -26536,15 +26933,6 @@
                         "timesLost": 0
                     },
                     "originalId": "583990e32459771419544dd2"
-                },
-                "RPK-16": {
-                    "stats": {
-                        "kills": 4,
-                        "headshots": 1,
-                        "totalShots": 47,
-                        "timesLost": 0
-                    },
-                    "originalId": "5beed0f50db834001c062b12"
                 },
                 "STM-9": {
                     "stats": {
@@ -26572,24 +26960,6 @@
                         "timesLost": 0
                     },
                     "originalId": "606587252535c57a13424cfd"
-                },
-                "Glock 17": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 9,
-                        "timesLost": 0
-                    },
-                    "originalId": "5a7ae0c351dfba0017554310"
-                },
-                "AK-74N": {
-                    "stats": {
-                        "kills": 30,
-                        "headshots": 9,
-                        "totalShots": 398,
-                        "timesLost": 1
-                    },
-                    "originalId": "5644bd2b4bdc2d3b4c8b4572"
                 },
                 "AK-101": {
                     "stats": {
@@ -26654,24 +27024,6 @@
                     },
                     "originalId": "5ac66d015acfc400180ae6e4"
                 },
-                "VSS Vintorez": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 8,
-                        "timesLost": 0
-                    },
-                    "originalId": "57838ad32459774a17445cd2"
-                },
-                "Mk 16": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 39,
-                        "timesLost": 1
-                    },
-                    "originalId": "6184055050224f204c1da540"
-                },
                 "ADAR 2-15": {
                     "stats": {
                         "kills": 62,
@@ -26680,15 +27032,6 @@
                         "timesLost": 2
                     },
                     "originalId": "5c07c60e0db834002330051f"
-                },
-                "Desert Eagle L5": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 0,
-                        "totalShots": 10,
-                        "timesLost": 0
-                    },
-                    "originalId": "669fa3f88abd2662d80eee77"
                 },
                 "Mk 17": {
                     "stats": {
@@ -26753,15 +27096,6 @@
                     },
                     "originalId": "5ac66d2e5acfc43b321d4b53"
                 },
-                "OP-SKS": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 2,
-                        "totalShots": 28,
-                        "timesLost": 0
-                    },
-                    "originalId": "587e02ff24597743df3deaeb"
-                },
                 "VPO-136 Vepr-KM": {
                     "stats": {
                         "kills": 3,
@@ -26788,15 +27122,6 @@
                         "timesLost": 1
                     },
                     "originalId": "59984ab886f7743e98271174"
-                },
-                "AK-74M": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 3,
-                        "totalShots": 0,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
                 },
                 "G28": {
                     "stats": {
@@ -27182,15 +27507,79 @@
         },
         "68800b9b0004b30fa81bb817": {
             "lastUpdate": 1753222988,
-            "level": 10,
+            "level": 12,
             "playedMaps": {
                 "Sandbox": 7,
-                "bigmap": 3,
+                "bigmap": 5,
                 "Woods": 9,
-                "factory4_day": 1,
-                "TarkovStreets": 1
+                "factory4_day": 2,
+                "TarkovStreets": 1,
+                "Shoreline": 1
             },
             "weapons": {
+                "VPO-209": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 4,
+                        "totalShots": 109,
+                        "timesLost": 0
+                    },
+                    "originalId": "59e6687d86f77411d949b251"
+                },
+                "FN 5-7": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 6,
+                        "totalShots": 133,
+                        "timesLost": 0
+                    },
+                    "originalId": "5d3eb3b0a4b93615055e84d2"
+                },
+                "CR 50DS": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 2,
+                        "timesLost": 0
+                    },
+                    "originalId": "61a4c8884f95bc3b2c5dc96f"
+                },
+                "MP-133": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 3,
+                        "totalShots": 6,
+                        "timesLost": 0
+                    },
+                    "originalId": "54491c4f4bdc2db1078b4568"
+                },
+                "AK-74N": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 15,
+                        "timesLost": 0
+                    },
+                    "originalId": "5644bd2b4bdc2d3b4c8b4572"
+                },
+                "AK-104": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 11,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac66d725acfc43b321d4b60"
+                },
+                "SPEAR 6.8": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 5,
+                        "timesLost": 0
+                    },
+                    "originalId": "65290f395ae2ae97b80fdf2d"
+                },
                 "MP5K-N": {
                     "stats": {
                         "kills": 2,
@@ -27263,15 +27652,6 @@
                     },
                     "originalId": "5bfd297f0db834001a669119"
                 },
-                "VPO-209": {
-                    "stats": {
-                        "kills": 5,
-                        "headshots": 3,
-                        "totalShots": 109,
-                        "timesLost": 0
-                    },
-                    "originalId": "59e6687d86f77411d949b251"
-                },
                 "AKS-74UN": {
                     "stats": {
                         "kills": 0,
@@ -27321,13 +27701,14 @@
         },
         "687e4b710004f3aa6e5e8c5d": {
             "lastUpdate": 1753223180,
-            "level": 11,
+            "level": 12,
             "playedMaps": {
                 "Sandbox": 8,
-                "factory4_day": 3,
-                "bigmap": 5,
+                "factory4_day": 4,
+                "bigmap": 7,
                 "Woods": 14,
-                "TarkovStreets": 1
+                "TarkovStreets": 2,
+                "Shoreline": 1
             },
             "weapons": {
                 "APS": {
@@ -27480,7 +27861,7 @@
         },
         "687b061f0000cd61cd615225": {
             "lastUpdate": 1753235695,
-            "level": 36,
+            "level": 37,
             "playedMaps": {
                 "bigmap": 22,
                 "factory4_day": 13,
@@ -27489,19 +27870,21 @@
                 "TarkovStreets": 3,
                 "RezervBase": 7,
                 "Shoreline": 8,
-                "laboratory": 3,
-                "Lighthouse": 1
+                "laboratory": 7,
+                "Lighthouse": 2
             },
             "weapons": []
         },
         "68801be300034b9a601f2c1a": {
             "lastUpdate": 1753236363,
-            "level": 17,
+            "level": 20,
             "playedMaps": {
-                "factory4_day": 8,
+                "factory4_day": 13,
                 "Sandbox": 7,
-                "Woods": 1,
-                "bigmap": 1
+                "Woods": 2,
+                "bigmap": 2,
+                "Lighthouse": 2,
+                "Shoreline": 2
             },
             "weapons": []
         },
@@ -27576,11 +27959,38 @@
                 "TarkovStreets": 3,
                 "factory4_day": 2,
                 "Lighthouse": 7,
-                "Woods": 3,
+                "Woods": 4,
                 "factory4_night": 3,
                 "bigmap": 1
             },
             "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 23,
+                        "headshots": 17,
+                        "totalShots": 335,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "AKM": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 36,
+                        "timesLost": 0
+                    },
+                    "originalId": "59d6088586f774275f37482f"
+                },
+                "AKS-74UN": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 184,
+                        "timesLost": 0
+                    },
+                    "originalId": "583990e32459771419544dd2"
+                },
                 "SVDS": {
                     "stats": {
                         "kills": 27,
@@ -27617,24 +28027,6 @@
                     },
                     "originalId": "623063e994fc3f7b302a9696"
                 },
-                "M4A1": {
-                    "stats": {
-                        "kills": 14,
-                        "headshots": 11,
-                        "totalShots": 171,
-                        "timesLost": 0
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
-                },
-                "AKS-74UN": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 1,
-                        "totalShots": 109,
-                        "timesLost": 0
-                    },
-                    "originalId": "583990e32459771419544dd2"
-                },
                 "M3 Super 90": {
                     "stats": {
                         "kills": 0,
@@ -27652,15 +28044,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5a7ae0c351dfba0017554310"
-                },
-                "AKM": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 0,
-                        "totalShots": 5,
-                        "timesLost": 0
-                    },
-                    "originalId": "59d6088586f774275f37482f"
                 },
                 "Mk 16": {
                     "stats": {
@@ -27872,7 +28255,7 @@
             "lastUpdate": 1753298730,
             "level": 42,
             "playedMaps": {
-                "factory4_day": 3,
+                "factory4_day": 5,
                 "Interchange": 1,
                 "RezervBase": 2,
                 "factory4_night": 3,
@@ -27887,7 +28270,7 @@
                 "bigmap": 6,
                 "TarkovStreets": 4,
                 "Interchange": 2,
-                "laboratory": 6,
+                "laboratory": 8,
                 "factory4_day": 1,
                 "Shoreline": 1
             },
@@ -28218,9 +28601,19 @@
             "playedMaps": {
                 "factory4_day": 7,
                 "Woods": 1,
-                "bigmap": 9
+                "bigmap": 9,
+                "Shoreline": 1
             },
             "weapons": {
+                "MP-153": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 4,
+                        "totalShots": 23,
+                        "timesLost": 0
+                    },
+                    "originalId": "56dee2bdd2720bc8328b4567"
+                },
                 "MP-133": {
                     "stats": {
                         "kills": 3,
@@ -28238,15 +28631,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5fc22d7c187fea44d52eda44"
-                },
-                "MP-153": {
-                    "stats": {
-                        "kills": 2,
-                        "headshots": 1,
-                        "totalShots": 6,
-                        "timesLost": 0
-                    },
-                    "originalId": "56dee2bdd2720bc8328b4567"
                 },
                 "MP-155": {
                     "stats": {
@@ -28606,7 +28990,7 @@
             "level": 6,
             "playedMaps": {
                 "Interchange": 1,
-                "factory4_day": 1,
+                "factory4_day": 3,
                 "RezervBase": 1,
                 "factory4_night": 2
             },
@@ -28785,12 +29169,13 @@
             "lastUpdate": 1753421561,
             "level": 52,
             "playedMaps": {
-                "factory4_day": 12,
-                "TarkovStreets": 5,
+                "factory4_day": 15,
+                "TarkovStreets": 7,
                 "Interchange": 6,
-                "Woods": 2,
+                "Woods": 3,
                 "RezervBase": 2,
-                "bigmap": 2
+                "bigmap": 2,
+                "Shoreline": 1
             },
             "weapons": {
                 "M1A": {
@@ -29210,10 +29595,13 @@
             "lastUpdate": 1753447318,
             "level": 42,
             "playedMaps": {
-                "Shoreline": 7,
-                "factory4_day": 5,
+                "Shoreline": 8,
+                "factory4_day": 6,
                 "Woods": 1,
-                "bigmap": 1
+                "bigmap": 1,
+                "laboratory": 1,
+                "RezervBase": 2,
+                "Interchange": 2
             },
             "weapons": []
         },
@@ -29221,29 +29609,36 @@
             "lastUpdate": 1753447321,
             "level": 44,
             "playedMaps": {
-                "Shoreline": 9,
-                "factory4_day": 6,
-                "Woods": 1
+                "Shoreline": 10,
+                "factory4_day": 7,
+                "Woods": 1,
+                "laboratory": 1,
+                "RezervBase": 2,
+                "Interchange": 2
             },
             "weapons": []
         },
         "684c2da700034631fe7f74ab": {
             "lastUpdate": 1753447342,
-            "level": 34,
+            "level": 35,
             "playedMaps": {
-                "Shoreline": 11
+                "Shoreline": 11,
+                "Interchange": 2
             },
             "weapons": []
         },
         "684c2f630004ae4adda7136e": {
             "lastUpdate": 1753447356,
-            "level": 44,
+            "level": 46,
             "playedMaps": {
-                "Shoreline": 18,
-                "Interchange": 1,
+                "Shoreline": 19,
+                "Interchange": 3,
                 "Lighthouse": 3,
                 "TarkovStreets": 4,
-                "bigmap": 2
+                "bigmap": 2,
+                "laboratory": 1,
+                "RezervBase": 6,
+                "Sandbox_high": 6
             },
             "weapons": []
         },
@@ -29335,28 +29730,48 @@
         },
         "686feb7300036752a7fb4de3": {
             "lastUpdate": 1753453744,
-            "level": 38,
+            "level": 40,
             "playedMaps": {
                 "Interchange": 5,
-                "Woods": 2,
+                "Woods": 3,
                 "factory4_day": 5,
                 "RezervBase": 2,
-                "bigmap": 3
+                "bigmap": 3,
+                "Shoreline": 1
             },
             "weapons": []
         },
         "688387c800061a115bf48580": {
             "lastUpdate": 1753458701,
-            "level": 9,
+            "level": 11,
             "playedMaps": {
-                "Sandbox_high": 4,
+                "Sandbox_high": 5,
                 "bigmap": 5,
                 "Woods": 1,
                 "factory4_day": 2,
                 "Lighthouse": 1,
-                "RezervBase": 1
+                "RezervBase": 1,
+                "factory4_night": 2
             },
             "weapons": {
+                "AS VAL": {
+                    "stats": {
+                        "kills": 37,
+                        "headshots": 18,
+                        "totalShots": 523,
+                        "timesLost": 2
+                    },
+                    "originalId": "57c44b372459772d2b39b8ce"
+                },
+                "590A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 20,
+                        "timesLost": 0
+                    },
+                    "originalId": "5e870397991fd70db46995c8"
+                },
                 "VPO-136 Vepr-KM": {
                     "stats": {
                         "kills": 1,
@@ -29365,15 +29780,6 @@
                         "timesLost": 0
                     },
                     "originalId": "59e6152586f77473dc057aa1"
-                },
-                "AS VAL": {
-                    "stats": {
-                        "kills": 25,
-                        "headshots": 10,
-                        "totalShots": 392,
-                        "timesLost": 2
-                    },
-                    "originalId": "57c44b372459772d2b39b8ce"
                 },
                 "M9A3": {
                     "stats": {
@@ -29388,22 +29794,58 @@
         },
         "688273b100055dff50518128": {
             "lastUpdate": 1753459356,
-            "level": 15,
+            "level": 18,
             "playedMaps": {
-                "factory4_day": 8,
+                "factory4_day": 14,
                 "Sandbox": 10,
-                "RezervBase": 5,
+                "RezervBase": 6,
                 "Woods": 3,
-                "bigmap": 2,
+                "bigmap": 5,
                 "Lighthouse": 1
             },
             "weapons": {
+                "AUG A3": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 5,
+                        "timesLost": 0
+                    },
+                    "originalId": "6718817435e3cfd9550d2c27"
+                },
+                "AK-74": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5bf3e03b0db834001d2c4a9c"
+                },
+                "AK-105": {
+                    "stats": {
+                        "kills": 37,
+                        "headshots": 18,
+                        "totalShots": 458,
+                        "timesLost": 1
+                    },
+                    "originalId": "5ac66d9b5acfc4001633997a"
+                },
+                "MP-155": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "606dae0ab0e443224b421bb7"
+                },
                 "Mosin Infantry": {
                     "stats": {
                         "kills": 8,
                         "headshots": 5,
                         "totalShots": 35,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5bfd297f0db834001a669119"
                 },
@@ -29430,7 +29872,7 @@
                         "kills": 51,
                         "headshots": 26,
                         "totalShots": 844,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5beed0f50db834001c062b12"
                 },
@@ -29487,15 +29929,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5bf3e0490db83400196199af"
-                },
-                "MP-155": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 0,
-                        "timesLost": 0
-                    },
-                    "originalId": "606dae0ab0e443224b421bb7"
                 },
                 "AUG A1": {
                     "stats": {
@@ -29605,15 +30038,6 @@
                     },
                     "originalId": "6499849fc93611967b034949"
                 },
-                "AK-105": {
-                    "stats": {
-                        "kills": 4,
-                        "headshots": 3,
-                        "totalShots": 18,
-                        "timesLost": 1
-                    },
-                    "originalId": "5ac66d9b5acfc4001633997a"
-                },
                 "AK-74M": {
                     "stats": {
                         "kills": 7,
@@ -29622,15 +30046,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5ac4cd105acfc40016339859"
-                },
-                "AUG A3": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 5,
-                        "timesLost": 0
-                    },
-                    "originalId": "6718817435e3cfd9550d2c27"
                 }
             }
         },
@@ -29701,11 +30116,11 @@
         },
         "68729734000311bc9251d244": {
             "lastUpdate": 1753461834,
-            "level": 38,
+            "level": 39,
             "playedMaps": {
-                "TarkovStreets": 4,
-                "factory4_day": 1,
-                "Shoreline": 1
+                "TarkovStreets": 9,
+                "factory4_day": 5,
+                "Shoreline": 2
             },
             "weapons": []
         },
@@ -29811,66 +30226,59 @@
         },
         "6884641e000121b5f16fb42a": {
             "lastUpdate": 1753509180,
-            "level": 6,
+            "level": 7,
             "playedMaps": {
                 "Sandbox": 5,
                 "bigmap": 2,
-                "Lighthouse": 1
+                "Lighthouse": 1,
+                "RezervBase": 1,
+                "Woods": 3
             },
             "weapons": {
-                "G36": {
+                "M4A1": {
                     "stats": {
                         "kills": 0,
                         "headshots": 0,
-                        "totalShots": 17,
+                        "totalShots": 13,
                         "timesLost": 0
                     },
-                    "originalId": "623063e994fc3f7b302a9696"
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
-                "MP7A1": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 0,
-                        "totalShots": 60,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ba26383d4351e00334c93d9"
-                },
-                "MP-18": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 1,
-                        "totalShots": 4,
-                        "timesLost": 0
-                    },
-                    "originalId": "61f7c9e189e6fb1a5e3ea78d"
-                },
-                "SA58": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 2,
-                        "timesLost": 0
-                    },
-                    "originalId": "5b0bbe4e5acfc40dc528a72d"
-                },
-                "Mk 16": {
+                "SR-25": {
                     "stats": {
                         "kills": 4,
-                        "headshots": 0,
-                        "totalShots": 90,
+                        "headshots": 1,
+                        "totalShots": 54,
                         "timesLost": 0
                     },
-                    "originalId": "618428466ef05c2ce828f218"
+                    "originalId": "5df8ce05b11454561e39243b"
                 },
-                "VPO-209": {
+                "SR-2M": {
                     "stats": {
-                        "kills": 0,
+                        "kills": 1,
                         "headshots": 0,
-                        "totalShots": 17,
+                        "totalShots": 39,
                         "timesLost": 0
                     },
-                    "originalId": "59e6687d86f77411d949b251"
+                    "originalId": "62e14904c2699c0ec93adc47"
+                },
+                "NSV Utyos": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cdeb229d7f00c000e7ce174"
+                },
+                "MP5": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 138,
+                        "timesLost": 0
+                    },
+                    "originalId": "5926bb2186f7744b1c6c6e60"
                 }
             }
         },
@@ -29879,8 +30287,8 @@
             "level": 9,
             "playedMaps": {
                 "bigmap": 4,
-                "factory4_day": 14,
-                "Shoreline": 3,
+                "factory4_day": 16,
+                "Shoreline": 4,
                 "RezervBase": 5,
                 "Sandbox": 8,
                 "Sandbox_high": 2,
@@ -30366,20 +30774,30 @@
         },
         "6884ea70000108d36691afc0": {
             "lastUpdate": 1753544037,
-            "level": 5,
+            "level": 6,
             "playedMaps": {
                 "Sandbox_high": 1,
-                "Sandbox": 4
+                "Sandbox": 4,
+                "Woods": 1
             },
             "weapons": {
                 "PP-19-01": {
                     "stats": {
-                        "kills": 16,
-                        "headshots": 8,
-                        "totalShots": 223,
+                        "kills": 18,
+                        "headshots": 9,
+                        "totalShots": 279,
                         "timesLost": 0
                     },
                     "originalId": "59984ab886f7743e98271174"
+                },
+                "UMP 45": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 15,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc3e272f8b6a877a729eac5"
                 },
                 "PPSh41": {
                     "stats": {
@@ -30462,19 +30880,38 @@
         },
         "674662a900025107605995fb": {
             "lastUpdate": 1753563619,
-            "level": 48,
+            "level": 49,
             "playedMaps": {
                 "Woods": 7,
                 "bigmap": 1,
                 "RezervBase": 1,
-                "Shoreline": 1
+                "Shoreline": 4,
+                "TarkovStreets": 4
             },
             "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 63,
+                        "headshots": 45,
+                        "totalShots": 676,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                },
+                "FN 5-7": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 3,
+                        "timesLost": 0
+                    },
+                    "originalId": "5d3eb3b0a4b93615055e84d2"
+                },
                 "Mk47": {
                     "stats": {
-                        "kills": 16,
-                        "headshots": 8,
-                        "totalShots": 176,
+                        "kills": 14,
+                        "headshots": 7,
+                        "totalShots": 169,
                         "timesLost": 0
                     },
                     "originalId": "606587252535c57a13424cfd"
@@ -30505,15 +30942,6 @@
                         "timesLost": 0
                     },
                     "originalId": "59e6152586f77473dc057aa1"
-                },
-                "M4A1": {
-                    "stats": {
-                        "kills": 8,
-                        "headshots": 7,
-                        "totalShots": 115,
-                        "timesLost": 0
-                    },
-                    "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
                 "MDR": {
                     "stats": {
@@ -30595,17 +31023,46 @@
             "playedMaps": {
                 "RezervBase": 1,
                 "Woods": 2,
-                "Shoreline": 1
+                "Shoreline": 1,
+                "TarkovStreets": 3,
+                "bigmap": 1
             },
             "weapons": {
-                "ADAR 2-15": {
+                "TX-15 DML": {
                     "stats": {
-                        "kills": 1,
+                        "kills": 3,
                         "headshots": 1,
-                        "totalShots": 20,
+                        "totalShots": 39,
                         "timesLost": 0
                     },
-                    "originalId": "5c07c60e0db834002330051f"
+                    "originalId": "5d43021ca4b9362eab4b5e25"
+                },
+                "Glock 17": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 11,
+                        "timesLost": 0
+                    },
+                    "originalId": "5a7ae0c351dfba0017554310"
+                },
+                "AS VAL": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 9,
+                        "timesLost": 0
+                    },
+                    "originalId": "57c44b372459772d2b39b8ce"
+                },
+                "VSS Vintorez": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 12,
+                        "timesLost": 0
+                    },
+                    "originalId": "57838ad32459774a17445cd2"
                 },
                 "RSASS": {
                     "stats": {
@@ -30621,7 +31078,7 @@
                         "kills": 16,
                         "headshots": 9,
                         "totalShots": 110,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5df8ce05b11454561e39243b"
                 },
@@ -30797,41 +31254,132 @@
         },
         "6885f8c70003d235f7fd9daf": {
             "lastUpdate": 1753616848,
-            "level": 8,
+            "level": 14,
             "playedMaps": {
-                "Woods": 2,
+                "Woods": 3,
                 "factory4_day": 4,
-                "bigmap": 2,
+                "bigmap": 6,
                 "Sandbox": 4,
-                "RezervBase": 1
+                "RezervBase": 1,
+                "Shoreline": 1
             },
             "weapons": {
+                "AKS-74": {
+                    "stats": {
+                        "kills": 11,
+                        "headshots": 11,
+                        "totalShots": 86,
+                        "timesLost": 0
+                    },
+                    "originalId": "5bf3e0490db83400196199af"
+                },
                 "ADAR 2-15": {
                     "stats": {
-                        "kills": 17,
-                        "headshots": 10,
-                        "totalShots": 162,
+                        "kills": 13,
+                        "headshots": 12,
+                        "totalShots": 65,
                         "timesLost": 0
                     },
                     "originalId": "5c07c60e0db834002330051f"
                 },
-                "AKS-74U": {
+                "MCX .300 BLK": {
                     "stats": {
-                        "kills": 6,
-                        "headshots": 3,
-                        "totalShots": 50,
+                        "kills": 3,
+                        "headshots": 2,
+                        "totalShots": 27,
                         "timesLost": 0
                     },
-                    "originalId": "57dc2fa62459775949412633"
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
                 },
-                "AKS-74UN": {
+                "SR-25": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 26,
+                        "timesLost": 0
+                    },
+                    "originalId": "5df8ce05b11454561e39243b"
+                },
+                "MP7A1": {
                     "stats": {
                         "kills": 2,
                         "headshots": 2,
-                        "totalShots": 4,
+                        "totalShots": 16,
                         "timesLost": 0
                     },
-                    "originalId": "583990e32459771419544dd2"
+                    "originalId": "5ba26383d4351e00334c93d9"
+                },
+                "TOZ-106": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5a38e6bac4a2826c6e06d79b"
+                },
+                "AK-545": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "628b5638ad252a16da6dd245"
+                },
+                "AUG A1": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "62e7c4fba689e8c9c50dfc38"
+                },
+                "MDR": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 10,
+                        "totalShots": 129,
+                        "timesLost": 0
+                    },
+                    "originalId": "5c488a752e221602b412af63"
+                },
+                "AK-74M": {
+                    "stats": {
+                        "kills": 9,
+                        "headshots": 6,
+                        "totalShots": 169,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ac4cd105acfc40016339859"
+                },
+                "MP-133": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 3,
+                        "totalShots": 12,
+                        "timesLost": 0
+                    },
+                    "originalId": "54491c4f4bdc2db1078b4568"
+                },
+                "M700": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 3,
+                        "totalShots": 3,
+                        "timesLost": 0
+                    },
+                    "originalId": "5bfea6e90db834001b7347f3"
+                },
+                "Mk 17": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 15,
+                        "timesLost": 0
+                    },
+                    "originalId": "6165ac306ef05c2ce828ef74"
                 },
                 "MP9": {
                     "stats": {
@@ -30851,14 +31399,14 @@
                     },
                     "originalId": "59984ab886f7743e98271174"
                 },
-                "MDR": {
+                "AKS-74U": {
                     "stats": {
-                        "kills": 8,
-                        "headshots": 5,
-                        "totalShots": 103,
+                        "kills": 5,
+                        "headshots": 3,
+                        "totalShots": 44,
                         "timesLost": 0
                     },
-                    "originalId": "5c488a752e221602b412af63"
+                    "originalId": "57dc2fa62459775949412633"
                 },
                 "PP-91-01 Kedr-B": {
                     "stats": {
@@ -30883,27 +31431,9 @@
                         "kills": 6,
                         "headshots": 0,
                         "totalShots": 178,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "62e14904c2699c0ec93adc47"
-                },
-                "MP7A1": {
-                    "stats": {
-                        "kills": 0,
-                        "headshots": 0,
-                        "totalShots": 2,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ba26383d4351e00334c93d9"
-                },
-                "AK-74M": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 0,
-                        "totalShots": 56,
-                        "timesLost": 0
-                    },
-                    "originalId": "5ac4cd105acfc40016339859"
                 },
                 "PP-9 Klin": {
                     "stats": {
@@ -30947,18 +31477,36 @@
             "lastUpdate": 1753622802,
             "level": 54,
             "playedMaps": {
-                "factory4_day": 6,
-                "bigmap": 3
+                "factory4_day": 9,
+                "bigmap": 4
             },
             "weapons": {
+                "MCX .300 BLK": {
+                    "stats": {
+                        "kills": 20,
+                        "headshots": 10,
+                        "totalShots": 99,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
+                },
                 "Saiga-12K FA": {
                     "stats": {
-                        "kills": 18,
+                        "kills": 21,
                         "headshots": 4,
-                        "totalShots": 112,
+                        "totalShots": 131,
                         "timesLost": 0
                     },
                     "originalId": "674fe9a75e51f1c47c04ec23"
+                },
+                "Saiga-9": {
+                    "stats": {
+                        "kills": 18,
+                        "headshots": 11,
+                        "totalShots": 103,
+                        "timesLost": 0
+                    },
+                    "originalId": "59f9cabd86f7743a10721f46"
                 },
                 "TRG M10": {
                     "stats": {
@@ -30977,15 +31525,6 @@
                         "timesLost": 0
                     },
                     "originalId": "57dc2fa62459775949412633"
-                },
-                "MCX .300 BLK": {
-                    "stats": {
-                        "kills": 11,
-                        "headshots": 6,
-                        "totalShots": 39,
-                        "timesLost": 0
-                    },
-                    "originalId": "5fbcc1d9016cce60e8341ab3"
                 },
                 "M4A1": {
                     "stats": {
@@ -31076,15 +31615,6 @@
                         "timesLost": 0
                     },
                     "originalId": "651450ce0e00edc794068371"
-                },
-                "Saiga-9": {
-                    "stats": {
-                        "kills": 16,
-                        "headshots": 9,
-                        "totalShots": 103,
-                        "timesLost": 0
-                    },
-                    "originalId": "59f9cabd86f7743a10721f46"
                 },
                 "AK-104": {
                     "stats": {
@@ -31673,11 +32203,20 @@
             "playedMaps": {
                 "Sandbox": 4,
                 "Sandbox_high": 1,
-                "Woods": 7,
+                "Woods": 8,
                 "bigmap": 7,
                 "factory4_day": 2
             },
             "weapons": {
+                "MTs-255-12": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 2,
+                        "totalShots": 3,
+                        "timesLost": 0
+                    },
+                    "originalId": "60db29ce99594040e04c4a27"
+                },
                 "AK-74M": {
                     "stats": {
                         "kills": 2,
@@ -31695,15 +32234,6 @@
                         "timesLost": 0
                     },
                     "originalId": "5bfd297f0db834001a669119"
-                },
-                "MTs-255-12": {
-                    "stats": {
-                        "kills": 3,
-                        "headshots": 2,
-                        "totalShots": 0,
-                        "timesLost": 0
-                    },
-                    "originalId": "60db29ce99594040e04c4a27"
                 },
                 "PM": {
                     "stats": {
@@ -31746,7 +32276,7 @@
                         "kills": 7,
                         "headshots": 3,
                         "totalShots": 104,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5447a9cd4bdc2dbd208b4567"
                 },
@@ -31800,7 +32330,7 @@
                         "kills": 14,
                         "headshots": 5,
                         "totalShots": 96,
-                        "timesLost": 0
+                        "timesLost": 1
                     },
                     "originalId": "5c488a752e221602b412af63"
                 },
@@ -31924,15 +32454,16 @@
         },
         "688688f300020d9337eb9a28": {
             "lastUpdate": 1753648903,
-            "level": 11,
+            "level": 15,
             "playedMaps": {
-                "laboratory": 4,
+                "laboratory": 9,
                 "TarkovStreets": 1,
-                "Interchange": 5,
+                "Interchange": 8,
                 "bigmap": 2,
                 "Shoreline": 2,
                 "factory4_day": 2,
-                "Woods": 1
+                "Woods": 1,
+                "RezervBase": 2
             },
             "weapons": []
         },
@@ -31957,19 +32488,23 @@
         },
         "6886e55d000453607c924e2c": {
             "lastUpdate": 1753678356,
-            "level": 3,
+            "level": 15,
             "playedMaps": {
-                "Sandbox": 1
+                "Sandbox": 2,
+                "Shoreline": 1,
+                "factory4_day": 2,
+                "bigmap": 1,
+                "laboratory": 1
             },
             "weapons": []
         },
         "687616a10001efbbcf196181": {
             "lastUpdate": 1753687722,
-            "level": 25,
+            "level": 26,
             "playedMaps": {
                 "RezervBase": 1,
-                "bigmap": 1,
-                "Interchange": 1,
+                "bigmap": 2,
+                "Interchange": 2,
                 "factory4_day": 1
             },
             "weapons": []
@@ -31997,9 +32532,55 @@
             "level": 27,
             "playedMaps": {
                 "Woods": 1,
-                "RezervBase": 1
+                "RezervBase": 2,
+                "laboratory": 1
             },
             "weapons": {
+                "X-17": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 4,
+                        "totalShots": 59,
+                        "timesLost": 0
+                    },
+                    "originalId": "676176d362e0497044079f4c"
+                },
+                "MP-155": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 7,
+                        "timesLost": 0
+                    },
+                    "originalId": "606dae0ab0e443224b421bb7"
+                },
+                "Vector 9x19": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 48,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fc3f2d5900b1d5091531e57"
+                },
+                "MCX .300 BLK": {
+                    "stats": {
+                        "kills": 20,
+                        "headshots": 14,
+                        "totalShots": 249,
+                        "timesLost": 0
+                    },
+                    "originalId": "5fbcc1d9016cce60e8341ab3"
+                },
+                "AS VAL": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 3,
+                        "totalShots": 70,
+                        "timesLost": 0
+                    },
+                    "originalId": "57c44b372459772d2b39b8ce"
+                },
                 "Mk 17": {
                     "stats": {
                         "kills": 13,
@@ -32009,15 +32590,6 @@
                     },
                     "originalId": "6183afd850224f204c1da514"
                 },
-                "MCX .300 BLK": {
-                    "stats": {
-                        "kills": 1,
-                        "headshots": 0,
-                        "totalShots": 8,
-                        "timesLost": 0
-                    },
-                    "originalId": "5fbcc1d9016cce60e8341ab3"
-                },
                 "AK-74M": {
                     "stats": {
                         "kills": 7,
@@ -32026,6 +32598,346 @@
                         "timesLost": 0
                     },
                     "originalId": "5ac4cd105acfc40016339859"
+                }
+            }
+        },
+        "6887a54000030ea3fc685b00": {
+            "lastUpdate": 1753723647,
+            "level": 4,
+            "playedMaps": {
+                "Sandbox": 2
+            },
+            "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 7,
+                        "headshots": 1,
+                        "totalShots": 89,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6887a22200031dbca3cb040a": {
+            "lastUpdate": 1753723676,
+            "level": 4,
+            "playedMaps": {
+                "Sandbox": 2
+            },
+            "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 10,
+                        "headshots": 6,
+                        "totalShots": 62,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6887e39f00053a4b04eb3f78": {
+            "lastUpdate": 1753736320,
+            "level": 1,
+            "playedMaps": {
+                "factory4_day": 3
+            },
+            "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 2,
+                        "totalShots": 57,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6887ea9a00017fc7a28fcf28": {
+            "lastUpdate": 1753739435,
+            "level": 2,
+            "playedMaps": {
+                "factory4_day": 2,
+                "bigmap": 1
+            },
+            "weapons": {
+                "MP5": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 38,
+                        "timesLost": 0
+                    },
+                    "originalId": "5926bb2186f7744b1c6c6e60"
+                }
+            }
+        },
+        "6886b9380003595a49e6dbc0": {
+            "lastUpdate": 1753747566,
+            "level": 1,
+            "playedMaps": {
+                "Sandbox_high": 1
+            },
+            "weapons": {
+                "VPO-136 Vepr-KM": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "59e6152586f77473dc057aa1"
+                }
+            }
+        },
+        "6888239b0006029229f0d994": {
+            "lastUpdate": 1753754959,
+            "level": 2,
+            "playedMaps": {
+                "Sandbox": 1
+            },
+            "weapons": []
+        },
+        "685afe0a00041373d5a47d80": {
+            "lastUpdate": 1753756314,
+            "level": 17,
+            "playedMaps": {
+                "Woods": 1
+            },
+            "weapons": {
+                "M700": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 14,
+                        "timesLost": 0
+                    },
+                    "originalId": "5bfea6e90db834001b7347f3"
+                },
+                "AK-74N": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 37,
+                        "timesLost": 0
+                    },
+                    "originalId": "5644bd2b4bdc2d3b4c8b4572"
+                },
+                "ADAR 2-15": {
+                    "stats": {
+                        "kills": 13,
+                        "headshots": 3,
+                        "totalShots": 544,
+                        "timesLost": 0
+                    },
+                    "originalId": "5c07c60e0db834002330051f"
+                },
+                "AKM": {
+                    "stats": {
+                        "kills": 6,
+                        "headshots": 0,
+                        "totalShots": 112,
+                        "timesLost": 0
+                    },
+                    "originalId": "59d6088586f774275f37482f"
+                }
+            }
+        },
+        "6771fd1300022d0efab497e9": {
+            "lastUpdate": 1753758804,
+            "level": 41,
+            "playedMaps": {
+                "Woods": 4,
+                "Sandbox_high": 1,
+                "bigmap": 3,
+                "Lighthouse": 7,
+                "Shoreline": 1
+            },
+            "weapons": []
+        },
+        "6876b2d600011cafbace0270": {
+            "lastUpdate": 1753764568,
+            "level": 40,
+            "playedMaps": {
+                "factory4_day": 3
+            },
+            "weapons": {
+                "ASh-12": {
+                    "stats": {
+                        "kills": 16,
+                        "headshots": 5,
+                        "totalShots": 106,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cadfbf7ae92152ac412eeef"
+                },
+                "Mk47": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 3,
+                        "timesLost": 0
+                    },
+                    "originalId": "606587252535c57a13424cfd"
+                },
+                "MP5": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 0,
+                        "totalShots": 108,
+                        "timesLost": 0
+                    },
+                    "originalId": "5926bb2186f7744b1c6c6e60"
+                },
+                "MP7A1": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 52,
+                        "timesLost": 0
+                    },
+                    "originalId": "5ba26383d4351e00334c93d9"
+                }
+            }
+        },
+        "68885fce000140b780e83852": {
+            "lastUpdate": 1753770534,
+            "level": 5,
+            "playedMaps": {
+                "Sandbox": 10,
+                "factory4_day": 4,
+                "bigmap": 1
+            },
+            "weapons": {
+                "MP-43-1C": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 0,
+                        "totalShots": 0,
+                        "timesLost": 0
+                    },
+                    "originalId": "5580223e4bdc2d1c128b457f"
+                }
+            }
+        },
+        "68823bb20000acd31d67a330": {
+            "lastUpdate": 1753776204,
+            "level": 25,
+            "playedMaps": {
+                "factory4_day": 2,
+                "bigmap": 1
+            },
+            "weapons": []
+        },
+        "68877c8a00002c066031d734": {
+            "lastUpdate": 1753782654,
+            "level": 69,
+            "playedMaps": {
+                "factory4_day": 1
+            },
+            "weapons": {
+                "P90": {
+                    "stats": {
+                        "kills": 14,
+                        "headshots": 1,
+                        "totalShots": 284,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cc82d76e24e8d00134b4b83"
+                },
+                "SA58": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 10,
+                        "timesLost": 0
+                    },
+                    "originalId": "5b0bbe4e5acfc40dc528a72d"
+                },
+                "M4A1": {
+                    "stats": {
+                        "kills": 5,
+                        "headshots": 4,
+                        "totalShots": 117,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6887cbbb0004eaa9fa55bd9d": {
+            "lastUpdate": 1753786108,
+            "level": 2,
+            "playedMaps": {
+                "factory4_day": 1,
+                "bigmap": 1
+            },
+            "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 35,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6888b00900016a1086af7c27": {
+            "lastUpdate": 1753790400,
+            "level": 2,
+            "playedMaps": {
+                "factory4_day": 2,
+                "bigmap": 1
+            },
+            "weapons": {
+                "M4A1": {
+                    "stats": {
+                        "kills": 3,
+                        "headshots": 1,
+                        "totalShots": 33,
+                        "timesLost": 0
+                    },
+                    "originalId": "5447a9cd4bdc2dbd208b4567"
+                }
+            }
+        },
+        "6888d01c000093b40fcd1020": {
+            "lastUpdate": 1753797399,
+            "level": 2,
+            "playedMaps": {
+                "factory4_day": 7
+            },
+            "weapons": {
+                "PP-9 Klin": {
+                    "stats": {
+                        "kills": 0,
+                        "headshots": 0,
+                        "totalShots": 62,
+                        "timesLost": 0
+                    },
+                    "originalId": "57f4c844245977379d5c14d1"
+                },
+                "MP-153": {
+                    "stats": {
+                        "kills": 1,
+                        "headshots": 1,
+                        "totalShots": 8,
+                        "timesLost": 0
+                    },
+                    "originalId": "56dee2bdd2720bc8328b4567"
+                },
+                "M9A3": {
+                    "stats": {
+                        "kills": 2,
+                        "headshots": 1,
+                        "totalShots": 32,
+                        "timesLost": 0
+                    },
+                    "originalId": "5cadc190ae921500103bb3b6"
                 }
             }
         }

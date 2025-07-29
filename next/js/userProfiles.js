@@ -242,6 +242,10 @@ async function showPublicProfile(container, player) {
                         <div class="stat-value">${player.scavRaids || '0'}</div>
                         <div class="stat-name">Raids</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${formatOnlineTime(player.scavPlayTime) || '0h'}</div>
+                        <div class="stat-name">In-Raid Time</div>
+                    </div>
                 </div>
 
                 <div class="badges">${badgesHTML}</div>
@@ -340,20 +344,6 @@ async function showPublicProfile(container, player) {
         <!-- Central -->
         <div class="center-column">
             <div class="raid-block">
-                <div class="raid-summary profile-section">
-                    <div>
-                        <strong>Recent 5 Games</strong>
-                        <p>0%</p>
-                    </div>
-                    <div>
-                        <strong>Accuracy</strong>
-                        <p>1%</p>
-                    </div>
-                    <div>
-                        <strong>Damage</strong>
-                        <p>3</p>
-                    </div>
-                </div>
 
                 <div class="last-raids" id="raids-stats-container">
                     <div class="private-profile-overlay" id="profile-loader">
@@ -361,6 +351,31 @@ async function showPublicProfile(container, player) {
                             <div class="loader-content">
                             <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="raid-summary profile-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${player.currentWinstreak}</div>
+                            <div class="stat-label">Current Raid Streak</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${player.longestShot}m</div>
+                            <div class="stat-label">Longest Killshot</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${player.pmcKills}</div>
+                            <div class="stat-label">PMC Kills</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${player.scavsKilled}</div>
+                            <div class="stat-label">SCAV Kills</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${player.bossesKilled}</div>
+                            <div class="stat-label">Bosses Killed</div>
                         </div>
                     </div>
                 </div>

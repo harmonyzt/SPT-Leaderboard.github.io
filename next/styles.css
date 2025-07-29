@@ -1898,14 +1898,7 @@ button,
 
 /* Player full height preview */
 .playermodel-image img {
-    width: 80%;
-    display: flex;
-    justify-self: center;
-    transition: all 500ms ease-in-out;
-}
-
-.playermodel-image img:hover {
-    width: 100%;
+    width: -webkit-fill-available;
     display: flex;
     justify-self: center;
 }
@@ -1981,7 +1974,7 @@ button,
 }
 
 .last-raids {
-    max-height: 750px;
+    max-height: 950px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
