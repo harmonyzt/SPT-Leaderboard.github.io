@@ -16,6 +16,12 @@ function refreshRewards(player) {
         badgerPenguin: document.getElementById('badger')
     };
 
+    const achievementMap = {
+        goons: "6513f1feec10ff011f17c7ea",
+        lighthouse: "6514321bec10ff011f17ccac",
+        raider: "6513eec00dc723592b0f90cc"
+    }
+
     resetStyles(elements);
 
     applyRewards(player, elements);
@@ -29,7 +35,7 @@ function resetStyles({ mainBackground, profileCard, profileAvatar, profileBackgr
     // Reset main background
     mainBackground.style.backgroundImage = '';
     mainBackground.style.backgroundColor = '';
-    mainBackground.className = mainBackground.className.replace(/(usec|bear|labs)-background|prestige-(tagilla|killa|both)/g, '');
+    mainBackground.className = mainBackground.className.replace(/(usec|bear|labs|lighthouse|goons|raider)-background|prestige-(tagilla|killa|both)/g, '');
 
     // Reset weapon 
     profileBackground.className = profileBackground.className.replace(/(scratches|cult-(signs|signs2|circle))/g, '');
@@ -77,12 +83,31 @@ function applyRewards(player, elements) {
     const mainBgMap = {
         'usec': { level: 10, class: 'usec-background' },
         'bear': { level: 10, class: 'bear-background' },
-        'labs': { level: 20, class: 'labs-background' }
+        'labs': { level: 20, class: 'labs-background' },
+        // Achievement backgrounds
+        'goons': {
+            class: 'goons-background',
+            unlocked: isAchievementUnlocked(player, "6513f1feec10ff011f17c7ea")
+        },
+        'lighthouse': {
+            class: 'lighthouse-background',
+            unlocked: isAchievementUnlocked(player, "6514321bec10ff011f17ccac")
+        },
+        'raider': {
+            class: 'raider-background',
+            unlocked: isAchievementUnlocked(player, "6513eec00dc723592b0f90cc")
+        }
     };
 
     if (player.bp_mainbg === 'none') {
         mainBackground.style.backgroundColor = 'none';
-    } else if (mainBgMap[player.bp_mainbg]?.level <= bpLevel) {
+    }
+    // Default backgrounds (by level)
+    else if (mainBgMap[player.bp_mainbg]?.level <= bpLevel) {
+        mainBackground.classList.add(mainBgMap[player.bp_mainbg].class);
+    }
+    // Achievement backgrounds
+    else if (mainBgMap[player.bp_mainbg]?.unlocked) {
         mainBackground.classList.add(mainBgMap[player.bp_mainbg].class);
     }
 
@@ -116,4 +141,8 @@ function applyRewards(player, elements) {
     if (player.bp_pfpbordercolor !== 'default' && borderMap[player.bp_pfpbordercolor] <= bpLevel) {
         profileAvatar.classList.add(`${player.bp_pfpbordercolor}-border`);
     }
+}
+
+function isAchievementUnlocked(player, achievementId) {
+    return player.allAchievements && player.allAchievements.hasOwnProperty(achievementId);
 }

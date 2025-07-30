@@ -1044,6 +1044,9 @@ function formatSalesNum(num) {
 }
 
 function formatOnlineTime(seconds) {
+    if(!seconds)
+        return '0m';
+
     let result = [];
     const minutes = Math.floor((seconds % 3600) / 60);
     const hours = Math.floor((seconds % (3600 * 24)) / 3600);
