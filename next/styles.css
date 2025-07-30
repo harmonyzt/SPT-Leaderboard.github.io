@@ -2366,7 +2366,6 @@ button,
 .last-raid-feed {
     position: relative;
     background: rgba(40, 40, 55, 0.6);
-    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2449,10 +2448,14 @@ button,
 
 .raid-meta {
     display: block;
-    color: #c9c9c9;
-    font-size: 0.9em;
+    font-size: 1em;
     margin-top: 8px;
-    opacity: 0.8;
+    opacity: 0.9;
+}
+
+.raid-killer {
+    font-weight: 600;
+    color: #ff6a6a;
 }
 
 .stats-blocks {
@@ -2494,6 +2497,7 @@ button,
     border-radius: 8px;
     text-align: center;
     transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
 }
 
 .raid-stat-block:hover {
