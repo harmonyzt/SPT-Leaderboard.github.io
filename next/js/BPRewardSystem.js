@@ -11,7 +11,7 @@ function refreshRewards(player) {
         mainBackground: document.getElementById('modalPlayerInfo'),
         profileCard: document.getElementById('main-profile-card'),
         profileAvatar: document.getElementById('profile-avatar'),
-        profileBackground: document.getElementById('weapon-container'),
+        profileBackground: document.getElementById('weapon-meta-section'),
         profileCat: document.getElementById('catrew'),
         badgerPenguin: document.getElementById('badger')
     };

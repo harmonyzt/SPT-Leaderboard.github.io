@@ -783,10 +783,7 @@ button,
 }
 
 .account-icon {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    margin-right: 2px;
+    height: 22px;
 }
 
 /* Stats bar */
@@ -2047,6 +2044,7 @@ button,
     height: auto;
     margin-top: 10px;
     place-self: center;
+    rotate: 9deg;
 }
 
 /* Weapons List */

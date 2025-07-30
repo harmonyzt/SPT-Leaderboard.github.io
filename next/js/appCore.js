@@ -113,7 +113,7 @@ async function initAllSeasons() {
 }
 
 /**
- * Proceeds the initAllSeasons() function
+ * Proceeds the all seasons been initialized function
  * @returns {Promise<void>}
  */
 async function prepareSeasonData() {
@@ -221,7 +221,6 @@ async function loadSeasonData(season) {
             updateExistingLeaderboard(leaderboardData);
         }
 
-        checkRecentPlayers(leaderboardData);
         initProfileWatchList(leaderboardData);
     } catch (error) {
         console.error('Error loading season data:', error);
@@ -323,6 +322,7 @@ function processSeasonData(data) {
     addColorIndicators(data);
     calculateRanks(data);
     calculateOverallStats(data);
+    checkRecentPlayers(data);
 }
 
 /**
@@ -383,8 +383,8 @@ async function displayLeaderboard(data) {
         const row = document.createElement('tr');
         let lastGame;
 
-        const nowInSeconds = Math.floor(Date.now() / 1000); // Текущее время в UNIX-секундах
-        const fifteenDaysInSeconds = 15 * 24 * 60 * 60;    // 15 дней в секундах
+        const nowInSeconds = Math.floor(Date.now() / 1000);
+        const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
 
         if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds) {
             return; // Прошло меньше 15 дней

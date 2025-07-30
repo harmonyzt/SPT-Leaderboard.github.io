@@ -408,7 +408,7 @@ async function showPublicProfile(container, player) {
             </div>
 
             <!-- Meta gun -->
-            <div class="favorite-weapons profile-section">
+            <div class="favorite-weapons profile-section" id="weapon-meta-section">
                 <h3>Favorite Weapon</h3>
                 <div class="favorite-weapons-container" id="weapon-container">
                         ${!player?.isUsingStattrack ? `
@@ -609,7 +609,7 @@ async function showPublicProfile(container, player) {
         container: document.getElementById('achievements-container')
     });
 
-    initLastRaids(player);
+    await initLastRaids(player);
     await renderFriendList(player);
     await initHOF(player, bestWeapon);
 
