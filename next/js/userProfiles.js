@@ -55,9 +55,9 @@ async function openProfile(playerId) {
 
     // Showing public profile
     showPublicProfile(modalContent, player);
+    window.location.hash = `id=${encodeURIComponent(player.id)}`;
     openedPlayerData = player;
     modal.style.display = "flex";
-    setupModalCloseHandlers(modal);
 
     return;
 }
@@ -103,6 +103,10 @@ function showDisqualProfile(container, player) {
 
 // Public profile
 async function showPublicProfile(container, player) {
+    // Disable body crolling
+    document.body.style.overflow = "hidden";
+
+    // Convert registration date of a player
     const regDate = player.registrationDate
         ? new Date(player.registrationDate * 1000).toLocaleDateString("en-EN", {
             year: "numeric",
@@ -185,6 +189,8 @@ async function showPublicProfile(container, player) {
         <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
         <img src="media/rewards/other/cat.gif" class="kittyrew" id="catrew" />
 
+        <button id="closeButton" class="close-profile-button">×</button>
+
         <div class="left-column">
 
             <div class="user-main-card profile-section" id="main-profile-card">
@@ -198,9 +204,7 @@ async function showPublicProfile(container, player) {
                         </div>
                         <div class="registerDate">Joined: ${regDate}</div>
                     </div>
-                    
                     <div class="player-status">
-                        
                         <span>${lastGame}</span>
                     </div>
                     ${raidInfo}
@@ -342,8 +346,9 @@ async function showPublicProfile(container, player) {
 
         <!-- Central -->
         <div class="center-column">
-            <div class="raid-block">
 
+            <!-- Raid History -->
+            <div class="raid-block">
                 <div class="last-raids" id="raids-stats-container">
                     <div class="private-profile-overlay" id="profile-loader">
                         <div class="loader-glass">
@@ -373,12 +378,14 @@ async function showPublicProfile(container, player) {
                             <div class="stat-label">SCAV Kills</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value">${player.bossesKilled}</div>
-                            <div class="stat-label">Bosses Killed</div>
+                          <div class="stat-value">${player.bossesKilled}</div>
+                          <div class="stat-label">Bosses Killed</div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
         <!-- Right -->
@@ -599,6 +606,8 @@ async function showPublicProfile(container, player) {
 
         </div>
     `;
+    // Setup close handlers first
+    setupModalCloseHandlers();
 
     // Render stats and init the profile
     // Skip this if player is not using Stattrack
@@ -1064,25 +1073,26 @@ function formatOnlineTime(seconds) {
     return result.join(' ') || '0m';
 }
 
-// Close profile on ESC
-function setupModalCloseHandlers(modal) {
-    const closeBtn = modal.querySelector(".profile-close-btn");
+// Close profile on ESC or a button
+function setupModalCloseHandlers() {
+    const closeBtn = document.getElementById("closeButton");
+    const modal = document.getElementById("playerProfileModal");
+
     if (closeBtn) {
-        closeBtn.onclick = () => {
+        closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
             document.body.style.overflow = "auto"; // Re-enable scrolling
-        };
+            window.location.hash = ``;
+        });
     }
 
     window.addEventListener("keydown", function closeModalOnEsc(e) {
         if (e.key === "Escape") {
             modal.style.display = "none";
-            document.body.style.overflow = "auto"; // Re-enable scrolling
-            window.removeEventListener("keydown", closeModalOnEsc);
+            document.body.style.overflow = "auto";
+            window.location.hash = ``;
         }
     });
-
-    return;
 }
 
 function formatLastPlayedRaid(unixTimestamp) {

@@ -591,8 +591,9 @@ button,
     transform: scale(0.95);
 }
 
-.main-button:hover {
+.main-button:hover, button:hover {
     background-color: #ffffff2f;
+    border: 1px solid #ffffff50;
 }
 
 .player-name {
@@ -1455,31 +1456,6 @@ button,
     padding-right: 15px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    color: var(--accent-teal);
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 5px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.close-btn:hover {
-    background: rgba(100, 255, 218, 0.2);
-    color: var(--accent-blue);
-}
-
 /* Previous winners */
 .winners-container {
     display: flex;
@@ -1752,6 +1728,16 @@ button,
     display: grid;
     gap: 20px;
     grid-template-columns: 500px 1fr 500px;
+}
+
+.close-profile-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
 }
 
 .profile-section {
@@ -3845,11 +3831,6 @@ button,
     .rank-icon {
         width: 60px;
         height: 60px;
-    }
-
-    .profile-close-btn {
-        right: 15px;
-        top: 15px;
     }
 }
 
