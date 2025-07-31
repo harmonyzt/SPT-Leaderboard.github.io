@@ -1762,6 +1762,11 @@ button,
     overflow: hidden;
     margin-bottom: 20px;
     backdrop-filter: blur(10px);
+    transition: all 300ms;
+}
+
+.profile-section:hover {
+    border: 1px solid #ffffff49;
 }
 
 .profile-section h3 {
@@ -2437,13 +2442,12 @@ button,
 }
 
 .raid-result {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 1.1em;
+    display: inline-flex;
+    gap: 3px;
+    font-size: 1.2em;
     vertical-align: middle;
-    padding: 5px 10px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.010);
+    font-weight: 600;
 }
 
 .raid-meta {
@@ -2609,11 +2613,11 @@ button,
 }
 
 .transit-border {
-    order: 2px solid #F47730;
+    border: 2px solid #F47730;
 }
 
 .disconnected-border {
-    order: 2px solid #ff6a6a;
+    border: 2px solid #ff6a6a;
 }
 
 .badge.tooltip {

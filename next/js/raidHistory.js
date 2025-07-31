@@ -4,12 +4,12 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-function initLastRaids(player) {
+async function initLastRaids(player) {
     const statsContainer = document.getElementById('raids-stats-container');
 
     fetchPlayerRaids();
 
-    function fetchPlayerRaids() {
+    async function fetchPlayerRaids() {
         fetch(`${lastRaidsPath}`)
             .then(response => response.json())
             .then(data => {
@@ -62,7 +62,7 @@ function initLastRaids(player) {
                             <em class="bx bxs-skull"></em> Killed in Action`}
                         </span>
                         <span class="raid-meta">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now' } ${raid.lastRaidSurvived ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now' } ${raid.lastRaidSurvived && !raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
                         </span>
                     </div>
 

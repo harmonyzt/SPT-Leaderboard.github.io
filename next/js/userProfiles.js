@@ -332,7 +332,6 @@ async function showPublicProfile(container, player) {
                         <div class="loader-glass">
                             <div class="loader-content">
                             <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                            <h3>Loading...</h3>
                             </div>
                         </div>
                     </div>
@@ -386,10 +385,10 @@ async function showPublicProfile(container, player) {
         <div class="right-column">
 
             <!-- Player image (hides if no image found) -->
-            <div class="playermodel profile-section" id="playermodel">
+            <div class="playermodel profile-section" id="playermodel" style="display: none;">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
-                    <img src="https://visuals.nullcore.net/SPT/data/pmc_avatars/${player.id}_full.png">
+                    <img src="" alt="Player model preview">
                 </div>
             </div>
 
@@ -462,7 +461,13 @@ async function showPublicProfile(container, player) {
             `<div class="weapon-stats profile-section">
                 <h3>Weapons</h3>
                 <div class="weapon-stats-container" id="weapons-container">
-
+                    <div class="private-profile-overlay" id="profile-loader">
+                        <div class="loader-glass">
+                            <div class="loader-content">
+                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>`
         }
@@ -609,6 +614,8 @@ async function showPublicProfile(container, player) {
         container: document.getElementById('achievements-container')
     });
 
+    handlePlayerModelSection(player.id);
+    
     await initLastRaids(player);
     await renderFriendList(player);
     await initHOF(player, bestWeapon);
@@ -1044,7 +1051,7 @@ function formatSalesNum(num) {
 }
 
 function formatOnlineTime(seconds) {
-    if(!seconds)
+    if (!seconds)
         return '0m';
 
     let result = [];
@@ -1206,4 +1213,31 @@ function formatSeconds(seconds) {
         .padStart(2, "0");
     const secs = (seconds % 60).toString().padStart(2, "0");
     return `${mins}:${secs}`;
+}
+
+// Check if image exists
+function checkImageExists(imageUrl, callback) {
+    const img = new Image();
+    img.onload = function () {
+        callback(true);
+    };
+    img.onerror = function () {
+        callback(false);
+    };
+    img.src = imageUrl;
+}
+
+// For player preview
+function handlePlayerModelSection(playerId) {
+    const section = document.getElementById('playermodel');
+    const imageUrl = `https://visuals.nullcore.net/SPT/data/pmc_avatars/${playerId}_full.png`;
+
+    checkImageExists(imageUrl, function (exists) {
+        if (exists) {
+            section.style.display = 'block';
+            section.querySelector('img').src = imageUrl;
+        } else {
+            section.style.display = 'none';
+        }
+    });
 }
