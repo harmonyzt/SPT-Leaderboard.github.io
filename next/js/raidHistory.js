@@ -39,6 +39,11 @@ async function initLastRaids(player) {
         raids.forEach(raid => {
             const lastRaidDuration = formatSeconds(raid.raidTime);
             const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
+            let shouldShowStats = true;
+
+            if(raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP == 0){
+                shouldShowStats = false;
+            }
 
             html += `
                 <div class="last-raid-feed ${raid.lastRaidRanThrough ? 'run-through-bg' : raid.discFromRaid ? 'disconnected-bg' : raid.isTransition ? 'transit-bg' : raid.lastRaidSurvived ? 'survived-bg' : 'died-bg'}">
@@ -66,7 +71,8 @@ async function initLastRaids(player) {
                         </span>
                     </div>
 
-                    <div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                    ${shouldShowStats?
+                    `<div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
                         <div class="raid-stat-block">
                             <span class="profile-stat-label">PMC Kills:</span>
                             <span class="profile-stat-value">${raid.raidKills ?? 0}</span>
@@ -91,7 +97,8 @@ async function initLastRaids(player) {
                             <span class="profile-stat-label">Loot EXP:</span>
                             <span class="profile-stat-value">${raid.lastRaidEXP ?? 0}</span>
                         </div>
-                    </div>
+                    </div>`
+                    : ``}
                 </div>
             `;
         });
