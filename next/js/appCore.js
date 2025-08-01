@@ -318,11 +318,11 @@ async function loadAllSeasonsData() {
  * Processes season data when it was loaded
  * @returns {Promise<void>}
  */
-function processSeasonData(data) {
+async function processSeasonData(data) {
     addColorIndicators(data);
     calculateRanks(data);
-    calculateOverallStats(data);
     checkRecentPlayers(data);
+    calculateOverallStats(data);
 }
 
 /**
@@ -634,11 +634,11 @@ function convertTimeToSeconds(time) {
  * - Average lifetime
  * Applies penalties for low raid count and short lifetimes
  */
-function calculateRanks(data) {
+async function calculateRanks(data) {
     const MIN_RAIDS = 50
     const SOFT_CAP_RAIDS = 100
-    const MIN_LIFE_TIME = 10 // tracking skill issue
-    const MAX_LIFE_TIME = 50
+    const MIN_LIFE_TIME = 10 // Skill issue tracker
+    const MAX_LIFE_TIME = 55
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio))
     const maxSurvival = Math.max(...data.map(p => p.survivalRate))
