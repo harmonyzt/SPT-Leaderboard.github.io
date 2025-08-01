@@ -209,25 +209,32 @@ async function loadSeasonData(season) {
             return;
         }
 
-        // await assignLeaderboardData
+        // Wait for assignLeaderboardData
         await assignLeaderboardData(leaderboardData);
+
+        // Calculate ranks before initializing the leaderboard
+        calculateRanks(leaderboardData);
 
         // For first launch ONLY
         if (isFirstPfpLoad) {
-            processSeasonData(leaderboardData);
             displayLeaderboard(leaderboardData);
             isFirstPfpLoad = false;
         } else {
             updateExistingLeaderboard(leaderboardData);
         }
 
-        calculateRanks(leaderboardData);
-        checkRecentPlayers(leaderboardData);
+
         initProfileWatchList(leaderboardData);
     } catch (error) {
         console.error('Error loading season data:', error);
         emptyLeaderboardNotification.style.display = 'block';
     } finally {
+        checkRecentPlayers(leaderboardData);
+        initProfileWatchList(leaderboardData);
+        addColorIndicators(leaderboardData);
+        calculateOverallStats(leaderboardData);
+
+        // Data is fully ready
         isDataReady = true;
     }
 }
