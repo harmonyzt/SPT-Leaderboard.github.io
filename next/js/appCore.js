@@ -221,6 +221,8 @@ async function loadSeasonData(season) {
             updateExistingLeaderboard(leaderboardData);
         }
 
+        calculateRanks(leaderboardData);
+        checkRecentPlayers(leaderboardData);
         initProfileWatchList(leaderboardData);
     } catch (error) {
         console.error('Error loading season data:', error);
@@ -320,8 +322,6 @@ async function loadAllSeasonsData() {
  */
 async function processSeasonData(data) {
     addColorIndicators(data);
-    calculateRanks(data);
-    checkRecentPlayers(data);
     calculateOverallStats(data);
 }
 
