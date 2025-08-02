@@ -225,15 +225,15 @@
         "pfp": "https://i.postimg.cc/pdccvQkC/Untitled-84.png"
     },
     "6817d1060003886474d2663e": {
-        "profileTheme": "redshade",
+        "profileTheme": "default",
         "usePrestigeStyling": false,
         "prestigeBackground": "none",
         "backgroundReward": "purple",
         "mainBackgroundReward": "bear",
         "catReward": true,
-        "pfpStyle": "wide",
+        "pfpStyle": "box",
         "pfpBorder": "pink",
-        "decal": "cult-signs",
+        "decal": "default",
         "aboutMe": "Im Kat!\r\nSometimes play SPT and HD2\r\n\r\nDo mods for HD2",
         "discordUser": "Katrin0522",
         "pfp": "https://i.imgur.com/BFnJsRm.png",
@@ -1679,7 +1679,7 @@
         "pfpBorder": "black",
         "decal": "cult-signs",
         "aboutMe": "Ebe li ti se ot parfuma mi?",
-        "discordUser": "",
+        "discordUser": "slavi8867",
         "pfp": "",
         "name": "Slavi8867"
     },
@@ -1772,5 +1772,20 @@
         "discordUser": "Wherebanana",
         "pfp": "",
         "name": "WhereBanana"
+    },
+    "688d3399000097b46a4f4fed": {
+        "profileTheme": "dark",
+        "usePrestigeStyling": false,
+        "prestigeBackground": "killa",
+        "backgroundReward": "default",
+        "mainBackgroundReward": "default",
+        "catReward": false,
+        "pfpStyle": "default",
+        "pfpBorder": "default",
+        "decal": "default",
+        "aboutMe": "I soil my shorts each time I get shot.",
+        "discordUser": "themario",
+        "pfp": "",
+        "name": "Mario"
     }
 }
