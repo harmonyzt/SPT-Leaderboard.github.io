@@ -41,7 +41,7 @@ async function initLastRaids(player) {
             const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
             let shouldShowStats = true;
 
-            if(raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP == 0){
+            if(raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100 ){
                 shouldShowStats = false;
             }
 
@@ -62,12 +62,12 @@ async function initLastRaids(player) {
                     </div>
 
                         <span class="raid-result ${raid.lastRaidRanThrough ? 'run-through' : raid.discFromRaid ? 'disconnected' : raid.isTransition ? 'transit' : raid.lastRaidSurvived ? 'survived' : 'died'}" style="font-weight: bold;">
-                            ${raid.lastRaidRanThrough ? `<i class='bx bxs-walking'></i> Runner` : raid.discFromRaid ? `<i class='bx bxs-arrow-out-left-square-half'></i> Left` : raid.isTransition ? `<i class='bx bxs-refresh-cw bx-spin'></i> In Transit (${raid.lastRaidMap}
+                            ${raid.lastRaidRanThrough ? `<i class='bx bxs-walking'></i> Runner` : raid.discFromRaid ? `<i class='bx bxs-arrow-out-left-square-half'></i> Left` : raid.isTransition ? `<span> <i class='bx bxs-refresh-cw bx-spin'></i> </span> In Transit (${raid.lastRaidMap}
                             <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${raid.lastRaidTransitionTo || 'Unknown'})` : raid.lastRaidSurvived ? `<i class='bx bxs-walking'></i> Survived` : `
                             <em class="bx bxs-skull"></em> Killed in Action`}
                         </span>
                         <span class="raid-meta">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now' } ${raid.lastRaidSurvived && !raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now' } ${raid.lastRaidSurvived || raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
                         </span>
                     </div>
 

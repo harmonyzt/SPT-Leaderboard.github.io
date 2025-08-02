@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const staffToggle = document.getElementById('staffToggle');
     const staffElement = document.getElementById('admins-container');
 
-
     // If no cookies are found, enable everything
     timerToggle.checked = getCookie('showTimer') !== 'false';
     winnersToggle.checked = getCookie('showWinners') !== 'false';

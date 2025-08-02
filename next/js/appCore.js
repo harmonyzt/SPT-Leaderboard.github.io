@@ -10,7 +10,6 @@
 let leaderboardData = []; // For keeping current season data
 let heartbeatData = {}; // Remember heartbeats
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
-let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
@@ -393,10 +392,10 @@ async function displayLeaderboard(data) {
         const nowInSeconds = Math.floor(Date.now() / 1000);
         const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
 
+        // Player was online for more 15 days, skip to render less
         if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds) {
-            return; // Прошло меньше 15 дней
+            return;
         }
-
 
         // Check HeartbeatMonitor
         const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
@@ -542,9 +541,6 @@ async function displayLeaderboard(data) {
             openTeam(e.target.closest('.teamtag').dataset.team);
         }
     });
-
-    // Add sort listeners
-    addSortListeners();
 
     isDataReady = true;
 }
@@ -896,58 +892,6 @@ function saveCurrentStats() {
     };
 
     localStorage.setItem('leaderboardStats', JSON.stringify(stats));
-}
-
-// Add sort listeners to table headers
-function addSortListeners() {
-    const headers = document.querySelectorAll('#leaderboardTable th[data-sort]');
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const sortKey = header.getAttribute('data-sort');
-            sortLeaderboard(sortKey);
-        });
-    });
-}
-
-// Sort leaderboard data (BROKEN)
-function sortLeaderboard(sortKey) {
-    if (!sortDirection[sortKey]) {
-        sortDirection[sortKey] = 'asc';
-    } else {
-        sortDirection[sortKey] = sortDirection[sortKey] === 'asc' ? 'desc' : 'asc';
-    }
-
-    const currentData = leaderboardData.length > 0 ? leaderboardData : allSeasonsCombinedData;
-
-    currentData.sort((a, b) => {
-        let valueA = a[sortKey];
-        let valueB = b[sortKey];
-
-        if (sortKey === 'rank') {
-            valueA = a.rank;
-            valueB = b.rank;
-        }
-
-        if (['pmcLevel', 'pmcRaids', 'survivalRate', 'killToDeathRatio', 'totalScore'].includes(sortKey)) {
-            valueA = parseFloat(valueA);
-            valueB = parseFloat(valueB);
-        }
-
-        if (sortKey === 'averageLifeTime') {
-            valueA = convertTimeToSeconds(valueA);
-            valueB = convertTimeToSeconds(valueB);
-        }
-
-        if (valueA < valueB) {
-            return sortDirection[sortKey] === 'asc' ? -1 : 1;
-        }
-        if (valueA > valueB) {
-            return sortDirection[sortKey] === 'asc' ? 1 : -1;
-        }
-        return 0;
-    });
-
-    displayLeaderboard(currentData);
 }
 
 // Welcome popup

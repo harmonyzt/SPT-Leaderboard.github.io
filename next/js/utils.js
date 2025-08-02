@@ -20,9 +20,7 @@ function getPrettyMapName(entry) {
         "Sandbox_high": "Ground Zero - High"
     };
 
-    const rawMapName = entry.split('.')[0];
+    entry.toLowerCase();
 
-    rawMapName.toLowerCase();
-
-    return mapAliases[rawMapName] || rawMapName; // returning raw if not found
+    return mapAliases[entry] || entry; // returning raw if not found
 }

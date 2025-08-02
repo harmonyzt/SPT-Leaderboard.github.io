@@ -143,20 +143,21 @@ h1 {
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
+    width: 90%;
     min-width: 300px;
     max-width: 1200px;
     background-color: rgba(57, 89, 131, 0.205);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 10px 25px;
     border-radius: 50px;
-    border: solid #ffffff14 1px;
+    border: 1px solid #ffffff14;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: 700;
+    font-weight: 600;
     z-index: 5;
 }
 
@@ -164,16 +165,20 @@ h1 {
     height: 40px;
     width: auto;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
 .navbar-links-container {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     flex-grow: 1;
     justify-content: center;
     flex-wrap: wrap;
-    flex-shrink: 1;
-    min-width: 0;
+    margin: 0 15px;
 }
 
 .navbar-links {
@@ -182,34 +187,49 @@ h1 {
 }
 
 .navbar-link {
-    background-color: #ffffff0e;
+    background-color: #ffffff18;
     color: var(--text-light);
-    text-decoration: none;
-    transition: all 300ms ease-in-out;
+    border: 1px solid #ffffff18;
+    padding: 5px 8px;
+    width: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    padding: 8px;
-    border-radius: 4px;
-    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 300ms ease-in-out;
 }
 
 .navbar-link:hover {
-    background-color: #ffffff21;
+    background-color: #ffffff2f;
+    border: 1px solid #ffffff50;
     cursor: pointer;
+}
+
+.navbar-link--login {
+    background-color: rgba(100, 255, 219, 0.219);
+    font-weight: 700;
+}
+
+.navbar-link--login:hover {
+    background-color: rgba(100, 255, 219, 0.404);
 }
 
 .season-selector {
     display: flex;
     align-items: center;
-    margin: 0;
+    gap: 8px;
     flex-shrink: 0;
 }
 
 .season-selector label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--accent-teal);
-    margin-right: 10px;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
 }
 
 .season-selector select {
@@ -218,11 +238,10 @@ h1 {
     background-color: rgba(10, 25, 47, 0.7);
     border: 1px solid var(--accent-teal);
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    min-width: 100px;
 }
 
 .season-selector select:hover {
@@ -351,32 +370,6 @@ th {
 
 th:hover {
     background-color: rgba(30, 144, 255, 0.6);
-}
-
-th[data-sort]::after {
-    content: '';
-    display: inline-block;
-    margin-left: 5px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid var(--accent-teal);
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-th[data-sort]:hover::after {
-    opacity: 1;
-}
-
-th[data-sort].asc::after {
-    border-bottom: none;
-    border-top: 5px solid #f6c65d;
-}
-
-th[data-sort].desc::after {
-    border-bottom: 5px solid #f6c65d;
 }
 
 tr {
@@ -1745,6 +1738,7 @@ button,
     border-radius: 10px;
     padding: 15px 20px;
     border: 1px solid #ffffff21;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin-bottom: 20px;
     backdrop-filter: blur(10px);
@@ -1903,16 +1897,21 @@ button,
 .raid-details {
     display: flex;
     flex-direction: column;
-    min-width: 110px;
-    font-size: 0.8em;
+    min-width: 120px;
+    font-size: 0.85em;
     margin-top: 5px;
-    padding: 4px 10px;
+    padding: 6px 12px;
     color: #f3f3f3;
     width: fit-content;
     border-top: 2px solid #ffa05b;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #ffa05b;
     border-radius: 5px;
     backdrop-filter: blur(5px);
     background: linear-gradient(180deg, rgba(71, 62, 62, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .raid-details span {
@@ -1968,8 +1967,7 @@ button,
     display: flex;
     flex-direction: column;
     border: 1px solid #ffffff1a;
-    backdrop-filter: blur(15px);
-    gap: 10px;
+    gap: 5px;
     border-radius: 10px;
 }
 
@@ -2356,12 +2354,13 @@ button,
 /* Last Raids History */
 .last-raid-feed {
     position: relative;
-    background: rgba(40, 40, 55, 0.6);
     border-radius: 12px;
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     height: fit-content;
     transition: all 0.3s ease;
+    overflow: clip
 }
 
 .error-raid-load {
@@ -2488,6 +2487,8 @@ button,
     text-align: center;
     transition: all 0.3s ease;
     backdrop-filter: blur(3px);
+    border: 1px solid rgb(255 255 255 / 10%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .raid-stat-block:hover {

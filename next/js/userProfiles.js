@@ -154,11 +154,11 @@ async function showPublicProfile(container, player) {
     let raidInfo = '';
     if (isOnline && playerStatus.raidDetails !== null) {
         raidInfo = `
-        <div class="raid-details">
-            <span class="raid-map">Map: ${playerStatus.raidDetails.map}</span>
-            <span class="raid-side">Side: ${playerStatus.raidDetails.side}</span>
-            <span class="raid-time">Time: ${playerStatus.raidDetails.gameTime}</span>
-        </div>
+        <section class="raid-details" aria-label="Raid information">
+            <span class="raid-map" aria-label="Map name">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
+            <span class="raid-side" aria-label="Player side">Side: ${playerStatus.raidDetails.side}</span>
+            <span class="raid-time" aria-label="Game time">Time: ${playerStatus.raidDetails.gameTime}</span>
+        </section>
     `;
     }
 
