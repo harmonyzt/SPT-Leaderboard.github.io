@@ -128,15 +128,27 @@ async function showPlayerNotification(player) {
     }
 
     // Sounds
-    if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound && !player.banned) {
-        const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
-        pmcRaid.volume = 0.05;
-        pmcRaid.play();
-    } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
-        const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
-        pmcRaidDied.volume = 0.05;
-        pmcRaidDied.play();
+    if (!player.banned && allowToPlayLastRaidSound) {
+        if (player.lastRaidAs === "PMC" && player.lastRaidSurvived) {
+            const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
+            pmcRaid.volume = 0.05;
+            pmcRaid.play();
+        } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
+            const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
+            pmcRaidDied.volume = 0.05;
+            pmcRaidDied.play();
+        } else if (player.lastRaidAs === "SCAV" && player.lastRaidSurvived) {
+            const pmcRaid = new Audio('media/sounds/scav-raid-run.mp3');
+            pmcRaid.volume = 0.05;
+            pmcRaid.play();
+        } else if (player.lastRaidAs === "SCAV" && !player.lastRaidSurvived) {
+            const pmcRaidDied = new Audio('media/sounds/scav-raid-died.wav');
+            pmcRaidDied.volume = 0.05;
+            pmcRaidDied.play();
+        }
     }
+
+
 
     allowToPlayLastRaidSound = true;
 
