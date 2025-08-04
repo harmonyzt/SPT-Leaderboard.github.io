@@ -50,13 +50,13 @@
                     <img src="media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
                 </a>
                 <div class="navbar-links-container">
-                    <a href="global-weaponmeta/" class="navbar-link" aria-current="page">Weapon Meta</a>
+                    <a href="global-weaponmeta/" class="navbar-link">Weapon Meta</a>
                     <a href="global-insights/" class="navbar-link">Global Insights</a>
-                    <a href="global-achieve/" class="navbar-link">Global Achievements</a>
+                    <a href="global-achieve/" class="navbar-link">Achievement Rate</a>
                     <button id="infoButton" class="navbar-link">How it works</button>
                     <button id="tosButton" class="navbar-link">LA/TOS</button>
                     <button id="settingsButton" class="navbar-link">Settings</button>
-                    <a href="https://visuals.nullcore.net/SPT/api/login/login.php" class="navbar-link navbar-link--login">Login</a>
+                    <a href="https://visuals.nullcore.net/SPT/api/login/login.php" class="navbar-link navbar-link--login">Network Login</a>
                 </div>
                 <div class="season-selector">
                     <label for="seasonSelect" class="visually-hidden">Season:</label>
@@ -65,7 +65,7 @@
             </nav>
         </header>
         <h1 style="margin-top: 180px;" class="animate__animated animate__fadeInDown">SPT Leaderboard</h1>
-        <div id="welcomePopup">
+        <div id="welcomePopup" aria-label="Welcome Screen">
             <div class="welcome-bg-image animate__animated animate__fadeIn">
                 <img class="" src="media/TP.png" alt="SPT Leaderboard Preview">
             </div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <div id="infoModal" class="modal">
+        <div id="infoModal" class="modal" aria-label="How Leaderboard Works">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Ranking System Explained</h2>
