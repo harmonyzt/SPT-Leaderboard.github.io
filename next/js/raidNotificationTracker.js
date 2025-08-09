@@ -255,11 +255,6 @@ function updateNotificationPositions() {
 function createNotificationsContainer() {
     const container = document.createElement('div');
     container.id = 'notifications-container-r';
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.right = '0';
-    container.style.width = '300px';
-    container.style.pointerEvents = 'none';
     document.body.appendChild(container);
     console.debug(`[NOTIFY] Notification container created.`);
     return container;
