@@ -625,7 +625,7 @@ async function showPublicProfile(container, player) {
 
     handlePlayerModelSection(player.id);
     
-    await initLastRaids(player);
+    await initLastRaids(player.id);
     await renderFriendList(player);
     await initHOF(player, bestWeapon);
 

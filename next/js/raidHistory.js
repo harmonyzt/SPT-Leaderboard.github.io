@@ -4,48 +4,51 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-async function initLastRaids(player) {
+async function initLastRaids(playerId) {
     const statsContainer = document.getElementById('raids-stats-container');
+    const playerRaidsPath = `${lastRaidsPath}${playerId}.json`;
 
-    fetchPlayerRaids();
+    fetch(playerRaidsPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.raids && data.raids.length > 0) {
+                const sortedRaids = data.raids.sort((a, b) =>
+                    new Date(b.absoluteLastTime) - new Date(a.absoluteLastTime)
+                );
+                renderRaidsStats(sortedRaids);
+            } else {
+                statsContainer.innerHTML = '<p>No raid data available for this player :(</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching raid data:', error);
+            statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
+        });
+}
 
-    async function fetchPlayerRaids() {
-        fetch(`${lastRaidsPath}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.raids && data.raids[player.id]) {
-                    const playerRaids = data.raids[player.id].sort((a, b) =>
-                        new Date(b.absoluteLastTime) - new Date(a.absoluteLastTime)
-                    );
-                    renderRaidsStats(playerRaids);
-                } else {
-                    statsContainer.innerHTML = '<p>No raid data available for this player :(</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching raid data:', error);
-                statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
-            });
+// Render raids
+function renderRaidsStats(raids) {
+    if (!raids || raids.length === 0) {
+        statsContainer.innerHTML = '<p>No raid data available</p>';
+        return;
     }
 
-    // Render raids
-    function renderRaidsStats(raids) {
-        if (!raids || raids.length === 0) {
-            statsContainer.innerHTML = '<p>No raid data available</p>';
-            return;
+    let html = '';
+    raids.forEach(raid => {
+        const lastRaidDuration = formatSeconds(raid.raidTime);
+        const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
+        let shouldShowStats = true;
+
+        if (raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100) {
+            shouldShowStats = false;
         }
 
-        let html = '';
-        raids.forEach(raid => {
-            const lastRaidDuration = formatSeconds(raid.raidTime);
-            const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
-            let shouldShowStats = true;
-
-            if(raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100 ){
-                shouldShowStats = false;
-            }
-
-            html += `
+        html += `
                 <div class="last-raid-feed ${raid.lastRaidRanThrough ? 'run-through-bg' : raid.discFromRaid ? 'disconnected-bg' : raid.isTransition ? 'transit-bg' : raid.lastRaidSurvived ? 'survived-bg' : 'died-bg'}">
                     
                     <div class="last-raid-full-background">
@@ -67,12 +70,12 @@ async function initLastRaids(player) {
                             <em class="bx bxs-skull"></em> Killed in Action`}
                         </span>
                         <span class="raid-meta">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now' } ${raid.lastRaidSurvived || raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'} ${raid.lastRaidSurvived || raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
                         </span>
                     </div>
 
-                    ${shouldShowStats?
-                    `<div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                    ${shouldShowStats ?
+                `<div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
                         <div class="raid-stat-block">
                             <span class="profile-stat-label">PMC Kills:</span>
                             <span class="profile-stat-value">${raid.raidKills ?? 0}</span>
@@ -98,12 +101,11 @@ async function initLastRaids(player) {
                             <span class="profile-stat-value">${raid.lastRaidEXP ?? 0}</span>
                         </div>
                     </div>`
-                    : ``}
+                : ``}
                 </div>
             `;
-        });
+    });
 
-        statsContainer.innerHTML = html;
+    statsContainer.innerHTML = html;
 
-    }
 }

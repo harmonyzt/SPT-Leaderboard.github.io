@@ -35,7 +35,7 @@ let oldTotalPlayTime = 0;
 // Paths
 let seasonPath = 'https://visuals.nullcore.net/SPT/data/seasons/season';
 let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids4.json?t=${Date.now()}`;
+let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/player_raids/}`;
 let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
 let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
 let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
@@ -47,7 +47,7 @@ let pmcPfpsPath = `https://visuals.nullcore.net/SPT/data/pmc_avatars/`;
 if (isLocalhost) {
     pmcPfpsPath = `fallbacks/pmc_avatars/`;
     seasonPath = `fallbacks/season`;
-    lastRaidsPath = `fallbacks/shared/player_raids4.json?t=${Date.now()}`;
+    lastRaidsPath = `fallbacks/player_raids/}`;
     profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
     profileUrlPath = `127.0.0.1:5500/#id=`;
@@ -813,8 +813,8 @@ function calculateOverallStats(data) {
 function updateNavbarOffset() {
     const bar = document.querySelector('.top-stats-bar');
     if (bar) {
-        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight+15 + 'px');
-        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight-50 + 'px');
+        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight + 15 + 'px');
+        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight - 50 + 'px');
     }
 }
 
