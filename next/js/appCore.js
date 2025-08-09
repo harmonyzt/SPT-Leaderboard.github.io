@@ -207,9 +207,6 @@ async function loadSeasonData(season) {
             return;
         }
 
-        // Wait for assignLeaderboardData
-        await assignLeaderboardData(leaderboardData);
-
         // Calculate ranks before initializing the leaderboard
         calculateRanks(leaderboardData);
 
@@ -348,7 +345,7 @@ async function displayLeaderboard(data) {
         const nowInSeconds = Math.floor(Date.now() / 1000);
         const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
 
-        // Player was online for more 15 days, skip to render less
+        // Player was online for more 15 days, skip to render less jank
         if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds) {
             return;
         }
@@ -388,20 +385,31 @@ async function displayLeaderboard(data) {
         // Add profile standing
         let badge = '';
         if (player.banned) {
-            badge = `<div class="badge-lb tooltip">
-            <em class='bx  bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
-            <span class="tooltiptext">Profile is banned</span>
-          </div>`;
+            badge = 
+            `<div class="badge-lb tooltip">
+                <em class='bx  bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
+                <span class="tooltiptext">Profile is banned</span>
+            </div>
+            `;
         } else if (player?.suspicious == true && !player.isCasual) {
-            badge = `<div class="badge-lb tooltip">
-            <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
-            <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
-          </div>`;
+            badge =
+            `<div class="badge-lb tooltip">
+                <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+                <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
+            </div>
+          `;
         } else {
-            badge = `<div class="badge-lb tooltip">
-            <em class='bx  bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
-            <span class="tooltiptext">Profile in good standing</span>
-          </div>`;
+            badge =
+            `<div class="badge-lb tooltip">
+                <em class='bx  bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
+                <span class="tooltiptext">Profile in good standing</span>
+            </div>
+            <div class="badge-lb tooltip">
+                ${player.boostPerc? player.boostPerc : 0}%
+                <em class='bx  bxs-bolt' style="color:${player?.boostPerc >= 5 && player?.boostPerc <= 10 ? 'rgba(142, 255, 189, 1);' : 'rgb(255, 214, 100);'}"></em>
+                <span class="tooltiptext">Current Player's Skill Boost</span>
+            </div>
+            `;
         }
 
         let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`;
@@ -412,7 +420,7 @@ async function displayLeaderboard(data) {
         // Account type handling
         let accountIcon = '';
         let accountColor = '';
-        if (!player.disqualified) {
+        if (!player.banned) {
             switch (player.accountType) {
                 case 'edge_of_darkness':
                     accountIcon = `<img src="media/EOD.png" alt="EOD" class="account-icon">`;
@@ -433,6 +441,12 @@ async function displayLeaderboard(data) {
             accountColor = '#ba8bdb'
         }
 
+        // Developer
+        if (player.dev) {
+            accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
+            accountColor = '#2486ff';
+        }
+
         let playerGameMode = '';
 
         if (player.isUsingFika && player.isUsingRealism && !player.banned) {
@@ -441,12 +455,6 @@ async function displayLeaderboard(data) {
             playerGameMode = `FIKA`;
         } else if (player.isUsingRealism && !player.banned) {
             playerGameMode = `REALISM`;
-        }
-
-        // Developer
-        if (player.dev) {
-            accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
-            accountColor = '#2486ff';
         }
 
         // Prestige icon
@@ -570,6 +578,16 @@ function addColorIndicators(data) {
         } else {
             player.killToDeathRatioClass = 'impressive'
         }
+
+        if(player.averageLifeTime < 550) {
+            player.averageLifeTimeClass = 'bad';
+        } else if (player.averageLifeTime < 600){
+            player.averageLifeTimeClass = 'average'
+        } else if (player.averageLifeTime < 950) {
+            player.averageLifeTimeClass = 'good'
+        } else {
+            player.averageLifeTimeClass = 'impressive'
+        }
     })
 }
 
@@ -607,7 +625,7 @@ async function calculateRanks(data) {
     )
 
     data.forEach(player => {
-        if (player.disqualified) {
+        if (player.banned) {
             player.totalScore = 0;
             player.damage = 0;
             player.killToDeathRatio = 0;
@@ -704,7 +722,7 @@ function calculateOverallStats(data) {
     let totalPlayTime = 0;
 
     data.forEach(player => {
-        if (!player.disqualified && !player.isCasual) {
+        if (!player.banned && !player.isCasual) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
             const rawKills = parseFloat(player.pmcKills) || 0;
