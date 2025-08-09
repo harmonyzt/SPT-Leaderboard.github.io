@@ -6,37 +6,45 @@
 
 async function initLastRaids(playerId) {
     const statsContainer = document.getElementById('raids-stats-container');
-    const playerRaidsPath = `${lastRaidsPath}${playerId}.json`;
+    if (!statsContainer) {
+        console.error('Container element not found');
+        return;
+    }
 
-    fetch(playerRaidsPath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('File not found');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.raids && data.raids.length > 0) {
-                const sortedRaids = data.raids.sort((a, b) =>
-                    new Date(b.absoluteLastTime) - new Date(a.absoluteLastTime)
-                );
-                renderRaidsStats(sortedRaids);
-            } else {
-                statsContainer.innerHTML = '<p class="error-raid-load">No raid data available for this player :(</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching raid data:', error);
-            statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
-        });
+    try {
+        const playerRaidsPath = `${lastRaidsPath}${playerId}.json`;
+        const response = await fetch(playerRaidsPath);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data?.raids?.length) {
+            statsContainer.innerHTML = '<p class="error-raid-load">No raid data available for this player :(</p>';
+            return;
+        }
+
+        const sortedRaids = data.raids.sort((a, b) =>
+            b.absoluteLastTime - a.absoluteLastTime 
+        );
+
+        renderRaidsStats(sortedRaids);
+    } catch (error) {
+        console.error('Error fetching raid data:', error);
+        statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
+    }
 }
 
 // Render raids
 function renderRaidsStats(raids) {
-    if (!raids || raids.length === 0) {
-        statsContainer.innerHTML = '<p>No raid data available</p>';
+    if (!raids?.length) {
+        statsContainer.innerHTML = '<p class="error-raid-load">No raid data available</p>';
         return;
     }
+
+    const statsContainer = document.getElementById('raids-stats-container');
 
     let html = '';
     raids.forEach(raid => {
