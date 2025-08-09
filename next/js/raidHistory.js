@@ -22,7 +22,7 @@ async function initLastRaids(playerId) {
                 );
                 renderRaidsStats(sortedRaids);
             } else {
-                statsContainer.innerHTML = '<p>No raid data available for this player :(</p>';
+                statsContainer.innerHTML = '<p class="error-raid-load">No raid data available for this player :(</p>';
             }
         })
         .catch(error => {

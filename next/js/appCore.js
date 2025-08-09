@@ -35,7 +35,7 @@ let oldTotalPlayTime = 0;
 // Paths
 let seasonPath = 'https://visuals.nullcore.net/SPT/data/seasons/season';
 let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/player_raids/}`;
+let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/player_raids/`;
 let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
 let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
 let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
