@@ -4031,7 +4031,6 @@ button,
 }
 
 .profile-modal-content {
-    display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -4045,6 +4044,7 @@ button,
 
 @media (max-width: 1200px) {
     .profile-modal-content {
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -4055,6 +4055,7 @@ button,
 
 @media (max-width: 768px) {
     .profile-modal-content {
+        display: flex;
         flex-direction: column;
     }
     .left-column, .center-column, .right-column {
