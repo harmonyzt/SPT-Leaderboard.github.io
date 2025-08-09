@@ -13,41 +13,7 @@ const profileSettingsCache = {
     updatePromise: null
 };
 
-const pfpCache = {
-    map: new Map(),
-    maxSize: 1000,
-    get(id) {
-        if (this.map.has(id)) {
-            const value = this.map.get(id);
-            this.map.delete(id);
-            this.map.set(id, value);
-            return value;
-        }
-        return null;
-    },
-    set(id, value) {
-        if (this.map.size >= this.maxSize) {
-            const firstKey = this.map.keys().next().value;
-            this.map.delete(firstKey);
-        }
-        this.map.set(id, value);
-    }
-};
-
 async function getProfileSettings() {
-    const now = Date.now();
-
-    // If cache exists
-    if (profileSettingsCache.data &&
-        now - profileSettingsCache.lastUpdated < profileSettingsCache.ttl) {
-        return profileSettingsCache.data;
-    }
-
-    // If already updating
-    if (profileSettingsCache.isUpdating) {
-        return profileSettingsCache.updatePromise;
-    }
-
     // Start updating this pile of crap
     profileSettingsCache.isUpdating = true;
     profileSettingsCache.updatePromise = (async () => {
@@ -97,36 +63,11 @@ async function assignLeaderboardData(players) {
             bp_decal: playerConfig.decal,
             discordUser: playerConfig.discordUser || "",
             name: playerConfig.name || player.name,
-            profilePicture: `${await determinePlayerPfp(player.id, playerConfig.pfp)}?${Date.now()}`
+            profilePicture: player.profilePicture || playerConfig.profilePicture
         });
 
         return player;
     });
 
     await Promise.all(updatePromises);
-}
-
-async function determinePlayerPfp(playerId, configPfp) {
-    if (configPfp?.trim()) {
-        return configPfp;
-    }
-
-    // Check cache
-    const cachedPfp = pfpCache.get(playerId);
-    if (cachedPfp !== null) {
-        return cachedPfp;
-    }
-
-    try {
-        const response = await fetch(`${pmcPfpsPath}${playerId}.png`, {
-            method: 'HEAD'
-        });
-
-        const pfpUrl = response.ok ? `${pmcPfpsPath}${playerId}.png` : 'media/default_avatar.png';
-        pfpCache.set(playerId, pfpUrl);
-        return pfpUrl;
-    } catch (error) {
-        console.error(`Error checking PFP for player ${playerId}:`, error);
-        return 'media/default_avatar.png';
-    }
 }

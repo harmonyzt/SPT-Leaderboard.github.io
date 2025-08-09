@@ -13,7 +13,6 @@ let allSeasonsCombinedData = []; // For keeping combined data from all seasons
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
-let isFirstPfpLoad = true;
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
@@ -214,54 +213,20 @@ async function loadSeasonData(season) {
         // Calculate ranks before initializing the leaderboard
         calculateRanks(leaderboardData);
 
-        // For first launch ONLY
-        if (isFirstPfpLoad) {
-            displayLeaderboard(leaderboardData);
-            isFirstPfpLoad = false;
-        } else {
-            updateExistingLeaderboard(leaderboardData);
-        }
-
-
+        // Run through this real quick before displaying
+        addColorIndicators(leaderboardData);
+        checkRecentPlayers(leaderboardData);
+        initProfileWatchList(leaderboardData);
+        calculateOverallStats(leaderboardData);
         initProfileWatchList(leaderboardData);
     } catch (error) {
         console.error('Error loading season data:', error);
         emptyLeaderboardNotification.style.display = 'block';
     } finally {
-        checkRecentPlayers(leaderboardData);
-        initProfileWatchList(leaderboardData);
-        addColorIndicators(leaderboardData);
-        calculateOverallStats(leaderboardData);
-
         // Data is fully ready
+        displayLeaderboard(leaderboardData);
         isDataReady = true;
     }
-}
-
-function updateExistingLeaderboard(players) {
-    const tableBody = document.querySelector('#leaderboardTable tbody');
-    if (!tableBody) return;
-
-    players.forEach(player => {
-        const row = tableBody.querySelector(`tr[data-player-id="${player.id}"]`);
-        if (!row) return;
-
-        const nameCell = row.querySelector('.player-name');
-        const avatarImg = row.querySelector('.player-avatar img');
-
-        if (nameCell && player.name) {
-            nameCell.textContent = player.name;
-        }
-
-        if (avatarImg && player.profilePicture) {
-            const timestamp = new Date().getTime();
-            avatarImg.src = `${player.profilePicture}?${timestamp}`;
-
-            avatarImg.onerror = () => {
-                avatarImg.src = 'media/default_avatar.png';
-            };
-        }
-    });
 }
 
 /**
@@ -320,15 +285,6 @@ async function loadAllSeasonsData() {
     } catch (error) {
         console.error('Error loading all seasons data:', error);
     }
-}
-
-/**
- * Processes season data when it was loaded
- * @returns {Promise<void>}
- */
-async function processSeasonData(data) {
-    addColorIndicators(data);
-    calculateOverallStats(data);
 }
 
 /**
