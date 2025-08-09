@@ -804,7 +804,22 @@ function calculateOverallStats(data) {
     animateNumber('totalPlayers', totalPlayers, 0, previousStats.totalPlayers);
     animateNumber('onlinePlayers', onlinePlayers, 0, previousStats.onlinePlayers);
     animateNumber('totalPlayTime', totalPlayTime, 0, previousStats.totalPlayTime);
+
+    updateNavbarOffset();
 }
+
+
+//Auto offset top by top-stats-bar height
+function updateNavbarOffset() {
+    const bar = document.querySelector('.top-stats-bar');
+    if (bar) {
+        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight+15 + 'px');
+        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight-50 + 'px');
+    }
+}
+
+window.addEventListener('load', updateNavbarOffset);
+window.addEventListener('resize', updateNavbarOffset);
 
 function animateNumber(elementId, targetValue, decimals = 0, startValue = null) {
     const element = document.getElementById(elementId);
