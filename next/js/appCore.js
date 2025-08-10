@@ -385,31 +385,40 @@ async function displayLeaderboard(data) {
         // Add profile standing
         let badge = '';
         if (player.banned) {
-            badge = 
-            `<div class="badge-lb tooltip">
-                <em class='bx  bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
                 <span class="tooltiptext">Profile is banned</span>
-            </div>
-            `;
-        } else if (player?.suspicious == true && !player.isCasual) {
-            badge =
-            `<div class="badge-lb tooltip">
-                <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
-                <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™. Their statistics may be innacurate</span>
-            </div>
-          `;
+            </div>`;
+        } else if (player?.suspicious && !player.isCasual) {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+                <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™</span>
+            </div>`;
         } else {
-            badge =
-            `<div class="badge-lb tooltip">
-                <em class='bx  bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
+            const boostValue = player.boostPerc || 0;
+            const boostColor = boostValue >= 5 && boostValue <= 10 ? 'rgba(142, 255, 189, 1)' :
+                boostValue > 10 ? 'rgba(100, 200, 255, 1)' :
+                    boostValue < 0 ? 'rgba(255, 110, 100, 1)' : 'rgba(255, 255, 255, 1)';
+
+            const boostIcon = boostValue > 0 ? 'bx-arrow-up-stroke' :
+                boostValue < 0 ? 'bx-arrow-down-stroke' : 'bxs-radio-circle';
+
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
                 <span class="tooltiptext">Profile in good standing</span>
             </div>
-            <div class="badge-lb tooltip">
-                ${player.boostPerc? player.boostPerc : 0}%
-                <em class='bx  bxs-bolt' style="color:${player?.boostPerc >= 5 && player?.boostPerc <= 10 ? 'rgba(142, 255, 189, 1);' : 'rgb(255, 214, 100);'}"></em>
-                <span class="tooltiptext">Current Player's Skill Boost</span>
-            </div>
-            `;
+            <div class="boost-container tooltip" style="background: ${boostColor}15; border: 1px solid ${boostColor}50">
+                <span class="boost-value">${boostValue}%</span>
+                <em class='bx ${boostIcon}' style="color:${boostColor}; font-size:0.8em"></em>
+                <em class='bx bxs-bolt' style="color:${boostColor}"></em>
+                <span class="tooltiptext">
+                    ${getBoostDescription(boostValue)}
+                    ${getBoostDetails(boostValue)}
+                </span>
+            </div>`;
         }
 
         let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`;
@@ -579,9 +588,9 @@ function addColorIndicators(data) {
             player.killToDeathRatioClass = 'impressive'
         }
 
-        if(player.averageLifeTime < 550) {
+        if (player.averageLifeTime < 550) {
             player.averageLifeTimeClass = 'bad';
-        } else if (player.averageLifeTime < 600){
+        } else if (player.averageLifeTime < 600) {
             player.averageLifeTimeClass = 'average'
         } else if (player.averageLifeTime < 950) {
             player.averageLifeTimeClass = 'good'
@@ -653,6 +662,17 @@ async function calculateRanks(data) {
 
         if (player.averageLifeTime / 60 < MIN_LIFE_TIME) {
             score *= 0.1; // -90% penalty
+        }
+
+        if (player.boostPerc) {
+            // Properly apply multiplier (+5% = 1.05, -3% = 0.97)
+            const boostMultiplier = 1 + (player.boostPerc / 100);
+            
+            score *= boostMultiplier;
+            
+            // Clamp boost to max +-20%
+            const clampedBoost = Math.min(Math.max(boostMultiplier, 0.8), 1.2);
+            score *= clampedBoost;
         }
 
         player.totalScore = score;

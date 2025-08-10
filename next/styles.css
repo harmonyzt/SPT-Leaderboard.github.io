@@ -583,7 +583,8 @@ button,
     transform: scale(0.95);
 }
 
-.main-button:hover, button:hover {
+.main-button:hover,
+button:hover {
     background-color: #ffffff2f;
     border: 1px solid #ffffff50;
 }
@@ -1908,7 +1909,7 @@ button,
     color: #f3f3f3;
     width: fit-content;
     border-top: 2px solid #ffa05b;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-bottom: 2px solid #ffa05b;
     border-radius: 5px;
     backdrop-filter: blur(5px);
@@ -2158,6 +2159,29 @@ button,
 
 .badge:hover {
     transform: scale(1.1);
+}
+
+.boost-container {
+    display: flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    backdrop-filter: blur(5px);
+    justify-self: center;
+}
+
+.boost-container:hover {
+    transform: translateY(-1px);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.boost-value {
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
 }
 
 .prestige-icon {
@@ -2625,8 +2649,7 @@ button,
     visibility: hidden;
     width: max-content;
     max-width: 300px;
-    background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(15px);
+    background: rgb(31 31 31);
     border: 1px solid #ffffff1a;
     color: #fff;
     text-align: center;
@@ -3857,7 +3880,7 @@ button,
     min-height: 60px;
 }
 
-#notifications-container-r{
+#notifications-container-r {
     top: calc(var(--top-stats-height-variant, 70px));
     position: fixed;
     right: 0;
@@ -4048,7 +4071,10 @@ button,
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .left-column, .center-column, .right-column {
+
+    .left-column,
+    .center-column,
+    .right-column {
         flex: 1 1 48%;
     }
 }
@@ -4058,7 +4084,10 @@ button,
         display: flex;
         flex-direction: column;
     }
-    .left-column, .center-column, .right-column {
+
+    .left-column,
+    .center-column,
+    .right-column {
         flex: 1 1 100%;
         max-width: 100%;
     }
