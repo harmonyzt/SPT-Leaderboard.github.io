@@ -33,6 +33,7 @@ let oldTotalPlayTime = 0;
 // TODO: #7 Fully support all paths for debug and not
 // Paths
 let seasonPath = 'https://visuals.nullcore.net/SPT/data/seasons/season';
+let seasonLocalPath = `fallbacks/season`;
 let seasonPathEnd = `.json?t=${Date.now()}`;
 let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/player_raids/`;
 let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
@@ -65,19 +66,28 @@ document.addEventListener('DOMContentLoaded', initAllSeasons)
  */
 async function checkSeasonExists(seasonNumber) {
     try {
+        // Check server first
         const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
 
-        // If response status is 404 - season doesn't exist
+        if (response.ok) return true;
         if (response.status === 404) {
+            // Nothing found on the server - load season locally
+            try {
+                const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+                return localResponse.ok;
+            } catch (localError) {
+                return false;
+            }
+        }
+        return false;
+    } catch (error) {
+        // If any error - load locally
+        try {
+            const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+            return localResponse.ok;
+        } catch (localError) {
             return false;
         }
-
-        // consider season exists if response is ok
-        return response.ok;
-
-    } catch (error) {
-        // Network errors or other issues - treat as non-existent season
-        return false;
     }
 }
 
@@ -142,8 +152,13 @@ async function loadPreviousSeasonWinners() {
     const previousSeason = seasons[seasons.length - 2];
 
     try {
-        const response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
-        if (!response.ok) return;
+        let response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
+        if (!response.ok && response.status === 404) {
+            response = await fetch(`${seasonLocalPath}${previousSeason}.json`);
+            if (!response.ok) return;
+        } else if (!response.ok) {
+            return;
+        }
 
         const data = await response.json();
         const previousSeasonData = data.leaderboard || [];
@@ -195,8 +210,16 @@ async function loadSeasonData(season) {
     isDataReady = false;
 
     try {
-        const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
-        if (!response.ok) throw new Error('Failed to load season data');
+        // Try loading data from server first
+        let response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+
+        // If not, load locally
+        if (!response.ok && response.status === 404) {
+            response = await fetch(`${seasonLocalPath}${season}.json`);
+            if (!response.ok) throw new Error('Failed to load season data');
+        } else if (!response.ok) {
+            throw new Error('Failed to load season data');
+        }
 
         const data = await response.json();
         leaderboardData = data.leaderboard || [];
@@ -236,7 +259,18 @@ async function loadAllSeasonsData() {
 
         for (const season of seasons) {
             try {
-                const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+                let response;
+
+                // First try loading from server
+                response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+                
+                // If not - load locally
+                if (!response.ok && response.status === 404) {
+                    response = await fetch(`${seasonLocalPath}${season}.json`);
+                    if (!response.ok) continue;
+                } else if (!response.ok) {
+                    continue;
+                }
 
                 const data = await response.json()
                 if (!data.leaderboard || data.leaderboard.length === 0) continue
@@ -667,9 +701,9 @@ async function calculateRanks(data) {
         if (player.boostPerc) {
             // Properly apply multiplier (+5% = 1.05, -3% = 0.97)
             const boostMultiplier = 1 + (player.boostPerc / 100);
-            
+
             score *= boostMultiplier;
-            
+
             // Clamp boost to max +-20%
             const clampedBoost = Math.min(Math.max(boostMultiplier, 0.8), 1.2);
             score *= clampedBoost;
