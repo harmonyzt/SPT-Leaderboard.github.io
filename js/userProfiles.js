@@ -56,7 +56,7 @@ async function openProfile(playerId) {
     // Instantly try assigning info if it was changed (and then change it to actual on backend)
     async function applyPlayerSettings(playerId) {
         try {
-            const settings = await getProfileSettings();
+            const settings = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
 
             // Does it exists?
             if (settings[playerId]) {
@@ -73,7 +73,6 @@ async function openProfile(playerId) {
                     player.bp_pfpstyle = playerConfig.pfpStyle;
                     player.bp_pfpbordercolor = playerConfig.pfpBorder;
                     player.bp_decal = playerConfig.decal;
-                    player.profilePicture = await getPlayerPfp(playerId);
                     player.discordUser = playerConfig.discordUser ? playerConfig.discordUser : '';
                 }
 
