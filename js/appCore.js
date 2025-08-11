@@ -1,8 +1,8 @@
-//     _____ ____  ______   __    _________    ____  __________  ____  ____  ___    ____  ____ 
+//     _____ ____  ______   __    _________    ____  __________  ____  ____  ___    ____  ____
 //    / ___// __ \/_  __/  / /   / ____/   |  / __ \/ ____/ __ \/ __ )/ __ \/   |  / __ \/ __ \
-//    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
-//   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
-//  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
+//    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /
+//   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ /
+//  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/
 
 // TODO: #6 Optimize whole code from stockpiled garbage
 // TODO: #8 Use centralized function to load JSON data
@@ -10,14 +10,13 @@
 let leaderboardData = []; // For keeping current season data
 let heartbeatData = {}; // Remember heartbeats
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
-let sortDirection = {}; // Sort direction
 let seasons = []; // Storing available seasons
 let ranOnlyOnce = false; // Run only once (ie winners)
 let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
-let debug = 0;
+const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -33,19 +32,22 @@ let oldTotalPlayTime = 0;
 
 // TODO: #7 Fully support all paths for debug and not
 // Paths
-let seasonPath = "https://visuals.nullcore.net/SPT/data/seasons/season";
+let seasonPath = 'https://visuals.nullcore.net/SPT/data/seasons/season';
+let seasonLocalPath = `fallbacks/season`;
 let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/shared/player_raids4.json?t=${Date.now()}`;
+let lastRaidsPath = `https://visuals.nullcore.net/SPT/data/player_raids/`;
 let profileSettingsPath = `https://visuals.nullcore.net/SPT/data/profile_settings.json?t=${Date.now()}`;
 let weaponStatsPath = `https://visuals.nullcore.net/SPT/data/shared/weapon_counters.json?t=${Date.now()}`;
 let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
 let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
 let achievementsPath = `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
+let pmcPfpsPath = `https://visuals.nullcore.net/SPT/data/pmc_avatars/`;
 
 // Paths for local files if debug is on
-if (debug) {
-    seasonPath = "fallbacks/season";
-    lastRaidsPath = `fallbacks/shared/player_raids4.json?t=${Date.now()}`;
+if (isLocalhost) {
+    pmcPfpsPath = `fallbacks/pmc_avatars/`;
+    seasonPath = `fallbacks/season`;
+    lastRaidsPath = `fallbacks/player_raids/}`;
     profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
     profileUrlPath = `127.0.0.1:5500/#id=`;
@@ -54,7 +56,40 @@ if (debug) {
 }
 
 // Call main init on DOM load
-document.addEventListener('DOMContentLoaded', initAllSeasons);
+document.addEventListener('DOMContentLoaded', initAllSeasons)
+
+
+/**
+ * Checks if a season with the given number exists on the server
+ * @param {number} seasonNumber - The season number to check
+ * @returns {Promise<boolean>} - True if season exists, false otherwise
+ */
+async function checkSeasonExists(seasonNumber) {
+    try {
+        // Check server first
+        const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
+
+        if (response.ok) return true;
+        if (response.status === 404) {
+            // Nothing found on the server - load season locally
+            try {
+                const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+                return localResponse.ok;
+            } catch (localError) {
+                return false;
+            }
+        }
+        return false;
+    } catch (error) {
+        // If any error - load locally
+        try {
+            const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+            return localResponse.ok;
+        } catch (localError) {
+            return false;
+        }
+    }
+}
 
 /**
  * Detects all available seasons by calling checkSeasonExists(seasonNumber) until 404 is received
@@ -66,56 +101,42 @@ async function initAllSeasons() {
     let seasonNumber = 1;
     seasons = [];
 
-    while (true) {
-        const exists = await checkSeasonExists(seasonNumber);
-        if (!exists) break;
+    try {
+        while (true) {
+            const exists = await checkSeasonExists(seasonNumber);
+            if (!exists) break;
 
-        seasons.push(seasonNumber);
-        seasonNumber++;
-    }
+            seasons.push(seasonNumber);
+            seasonNumber++;
+        }
+    } catch {
+        console.error('Error checking number of seasons:', error);
+    } finally {
+        // Sort from newest to oldest
+        seasons.sort((a, b) => b - a);
 
-    // Load previous winners and run it only once
-    if (seasons.length > 1 && !ranOnlyOnce) {
-        ranOnlyOnce = true;
-        loadPreviousSeasonWinners();
-    }
-
-    // Sort from newest to oldest
-    seasons.sort((a, b) => b - a);
-
-    populateSeasonDropdown();
-
-    // Load data if we found any seasons
-    if (seasons.length > 0) {
-        await Promise.all([
-            loadAllSeasonsData(),
-            loadSeasonData(seasons[0])
-        ]);
-        saveCurrentStats();
+        prepareSeasonData()
+        populateSeasonDropdown();
     }
 }
 
 /**
- * Checks if a season with the given number exists on the server
- * @param {number} seasonNumber - The season number to check
- * @returns {Promise<boolean>} - True if season exists, false otherwise
+ * Proceeds the all seasons been initialized function
+ * @returns {Promise<void>}
  */
-async function checkSeasonExists(seasonNumber) {
+async function prepareSeasonData() {
+    // Load data if we found any seasons
+    if (seasons.length > 0) {
+        await Promise.all([loadSeasonData(seasons[0])]);
 
-    try {
-        const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
-
-        // If response status is 404 - season doesn't exist
-        if (response.status === 404) {
-            return false;
+        // Load previous winners and run it only once
+        if (!ranOnlyOnce) {
+            ranOnlyOnce = true;
+            loadPreviousSeasonWinners();
+            loadAllSeasonsData()
         }
 
-        // consider season exists if response is ok
-        return response.ok;
-    } catch (error) {
-        // Network errors or other issues - treat as non-existent season
-        console.error(`Error checking season ${seasonNumber}:`, error);
-        return false;
+        saveCurrentStats();
     }
 }
 
@@ -131,8 +152,13 @@ async function loadPreviousSeasonWinners() {
     const previousSeason = seasons[seasons.length - 2];
 
     try {
-        const response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
-        if (!response.ok) return;
+        let response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
+        if (!response.ok && response.status === 404) {
+            response = await fetch(`${seasonLocalPath}${previousSeason}.json`);
+            if (!response.ok) return;
+        } else if (!response.ok) {
+            return;
+        }
 
         const data = await response.json();
         const previousSeasonData = data.leaderboard || [];
@@ -157,9 +183,9 @@ function populateSeasonDropdown() {
         option.value = season;
         option.textContent = `Season ${season}`;
         seasonSelect.appendChild(option);
-    });
+    })
 
-    seasonSelect.addEventListener('change', (event) => {
+    seasonSelect.addEventListener('change', event => {
         AppState.setAutoUpdate(false);
 
         const selectedValue = event.target.value;
@@ -168,9 +194,9 @@ function populateSeasonDropdown() {
         if (selectedValue == seasons[0]) {
             AppState.setAutoUpdate(true);
         } else {
-            showToast("Live Data Flow was automatically disabled", "info", 8000);
+            showToast('Live Data Flow was automatically disabled', 'info', 8000);
         }
-    });
+    })
 }
 
 /**
@@ -184,27 +210,42 @@ async function loadSeasonData(season) {
     isDataReady = false;
 
     try {
-        const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+        // Try loading data from server first
+        let response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
 
-        if (!response.ok) {
+        // If not, load locally
+        if (!response.ok && response.status === 404) {
+            response = await fetch(`${seasonLocalPath}${season}.json`);
+            if (!response.ok) throw new Error('Failed to load season data');
+        } else if (!response.ok) {
             throw new Error('Failed to load season data');
         }
 
         const data = await response.json();
-
         leaderboardData = data.leaderboard || [];
 
-        // Leaderboard data is empty. Clean and do nothing
         if (leaderboardData.length === 0 || (leaderboardData.length === 1 && Object.keys(leaderboardData[0]).length === 0)) {
             emptyLeaderboardNotification.style.display = 'block';
             resetStats();
-        } else {
-            processSeasonData(leaderboardData);
-            displayLeaderboard(leaderboardData);
+            return;
         }
-    } finally {
+
+        // Calculate ranks before initializing the leaderboard
+        calculateRanks(leaderboardData);
+
+        // Run through this real quick before displaying
+        addColorIndicators(leaderboardData);
         checkRecentPlayers(leaderboardData);
         initProfileWatchList(leaderboardData);
+        calculateOverallStats(leaderboardData);
+        initProfileWatchList(leaderboardData);
+    } catch (error) {
+        console.error('Error loading season data:', error);
+        emptyLeaderboardNotification.style.display = 'block';
+    } finally {
+        // Data is fully ready
+        displayLeaderboard(leaderboardData);
+        isDataReady = true;
     }
 }
 
@@ -218,13 +259,24 @@ async function loadAllSeasonsData() {
 
         for (const season of seasons) {
             try {
-                const response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+                let response;
 
-                const data = await response.json();
-                if (!data.leaderboard || data.leaderboard.length === 0) continue;
+                // First try loading from server
+                response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
+                
+                // If not - load locally
+                if (!response.ok && response.status === 404) {
+                    response = await fetch(`${seasonLocalPath}${season}.json`);
+                    if (!response.ok) continue;
+                } else if (!response.ok) {
+                    continue;
+                }
+
+                const data = await response.json()
+                if (!data.leaderboard || data.leaderboard.length === 0) continue
 
                 data.leaderboard.forEach(player => {
-                    const playerKey = player.id || player.name;
+                    const playerKey = player.id;
 
                     if (!uniquePlayers[playerKey]) {
                         // New player - initialize with current season data
@@ -237,10 +289,15 @@ async function loadAllSeasonsData() {
                         // Existing player - update if this season is more recent
                         if (compareLastPlayed(player.lastPlayed, uniquePlayers[playerKey].lastPlayed) > 0) {
                             const { seasonsPlayed, seasonsCount, ...rest } = uniquePlayers[playerKey];
+
                             uniquePlayers[playerKey] = {
                                 ...player,
-                                seasonsPlayed: seasonsPlayed.includes(season) ? seasonsPlayed : [...seasonsPlayed, season],
-                                seasonsCount: seasonsPlayed.includes(season) ? seasonsCount : seasonsCount + 1
+                                seasonsPlayed: seasonsPlayed.includes(season)
+                                    ? seasonsPlayed
+                                    : [...seasonsPlayed, season],
+                                seasonsCount: seasonsPlayed.includes(season)
+                                    ? seasonsCount
+                                    : seasonsCount + 1
                             };
                         } else if (!uniquePlayers[playerKey].seasonsPlayed.includes(season)) {
                             // Add seasons to player's record
@@ -248,7 +305,7 @@ async function loadAllSeasonsData() {
                             uniquePlayers[playerKey].seasonsCount += 1;
                         }
                     }
-                });
+                })
             } catch (error) {
                 console.error(`Error processing season ${season}:`, error);
                 continue;
@@ -256,20 +313,9 @@ async function loadAllSeasonsData() {
         }
 
         allSeasonsCombinedData = Object.values(uniquePlayers);
-
     } catch (error) {
         console.error('Error loading all seasons data:', error);
     }
-}
-
-/**
- * Processes season data when it was loaded
- * @returns {Promise<void>}
- */
-function processSeasonData(data) {
-    addColorIndicators(data);
-    calculateRanks(data);
-    calculateOverallStats(data);
 }
 
 /**
@@ -287,7 +333,7 @@ function resetStats() {
 
 // Compare last played dates (supports both Unix timestamps and "dd.mm.yyyy" format)
 function compareLastPlayed(dateStr1, dateStr2) {
-    const parseDate = (dateStr) => {
+    const parseDate = dateStr => {
         if (/^\d+$/.test(dateStr)) {
             return new Date(parseInt(dateStr) * 1000);
         }
@@ -304,6 +350,7 @@ function compareLastPlayed(dateStr1, dateStr2) {
     const date2 = parseDate(dateStr2);
 
     if (!date1 || !date2) return 0;
+
     return date1 - date2;
 }
 
@@ -323,23 +370,23 @@ async function displayLeaderboard(data) {
     const tempTableBody = document.createElement('tbody');
     tempTableBody.style.display = 'none';
 
-    const playersWithData = await Promise.all(
-        data.map(async (player) => {
-            const pfp = await getPlayerPfp(player.id);
-            const customName = await getPlayerName(player.id);
-            return { ...player, pfp, customName };
-        })
-    );
-
-    const fragment = document.createDocumentFragment()
-
-    // Process players sequentially to ensure proper ordering
-    playersWithData.forEach((player) => {
+    // Process players sequentially for proper ordering
+    const fragment = document.createDocumentFragment();
+    data.forEach(player => {
         const row = document.createElement('tr');
         let lastGame;
 
+        const nowInSeconds = Math.floor(Date.now() / 1000);
+        const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
+
+        // Player was online for more 15 days, skip to render less jank
+        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds) {
+            return;
+        }
+
         // Check HeartbeatMonitor
         const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
+
         if (!player.banned) {
             const lastOnlineTime = heartbeatMonitor.isOnline(player.id)
                 ? '<span class="player-status-lb-online">Online</span>'
@@ -347,7 +394,7 @@ async function displayLeaderboard(data) {
 
             // For lastGame
             if (heartbeatMonitor.isOnline(player.id)) {
-                lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
+                lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`
             } else {
                 lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;
             }
@@ -371,60 +418,86 @@ async function displayLeaderboard(data) {
 
         // Add profile standing
         let badge = '';
-        if (player?.suspicious == true && !player.isCasual) {
-            badge = `<div class="badge-lb tooltip">
-            <em class='bx  bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
-            <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™ or warned by Moderation. Their statistics may be innacurate</span>
-          </div>`;
+        if (player.banned) {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
+                <span class="tooltiptext">Profile is banned</span>
+            </div>`;
+        } else if (player?.suspicious && !player.isCasual) {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+                <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™</span>
+            </div>`;
         } else {
-            badge = `<div class="badge-lb tooltip">
-            <em class='bx  bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
-            <span class="tooltiptext">Profile in good standing</span>
-          </div>`;
+            const boostValue = player.boostPerc || 0;
+            const boostColor = boostValue >= 5 && boostValue <= 10 ? 'rgba(142, 255, 189, 1)' :
+                boostValue > 10 ? 'rgba(100, 200, 255, 1)' :
+                    boostValue < 0 ? 'rgba(255, 110, 100, 1)' : 'rgba(255, 255, 255, 1)';
+
+            const boostIcon = boostValue > 0 ? 'bx-arrow-up-stroke' :
+                boostValue < 0 ? 'bx-arrow-down-stroke' : 'bxs-radio-circle';
+
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
+                <span class="tooltiptext">Profile in good standing</span>
+            </div>
+            <div class="boost-container tooltip" style="background: ${boostColor}15; border: 1px solid ${boostColor}50">
+                <span class="boost-value">${boostValue}%</span>
+                <em class='bx ${boostIcon}' style="color:${boostColor}; font-size:0.8em"></em>
+                <em class='bx bxs-bolt' style="color:${boostColor}"></em>
+                <span class="tooltiptext">
+                    ${getBoostDescription(boostValue)}
+                    ${getBoostDetails(boostValue)}
+                </span>
+            </div>`;
         }
 
         let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`;
         if (player.publicProfile) {
-            profileOpenIcon = `Public`;
+            profileOpenIcon = `Share`;
         }
 
         // Account type handling
         let accountIcon = '';
         let accountColor = '';
-        if (!player.disqualified) {
+        if (!player.banned) {
             switch (player.accountType) {
                 case 'edge_of_darkness':
-                    accountIcon = '<img src="media/EOD.png" alt="EOD" class="account-icon">';
+                    accountIcon = `<img src="media/EOD.png" alt="EOD" class="account-icon">`;
                     accountColor = '#be8301';
                     break;
                 case 'unheard_edition':
-                    accountIcon = '<img src="media/Unheard.png" alt="Unheard" class="account-icon">';
+                    accountIcon = `<img src="media/Unheard.png" alt="Unheard" class="account-icon">`;
                     accountColor = '#54d0e7';
                     break;
             }
         } else {
-            accountColor = '#787878';
+            accountColor = '#787878'
         }
 
         // Tester overwrite every icon and color text on top
-        if (player.trusted) {
-            accountIcon = '<img src="media/trusted.png" alt="Tester" class="account-icon">';
-            accountColor = '#ba8bdb';
-        }
-
-        // TODO: #10 Add tags altogether if they exist
-        let playerGameMode = ''
-        if (player.isUsingFika) {
-            playerGameMode = 'FIKA'
-        }
-        if (player.isUsingRealism) {
-            playerGameMode = 'REALISM'
+        if (player.trusted && !player.banned) {
+            accountIcon = `<img src="media/trusted.png" alt="Tester" class="account-icon">`
+            accountColor = '#ba8bdb'
         }
 
         // Developer
         if (player.dev) {
             accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
             accountColor = '#2486ff';
+        }
+
+        let playerGameMode = '';
+
+        if (player.isUsingFika && player.isUsingRealism && !player.banned) {
+            playerGameMode = `FIKA & REALISM`;
+        } else if (player.isUsingFika && !player.banned) {
+            playerGameMode = `FIKA`;
+        } else if (player.isUsingRealism && !player.banned) {
+            playerGameMode = `REALISM`;
         }
 
         // Prestige icon
@@ -439,26 +512,24 @@ async function displayLeaderboard(data) {
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
             <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
-                ${`<img class="lb-profile-picture" src="${player.pfp}">`}
-                ${accountIcon} ${player.customName ? player.customName : player.name} ${prestigeImg}
-                ${playerGameMode ?
-                `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>`
-                :
-                ``
-            }
+                ${`<img class="lb-profile-picture" src="${player.profilePicture || 'media/default_avatar.png'}">`}
+                ${accountIcon} ${player.name} ${prestigeImg} ${playerGameMode ? `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>` : ``}
             </td>
             <td>${lastGame || 'N/A'}</td>
-            <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>` : `${profileOpenIcon}`}</td>
+            <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>`
+                : `${profileOpenIcon}`
+            }</td>
             <td>${badge}</td>
-            <td>${player.pmcRaids}</td>
+            <td>${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
             <td class="${player.killToDeathRatioClass}">${player.killToDeathRatio}</td>
             <td class="${player.averageLifeTimeClass}">${formatSeconds(player.averageLifeTime)}</td>
-            <td>${player.totalScore <= 0 ? 'Calibrating...' : player.totalScore.toFixed(2)} ${player.totalScore <= 0 ? '' : `(${rankLabel})`}</td>
+            <td>${player.totalScore <= 0 ? 'Calibrating...'
+                : player.totalScore.toFixed(2)} ${player.totalScore <= 0 ? '' : `(${rankLabel})`}</td>
             <td>${player.sptVer}</td>
-        `;
+        `
 
-        fragment.appendChild(row);
+        fragment.appendChild(row)
     });
 
     tempTableBody.appendChild(fragment);
@@ -469,20 +540,14 @@ async function displayLeaderboard(data) {
     tempTableBody.style.display = '';
 
     // Add click handlers for player names
-    document.querySelectorAll('.player-name').forEach(element => {
-        element.addEventListener('click', () => {
-            openProfile(element.dataset.playerId);
-        });
+    mainTable.addEventListener('click', (e) => {
+        if (e.target.closest('.player-name')) {
+            openProfile(e.target.closest('.player-name').dataset.playerId);
+        }
+        if (e.target.closest('.teamtag')) {
+            openTeam(e.target.closest('.teamtag').dataset.team);
+        }
     });
-
-    document.querySelectorAll('.teamtag').forEach(element => {
-        element.addEventListener('click', () => {
-            openTeam(element.dataset.team);
-        });
-    });
-
-    // Add sort listeners
-    addSortListeners();
 
     isDataReady = true;
 }
@@ -492,7 +557,7 @@ async function displayLeaderboard(data) {
  * @param {Array<Object>} unixTimestamp - Unix timestamp
  * @returns Array of text (date)
  * @example In game <div id="blink"></div> | 1d ago | 1m 2d ago
- * 
+ *
  */
 function formatLastPlayed(unixTimestamp) {
     if (typeof unixTimestamp !== 'number' || unixTimestamp <= 0) {
@@ -537,40 +602,50 @@ function addColorIndicators(data) {
     data.forEach(player => {
         // Survived/Died Ratio
         if (player.survivalRate < 30) {
-            player.survivedToDiedRatioClass = 'bad';
+            player.survivedToDiedRatioClass = 'bad'
         } else if (player.survivalRate < 55) {
-            player.survivedToDiedRatioClass = 'average';
+            player.survivedToDiedRatioClass = 'average'
         } else if (player.survivalRate < 70) {
-            player.survivedToDiedRatioClass = 'good';
+            player.survivedToDiedRatioClass = 'good'
         } else {
-            player.survivedToDiedRatioClass = 'impressive';
+            player.survivedToDiedRatioClass = 'impressive'
         }
 
         // Kill/Death Ratio
         if (player.killToDeathRatio < 3) {
-            player.killToDeathRatioClass = 'bad';
+            player.killToDeathRatioClass = 'bad'
         } else if (player.killToDeathRatio < 5) {
-            player.killToDeathRatioClass = 'average';
+            player.killToDeathRatioClass = 'average'
         } else if (player.killToDeathRatio < 15) {
-            player.killToDeathRatioClass = 'good';
+            player.killToDeathRatioClass = 'good'
         } else {
-            player.killToDeathRatioClass = 'impressive';
+            player.killToDeathRatioClass = 'impressive'
         }
-    });
+
+        if (player.averageLifeTime < 550) {
+            player.averageLifeTimeClass = 'bad';
+        } else if (player.averageLifeTime < 600) {
+            player.averageLifeTimeClass = 'average'
+        } else if (player.averageLifeTime < 950) {
+            player.averageLifeTimeClass = 'good'
+        } else {
+            player.averageLifeTimeClass = 'impressive'
+        }
+    })
 }
 
 // Convert time string to seconds
 function convertTimeToSeconds(time) {
-    if (!time) return 0;
-    const [minutes, seconds] = time.split(':').map(Number);
-    return minutes * 60 + seconds;
+    if (!time) return 0
+    const [minutes, seconds] = time.split(':').map(Number)
+    return minutes * 60 + seconds
 }
 
 /**
  * Calculates and assigns ranks to players based on their stats
  * @param {Array<Object>} data - Leaderboard data with all the season entries
  * @returns {void}
- * 
+ *
  * @description
  * Calculates player skill scores considering:
  * - Kill/death ratio
@@ -579,19 +654,21 @@ function convertTimeToSeconds(time) {
  * - Average lifetime
  * Applies penalties for low raid count and short lifetimes
  */
-function calculateRanks(data) {
-    const MIN_RAIDS = 50;
-    const SOFT_CAP_RAIDS = 100;
-    const MIN_LIFE_TIME = 10; // tracking skill issue
-    const MAX_LIFE_TIME = 50;
+async function calculateRanks(data) {
+    const MIN_RAIDS = 50
+    const SOFT_CAP_RAIDS = 100
+    const MIN_LIFE_TIME = 10 // Skill issue tracker
+    const MAX_LIFE_TIME = 55
 
-    const maxKDR = Math.max(...data.map(p => p.killToDeathRatio));
-    const maxSurvival = Math.max(...data.map(p => p.survivalRate));
-    const maxRaids = Math.max(...data.map(p => p.pmcRaids));
-    const maxAvgLifeTime = Math.max(...data.map(p => Math.min(p.averageLifeTime, MAX_LIFE_TIME)));
+    const maxKDR = Math.max(...data.map(p => p.killToDeathRatio))
+    const maxSurvival = Math.max(...data.map(p => p.survivalRate))
+    const maxRaids = Math.max(...data.map(p => p.pmcRaids))
+    const maxAvgLifeTime = Math.max(
+        ...data.map(p => Math.min(p.averageLifeTime, MAX_LIFE_TIME))
+    )
 
     data.forEach(player => {
-        if (player.disqualified) {
+        if (player.banned) {
             player.totalScore = 0;
             player.damage = 0;
             player.killToDeathRatio = 0;
@@ -607,18 +684,29 @@ function calculateRanks(data) {
         const clampedLifeTime = Math.min(player.averageLifeTime, MAX_LIFE_TIME);
         const normAvgLifeTime = maxAvgLifeTime ? clampedLifeTime / maxAvgLifeTime : 0;
 
-        let score = (normKDR * 0.10) + (normSurvival * 0.1) + (normRaids * 0.35) + (normAvgLifeTime * 0.3);
+        let score = normKDR * 0.1 + normSurvival * 0.1 + normRaids * 0.35 + normAvgLifeTime * 0.3;
 
         // Soft Cap for raids
         if (player.pmcRaids <= MIN_RAIDS) {
             score *= 0.3;
         } else if (player.pmcRaids < SOFT_CAP_RAIDS) {
             const progress = (player.pmcRaids - MIN_RAIDS) / (SOFT_CAP_RAIDS - MIN_RAIDS);
-            score *= 0.3 + (0.65 * progress);
+            score *= 0.3 + 0.65 * progress;
         }
 
-        if ((player.averageLifeTime / 60) < MIN_LIFE_TIME) {
+        if (player.averageLifeTime / 60 < MIN_LIFE_TIME) {
             score *= 0.1; // -90% penalty
+        }
+
+        if (player.boostPerc) {
+            // Properly apply multiplier (+5% = 1.05, -3% = 0.97)
+            const boostMultiplier = 1 + (player.boostPerc / 100);
+
+            score *= boostMultiplier;
+
+            // Clamp boost to max +-20%
+            const clampedBoost = Math.min(Math.max(boostMultiplier, 0.8), 1.2);
+            score *= clampedBoost;
         }
 
         player.totalScore = score;
@@ -626,19 +714,21 @@ function calculateRanks(data) {
         if (player.isCasual) {
             player.totalScore = 0.15;
         }
-    });
+    })
 
-    data.sort((a, b) => b.totalScore - a.totalScore);
+    data.sort((a, b) => b.totalScore - a.totalScore)
 
     data.forEach((player, index) => {
-        if (!player.isCasual) {
-            player.rank = index + 1;
-            player.medal = ['🥇', '🥈', '🥉'][index] || '';
-        } else {
-            player.rank = 0;
+        if (player.isCasual) {
+            player.rank = "Casual";
             player.medal = '';
+            return;
         }
-    });
+
+        player.rank = index + 1;
+        player.medal = ['🥇', '🥈', '🥉'][index] || '';
+
+    })
 }
 
 // Get skill rank label
@@ -686,7 +776,7 @@ function calculateOverallStats(data) {
     let totalPlayTime = 0;
 
     data.forEach(player => {
-        if (!player.disqualified && !player.isCasual) {
+        if (!player.banned && !player.isCasual) {
             const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
             const rawKills = parseFloat(player.pmcKills) || 0;
@@ -713,11 +803,11 @@ function calculateOverallStats(data) {
         if (player.totalPlayTime) {
             totalPlayTime += Math.floor(player.totalPlayTime / 60);
         }
-    });
+    })
 
     // Calculate averages
-    const averageKDR = totalDeaths > 0 ? (totalKills / totalDeaths) : 0;
-    const averageSurvival = validPlayers > 0 ? (totalSurvival / validPlayers) : 0;
+    const averageKDR = totalDeaths > 0 ? totalKills / totalDeaths : 0;
+    const averageSurvival = validPlayers > 0 ? totalSurvival / validPlayers : 0;
     const totalPlayers = data.length;
 
     // Update old values for next animation
@@ -742,7 +832,22 @@ function calculateOverallStats(data) {
     animateNumber('totalPlayers', totalPlayers, 0, previousStats.totalPlayers);
     animateNumber('onlinePlayers', onlinePlayers, 0, previousStats.onlinePlayers);
     animateNumber('totalPlayTime', totalPlayTime, 0, previousStats.totalPlayTime);
+
+    updateNavbarOffset();
 }
+
+
+//Auto offset top by top-stats-bar height
+function updateNavbarOffset() {
+    const bar = document.querySelector('.top-stats-bar');
+    if (bar) {
+        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight + 15 + 'px');
+        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight - 50 + 'px');
+    }
+}
+
+window.addEventListener('load', updateNavbarOffset);
+window.addEventListener('resize', updateNavbarOffset);
 
 function animateNumber(elementId, targetValue, decimals = 0, startValue = null) {
     const element = document.getElementById(elementId);
@@ -758,21 +863,22 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
     }
 
     let currentValue;
+
     try {
         currentValue = parseFloat(currentDisplayValue);
         if (isNaN(currentValue)) {
-            currentValue = (startValue !== null) ? startValue : 0;
+            currentValue = startValue !== null ? startValue : 0;
         }
     } catch (e) {
-        currentValue = (startValue !== null) ? startValue : 0;
+        currentValue = startValue !== null ? startValue : 0;
     }
 
     // Special case handling for KDR
     if (elementId === 'averageKDR' && currentValue > 100 && targetValue < 100) {
-        currentValue = (startValue !== null) ? startValue : targetValue;
+        currentValue = startValue !== null ? startValue : targetValue;
     }
 
-    startValue = (startValue !== null) ? startValue : currentValue;
+    startValue = startValue !== null ? startValue : currentValue
 
     // Ensure no huge mismatch between values
     if (targetValue === 0 && startValue > 1000) {
@@ -780,7 +886,7 @@ function animateNumber(elementId, targetValue, decimals = 0, startValue = null) 
     }
 
     // Format value with decimals and suffix
-    const formatValue = (value) => {
+    const formatValue = value => {
         return (decimals > 0 ? value.toFixed(decimals) : Math.round(value)) + suffix;
     };
 
@@ -827,59 +933,8 @@ function saveCurrentStats() {
         onlinePlayers: oldOnlinePlayers,
         totalPlayTime: oldTotalPlayTime
     };
+
     localStorage.setItem('leaderboardStats', JSON.stringify(stats));
-}
-
-// Add sort listeners to table headers
-function addSortListeners() {
-    const headers = document.querySelectorAll('#leaderboardTable th[data-sort]');
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const sortKey = header.getAttribute('data-sort');
-            sortLeaderboard(sortKey);
-        });
-    });
-}
-
-// Sort leaderboard data (BROKEN)
-function sortLeaderboard(sortKey) {
-    if (!sortDirection[sortKey]) {
-        sortDirection[sortKey] = 'asc';
-    } else {
-        sortDirection[sortKey] = sortDirection[sortKey] === 'asc' ? 'desc' : 'asc';
-    }
-
-    const currentData = leaderboardData.length > 0 ? leaderboardData : allSeasonsCombinedData;
-
-    currentData.sort((a, b) => {
-        let valueA = a[sortKey];
-        let valueB = b[sortKey];
-
-        if (sortKey === 'rank') {
-            valueA = a.rank;
-            valueB = b.rank;
-        }
-
-        if (['pmcLevel', 'pmcRaids', 'survivalRate', 'killToDeathRatio', 'totalScore'].includes(sortKey)) {
-            valueA = parseFloat(valueA);
-            valueB = parseFloat(valueB);
-        }
-
-        if (sortKey === 'averageLifeTime') {
-            valueA = convertTimeToSeconds(valueA);
-            valueB = convertTimeToSeconds(valueB);
-        }
-
-        if (valueA < valueB) {
-            return sortDirection[sortKey] === 'asc' ? -1 : 1;
-        }
-        if (valueA > valueB) {
-            return sortDirection[sortKey] === 'asc' ? 1 : -1;
-        }
-        return 0;
-    });
-
-    displayLeaderboard(currentData);
 }
 
 // Welcome popup
