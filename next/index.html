@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <script src="js/appCore.js"></script>
 
         <script src="js/displayWinners.js"></script>
@@ -64,23 +64,83 @@
             </nav>
         </header>
         <h1 style="margin-top: 180px;" class="animate__animated animate__fadeInDown">SPT Leaderboard</h1>
-        <div id="welcomePopup" aria-label="Welcome Screen">
-            <div class="welcome-bg-image animate__animated animate__fadeIn">
-                <img class="" src="media/TP.png" alt="SPT Leaderboard Preview">
+   <div id="welcomePopup" aria-label="Welcome Screen">
+        <img class="welcome-bg-image animate__animated animate__fadeIn" src="media/TP.png" alt="Background">
+        
+        <div class="popup-container">
+            <div class="popup-header animate__animated animate__fadeInDown">
+                <h1>Welcome to SPT Leaderboard!</h1>
+                <p class="animate__animated animate__fadeInUp delay-1">Track your progress, compare with other players, and compete with friends in Single Player Tarkov!</p>
             </div>
-            <div class="popup-container">
-                <div class="popup-content">
-                    <h1 class="animate__animated animate__fadeInDown">Welcome to SPT Leaderboard!</h1>
-                    <p class="animate__animated animate__fadeInUp">Track, progress and compare your Single Player Tarkov profile with other players, or compete with your friends!</p>
-                    <p class="animate__animated animate__fadeInUp">Leaderboard updates are live! See how you rank against the community and set new personal records in your SPT experience!</p>
-                    <button class="main-button animate__animated animate__fadeInUp" id="continueBtn">Continue to Leaderboard</button>
-                    <button class="main-button animate__animated animate__fadeInUp" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">Join our Discord server!</button>
+            
+            <div class="features-container">
+                
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Real-Time Leaderboard</h3>
+                        <p>See live updates of your ranking compared to the other players of SPT community. Watch your stats, others, and get rewards as you progress.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Detailed Statistics</h3>
+                        <p>Comprehensive analytics of your gameplay including K/D ratio, Survival Rate, Recent Hits, and more.</p>
+                    </div>
                 </div>
-                <div class="popup-image animate__animated animate__fadeInUp">
-                    <img class="" src="media/leaderboard_preview.png" alt="SPT Leaderboard Preview">
+                
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-hexagon-nodes"></i>
+                        </div>
+                        <h3>SPT Leaderboard Network</h3>
+                        <p>Log-in for more than just editing your profile. Report Players, Edit your profile and explore Tarkov Market.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3>Tarkov Market</h3>
+                        <p>Earn points by playing the game - and spend the well deserved points on external Tarkov Market which includes - Dynamic (on high demand) Pricing, Re-stocking, and arrival right into your in-game inventory.</p>
+                    </div>
                 </div>
+
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Historical Data</h3>
+                        <p>View your progress over time with historical charts and see how you've improved. Including Raid History, Hits History, Achievements, Trader Standings and Player Model Preview.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Custom Profiles</h3>
+                        <p>Personalize your Leaderboard Profile with custom banners, styles, themes, showcase your drip of your PMC and your best stats.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="buttons-container">
+                <button class="welcome-button animate__animated animate__fadeInUp delay-3" id="continueBtn">
+                    <i class="fas fa-arrow-right"></i> Continue to Leaderboard
+                </button>
+                <button class="welcome-button animate__animated animate__fadeInUp delay-4" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">
+                    <i class="fab fa-discord"></i> Join our Discord
+                </button>
             </div>
         </div>
+    </div>
         <div id="infoModal" class="modal" aria-label="How Leaderboard Works">
             <div class="modal-content">
                 <span class="close">&times;</span>

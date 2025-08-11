@@ -43,3 +43,31 @@ function getBoostDetails(boost) {
             ? `From ~${modsCount} restricted mod(s)`
             : 'No mod effects';
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const featureCards = document.querySelectorAll('.feature-card');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const animation = entry.target.getAttribute('data-animation');
+                entry.target.classList.add(animation);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    featureCards.forEach(card => {
+        observer.observe(card);
+    });
+
+    // Wow image move 
+    window.addEventListener('mousemove', function (e) {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        const bg = document.querySelector('.welcome-bg-image');
+        bg.style.transform = `translate(-${x * 50}px, -${y * 50}px)`;
+    });
+});

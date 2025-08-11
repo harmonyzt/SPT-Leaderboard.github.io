@@ -618,15 +618,15 @@ async function showPublicProfile(container, player) {
         updateBodyHitsVisualization(player.raidHitsHistory);
     }
 
-    await processPlayerAchievements(player, {
+    processPlayerAchievements(player, {
         renderAll: true,
         container: document.getElementById('achievements-container')
     });
 
     handlePlayerModelSection(player.id);
     
-    await initLastRaids(player.id);
-    await renderFriendList(player);
+    initLastRaids(player.id);
+    renderFriendList(player);
     await initHOF(player, bestWeapon);
 
     closeLoaderAfterImagesLoad();
