@@ -33,7 +33,7 @@ async function updateServerStatus() {
             statusElement.setAttribute('data-tooltip', status.workText);
         }
     } else if (status.underWork) {
-        statusElement.textContent = 'API Maintenance';
+        statusElement.textContent = 'API is Updating';
         statusElement.classList.add('server-maintenance');
         if (status.workText) {
             statusElement.setAttribute('data-tooltip', status.workText);
