@@ -296,6 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let longestShot = 0;
         let longestShotPlayer = null;
         let totalSalesSum = 0;
+        let topKillsWeapon = "Unknown";
+        let topKillsWeaponCount = 0;
 
         players.forEach(player => {
             if (!player.banned) {
@@ -321,9 +323,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
-                if (player.modWeaponStats?.bestWeapon) {
-                    const weapon = player.modWeaponStats.bestWeapon.name;
-                    weaponStats[weapon] = (weaponStats[weapon] || 0) + player.modWeaponStats.bestWeapon.stats.kills;
+                if (player.modWeaponStats) {
+                    for (const playerId in player.modWeaponStats) {
+                        const weapons = player.modWeaponStats[playerId];
+                        for (const weaponName in weapons) {
+                            const weapon = weapons[weaponName];
+                            const weaponKills = weapon.stats.kills;
+
+                            weaponStats[weaponName] = (weaponStats[weaponName] || 0) + weaponKills;
+
+                            //topKillsWeapon
+                            if (weaponKills > topKillsWeaponCount) {
+                                topKillsWeaponCount = weaponKills;
+                                topKillsWeapon = weaponName;
+                            }
+                        }
+                    }
                 }
 
                 if (player.lastRaidMap) {
@@ -389,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
             longestShot,
             longestShotPlayer,
             totalSalesSum,
-            topKillsWeapon: topKills?.modWeaponStats?.bestWeapon?.name || "Unknown",
+            topKillsWeapon: topKillsWeapon
         };
     }
 
