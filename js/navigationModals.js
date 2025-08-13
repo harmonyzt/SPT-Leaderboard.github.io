@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         settingsModal: document.getElementById('settingsModal'),
         settingsButton: document.getElementById('settingsButton'),
-        
+
         closeButtons: document.querySelectorAll('.close'),
         modals: document.querySelectorAll('.modal')
     };
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initProfileWatchList(data) {
-    if (document.getElementById('playerComparisonWidget')) return; // already have one
+    if (document.getElementById('playerComparisonWidget')) return; // already have widget
 
     // Create widget when settings opened or it has id
     widgetContainer = document.createElement('div');

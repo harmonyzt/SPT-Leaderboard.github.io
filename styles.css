@@ -123,7 +123,7 @@ h1 {
     padding: 5px 10px;
     border-radius: 4px;
     position: fixed;
-    top: 70px;
+    top: calc(var(--top-stats-height, 70px));
     right: 20px;
     z-index: 5;
     backdrop-filter: blur(30px);
@@ -140,23 +140,23 @@ h1 {
 /* Navbar */
 .navbar {
     position: fixed;
-    top: 70px;
+    top: calc(var(--top-stats-height, 70px));
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
     min-width: 300px;
     max-width: 1200px;
     background-color: rgba(57, 89, 131, 0.205);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 10px 25px;
     border-radius: 50px;
-    border: solid #ffffff14 1px;
+    border: 1px solid #ffffff14;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: 700;
+    font-weight: 600;
     z-index: 5;
 }
 
@@ -164,16 +164,20 @@ h1 {
     height: 40px;
     width: auto;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
 .navbar-links-container {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     flex-grow: 1;
     justify-content: center;
     flex-wrap: wrap;
-    flex-shrink: 1;
-    min-width: 0;
+    margin: 0 15px;
 }
 
 .navbar-links {
@@ -182,34 +186,49 @@ h1 {
 }
 
 .navbar-link {
-    background-color: #ffffff0e;
+    background-color: #ffffff18;
     color: var(--text-light);
-    text-decoration: none;
-    transition: all 300ms ease-in-out;
+    border: 1px solid #ffffff18;
+    padding: 5px 8px;
+    width: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    padding: 8px;
-    border-radius: 4px;
-    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 300ms ease-in-out;
 }
 
 .navbar-link:hover {
-    background-color: #ffffff21;
+    background-color: #ffffff2f;
+    border: 1px solid #ffffff50;
     cursor: pointer;
+}
+
+.navbar-link--login {
+    background-color: rgba(100, 255, 219, 0.219);
+    font-weight: 700;
+}
+
+.navbar-link--login:hover {
+    background-color: rgba(100, 255, 219, 0.404);
 }
 
 .season-selector {
     display: flex;
     align-items: center;
-    margin: 0;
+    gap: 8px;
     flex-shrink: 0;
 }
 
 .season-selector label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--accent-teal);
-    margin-right: 10px;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
 }
 
 .season-selector select {
@@ -218,11 +237,10 @@ h1 {
     background-color: rgba(10, 25, 47, 0.7);
     border: 1px solid var(--accent-teal);
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    min-width: 100px;
 }
 
 .season-selector select:hover {
@@ -312,8 +330,8 @@ h1 {
 table {
     background-color: rgb(57 89 131 / 29%);
     width: 100%;
-    max-width: 1600px;
-    margin: 20px auto;
+    max-width: 1750px;
+    margin: auto;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 12px;
@@ -351,32 +369,6 @@ th {
 
 th:hover {
     background-color: rgba(30, 144, 255, 0.6);
-}
-
-th[data-sort]::after {
-    content: '';
-    display: inline-block;
-    margin-left: 5px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid var(--accent-teal);
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-th[data-sort]:hover::after {
-    opacity: 1;
-}
-
-th[data-sort].asc::after {
-    border-bottom: none;
-    border-top: 5px solid #f6c65d;
-}
-
-th[data-sort].desc::after {
-    border-bottom: 5px solid #f6c65d;
 }
 
 tr {
@@ -422,28 +414,28 @@ td {
 /* In stash */
 .player-status-lb-stash {
     background: #1640f928;
-    color: #4b6cff;
+    color: #899fff;
     border-color: #1640f9;
 }
 
 /* In hideout */
 .player-status-lb-hideout {
     background: rgba(245, 249, 22, 0.2);
-    color: #f6ff77;
+    color: #f7ff87;
     border-color: #eaf916;
 }
 
 /* IN raid */
 .player-status-lb-raid {
     background: rgba(249, 115, 22, 0.2);
-    color: #f97316;
+    color: #ffa362;
     border-color: #f97316;
 }
 
 /* In Transit */
 .player-status-lb-transit {
     background: rgba(249, 215, 22, 0.2);
-    color: #f9e216;
+    color: #fff384;
     border-color: #fff387;
 }
 
@@ -573,6 +565,7 @@ button,
     color: var(--text-light);
     border: 1px solid #ffffff18;
     padding: 5px 8px;
+    width: auto;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -586,11 +579,8 @@ button,
     transition: all 300ms ease-in-out;
 }
 
-.main-button:active {
-    transform: scale(0.95);
-}
-
-.main-button:hover {
+.main-button:hover,
+button:hover {
     background-color: #ffffff2f;
 }
 
@@ -601,7 +591,7 @@ button,
     transition: all 300ms ease-in-out;
     cursor: pointer;
     border-radius: 4px;
-    min-height: 32px;
+    height: 47px;
 }
 
 .player-name:hover {
@@ -631,12 +621,12 @@ button,
 }
 
 .REALISM {
-    color: #ff7c7c;
+    color: #ffb7a1;
 }
 
 .lb-profile-picture {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 1px solid rgba(132, 210, 255, 0.7);
     object-fit: cover;
@@ -782,10 +772,7 @@ button,
 }
 
 .account-icon {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    margin-right: 2px;
+    height: 22px;
 }
 
 /* Stats bar */
@@ -805,7 +792,7 @@ button,
     font-family: 'Inter', 'Segoe UI', sans-serif;
     box-sizing: border-box;
     font-size: 0.96rem;
-    min-width: 1800px;
+    min-width: 1000px;
 }
 
 .stats-line {
@@ -816,7 +803,8 @@ button,
     flex-wrap: wrap;
     flex-grow: 1;
     /* temporary solution to stats not being centered */
-    margin-left: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .stats-item {
@@ -829,6 +817,7 @@ button,
     border-radius: 10px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
 }
 
 .stats-item:hover {
@@ -864,9 +853,11 @@ button,
 .player-stats {
     display: flex;
     gap: 16px;
-    margin-left: 20px;
-    padding-left: 20px;
+    /* margin-left: 20px; */
+    padding-left: 5px;
     position: relative;
+    justify-content: left;
+    flex-wrap: wrap;
 }
 
 .player-stats::before {
@@ -900,6 +891,7 @@ button,
     background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 #serverStatus::before {
@@ -1457,31 +1449,6 @@ button,
     padding-right: 15px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    color: var(--accent-teal);
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 5px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.close-btn:hover {
-    background: rgba(100, 255, 218, 0.2);
-    color: var(--accent-blue);
-}
-
 /* Previous winners */
 .winners-container {
     display: flex;
@@ -1610,26 +1577,193 @@ button,
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.322);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-
+    backdrop-filter: blur(5px);
 }
 
 .welcome-bg-image {
     position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     filter: brightness(0.3);
     animation-delay: 1s;
+    z-index: -1;
 }
 
 .popup-container {
     display: flex;
+    flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
-    height: -webkit-fill-available;
-    backdrop-filter: blur(15px);
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(74, 159, 245, 0.3);
+    overflow-y: auto;
+}
+
+.popup-header {
+    padding: 30px;
+    text-align: center;
+}
+
+.popup-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-blue);
+    text-shadow: 0 2px 10px rgba(74, 159, 245, 0.5);
+}
+
+.popup-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+
+.feature-row {
+    display: flex;
+    gap: 20px;
+}
+
+.feature-card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 159, 245, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.feature-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 159, 245, 0.4);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-blue);
+}
+
+.feature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.welcome-button {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, var(--accent-blue), #3a7bc8);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 159, 245, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome-button:hover {
+    box-shadow: 0 8px 15px rgba(74, 159, 245, 0.6);
+    background: linear-gradient(135deg, #5aa9ff, #4a8fd8);
+}
+
+.welcome-button i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .feature-row {
+        flex-direction: column;
+    }
+
+    .popup-header h1 {
+        font-size: 2rem;
+    }
+
+    .popup-header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .popup-container {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .popup-header {
+        padding: 20px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .main-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
 }
 
 .popup-content {
@@ -1651,7 +1785,7 @@ button,
     animation-delay: 100ms;
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: var(--accent-teal);
+    color: var(--accent-blue);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -1687,7 +1821,6 @@ button,
         opacity: 1;
     }
 }
-
 
 @media (max-width: 992px) {
     .popup-container {
@@ -1729,7 +1862,7 @@ button,
     }
 }
 
-/* SPT profiles */
+/* SPT profile (full screen) */
 .profile-modal {
     display: none;
     position: fixed;
@@ -1738,109 +1871,186 @@ button,
     width: 100%;
     height: 100%;
     z-index: 1000;
-    align-items: center;
     justify-content: center;
-}
-
-.fade-out {
-    animation: fadeOut 0.3s ease-out forwards;
-}
-
-.profile-modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    transition: all 300ms ease-in-out;
-}
-
-.profile-modal-container {
-    position: relative;
-    width: 100%;
-    max-width: 850px;
-    z-index: 1001;
-    margin: 0 auto;
-    margin-top: 10px;
-    transition: all 300ms ease-in-out;
+    backdrop-filter: blur(10px);
 }
 
 .profile-modal-content {
     position: relative;
     background: #1e1e2d;
-    border-radius: 10px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid #ffffff1a;
+    border: 1px solid #ffffff21;
     padding: 25px;
-    min-height: 800px;
     transition: all 300ms ease-in-out;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    color: #fff;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 500px 1fr 500px;
 }
 
-.profile-close-btn {
-    color: #b8b8b8;
+.close-profile-button {
     position: absolute;
-    right: 30px;
-    top: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    z-index: 1002;
-    background: rgba(30, 30, 45, 0.404);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    border-radius: 20%;
-    align-items: center;
-    justify-content: space-evenly;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
 }
 
-.profile-close-btn:hover {
-    color: #ffffff;
-    background: rgba(70, 70, 90, 0.7);
-    transform: scale(1.1);
-}
-
-/* Player Info */
-.player-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #84d2ff;
-    margin-bottom: 15px;
-    object-fit: cover;
-}
-
-.player-reg-date {
-    margin: 10px 0;
-    padding: 8px 12px;
-    background: rgb(255 255 255 / 4%);
+.profile-section {
+    background: #ffffff08;
+    border-radius: 10px;
+    padding: 15px 20px;
+    border: 1px solid #ffffff21;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 20px;
     backdrop-filter: blur(10px);
-    border-radius: 6px;
-    font-size: 0.85em;
-    color: #ebebeb;
+    transition: all 300ms;
+}
+
+.profile-section:hover {
+    border: 1px solid #ffffff49;
+}
+
+.profile-section h3 {
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.user-main-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+    position: relative;
+    padding: 20px;
+}
+
+.profile-header {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.name-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.player-overview {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: #ffffff0d;
+    border-radius: 8px;
+    margin: 5px 0;
+    backdrop-filter: blur(5px);
+    border: 1px solid #ffffff21;
+}
+
+.player-overview-side {
+    align-self: center;
+    font-weight: 600;
+    padding: 2px;
+}
+
+.user-main-card .pfp {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 8px;
-    border: 1px solid #ffffff2d;
+    justify-content: center;
+    grid-row: 1 / span 2;
+    align-self: start;
 }
 
-.player-discord {
-    background: rgba(255, 255, 255, 0.096);
-    border: 1px solid #ffffff3b;
-    border-radius: 5px;
-    width: fit-content;
-    justify-self: anchor-center;
-    font-size: 0.65rem;
-    padding: 2px;
-    letter-spacing: 0.5px;
+.user-main-card .name {
+    font-size: 1.5em;
+    color: #84d2ff;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.user-main-card .aboutMe {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    font-weight: 600;
+    color: #cdcdcd;
+    padding: 10px 0;
+    margin: 5px 0;
+}
+
+.user-main-card .badges {
+    grid-column: 1 / -1;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 8px;
+    background-color: #ffffff05;
+    border: 1px solid #ffffff21;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 8px;
 }
 
-.reg-date-text {
-    font-weight: 500;
+.pmc-side-wrapper {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.pmc-side-wrapper img {
+    width: 150px;
+    height: 150px;
+}
+
+.pmc-level {
+    display: flex;
+    position: relative;
+    bottom: 45px;
+    font-family: monospace;
+    background-color: #ffffff14;
+    justify-self: center;
+    padding: 3px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.user-main-card .registerDate {
+    font-size: 12px;
+    color: #cdcdcd;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#main-profile-loader {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+#main-profile-loader.fade-out {
+    opacity: 0;
+}
+
+/* Player full height preview */
+.playermodel-image img {
+    width: 100%;
+    display: flex;
+    height: auto;
+    justify-self: center;
 }
 
 /* Online Status */
@@ -1848,6 +2058,31 @@ button,
     display: flex;
     align-items: center;
     font-size: 0.9em;
+    color: #cdcdcd;
+}
+
+.raid-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    font-size: 0.85em;
+    margin-top: 5px;
+    padding: 6px 12px;
+    color: #f3f3f3;
+    width: fit-content;
+    border-top: 2px solid #ffa05b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 2px solid #ffa05b;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(180deg, rgba(71, 62, 62, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.raid-details span {
+    margin: 2px 8px;
 }
 
 .status-indicator {
@@ -1862,43 +2097,191 @@ button,
     box-shadow: 0 0 8px rgb(106, 255, 163);
 }
 
+.status-inraid {
+    background-color: rgb(245, 255, 106);
+    box-shadow: 0 0 8px rgb(245, 255, 106);
+}
+
 .status-offline {
     background-color: rgb(121, 121, 121);
 }
 
-.profile-player-name {
-    font-size: 1.5em;
-    color: #84d2ff;
-    margin-bottom: 8px;
-    text-align: center;
-    word-break: break-word;
+.user-achievements {
+    grid-area: achievements;
+    height: fit-content;
 }
 
-.player-about {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #e6e6ff;
-    text-align: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    background: rgb(255 255 255 / 4%);
-    border: 1px solid #ffffff2d;
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
+.battlepass-level {
+    grid-area: battlepass;
 }
 
-.badges-container {
+.raid-block {
+    grid-area: raid-block;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    position: absolute;
-    left: -80px;
-    top: 20px;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.raid-summary {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.last-raids {
+    max-height: 950px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff1a;
+    gap: 5px;
     border-radius: 10px;
-    padding: 10px;
+}
+
+/* Hits Sheet */
+.body-parts-main {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.stats-body-hits {
+    margin-left: 20px;
+}
+
+.avg-headshots {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+    background: linear-gradient(90deg, #d8d8d8, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hits-past-raids {
+    border: 1px solid #ffffff1a;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hits-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.hits-avg-headshots {
+    display: flex;
+    align-items: center;
+}
+
+.body-svg {
+    fill: #cdcdcd5e;
+    width: 70px;
+}
+
+.hit-perc {
+    color: #c0c0c0;
+    font-size: smaller;
+    font-family: sans-serif;
+}
+
+.weapon-icon-fav {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    place-self: center;
+    rotate: 9deg;
+}
+
+/* Weapons List */
+.weapon-stats-container {
+    height: 460px;
+    overflow-y: scroll;
+}
+
+.weapon-gold {
+    background: radial-gradient(350px 200px at top right, #ffd90018 50%, #fffdfd03);
+}
+
+.weapon-silver {
+    background: radial-gradient(350px 200px at top right, #c0c0c03a 50%, #fffdfd03);
+}
+
+.weapon-bronze {
+    background: radial-gradient(350px 200px at top right, #68450433 50%, #fffdfd03);
+}
+
+.weapon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weapon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #14151c0e;
+    border-radius: 6px;
+    color: #e0e0e0;
+    transition: background-color 0.2s;
     border: 1px solid #ffffff21;
+}
+
+.weapon-infos {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.weapon-icon {
+    width: 270px;
+    height: 84px;
+    display: flex;
+}
+
+.weapon-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Player Info for profile */
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #84d2ff;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.player-discord {
+    background: rgba(255, 255, 255, 0.096);
+    border: 1px solid #ffffff3b;
+    border-radius: 5px;
+    width: fit-content;
+    font-size: 0.65rem;
+    padding: 2px;
+    letter-spacing: 0.5px;
+    display: flex;
 }
 
 .badge {
@@ -1924,6 +2307,7 @@ button,
     justify-content: center;
     transition: transform 0.2s;
     font-size: 0.9em;
+    place-self: center;
 }
 
 .badge-lb.tooltip {
@@ -1937,6 +2321,29 @@ button,
 
 .badge:hover {
     transform: scale(1.1);
+}
+
+.boost-container {
+    display: flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    backdrop-filter: blur(5px);
+    justify-self: center;
+}
+
+.boost-container:hover {
+    transform: translateY(-1px);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.boost-value {
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
 }
 
 .prestige-icon {
@@ -1963,37 +2370,9 @@ button,
 }
 
 /* Friend List for profile */
-.friend-list {
-    position: absolute;
-    top: 380px;
-    right: 860px;
-    max-height: 453px;
-    background: rgba(255, 255, 255, 0.096);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 16px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    color: white;
-    z-index: 10;
-    width: 280px;
-    overflow-y: scroll;
-}
-
-.friend-container {
-    overflow-y: auto;
-}
-
-.friend-list h3 {
-    margin: 0 0 16px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.friends-container {
+    max-height: 200px;
+    overflow: overlay;
 }
 
 .friend-item {
@@ -2012,7 +2391,6 @@ button,
 .friend-item:hover {
     background: rgba(255, 255, 255, 0.2);
     cursor: pointer;
-
 }
 
 .friend-avatar {
@@ -2030,8 +2408,8 @@ button,
 }
 
 .friend-name {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.9);
     white-space: nowrap;
     overflow: hidden;
@@ -2040,7 +2418,7 @@ button,
 }
 
 .friend-status {
-    font-size: 12px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -2051,7 +2429,7 @@ button,
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 16px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /* Private Profile Styles */
@@ -2163,36 +2541,100 @@ button,
     display: none;
 }
 
-/* Player Profiles */
-.profile-grid-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.profile-main-card {
-    grid-column: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: rgb(255 255 255 / 4%);
-    border-radius: 10px;
-    border: 1px solid rgb(255 255 255 / 10%);
-    text-align: center;
-}
-
+/* Last Raids History */
 .last-raid-feed {
-    background: rgba(40, 40, 55, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 15px;
-    border: 1px solid rgb(255 255 255 / 10%);
+    position: relative;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     height: fit-content;
-    align-self: flex-start;
+    transition: all 0.3s ease;
+    overflow: clip
+}
+
+.error-raid-load {
+    padding: 50px;
+    color: #ff4444;
+    align-self: center;
+    font-weight: bold;
+}
+
+.last-raid-full-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.35;
+}
+
+.last-raid-full-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.section-title {
+    color: #84d2ff;
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, #c2e8ff, transparent);
+}
+
+.last-raid-map {
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border: 2px solid rgba(7, 9, 14, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.last-raid-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.raid-result {
+    display: inline-flex;
+    gap: 3px;
+    font-size: 1.2em;
+    vertical-align: middle;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.raid-meta {
+    display: block;
+    font-size: 1em;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+.raid-killer {
+    font-weight: 600;
+    color: #ff6a6a;
 }
 
 .stats-blocks {
@@ -2221,26 +2663,26 @@ button,
     color: #ff9e64 !important;
 }
 
-.section-title {
-    color: #84d2ff;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.2em;
-    border-bottom: 1px solid #ffffff48;
-    padding-bottom: 8px;
-}
-
 .raid-stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    margin-top: 15px;
 }
 
 .raid-stat-block {
-    background: rgb(255 255 255 / 4%);
-    padding: 10px;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 12px;
+    border-radius: 8px;
     text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgb(255 255 255 / 10%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.raid-stat-block:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .stat-row {
@@ -2252,12 +2694,15 @@ button,
 
 .profile-stat-label {
     color: #b0b0c0;
-    font-size: 0.9em;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+    display: block;
 }
 
 .profile-stat-value {
     color: #ffffff;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* Survived */
@@ -2332,27 +2777,6 @@ button,
     flex-direction: column;
 }
 
-.last-raid-map {
-    width: 80px;
-    height: 50px;
-    overflow: hidden;
-    box-shadow: inset 0 0 0 1px #07090e;
-    border-radius: 8px;
-    flex-shrink: 0;
-    margin-left: 10px;
-}
-
-.last-raid-map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.raid-result {
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
 .survived-border {
     border: 2px solid #6affa3;
 }
@@ -2366,17 +2790,11 @@ button,
 }
 
 .transit-border {
-    order: 2px solid #F47730;
+    border: 2px solid #F47730;
 }
 
 .disconnected-border {
-    order: 2px solid #ff6a6a;
-}
-
-.raid-meta {
-    font-size: 0.85em;
-    color: #dddddd;
-    margin-top: 4px;
+    border: 2px solid #ff6a6a;
 }
 
 .badge.tooltip {
@@ -2393,8 +2811,7 @@ button,
     visibility: hidden;
     width: max-content;
     max-width: 300px;
-    background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(15px);
+    background: rgb(31 31 31);
     border: 1px solid #ffffff1a;
     color: #fff;
     text-align: center;
@@ -2437,14 +2854,14 @@ button,
 }
 
 .achievement-icon img {
-    width: 70px;
-    height: 75px;
+    width: 85px;
+    height: 90px;
     border-radius: 8px;
 }
 
 .achievement-time {
     font-size: 0.8rem;
-    color: #999;
+    color: #cdcdcd;
     margin-top: 0.25rem;
 }
 
@@ -2462,8 +2879,9 @@ button,
 }
 
 .achievement-percentage {
+    color: #cdcdcd;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: auto;
 }
 
 .Rare {
@@ -2483,6 +2901,7 @@ button,
 }
 
 .achievement-description {
+    margin-block: auto;
     font-size: 0.9rem;
     color: #ccc;
 }
@@ -2592,8 +3011,10 @@ button,
 
 .level-info {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content: center;
+    font-size: x-large;
+    background: #ffffff0d;
+    border-radius: 10px;
 }
 
 .rank-icon {
@@ -2601,7 +3022,7 @@ button,
     width: 85px;
     height: 85px;
     float: left;
-    margin-left: 5px;
+    margin-right: 20px;
 }
 
 .level-label {
@@ -2769,6 +3190,7 @@ button,
 
 .weapon-name {
     font-size: 1.1em;
+    margin-top: 15px;
     font-weight: bold;
     color: #fff;
 }
@@ -3050,15 +3472,6 @@ button,
     }
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
 
 /* Season End Screen */
 #seasonOverlay {
@@ -3218,7 +3631,7 @@ button,
 }
 
 .stat-value {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
     color: #bfebff;
@@ -3609,17 +4022,12 @@ button,
         width: 60px;
         height: 60px;
     }
-
-    .profile-close-btn {
-        right: 15px;
-        top: 15px;
-    }
 }
 
 /* Admins */
 #admins-container {
     position: fixed;
-    top: 70px;
+    top: calc(var(--top-stats-height, 70px));
     left: 10px;
     z-index: 10;
     backdrop-filter: blur(12px);
@@ -3632,6 +4040,14 @@ button,
     transform: translateY(0);
     transition: all 0.3s ease;
     min-height: 60px;
+}
+
+#notifications-container-r {
+    top: calc(var(--top-stats-height-variant, 70px));
+    position: fixed;
+    right: 0;
+    width: 300px;
+    pointerEvents: none;
 }
 
 #admins-container:hover {
@@ -3797,4 +4213,44 @@ button,
     font-size: 13px;
     text-align: center;
     padding: 10px;
+}
+
+.profile-modal-content {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.left-column,
+.center-column,
+.right-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+    .profile-modal-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .left-column,
+    .center-column,
+    .right-column {
+        flex: 1 1 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-modal-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-column,
+    .center-column,
+    .right-column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }

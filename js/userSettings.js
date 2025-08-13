@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const staffToggle = document.getElementById('staffToggle');
     const staffElement = document.getElementById('admins-container');
 
-
     // If no cookies are found, enable everything
     timerToggle.checked = getCookie('showTimer') !== 'false';
     winnersToggle.checked = getCookie('showWinners') !== 'false';
@@ -299,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalSalesSum = 0;
 
         players.forEach(player => {
-            if (!player.disqualified && !player.banned) {
+            if (!player.banned) {
                 const kd = (player.killToDeathRatio && player.pmcRaids > 50) ?? 0;
                 const kills = player.pmcKills ?? 0;
                 const deaths = player.pmcDeaths ?? 0;

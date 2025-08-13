@@ -15,10 +15,10 @@ async function loadAchievementsData() {
             loadJSON('global-achieve/js/compiledAchData.json'),
             loadJSON(`${achievementsPath}`)
         ]);
-        
+
         totalPlayers = Object.keys(playerAchievements.achievements).length;
         achievementStats = calculateAchievementStats();
-        
+
         return {
             achievementsData,
             playerAchievements,

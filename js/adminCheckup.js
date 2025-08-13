@@ -78,7 +78,6 @@ async function updateAdminsStatus() {
         contentWrapper.innerHTML = html;
 
     } catch (error) {
-        console.error('Error:', error);
         contentWrapper.innerHTML = `
             <h3><i class="bx bx-shield-alt"></i> Staff Online</h3>
             <div class="error-message">Failed to load staff status</div>

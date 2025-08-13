@@ -12,7 +12,7 @@ function copyProfile(playerId) {
             showToast('Profile link copied. Now you can share it with someone!', 'success');
         })
         .catch(err => {
-            showToast('Failed to copy profile link :(', 'error');
+            showToast('Failed to copy profile link.', 'error');
 
             // Try alternative way of copying
             const textArea = document.createElement('textarea');
@@ -24,7 +24,7 @@ function copyProfile(playerId) {
                 document.execCommand('copy');
                 showToast('Profile link copied. Now you can share it with someone!', 'success');
             } catch (err) {
-                showToast('Failed to copy profile link :(', 'error');
+                showToast('Failed to copy profile link.', 'error');
             }
 
             document.body.removeChild(textArea);
@@ -69,7 +69,7 @@ function waitForDataReady(callback, timeout = 10000) {
 
         else if (Date.now() - startTime > timeout) {
             clearInterval(intervalId);
-            showToast(`Couldn't get profile data.. Sorry!`, 'error');
+            showToast(`Couldn't get profile data.`, 'error');
         }
     }, checkInterval);
 }

@@ -8,6 +8,7 @@ async function getServerStatus() {
     try {
         const response = await fetch(`https://visuals.nullcore.net/SPT/api/online.json?t=${Date.now()}`);
         if (!response.ok) throw new Error('API is not responding');
+
         return await response.json();
     } catch (error) {
         return {
@@ -49,8 +50,8 @@ async function updateServerStatus() {
     }
 
     if (seasonPath === "fallbacks/season") {
-        statusElement.textContent = 'API at Fallback';
-        statusElement.setAttribute('data-tooltip', "Using local season files instead of connecting to API. Try refreshing the page")
+        statusElement.textContent = 'Using Fallback instead API';
+        statusElement.setAttribute('data-tooltip', "Using fallback instead of connecting to the API. Try refreshing the page")
         statusElement.classList.add('server-maintenance');
     }
 }

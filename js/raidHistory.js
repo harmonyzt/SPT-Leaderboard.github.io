@@ -4,146 +4,116 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
 
-function initLastRaids(player, container) {
-    const closeBtn = document.getElementById('close-raids-stats');
-    const modal = document.getElementById('raids-stats-modal');
+async function initLastRaids(playerId) {
     const statsContainer = document.getElementById('raids-stats-container');
-    const showBtn = document.getElementById('show-raids-stats');
-
-    const plprofile = document.getElementById('playerProfileModal');
-    const closeProfileBtn = plprofile.querySelector('.profile-close-btn');
-
-    const raidHistory = document.getElementById('raids-stats-modal');
-    raidHistory.classList.remove('theme-dark', 'theme-light', 'theme-gradient', 'theme-default', 'theme-redshade', 'theme-steelshade');
-    raidHistory.classList.add(`theme-${player.profileTheme?.toLowerCase() ? player.profileTheme?.toLowerCase() : 'default'}`);
-
-    container.style.right = '0';
-    closeProfileBtn.style.right = '30px';
-
-    showBtn.addEventListener('click', function () {
-        modal.style.display = 'block';
-        statsContainer.style.display = 'block';
-
-        // Show loader if user clicked show raids again
-        const loader = document.getElementById('lastraids-loader');
-        const loaderBlur = document.querySelector('.raids-modal-content');
-        loader.classList.remove('fade-out');
-        loaderBlur.classList.add('profile-loading-overlay');
-        loader.style.display = 'flex';
-
-        // Move player profile to the right and last raids to left
-        // And also a close button (fuckass CSS)
-        container.style.right = '200px';
-        modal.style.left = '1200px';
-        closeProfileBtn.style.right = '230px';
-
-        fetchPlayerRaids();
-    });
-
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-        container.style.right = '0';
-        closeProfileBtn.style.right = '30px';
-    });
-
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-            container.style.right = '0';
-            closeProfileBtn.style.right = '30px';
-        }
-    });
-
-    function fetchPlayerRaids() {
-        fetch(`${lastRaidsPath}`)
-            .then(response => response.json())
-            .then(data => {
-                statsContainer.style.display = 'block';
-
-                if (data.raids && data.raids[player.id]) {
-                    const playerRaids = data.raids[player.id].sort((a, b) =>
-                        new Date(b.absoluteLastTime) - new Date(a.absoluteLastTime)
-                    );
-                    renderRaidsStats(playerRaids);
-                } else {
-                    statsContainer.innerHTML = '<p>No raid data available for this player :(</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching raid data:', error);
-                statsContainer.innerHTML = '<p style="color: #ff4444;">Error loading raid data :(</p>';
-                statsContainer.style.display = 'block';
-            });
+    if (!statsContainer) {
+        console.error('Container element not found');
+        return;
     }
 
-    // Render raids
-    function renderRaidsStats(raids) {
-        if (!raids || raids.length === 0) {
-            statsContainer.innerHTML = '<p>No raid data available</p>';
+    try {
+        const playerRaidsPath = `${lastRaidsPath}${playerId}.json`;
+        const response = await fetch(playerRaidsPath);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data?.raids?.length) {
+            statsContainer.innerHTML = '<p class="error-raid-load">No raid data available for this player :(</p>';
             return;
         }
 
-        let html = '';
-        raids.forEach(raid => {
-            const lastRaidDuration = formatSeconds(raid.raidTime);
-            const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
+        const sortedRaids = data.raids.sort((a, b) =>
+            b.absoluteLastTime - a.absoluteLastTime 
+        );
 
-            html += `
-                <div class="last-raid-feed ${raid.lastRaidRanThrough ? 'run-through-bg' : raid.discFromRaid ? 'disconnected-bg' : raid.isTransition ? 'transit-bg' : raid.lastRaidSurvived ? 'survived-bg' : 'died-bg'}" style="margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+        renderRaidsStats(sortedRaids);
+    } catch (error) {
+        console.error('Error fetching raid data:', error);
+        statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
+    }
+}
+
+// Render raids
+function renderRaidsStats(raids) {
+    if (!raids?.length) {
+        statsContainer.innerHTML = '<p class="error-raid-load">No raid data available</p>';
+        return;
+    }
+
+    const statsContainer = document.getElementById('raids-stats-container');
+
+    let html = '';
+    raids.forEach(raid => {
+        const lastRaidDuration = formatSeconds(raid.raidTime);
+        const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
+        let shouldShowStats = true;
+
+        if (raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100) {
+            shouldShowStats = false;
+        }
+
+        html += `
+                <div class="last-raid-feed ${raid.lastRaidRanThrough ? 'run-through-bg' : raid.discFromRaid ? 'disconnected-bg' : raid.isTransition ? 'transit-bg' : raid.lastRaidSurvived ? 'survived-bg' : 'died-bg'}">
+                    
+                    <div class="last-raid-full-background">
+                        <img src="media/leaderboard_icons/maps/${raid.lastRaidMap}.png">
+                    </div>
+
                     <h3 class="section-title ${raid.lastRaidRanThrough ? 'run-through' : raid.discFromRaid ? 'disconnected' : raid.isTransition ? 'transit' : raid.lastRaidSurvived ? 'survived' : 'died'}" style="margin-top: 0;">
                         Raid on ${new Date(raid.absoluteLastTime * 1000).toLocaleString()}
                     </h3>
 
-                    <div class="raid-overview" style="margin-bottom: 10px;">
+                    <div style="margin-bottom: 10px;">
+                    <div class="last-raid-map ${raid.lastRaidRanThrough ? 'run-through-border' : raid.discFromRaid ? 'disconnected-border' : raid.isTransition ? 'transit-border' : raid.lastRaidSurvived ? 'survived-border' : 'died-border'}">
+                        <img src="media/leaderboard_icons/maps/${raid.lastRaidMap}.png">
+                    </div>
+
                         <span class="raid-result ${raid.lastRaidRanThrough ? 'run-through' : raid.discFromRaid ? 'disconnected' : raid.isTransition ? 'transit' : raid.lastRaidSurvived ? 'survived' : 'died'}" style="font-weight: bold;">
-                            ${raid.lastRaidRanThrough ? `<i class='bx bxs-walking'></i> Runner` : raid.discFromRaid ? `<i class='bx bxs-arrow-out-left-square-half'></i> Left` : raid.isTransition ? `<i class='bx bxs-refresh-cw bx-spin'></i> In Transit (${raid.lastRaidMap}
+                            ${raid.lastRaidRanThrough ? `<i class='bx bxs-walking'></i> Runner` : raid.discFromRaid ? `<i class='bx bxs-arrow-out-left-square-half'></i> Left` : raid.isTransition ? `<span> <i class='bx bxs-refresh-cw bx-spin'></i> </span> In Transit (${raid.lastRaidMap}
                             <em class="bx bxs-chevrons-right" style="position: relative; top: 2px;"></em> ${raid.lastRaidTransitionTo || 'Unknown'})` : raid.lastRaidSurvived ? `<i class='bx bxs-walking'></i> Survived` : `
                             <em class="bx bxs-skull"></em> Killed in Action`}
                         </span>
-                        <span class="raid-meta" style="display: block; color: #aaa; font-size: 0.9em;">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'}
+                        <span class="raid-meta">
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • ${lastRaidAgo || 'Just Now'} ${raid.lastRaidSurvived || raid.lastRaidRanThrough ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
                         </span>
                     </div>
 
-                    <div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    ${shouldShowStats ?
+                `<div class="raid-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em; ">PMC Kills:</span>
-                            <span class="profile-stat-value" style="font-weight: bold;">${raid.raidKills ?? 0}</span>
+                            <span class="profile-stat-label">PMC Kills:</span>
+                            <span class="profile-stat-value">${raid.raidKills ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Damage:</span>
-                            <span class="profile-stat-value" style="font-weight: bold;">${raid.raidDamage ?? 0}</span>
+                            <span class="profile-stat-label">SCAV Kills:</span>
+                            <span class="profile-stat-value">${raid.scavsKilled ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Player Hits:</span>
-                            <span class="profile-stat-value" style="font-weight: bold;">${raid.lastRaidHits ?? 0}</span>
+                            <span class="profile-stat-label">Boss Kills:</span>
+                            <span class="profile-stat-value">${raid.bossesKilled ?? 0}</span>
                         </div>
                         <div class="raid-stat-block">
-                            <span class="profile-stat-label" style="display: block; font-size: 0.8em;">Loot EXP:</span>
-                            <span class="profile-stat-value" style="font-weight: bold;">${raid.lastRaidEXP ?? 0}</span>
+                            <span class="profile-stat-label">Damage:</span>
+                            <span class="profile-stat-value">${raid.raidDamage ?? 0}</span>
                         </div>
-                    </div>
+                        <div class="raid-stat-block">
+                            <span class="profile-stat-label">Player Hits:</span>
+                            <span class="profile-stat-value">${raid.lastRaidHits ?? 0}</span>
+                        </div>
+                        <div class="raid-stat-block">
+                            <span class="profile-stat-label">Loot EXP:</span>
+                            <span class="profile-stat-value">${raid.lastRaidEXP ?? 0}</span>
+                        </div>
+                    </div>`
+                : ``}
                 </div>
             `;
-        });
+    });
 
-        statsContainer.innerHTML = html;
-
-        setTimeout(closeLastRaidLoader, 100);
-    }
-
-    function closeLastRaidLoader() {
-        const loader = document.getElementById('lastraids-loader');
-        const loaderBlur = document.querySelector('.raids-modal-content');
-
-        // Add fade to the blur before removing
-        loader.classList.add('fade-out');
-
-        // Remove blur complely
-        setTimeout(() => {
-            loaderBlur.classList.remove('profile-loading-overlay');
-            loader.style.display = 'none';
-        }, 300);
-    }
+    statsContainer.innerHTML = html;
 
 }

@@ -9,6 +9,9 @@ const playerLastRaidTimes = new Map();
 const notificationStack = [];
 const playerNotificationData = new Map();
 let allowToPlayLastRaidSound = true;
+let lastNotificationTime = 0;
+const NOTIFICATION_DELAY = 2000;
+const MAX_NOTIFICATIONS = 5;
 
 async function showPlayerNotification(player) {
     if (!player.absoluteLastTime) {
@@ -16,9 +19,22 @@ async function showPlayerNotification(player) {
         return;
     }
 
+    // Player was banned and already shown to user
     if (player.banned && wasBanRecentlyShown(player.id)) {
         console.debug(`[NOTIFY] Skipping banned player ${player.name}, recently shown.`);
         return;
+    }
+
+    if (notificationStack.length >= MAX_NOTIFICATIONS) {
+        const oldestNotification = notificationStack.shift();
+        oldestNotification.remove();
+    }
+
+    const now = Date.now();
+    const timeSinceLast = now - lastNotificationTime;
+
+    if (timeSinceLast < NOTIFICATION_DELAY) {
+        await new Promise(resolve => setTimeout(resolve, NOTIFICATION_DELAY - timeSinceLast));
     }
 
     const lastRaidTime = player.absoluteLastTime;
@@ -107,20 +123,32 @@ async function showPlayerNotification(player) {
         if (soundFile) {
             killStreak = new Audio(`media/sounds/killstreak/${soundFile}`);
             killStreak.volume = 0.04;
-            killStreak.play().catch(e => console.error('Audio play failed:', e));
+            killStreak.play().then().catch(e => console.error('Audio play failed:', e));
         }
     }
 
     // Sounds
-    if (player.lastRaidAs === "PMC" && player.lastRaidSurvived && allowToPlayLastRaidSound && !player.banned) {
-        const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
-        pmcRaid.volume = 0.05;
-        pmcRaid.play();
-    } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
-        const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
-        pmcRaidDied.volume = 0.05;
-        pmcRaidDied.play();
+    if (!player.banned && allowToPlayLastRaidSound) {
+        if (player.lastRaidAs === "PMC" && player.lastRaidSurvived) {
+            const pmcRaid = new Audio('media/sounds/pmc-raid-run.ogg');
+            pmcRaid.volume = 0.05;
+            pmcRaid.play();
+        } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
+            const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
+            pmcRaidDied.volume = 0.05;
+            pmcRaidDied.play();
+        } else if (player.lastRaidAs === "SCAV" && player.lastRaidSurvived) {
+            const pmcRaid = new Audio('media/sounds/scav-raid-run.mp3');
+            pmcRaid.volume = 0.10;
+            pmcRaid.play();
+        } else if (player.lastRaidAs === "SCAV" && !player.lastRaidSurvived) {
+            const pmcRaidDied = new Audio('media/sounds/scav-raid-died.wav');
+            pmcRaidDied.volume = 0.10;
+            pmcRaidDied.play();
+        }
     }
+
+
 
     allowToPlayLastRaidSound = true;
 
@@ -227,11 +255,6 @@ function updateNotificationPositions() {
 function createNotificationsContainer() {
     const container = document.createElement('div');
     container.id = 'notifications-container-r';
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.right = '0';
-    container.style.width = '300px';
-    container.style.pointerEvents = 'none';
     document.body.appendChild(container);
     console.debug(`[NOTIFY] Notification container created.`);
     return container;
@@ -239,22 +262,28 @@ function createNotificationsContainer() {
 
 function checkRecentPlayers(leaderboardData) {
     const currentTime = Math.floor(Date.now() / 1000);
-    const fiveMinutesAgo = currentTime - 1200;
+    const fiveMinutesAgo = currentTime - 300;
     const twoHoursAgo = currentTime - 7200;
 
-    console.debug(`[CHECK] Checking for recent players... Time now: ${currentTime}`);
+    // Sort notifications by the newest ones first
+    const sortedPlayers = [...leaderboardData].sort((a, b) =>
+        (b.absoluteLastTime || 0) - (a.absoluteLastTime || 0));
 
-    leaderboardData.forEach(player => {
-        if (!player.absoluteLastTime) {
-            console.debug(`[CHECK] Skipping player ${player.name} - no absoluteLastTime.`);
-            return;
-        }
+    let shownCount = 0;
+    const MAX_INITIAL_NOTIFICATIONS = 3;
 
-        if (player.absoluteLastTime > fiveMinutesAgo || player.banTime > twoHoursAgo && player.banned) {
-            console.debug(`[CHECK] Player ${player.name} finished raid at ${player.absoluteLastTime}, showing notification.`);
-            showPlayerNotification(player);
+    for (const player of sortedPlayers) {
+        if (shownCount >= MAX_INITIAL_NOTIFICATIONS) break;
+
+        if (!player.absoluteLastTime) continue;
+
+        if ((player.absoluteLastTime > fiveMinutesAgo) ||
+            (player.banned && player.banTime > twoHoursAgo)) {
+
+            shownCount++;
+            setTimeout(() => showPlayerNotification(player), shownCount * NOTIFICATION_DELAY);
         }
-    });
+    }
 }
 
 function wasBanRecentlyShown(playerId) {

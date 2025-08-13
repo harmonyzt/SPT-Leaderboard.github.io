@@ -301,8 +301,27 @@ function processPlayersData() {
 
 // Process maps data
 function processMapsData() {
-    const mapNames = Object.keys(mapsData);
-    const mapCounts = Object.values(mapsData);
+
+    // Filter so we only show maps
+    const validMapIds = [
+        "factory4_day",
+        "factory4_night",
+        "bigmap",
+        "Woods",
+        "Shoreline",
+        "Interchange",
+        "RezervBase",
+        "Lighthouse",
+        "TarkovStreets",
+        "laboratory",
+        "Sandbox",
+        "Sandbox_high"
+    ];
+
+    const mapEntries = Object.entries(mapsData).filter(([mapId]) => validMapIds.includes(mapId));
+
+    const mapNames = mapEntries.map(([mapId]) => mapId);
+    const mapCounts = mapEntries.map(([_, count]) => count);
     const backgroundColors = mapNames.map(() => getRandomColor());
     const friendlyMapNames = mapNames.map(mapId => getFriendlyMapName(mapId));
 

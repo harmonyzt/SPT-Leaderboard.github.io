@@ -15,67 +15,133 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <script src="js/appCore.js"></script>
+
         <script src="js/displayWinners.js"></script>
-        <script src="js/recentActivity.js"></script>
+        <script src="js/raidNotificationTracker.js"></script>
         <script src="js/heartbeatMonitor.js"></script>
+        <script src="js/liveUpdaterControls.js"></script>
+        <script src="js/apiMonitor.js"></script>
+
+        <script src="js/raidHistory.js"></script>
+        <script src="js/achievements.js"></script>
+        <script src="js/userSettings.js"></script>
         <script src="js/userSearch.js"></script>
         <script src="js/userProfiles.js"></script>
-        <script src="js/achievements.js"></script>
-        <script src="js/BPLevelCalculator.js"></script>
-        <script src="js/BPRewardSystem.js"></script>
-        <script src="js/navigationModals.js"></script>
-        <script src="js/liveUpdates.js"></script>
-        <script src="js/apiMonitor.js"></script>
-        <script src="js/userSettings.js"></script>
-        <script src="js/raidHistory.js"></script>
-        <script src="js/userFriendLists.js"></script>
+        <script src="js/userFriendList.js"></script>
         <script src="js/userShareProfile.js"></script>
         <script src="js/userTeams.js"></script>
-        <script src="js/notificationSystem.js"></script>
+        <script src="js/BPLevelCalculator.js"></script>
+        <script src="js/BPRewardSystem.js"></script>
+
+        <script src="js/navigationModals.js"></script>
+        <script src="js/systemToasts.js"></script>
         <script src="js/adminCheckup.js"></script>
         <script src="js/utils.js"></script>
         <title>SPT Leaderboard</title>
     </head>
 
     <body>
-        <nav class="navbar animate__animated animate__fadeIn">
-            <a href="#">
-                <img src="media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
-            </a>
-            <div class="navbar-links-container">
-                <a href="global-weaponmeta/" class="navbar-link">Weapon Meta</a>
-                <a href="global-insights/" class="navbar-link">Global Insights</a>
-                <a href="global-achieve/" class="navbar-link">Global Achievements</a>
-                <a id="infoButton" class="navbar-link">How it works</a>
-                <a id="tosButton" class="navbar-link">LA/TOS</a>
-                <a id="settingsButton" class="navbar-link">Settings</a>
-                <a href="upcoming/" class="navbar-link">Upcoming Update</a>
-            </div>
-            <div class="season-selector">
-                <label for="seasonSelect">Season:</label>
-                <select id="seasonSelect"></select>
-            </div>
-        </nav>
+        <header>
+            <nav class="navbar animate__animated animate__fadeIn" role="navigation" aria-label="Main navigation">
+                <a href="#" aria-label="Home">
+                    <img src="media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
+                </a>
+                <div class="navbar-links-container">
+                    <a href="global-weaponmeta/" class="navbar-link">Weapon Meta</a>
+                    <a href="global-insights/" class="navbar-link">Global Insights</a>
+                    <a href="global-achieve/" class="navbar-link">Achievement Rate</a>
+                    <button id="infoButton" class="navbar-link">How it works</button>
+                    <button id="tosButton" class="navbar-link">LA/TOS</button>
+                    <button id="settingsButton" class="navbar-link">Settings</button>
+                    <a href="https://visuals.nullcore.net/SPT/network/login/index.php" class="navbar-link navbar-link--login">Network Login</a>
+                </div>
+                <div class="season-selector">
+                    <label for="seasonSelect" class="visually-hidden">Season:</label>
+                    <select id="seasonSelect" aria-label="Select season"></select>
+                </div>
+            </nav>
+        </header>
         <h1 style="margin-top: 180px;" class="animate__animated animate__fadeInDown">SPT Leaderboard</h1>
-        <div id="welcomePopup">
-            <div class="welcome-bg-image animate__animated animate__fadeIn">
-                <img class="" src="media/TP.png" alt="SPT Leaderboard Preview">
+   <div id="welcomePopup" aria-label="Welcome Screen">
+        <img class="welcome-bg-image animate__animated animate__fadeIn" src="media/TP.png" alt="Background">
+        
+        <div class="popup-container">
+            <div class="popup-header animate__animated animate__fadeInDown">
+                <h1>Welcome to SPT Leaderboard!</h1>
+                <p class="animate__animated animate__fadeInUp delay-1">Track your progress, compare with other players, and compete with friends in Single Player Tarkov!</p>
             </div>
-            <div class="popup-container">
-                <div class="popup-content">
-                    <h1 class="animate__animated animate__fadeInDown">Welcome to SPT Leaderboard!</h1>
-                    <p class="animate__animated animate__fadeInUp">Track, progress and compare your Single Player Tarkov profile with other players, or compete with your friends!</p>
-                    <p class="animate__animated animate__fadeInUp">Leaderboard updates are live! See how you rank against the community and set new personal records in your SPT experience!</p>
-                    <button class="main-button animate__animated animate__fadeInUp" id="continueBtn">Continue to Leaderboard</button>
-                    <button class="main-button animate__animated animate__fadeInUp" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">Join our Discord server!</button>
+            
+            <div class="features-container">
+                
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Real-Time Leaderboard</h3>
+                        <p>See live updates of your ranking compared to the other players of SPT community. Watch your stats, others, and get rewards as you progress.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Detailed Statistics</h3>
+                        <p>Comprehensive analytics of your gameplay including K/D ratio, Survival Rate, Recent Hits, and more.</p>
+                    </div>
                 </div>
-                <div class="popup-image animate__animated animate__fadeInUp">
-                    <img class="" src="media/leaderboard_preview.png" alt="SPT Leaderboard Preview">
+                
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-hexagon-nodes"></i>
+                        </div>
+                        <h3>SPT Leaderboard Network</h3>
+                        <p>Log-in for more than just editing your profile. Report Players, Edit your profile and explore Tarkov Market.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3>Tarkov Market</h3>
+                        <p>Earn points by playing the game - and spend the well deserved points on external Tarkov Market which includes - Dynamic (on high demand) Pricing, Re-stocking, and arrival right into your in-game inventory.</p>
+                    </div>
                 </div>
+
+                <div class="feature-row">
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Historical Data</h3>
+                        <p>View your progress over time with historical charts and see how you've improved. Including Raid History, Hits History, Achievements, Trader Standings and Player Model Preview.</p>
+                    </div>
+                    
+                    <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Custom Profiles</h3>
+                        <p>Personalize your Leaderboard Profile with custom banners, styles, themes, showcase your drip of your PMC and your best stats.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="buttons-container">
+                <button class="welcome-button animate__animated animate__fadeInUp delay-3" id="continueBtn">
+                    <i class="fas fa-arrow-right"></i> Continue to Leaderboard
+                </button>
+                <button class="welcome-button animate__animated animate__fadeInUp delay-4" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">
+                    <i class="fab fa-discord"></i> Join our Discord
+                </button>
             </div>
         </div>
-        <div id="infoModal" class="modal">
+    </div>
+        <div id="infoModal" class="modal" aria-label="How Leaderboard Works">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Ranking System Explained</h2>
@@ -144,7 +210,10 @@
                         The SPT Leaderboard team is not obligated to maintain or publish a definitive list of banned mods.
                         Moderation decisions are based on the principle of fair play, and any mod providing a very unfair advantage or potential may lead to disqualification.
                     </li>
-                    <li><strong>Profile Standing:</strong> Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be banned without the right to appeal.</li>
+                    <li><strong>Profile Standing:</strong>
+                        Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be banned without the right to appeal.
+                        Players are responsible for ensuring their profile complies with all rules.
+                    </li>
                     <li><strong>Content Guidelines:</strong> Usernames, profile pictures (PFP), and "About Me" sections must not contain offensive, discriminatory, hateful, or NSFW content. Violations lead to disqualification or permanent ban.</li>
                 </ul>
                 <h3>2. Eligibility & Participation</h3>
@@ -156,8 +225,17 @@
                 </ul>
                 <h3>3. Data Usage & Rights</h3>
                 <ul>
-                    <li><strong>Public Display:</strong> By submitting your data, you grant permission for it to be publicly displayed on the leaderboard. This applies to any form or state of the player profile.</li>
-                    <li><strong>Moderation:</strong> Administrators reserve the right to review, modify, or remove any entries of the leaderboard at their sole discretion without prior notice.</li>
+                    <li><strong>Public Display:</strong> By submitting your data, you grant permission for it to be publicly displayed on the leaderboard. This applies to any form or state of the player profile and the data being sent to the server.</li>
+                    <li><strong>Privacy & Data Collection:</strong>
+                        To maintain leaderboard integrity and prevent exploits, hashed/obfuscated IP addresses may be temporarily collected solely for anti-cheat detection.
+                        Hashed IPs are stored alongside user-generated tokens for no longer than 1 hour, after which they are automatically erased.
+                        Only IPs flagged as malicious (e.g., brute-force attacks) are retained long-term for developer review.
+                        No personally identifiable information (PII) is stored or shared. Raw/unhashed IPs are never logged or accessible.
+                    </li>
+                    <li><strong>Moderation:</strong>
+                        Administrators reserve the right to review, modify, or remove any entries of the leaderboard at their sole discretion without prior notice.
+                        Developers reserve the right to modify season duration, reset times, or scoring rules as needed.
+                    </li>
                     <li><strong>Policy Updates:</strong> These Terms may be updated at any time. Continued use of the mod, leaderboard, implies acceptance of the most recent version.</li>
                 </ul>
                 <p><em>Last updated: July 5, 2025</em></p>
@@ -185,6 +263,12 @@
                             <input type="checkbox" id="staffToggle" checked="checked"> Show Staff Online
                         </label>
                             <p class="setting-description">Display or hide current Staff activity on the page.</p>
+                    </div>
+                    <div class="setting-item">
+                        <label class="setting-label">
+                            <input type="checkbox" id="muteToggle" checked="checked"> Mute all sounds
+                        </label>
+                            <p class="setting-description">Mute all sounds on the website</p>
                     </div>
                 </div>
             </div>
@@ -219,9 +303,9 @@
         <div class="announcement-wrapper animate animate__animated animate__fadeIn">
             <div class="announcement-icon"><img src="https://img.icons8.com/?size=256&id=61604&format=png" style="height: 70px;"></div>
             <div class="announcement-content">
-                <div class="announcement-title">We've Launched a Discord Server along with SPT Leaderboard Beta!</div>
+                <div class="announcement-title">We've Launched a Discord Server!</div>
                 <div class="announcement-text">
-                     The closed beta for 3.1.0 is already available! Stay updated on all future developments, share your suggestions, and be part of our small community - <a href="https://discord.gg/psV2PY8brW" target="_blank" class="announcement-link">Join Now!</a>
+                    Stay updated on all future developments, share your suggestions, and be part of the community. The closed beta for 3.1.0 is just around the corner, don't miss out! - <a href="https://discord.gg/psV2PY8brW" target="_blank" class="announcement-link">Join Now!</a>
                 </div>
                 <div class="announcement-signature">
                     — Developer
@@ -251,7 +335,7 @@
                     <th data-sort="lastPlayed">Last Seen</th>
                     <th>Profile</th>
                     <th>Standing</th>
-                    <th data-sort="totalRaids">Raids</th>
+                    <th data-sort="totalRaids">PMC/SCAV Raids</th>
                     <th data-sort="survivedToDiedRatio">SR</th>
                     <th data-sort="killToDeathRatio">KDR</th>
                     <th data-sort="averageLifeTime">Life Time</th>
@@ -269,12 +353,8 @@
             <div id="emptyLeaderboardNotification" class="animate animate__animated animate__fadeInUp" style="display: none;">Whoops! Looks like leaderboard is empty. Be the first one to submit your stats!</div>
         </div>
         <div id="playerProfileModal" class="profile-modal">
-            <div class="profile-modal-overlay">
-                <!-- Here goes anything -->
-            </div>
-            <div class="profile-modal-container">
-                <span class="profile-close-btn">&times;</span>
-                <div id="modalPlayerInfo" class="profile-modal-content"></div>
+            <div id="modalPlayerInfo" class="profile-modal-content">
+                <!-- JS Profile -->
             </div>
         </div>
         <footer class="modern-footer">

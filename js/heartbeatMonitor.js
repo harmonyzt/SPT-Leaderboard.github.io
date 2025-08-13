@@ -13,7 +13,7 @@ class HeartbeatMonitor {
 
     async fetchHeartbeats() {
         try {
-            const response = await fetch(`${heartbeatsPath}`);
+            const response = await fetch(heartbeatsPath);
             if (!response.ok) throw new Error('Failed to load heartbeats');
 
             this.heartbeatData = await response.json();
@@ -62,13 +62,21 @@ class HeartbeatMonitor {
         if (isOnline) {
             const isRecentlyInRaid = (heartbeat.type === 'in_raid' && (currentTime - heartbeat.timestamp) < 3000);
 
+            const raidDetails = heartbeat.type === 'in_raid' ? {
+                map: heartbeat.map || 'Unknown',
+                side: heartbeat.side || 'Unknown',
+                gameTime: heartbeat.gameTime || 'Unknown'
+            } : null;
+
+
             return {
                 isOnline: true,
                 status: heartbeat.type,
                 statusClass: this._getStatusClass(heartbeat.type),
                 statusText: this._getStatusText(heartbeat.type),
                 isRecentlyInRaid: isRecentlyInRaid,
-                lastUpdate: heartbeat.timestamp
+                lastUpdate: heartbeat.timestamp,
+                raidDetails: raidDetails
             };
         }
 
@@ -77,7 +85,8 @@ class HeartbeatMonitor {
             status: 'offline',
             statusClass: 'player-status-lb-offline',
             statusText: 'Offline',
-            lastUpdate: heartbeat?.timestamp || null
+            lastUpdate: heartbeat?.timestamp || null,
+            raidDetails: null
         };
     }
 

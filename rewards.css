@@ -61,6 +61,27 @@
     background-repeat: no-repeat;
 }
 
+.goons-background {
+    background: url(media/rewards/main_background/Goons.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.raider-background {
+    background: url(media/rewards/main_background/raider.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lighthouse-background {
+    background: url(media/rewards/main_background/Lighthouse.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* PFP Styles */
 .box-style {
     border-radius: 10%;
@@ -68,8 +89,9 @@
 
 .wide-style {
     border-radius: 10%;
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
+    margin-top: 8px;
 }
 
 /* PFP Borders */
@@ -113,7 +135,7 @@
 
 /* Themes */
 .theme-default {
-    background-color: #1e1e2d;
+    background-color: #181a20;
 }
 
 .theme-dark {
@@ -138,15 +160,15 @@
 
 /* Kitties/Penguins :D */
 .kittyrew {
-    display: block;
     position: absolute;
     width: 150px;
-    top: 287px;
-    right: 930px;
+    top: 120px;
+    left: 23.5rem;
+    z-index: 1;
 }
 
 .badger {
-    display: block;
+    display: none;
     position: absolute;
     width: 100px;
     top: 281px;
