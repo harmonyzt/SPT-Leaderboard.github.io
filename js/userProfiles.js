@@ -417,7 +417,7 @@ async function showPublicProfile(container, player) {
         <div class="right-column">
 
             <!-- Player image (hides if no image found) -->
-            <div class="playermodel profile-section" id="playermodel" style="display: none;">
+            <div class="playermodel profile-section" id="playermodel">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
                     <img src="" alt="Player model preview">
@@ -635,7 +635,7 @@ async function showPublicProfile(container, player) {
         container: document.getElementById('achievements-container')
     });
 
-    handlePlayerModelSection(player.id);
+    await handlePlayerModelSection(player.id);
 
     initLastRaids(player.id);
     renderFriendList(player);
@@ -1250,7 +1250,7 @@ function checkImageExists(imageUrl, callback) {
 }
 
 // For player preview
-function handlePlayerModelSection(playerId) {
+async function handlePlayerModelSection(playerId) {
     const section = document.getElementById('playermodel');
     const imageUrl = `https://visuals.nullcore.net/SPT/data/pmc_avatars/${playerId}_full.png`;
 
