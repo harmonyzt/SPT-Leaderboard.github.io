@@ -204,7 +204,7 @@ async function showPublicProfile(container, player) {
     const profileSideHTML = getPlayerSideImageHTML(player);
 
     // Get latest achievement
-    const latestAchievement = processPlayerAchievements(player);
+    const latestAchievement = await processPlayerAchievements(player);
 
     let lastGame;
     if (!player.banned) {
