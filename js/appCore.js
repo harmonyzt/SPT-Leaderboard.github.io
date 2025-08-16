@@ -942,7 +942,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const continueBtn = document.getElementById('continueBtn');
     const welcomePopup = document.getElementById('welcomePopup');
 
-    if (localStorage.getItem('welcomedClosed') === 'true') {
+    if (localStorage.getItem('welcomeClosed') === 'true') {
         welcomePopup.style.display = 'none';
     } else {
         welcomePopup.style.display = 'flex';
@@ -957,7 +957,7 @@ document.addEventListener('DOMContentLoaded', function () {
         welcomePopup.style.transform = 'translateY(-20px)';
         welcomePopup.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 
-        localStorage.setItem('welcomedClosed', 'true');
+        localStorage.setItem('welcomeClosed', 'true');
 
         setTimeout(() => {
             welcomePopup.style.display = 'none';
