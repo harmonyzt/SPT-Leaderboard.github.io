@@ -204,7 +204,7 @@ async function showPublicProfile(container, player) {
     const profileSideHTML = getPlayerSideImageHTML(player);
 
     // Get latest achievement
-    const latestAchievement = await processPlayerAchievements(player);
+    const latestAchievement = processPlayerAchievements(player);
 
     let lastGame;
     if (!player.banned) {
@@ -638,6 +638,7 @@ async function showPublicProfile(container, player) {
     if (player.isUsingStattrack) {
         renderWeaponList(player.id, player.modWeaponStats || {});
     }
+
     if (player.raidHitsHistory) {
         updateBodyHitsVisualization(player.raidHitsHistory);
     }
@@ -651,7 +652,7 @@ async function showPublicProfile(container, player) {
 
     initLastRaids(player.id);
     renderFriendList(player);
-    await initHOF(player, bestWeapon);
+    initHOF(player, bestWeapon);
 
     closeLoaderAfterImagesLoad();
 }

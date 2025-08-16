@@ -149,7 +149,7 @@ async function prepareSeasonData() {
 async function loadPreviousSeasonWinners() {
     if (seasons.length < 2) return;
 
-    const previousSeason = seasons[seasons.length - 2];
+    const previousSeason = seasons[1];
 
     try {
         let response = await fetch(`${seasonPath}${previousSeason}${seasonPathEnd}`);
