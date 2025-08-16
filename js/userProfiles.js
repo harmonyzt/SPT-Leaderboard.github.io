@@ -105,7 +105,7 @@ async function getCustomProfileSettings(playerId) {
     try {
         const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            return null;
         }
         const data = await response.json();
 
@@ -140,8 +140,6 @@ async function showPublicProfile(container, player) {
         player.bp_decal = playerData.decal;
         player.aboutMe = playerData.aboutMe;
         player.discordUser = playerData.discordUser;
-    } else {
-        console.log('Failed to load player data');
     }
 
     // Convert registration date of a player
