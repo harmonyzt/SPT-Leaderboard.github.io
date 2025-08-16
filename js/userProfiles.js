@@ -132,12 +132,12 @@ async function showPublicProfile(container, player) {
         player.profileTheme = playerData.profileTheme;
         player.usePrestigeStyling = playerData.usePrestigeStyling;
         player.prestigeBackground = playerData.prestigeBackground;
-        player.backgroundReward = playerData.backgroundReward;
-        player.mainBackgroundReward = playerData.mainBackgroundReward;
+        player.backgroundReward = playerData.bp_cardbg;
+        player.mainBackgroundReward = playerData.bp_mainbg;
         player.catReward = playerData.catReward;
-        player.pfpStyle = playerData.pfpStyle;
-        player.pfpBorder = playerData.pfpBorder;
-        player.decal = playerData.decal;
+        player.pfpStyle = playerData.bp_pfpstyle;
+        player.pfpBorder = playerData.bp_pfpbordercolor;
+        player.decal = playerData.bp_decal;
         player.aboutMe = playerData.aboutMe;
         player.discordUser = playerData.discordUser;
     } else {
