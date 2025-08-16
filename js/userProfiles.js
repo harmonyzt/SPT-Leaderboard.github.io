@@ -370,13 +370,6 @@ async function showPublicProfile(container, player) {
             <div class="weapon-stats profile-section">
                 <h3>Achievements</h3>
                 <div class="weapon-stats-container" id="achievements-container">
-                    <div class="private-profile-overlay" id="profile-loader">
-                        <div class="loader-glass">
-                            <div class="loader-content">
-                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             
@@ -506,13 +499,6 @@ async function showPublicProfile(container, player) {
             `<div class="weapon-stats profile-section">
                 <h3>Weapons</h3>
                 <div class="weapon-stats-container" id="weapons-container">
-                    <div class="private-profile-overlay" id="profile-loader">
-                        <div class="loader-glass">
-                            <div class="loader-content">
-                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>`
         }
