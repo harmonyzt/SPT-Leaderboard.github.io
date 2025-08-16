@@ -1252,7 +1252,7 @@ function checkImageExists(imageUrl, callback) {
 // For player preview
 async function handlePlayerModelSection(playerId) {
     const section = document.getElementById('playermodel');
-    const imageUrl = `https://visuals.nullcore.net/SPT/data/pmc_avatars/${playerId}_full.png`;
+    const imageUrl = `https://visuals.nullcore.net/SPT/data/pmc_avatars/${playerId}_full.png?${Date.now}`;
 
     checkImageExists(imageUrl, function (exists) {
         if (exists) {
