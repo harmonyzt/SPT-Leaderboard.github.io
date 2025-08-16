@@ -104,21 +104,17 @@ function showDisqualProfile(container, player) {
 async function getCustomProfileSettings(playerId) {
     try {
         const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
-        if (!response.ok) {
-            return null;
-        }
-        const data = await response.json();
+
+        const data = response.json();
 
         const playerData = data[playerId];
 
         if (playerData) {
             return playerData;
         } else {
-            console.log('Player data not found in the response');
             return null;
         }
     } catch (error) {
-        console.error('Error fetching player data:', error);
         return null;
     }
 }
@@ -432,13 +428,6 @@ async function showPublicProfile(container, player) {
             <div class="friends-list profile-section" id="friend-list">
                 <h3>Friend List</h3>
                 <div class="friends-container" id="friends-container">
-                    <div class="private-profile-overlay" id="profile-loader">
-                        <div class="loader-glass">
-                            <div class="loader-content">
-                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
