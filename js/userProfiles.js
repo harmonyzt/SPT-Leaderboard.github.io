@@ -101,10 +101,48 @@ function showDisqualProfile(container, player) {
     `;
 }
 
+async function getCustomProfileSettings(playerId) {
+    try {
+        const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        const playerData = data[playerId];
+
+        if (playerData) {
+            return playerData;
+        } else {
+            console.log('Player data not found in the response');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error fetching player data:', error);
+        return null;
+    }
+}
+
 // Public profile
 async function showPublicProfile(container, player) {
-    // Disable body crolling
-    document.body.style.overflow = "hidden";
+
+    const playerData = await getCustomProfileSettings(player.id);
+
+    if (playerData) {
+        player.profileTheme = playerData.profileTheme;
+        player.usePrestigeStyling = playerData.usePrestigeStyling;
+        player.prestigeBackground = playerData.prestigeBackground;
+        player.backgroundReward = playerData.backgroundReward;
+        player.mainBackgroundReward = playerData.mainBackgroundReward;
+        player.catReward = playerData.catReward;
+        player.pfpStyle = playerData.pfpStyle;
+        player.pfpBorder = playerData.pfpBorder;
+        player.decal = playerData.decal;
+        player.aboutMe = playerData.aboutMe;
+        player.discordUser = playerData.discordUser;
+    } else {
+        console.log('Failed to load player data');
+    }
 
     // Convert registration date of a player
     const regDate = player.registrationDate
@@ -624,7 +662,7 @@ async function showPublicProfile(container, player) {
     });
 
     handlePlayerModelSection(player.id);
-    
+
     initLastRaids(player.id);
     renderFriendList(player);
     await initHOF(player, bestWeapon);
