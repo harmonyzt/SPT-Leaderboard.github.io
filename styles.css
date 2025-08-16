@@ -2587,6 +2587,11 @@ button:hover {
     position: relative;
 }
 
+.lb-coins {
+    font-weight: 600;
+    color: #f59e0b;
+}
+
 .section-title::after {
     content: '';
     position: absolute;
