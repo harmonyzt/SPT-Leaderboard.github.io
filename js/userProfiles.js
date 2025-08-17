@@ -415,11 +415,11 @@ async function showPublicProfile(container, player) {
         <!-- Right -->
         <div class="right-column">
 
-            <!-- Player image (hides if no image found) -->
+            <!-- Player image -->
             <div class="playermodel profile-section" id="playermodel">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
-                    <img src="" alt="Player model preview">
+                    <img src="https://visuals.nullcore.net/SPT/data/pmc_avatars/${player.id}_full.png?${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
                 </div>
             </div>
 
@@ -633,8 +633,6 @@ async function showPublicProfile(container, player) {
         renderAll: true,
         container: document.getElementById('achievements-container')
     });
-
-    handlePlayerModelSection(player.id);
 
     initLastRaids(player.id);
     renderFriendList(player);
@@ -1246,19 +1244,4 @@ function checkImageExists(imageUrl, callback) {
         callback(false);
     };
     img.src = imageUrl;
-}
-
-// For player preview
-async function handlePlayerModelSection(playerId) {
-    const section = document.getElementById('playermodel');
-    const imageUrl = `https://visuals.nullcore.net/SPT/data/pmc_avatars/${playerId}_full.png?${Date.now}`;
-
-    checkImageExists(imageUrl, function (exists) {
-        if (exists) {
-            section.style.display = 'block';
-            section.querySelector('img').src = imageUrl;
-        } else {
-            section.style.display = 'none';
-        }
-    });
 }
