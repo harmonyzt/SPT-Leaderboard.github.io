@@ -135,11 +135,11 @@ async function showPlayerNotification(player) {
             pmcRaid.play();
         } else if (player.lastRaidAs === "PMC" && !player.lastRaidSurvived) {
             const pmcRaidDied = new Audio('media/sounds/pmc-raid-died.wav');
-            pmcRaidDied.volume = 0.05;
+            pmcRaidDied.volume = 0.15;
             pmcRaidDied.play();
         } else if (player.lastRaidAs === "SCAV" && player.lastRaidSurvived) {
             const pmcRaid = new Audio('media/sounds/scav-raid-run.mp3');
-            pmcRaid.volume = 0.10;
+            pmcRaid.volume = 0.20;
             pmcRaid.play();
         } else if (player.lastRaidAs === "SCAV" && !player.lastRaidSurvived) {
             const pmcRaidDied = new Audio('media/sounds/scav-raid-died.wav');
