@@ -11,7 +11,6 @@ const RARITY_ORDER = {
     'Common': 2
 };
 
-
 document.addEventListener("DOMContentLoaded", async () => {
     await loadAchievementsData();
 });
@@ -635,7 +634,7 @@ async function showPublicProfile(container, player) {
         container: document.getElementById('achievements-container')
     });
 
-    await handlePlayerModelSection(player.id);
+    handlePlayerModelSection(player.id);
 
     initLastRaids(player.id);
     renderFriendList(player);
