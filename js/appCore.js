@@ -4,9 +4,6 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ /
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/
 
-// TODO: #6 Optimize whole code from stockpiled garbage
-// TODO: #8 Use centralized function to load JSON data
-
 let leaderboardData = []; // For keeping current season data
 let heartbeatData = {}; // Remember heartbeats
 let allSeasonsCombinedData = []; // For keeping combined data from all seasons
@@ -380,7 +377,8 @@ async function displayLeaderboard(data) {
         const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
 
         // Player was online for more 15 days, skip to render less jank
-        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds) {
+        // Will not work when autoUpdater is off
+        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds && AutoUpdater.getStatus()) {
             return;
         }
 

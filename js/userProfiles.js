@@ -976,7 +976,7 @@ function renderSingleAchievement(achievement) {
                 Latest Achievement
             </div>
             <div class="achievement-content">
-                <div class="achievement-icon">
+                <div class="achievement-icon ${achievement.rarity}">
                     <img src="${achievement.imageUrl}" alt="Achievement Icon"/>
                     <div class="achievement-time">
                         ${achievement.timestamp || "N/A"}
@@ -1001,7 +1001,7 @@ function renderAllAchievements(achievements) {
     return achievements.map(ach => `
         <div class="user-achievements profile-section">
             <div class="achievement-content">
-                <div class="achievement-icon">
+                <div class="achievement-icon ${ach.rarity}">
                     <img src="${ach.imageUrl}" alt="Achievement Icon"/>
                     <div class="achievement-time">
                         ${ach.timestamp || "N/A"}
@@ -1015,7 +1015,7 @@ function renderAllAchievements(achievements) {
                         ${ach.description}
                     </div>
                     ${ach.globalPercentage > 0 ?
-            `<div class="achievement-percentage">${ach.globalPercentage}% of players have this achievement</div>` :
+            `<div class="achievement-percentage ${ach.rarity}">${ach.globalPercentage}% of players have this achievement</div>` :
             ``}
                 </div>
             </div>

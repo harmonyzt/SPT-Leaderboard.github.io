@@ -2894,6 +2894,11 @@ button:hover {
     background: linear-gradient(90deg, #9c83ab, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.Rare img {
+    filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.2));
 }
 
 .Common {
@@ -2903,7 +2908,14 @@ button:hover {
 }
 
 .Legendary {
-    color: #ffb74d;
+    background: linear-gradient(90deg, #fff56d, #d49331);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(227, 241, 99, 0.3);
+}
+
+.Legendary img {
+    filter: drop-shadow(0 0 15px rgba(227, 241, 99, 0.2));
 }
 
 .achievement-description {
