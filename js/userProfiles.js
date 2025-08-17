@@ -129,7 +129,7 @@ async function showPublicProfile(container, player) {
         player.bp_pfpstyle = playerData.pfpStyle;
         player.bp_pfpbordercolor = playerData.pfpBorder;
         player.bp_decal = playerData.decal;
-        player.aboutMe = playerData.aboutMe;
+        player.profileAboutMe = playerData.aboutMe;
         player.discordUser = playerData.discordUser;
     }
 
