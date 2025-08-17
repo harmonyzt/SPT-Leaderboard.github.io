@@ -143,12 +143,10 @@ async function showPlayerNotification(player) {
             pmcRaid.play();
         } else if (player.lastRaidAs === "SCAV" && !player.lastRaidSurvived) {
             const pmcRaidDied = new Audio('media/sounds/scav-raid-died.wav');
-            pmcRaidDied.volume = 0.10;
+            pmcRaidDied.volume = 0.15;
             pmcRaidDied.play();
         }
     }
-
-
 
     allowToPlayLastRaidSound = true;
 
