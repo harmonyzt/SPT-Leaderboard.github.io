@@ -103,17 +103,13 @@ function showDisqualProfile(container, player) {
 async function getCustomProfileSettings(playerId) {
     try {
         const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
-
-        const data = response.json();
-
-        const playerData = data[playerId];
-
-        if (playerData) {
-            return playerData;
-        } else {
-            return null;
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const data = await response.json();
+        return data[playerId] || null;
     } catch (error) {
+        console.error('Failed to load profile settings:', error);
         return null;
     }
 }
