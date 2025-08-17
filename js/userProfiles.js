@@ -370,13 +370,6 @@ async function showPublicProfile(container, player) {
             <!-- Raid History -->
             <div class="raid-block">
                 <div class="last-raids" id="raids-stats-container">
-                    <div class="private-profile-overlay" id="profile-loader">
-                        <div class="loader-glass">
-                            <div class="loader-content">
-                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="raid-summary profile-section">
