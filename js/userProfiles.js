@@ -102,7 +102,7 @@ function showDisqualProfile(container, player) {
 
 async function getCustomProfileSettings(playerId) {
     try {
-        const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json`);
+        const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json?t=${Date.now()}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -126,6 +126,7 @@ async function showPublicProfile(container, player) {
         player.bp_cardbg = playerData.backgroundReward;
         player.bp_mainbg = playerData.mainBackgroundReward;
         player.catReward = playerData.catReward;
+
         player.bp_pfpstyle = playerData.pfpStyle;
         player.bp_pfpbordercolor = playerData.pfpBorder;
         player.bp_decal = playerData.decal;

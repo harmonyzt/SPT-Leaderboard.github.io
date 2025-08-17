@@ -12,7 +12,7 @@ async function initLastRaids(playerId) {
     }
 
     try {
-        const playerRaidsPath = `${lastRaidsPath}${playerId}.json`;
+        const playerRaidsPath = `${lastRaidsPath}${playerId}.json?t=${Date.now()}`;
         const response = await fetch(playerRaidsPath);
 
         if (!response.ok) {
