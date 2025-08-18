@@ -52,7 +52,7 @@ function renderRaidsStats(raids) {
         const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
         let shouldShowStats = true;
 
-        if (raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage == 0 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100) {
+        if (raid.raidKills == 0 && raid.scavsKilled == 0 && raid.bossesKilled == 0 && raid.raidDamage < 100 && raid.lastRaidHits == 0 && raid.lastRaidEXP < 100) {
             shouldShowStats = false;
         }
 

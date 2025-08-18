@@ -25,6 +25,7 @@ async function showPlayerNotification(player) {
         return;
     }
 
+    // Throttle notifications
     if (notificationStack.length >= MAX_NOTIFICATIONS) {
         const oldestNotification = notificationStack.shift();
         oldestNotification.remove();
@@ -62,6 +63,17 @@ async function showPlayerNotification(player) {
     if (player.dev) {
         specialIconNotification = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer" style="width: 15px; height: 15px" class="account-icon">`;
         accountColor = '#2486ff';
+    }
+
+    let rankClass = '';
+    switch (player.rank) {
+        case 1:
+            rankClass = "Legendary";
+            break;
+    
+        case 2:
+            rankClass = "Rare";
+            break;
     }
 
     // Raidstreak/Killstreaks
@@ -187,7 +199,7 @@ async function showPlayerNotification(player) {
                         ${specialIconNotification}${player.teamTag ? `[${player.teamTag}]` : ``} ${player.name}
                     </span>
                     <span class="notification-info-r">
-                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • ${!player.isCasual ? `Rank #${player.rank}` : `Casual Mode`}
+                        Finished raid • ${formatLastPlayedRaid(player.absoluteLastTime)} • ${!player.isCasual ? `<span class="${rankClass}">Rank #${player.rank}</span>` : `Casual Mode`}
                     </span>
                 </div>
             </div>

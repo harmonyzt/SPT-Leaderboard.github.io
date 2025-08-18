@@ -80,7 +80,6 @@ h1 {
 }
 
 /* Leaderboard notifications */
-#loadingNotification,
 #emptyLeaderboardNotification {
     position: fixed;
     left: 0;
@@ -2623,7 +2622,6 @@ button:hover {
 }
 
 .raid-result {
-    display: inline-flex;
     gap: 3px;
     font-size: 1.2em;
     vertical-align: middle;
@@ -4065,7 +4063,6 @@ button:hover {
     position: fixed;
     right: 0;
     width: 300px;
-    pointerEvents: none;
 }
 
 #admins-container:hover {
