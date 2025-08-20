@@ -275,10 +275,10 @@ async function showPublicProfile(container, player) {
                             ${player.teamTag ? `[${player.teamTag}]` : ``}
                             ${accountIcon}
                             ${player.name}
-                            ${player.discordUser ? `<div class="player-discord">Discord: ${player.discordUser}</div>` : ``}
                         </div>
                         <div class="registerDate">Joined: ${regDate}</div>
                     </div>
+                    ${player.discordUser ? `<div class="player-discord"><i class="fa-brands fa-discord"></i> ${player.discordUser}</div>` : ``}
                     <div class="player-status">
                         <span>${lastGame}</span>
                     </div>

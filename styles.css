@@ -2287,12 +2287,14 @@ button:hover {
 .player-discord {
     background: rgba(255, 255, 255, 0.096);
     border: 1px solid #ffffff3b;
+    gap: 5px;
     border-radius: 5px;
     width: fit-content;
-    font-size: 0.65rem;
-    padding: 2px;
+    font-size: 0.85rem;
+    padding: 3px;
     letter-spacing: 0.5px;
     display: flex;
+    align-items: center;
 }
 
 .badge {
