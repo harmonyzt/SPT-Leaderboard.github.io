@@ -368,7 +368,7 @@ async function showPublicProfile(container, player) {
             <div class="hits-past-raids profile-section">
                 <div class="hits-wrapper">
                     <div class="hits-avg-headshots">
-                        <div class="avg-headshots"><span>Avg. Headshot % - Last 3 Games</span></div>
+                        <div class="avg-headshots"><span>Avg. Headshot % - Last 5 Games</span></div>
                     </div>
                     <div class="body-parts-main">
                         <div class="body-svg">
