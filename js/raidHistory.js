@@ -22,6 +22,7 @@ async function initLastRaids(playerId) {
         const data = await response.json();
 
         if (!data?.raids?.length) {
+            closeLoader();
             statsContainer.innerHTML = '<p class="error-raid-load">No raid data available for this player :(</p>';
             return;
         }
@@ -32,7 +33,7 @@ async function initLastRaids(playerId) {
 
         renderRaidsStats(sortedRaids);
     } catch (error) {
-        console.error('Error fetching raid data:', error);
+        closeLoader();
         statsContainer.innerHTML = '<p class="error-raid-load">Error loading raid data :(</p>';
     }
 }

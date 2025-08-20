@@ -2503,21 +2503,20 @@ button:hover {
 
 /* Profile loader container */
 .loader-glass {
+    height: 600px;
     background: rgba(255, 255, 255, 0.048);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    max-width: 300px;
-    text-align: center;
+    display: flex;
+    place-content: center;
     animation: fadeIn 0.3s ease-out;
 }
 
 .loader-content {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 15px;
 }

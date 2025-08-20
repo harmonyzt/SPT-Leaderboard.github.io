@@ -421,6 +421,15 @@ async function showPublicProfile(container, player) {
             <!-- Raid History -->
             <div class="raid-block">
                 <div class="last-raids" id="raids-stats-container">
+                        <div class="loader-glass">
+                            <div class="loader-content" id="main-profile-loader">
+                                <img src="../media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                                <h3 class="loader-text">Crunching latest data for you...</h3>
+                                <div class="loader-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
 
                 <div class="raid-summary profile-section">
@@ -670,6 +679,7 @@ async function showPublicProfile(container, player) {
     renderFriendList(player);
     initHOF(player, bestWeapon);
 
+    closeLoaderAfterImagesLoad();
 }
 
 
