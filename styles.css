@@ -611,9 +611,6 @@ button:hover {
     padding: 2px;
     text-transform: uppercase;
     display: flex;
-    position: relative;
-    bottom: 5px;
-    right: 3px;
 }
 
 .FIKA {
