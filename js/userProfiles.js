@@ -212,6 +212,52 @@ async function showPublicProfile(container, player) {
         lastGame = `<span class="last-online-time">Banned</span>`;
     }
 
+    // Account type handling
+    let accountIcon = '';
+    let accountColor = '';
+    let accountClass = '';
+    let nameClass = '';
+
+    // 1st prio - dev
+    if (player.dev) {
+        accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer" style="width: 15px; height: 15px" class="account-icon">`;
+        accountColor = '#2486ff';
+    }
+    // 2nd prio - Tester
+    else if (player.trusted && !player.banned) {
+        accountIcon = `<img src="media/trusted.png" alt="Tester" class="account-icon">`;
+        accountColor = '#ba8bdb';
+    }
+    // 3rd prio - twitch players
+    else if (!player.banned && player.isUsingTP) {
+        accountClass = 'gradient-tp-text';
+        accountColor = '';
+    }
+    // 4th prio - account type
+    else if (!player.banned && !player.isUsingTP) {
+        switch (player.accountType) {
+            case 'edge_of_darkness':
+                accountIcon = `<img src="media/EOD.png" alt="EOD" class="account-icon">`;
+                accountColor = '#be8301';
+                break;
+            case 'unheard_edition':
+                accountIcon = `<img src="media/Unheard.png" alt="Unheard" class="account-icon">`;
+                accountColor = '#54d0e7';
+                break;
+        }
+    }
+    // Banned - lowest prio
+    else {
+        accountColor = '#787878';
+    }
+
+    let finalNameClass = '';
+    if (nameClass) {
+        finalNameClass = nameClass;
+    } else if (accountClass) {
+        finalNameClass = accountClass; // TP
+    }
+
     container.innerHTML = `
         <!-- left column -->
         <img src="media/rewards/other/badgerTester.gif" class="badger" id="badger" />
@@ -225,8 +271,9 @@ async function showPublicProfile(container, player) {
                 <div class="pfp"><img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" /></div>
                 <div class="profile-header">
                     <div class="name-wrapper">
-                        <div class="name">
+                        <div class="name ${finalNameClass}" ${accountColor && !finalNameClass ? `style="color: ${accountColor}"` : ''}>
                             ${player.teamTag ? `[${player.teamTag}]` : ``}
+                            ${accountIcon}
                             ${player.name}
                             ${player.discordUser ? `<div class="player-discord">Discord: ${player.discordUser}</div>` : ``}
                         </div>

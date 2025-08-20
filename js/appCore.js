@@ -260,7 +260,7 @@ async function loadAllSeasonsData() {
 
                 // First try loading from server
                 response = await fetch(`${seasonPath}${season}${seasonPathEnd}`);
-                
+
                 // If not - load locally
                 if (!response.ok && response.status === 404) {
                     response = await fetch(`${seasonLocalPath}${season}.json`);
@@ -400,20 +400,6 @@ async function displayLeaderboard(data) {
             lastGame = `<span class="last-online-time">Banned</span>`;
         }
 
-        // Determine rank classes
-        let rankClass = '';
-        let nameClass = '';
-        if (player.rank === 1) {
-            rankClass = 'gold';
-            nameClass = 'gold-name';
-        } else if (player.rank === 2) {
-            rankClass = 'silver';
-            nameClass = 'silver-name';
-        } else if (player.rank === 3) {
-            rankClass = 'bronze';
-            nameClass = 'bronze-name';
-        }
-
         // Add profile standing
         let badge = '';
         if (player.banned) {
@@ -461,7 +447,25 @@ async function displayLeaderboard(data) {
         // Account type handling
         let accountIcon = '';
         let accountColor = '';
-        if (!player.banned) {
+        let accountClass = '';
+
+        // 1st prio - dev
+        if (player.dev) {
+            accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer" style="width: 15px; height: 15px" class="account-icon">`;
+            accountColor = '#2486ff';
+        }
+        // 2nd prio - Tester
+        else if (player.trusted && !player.banned) {
+            accountIcon = `<img src="media/trusted.png" alt="Tester" class="account-icon">`;
+            accountColor = '#ba8bdb';
+        }
+        // 3rd prio - twitch players
+        else if (!player.banned && player.isUsingTP) {
+            accountClass = 'gradient-tp-text';
+            accountColor = '';
+        }
+        // 4th prio - account type
+        else if (!player.banned && !player.isUsingTP) {
             switch (player.accountType) {
                 case 'edge_of_darkness':
                     accountIcon = `<img src="media/EOD.png" alt="EOD" class="account-icon">`;
@@ -472,20 +476,31 @@ async function displayLeaderboard(data) {
                     accountColor = '#54d0e7';
                     break;
             }
-        } else {
-            accountColor = '#787878'
+        }
+        // Banned - lowest prio
+        else {
+            accountColor = '#787878';
         }
 
-        // Tester overwrite every icon and color text on top
-        if (player.trusted && !player.banned) {
-            accountIcon = `<img src="media/trusted.png" alt="Tester" class="account-icon">`
-            accountColor = '#ba8bdb'
+        // Determine rank classes
+        let rankClass = '';
+        let nameClass = '';
+        if (player.rank === 1) {
+            rankClass = 'gold';
+            nameClass = 'gold-name';
+        } else if (player.rank === 2) {
+            rankClass = 'silver';
+            nameClass = 'silver-name';
+        } else if (player.rank === 3) {
+            rankClass = 'bronze';
+            nameClass = 'bronze-name';
         }
 
-        // Developer
-        if (player.dev) {
-            accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer"  style="width: 15px; height: 15px" class="account-icon">`;
-            accountColor = '#2486ff';
+        let finalNameClass = '';
+        if (nameClass) {
+            finalNameClass = nameClass;
+        } else if (accountClass) {
+            finalNameClass = accountClass; // TP
         }
 
         let playerGameMode = '';
@@ -509,7 +524,7 @@ async function displayLeaderboard(data) {
         row.innerHTML = `
             <td class="rank ${rankClass}">${player.rank} ${player.medal}</td>
             <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
-            <td class="player-name ${nameClass}" style="color: ${accountColor};" data-player-id="${player.id || '0'}">
+            <td class="player-name ${finalNameClass}" ${accountColor && !finalNameClass ? `style="color: ${accountColor}"` : ''} data-player-id="${player.id || '0'}">
                 ${`<img class="lb-profile-picture" src="${player.profilePicture || 'media/default_avatar.png'}">`}
                 ${accountIcon} ${player.name} ${prestigeImg} ${playerGameMode ? `<div class="player-mode ${playerGameMode}">${playerGameMode}</div>` : ``}
             </td>

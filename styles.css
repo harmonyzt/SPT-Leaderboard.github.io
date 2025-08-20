@@ -775,6 +775,14 @@ button:hover {
     height: 22px;
 }
 
+.gradient-tp-text {
+    background: linear-gradient(135deg, #ff6666, #b30000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 5px;
+    text-shadow: 2px 2px 5px #00000080;
+}
+
 /* Stats bar */
 .top-stats-bar {
     position: fixed;
@@ -1979,6 +1987,9 @@ button:hover {
     color: #84d2ff;
     font-weight: bold;
     line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .user-main-card .aboutMe {
