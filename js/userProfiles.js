@@ -781,7 +781,7 @@ function updateBodyHitsVisualization(raidHitsHistory) {
         : '0.0';
 
     const avgElement = document.querySelector('.avg-headshots span');
-    avgElement.textContent = `Avg. Headshot % Last 3 Games: ${headshotPercentage}%`;
+    avgElement.textContent = `Avg. Headshot % Last 5 Games: ${headshotPercentage}%`;
 }
 
 async function renderWeaponList(playerId, modWeaponStats) {
