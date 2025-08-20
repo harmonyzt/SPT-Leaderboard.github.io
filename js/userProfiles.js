@@ -178,7 +178,12 @@ async function showPublicProfile(container, player) {
 
     // If player is in raid - show details of the raid
     let raidInfo = '';
-    if (isOnline && playerStatus.raidDetails !== null || playerStatus.raidDetails.map !== "Unknown") {
+    if (isOnline && playerStatus.raidDetails !== null) {
+
+        if(playerStatus.raidDetails.map === "Unknown"){
+            return;
+        }
+
         raidInfo = `
         <section class="raid-details" aria-label="Raid information">
             <span class="raid-map" aria-label="Map name">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
@@ -641,14 +646,6 @@ async function showPublicProfile(container, player) {
                 </div>
             </div>
 
-            <div class="private-profile-overlay" id="main-profile-loader">
-                <div class="loader-glass">
-                    <div class="loader-content">
-                    <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
-                    </div>
-                </div>
-            </div>
-
         </div>
     `;
     // Setup close handlers first
@@ -673,7 +670,6 @@ async function showPublicProfile(container, player) {
     renderFriendList(player);
     initHOF(player, bestWeapon);
 
-    closeLoaderAfterImagesLoad();
 }
 
 
