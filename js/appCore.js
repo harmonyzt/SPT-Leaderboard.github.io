@@ -533,7 +533,7 @@ async function displayLeaderboard(data) {
                 : `${profileOpenIcon}`
             }</td>
             <td>${badge}</td>
-            <td>${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})</td>
+            <td>${player.publicProfile? `${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})` : `${player.pmcRaids}`}</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
             <td class="${player.killToDeathRatioClass}">${player.killToDeathRatio}</td>
             <td class="${player.averageLifeTimeClass}">${formatSeconds(player.averageLifeTime)}</td>
