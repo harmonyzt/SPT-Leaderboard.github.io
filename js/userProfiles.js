@@ -4,7 +4,6 @@
 //   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ /
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/
 
-let openedPlayerData = [];
 const RARITY_ORDER = {
     'Legendary': 0,
     'Rare': 1,
@@ -55,7 +54,6 @@ async function openProfile(playerId) {
     // Showing public profile
     showPublicProfile(modalContent, player);
     window.location.hash = `id=${encodeURIComponent(player.id)}`;
-    openedPlayerData = player;
     modal.style.display = "flex";
 
     return;
@@ -180,7 +178,7 @@ async function showPublicProfile(container, player) {
 
     // If player is in raid - show details of the raid
     let raidInfo = '';
-    if (isOnline && playerStatus.raidDetails !== null) {
+    if (isOnline && playerStatus.raidDetails !== null || playerStatus.raidDetails.map !== "Unknown") {
         raidInfo = `
         <section class="raid-details" aria-label="Raid information">
             <span class="raid-map" aria-label="Map name">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
