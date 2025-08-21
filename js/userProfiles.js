@@ -468,7 +468,7 @@ async function showPublicProfile(container, player) {
             <div class="playermodel profile-section" id="playermodel">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
-                    <img src="https://visuals.nullcore.net/SPT/data/pmc_avatars/${player.id}_full.png?${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
+                    <img src="https://visuals.nullcore.net/SPT/data/pmc_avatars/${player.id}_full.png?t=${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
                 </div>
             </div>
 
