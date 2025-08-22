@@ -25,7 +25,7 @@ async function updateAdminsStatus() {
         let html = '<h3><i class="bx bx-shield-alt"></i> Staff</h3>';
 
         // Separate admins and moderators
-        const adminUsernames = ['harmony', 'LeKita', 'YukkiPookie'];
+        const adminUsernames = ['harmony', 'LeKita', 'Kat','YukkiPookie'];
         const admins = users.filter(u => adminUsernames.includes(u.username));
         const moderators = users.filter(u => !adminUsernames.includes(u.username));
 

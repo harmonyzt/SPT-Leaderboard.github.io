@@ -10,7 +10,7 @@
 // AutoUpdater.forceUpdate();
 
 const AutoUpdater = (() => {
-    let updateInterval = 10; // seconds
+    let updateInterval = 5; // seconds
     let timeLeft = updateInterval;
     let autoUpdateEnabled = true;
     let updateTimer;
