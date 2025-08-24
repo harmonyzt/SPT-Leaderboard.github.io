@@ -790,7 +790,7 @@ function calculateOverallStats(data) {
 
     data.forEach(player => {
         if (!player.banned && !player.isCasual) {
-            const pmcRaids = Math.max(0, parseInt(player.pmcRaids) || 0);
+            const pmcRaids = player.pmcRaids || 0;
             const survivalRate = Math.min(100, Math.max(0, parseFloat(player.survivalRate) || 0));
             const rawKills = parseFloat(player.pmcKills) || 0;
             const rawKDR = parseFloat(player.killToDeathRatio);
