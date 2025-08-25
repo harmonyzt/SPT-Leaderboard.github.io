@@ -2025,12 +2025,11 @@ button:hover {
 }
 
 .pmc-level {
-    display: flex;
     position: relative;
     bottom: 45px;
     font-family: monospace;
     background-color: #ffffff14;
-    justify-self: center;
+    place-self: center;
     padding: 3px;
     border-radius: 8px;
     font-weight: 600;
