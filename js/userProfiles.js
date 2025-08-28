@@ -179,11 +179,6 @@ async function showPublicProfile(container, player) {
     // If player is in raid - show details of the raid
     let raidInfo = '';
     if (isOnline && playerStatus.raidDetails !== null) {
-
-        if(playerStatus.raidDetails.map === "Unknown"){
-            return;
-        }
-
         raidInfo = `
         <section class="raid-details" aria-label="Raid information">
             <span class="raid-map" aria-label="Map name">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
