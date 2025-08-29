@@ -713,6 +713,13 @@ async function showPublicProfile(container, player) {
                     // Re-render last raids
                     initLastRaids(playerId);
 
+                    const raidTimeElement = this.container.querySelector('.raid-time');
+                    this.raidTimeInterval = startRaidTimeAnimation(
+                        raidTimeElement,
+                        playerStatus.raidDetails.gameTime.replace('Time: ', ''),
+                        2
+                    );
+
                     // Information update
                     const raidInfoElement = document.querySelector('.raid-details');
                     if (isOnline && playerStatus.raidDetails !== null && raidInfoElement) {
@@ -725,6 +732,9 @@ async function showPublicProfile(container, player) {
                     } else if (raidInfoElement) {
                         raidInfoElement.style.display = 'none';
                     }
+                } else {
+                    clearInterval(this.raidTimeInterval);
+                    this.raidTimeInterval = null;
                 }
             } catch (error) {
                 console.error('Error updating status:', error);
@@ -736,6 +746,39 @@ async function showPublicProfile(container, player) {
         const intervalId = setInterval(updateStatus, 5000);
 
         return intervalId;
+    }
+
+    function startRaidTimeAnimation(timeElement, initialTime, timeMultiplier = 2) {
+        if (!timeElement || !initialTime) return;
+
+        let [hours, minutes, seconds] = initialTime.split(':').map(Number);
+
+        const updateTime = () => {
+            seconds += timeMultiplier;
+
+            if (seconds >= 60) {
+                minutes += Math.floor(seconds / 60);
+                seconds = seconds % 60;
+            }
+            if (minutes >= 60) {
+                hours += Math.floor(minutes / 60);
+                minutes = minutes % 60;
+            }
+            if (hours >= 24) {
+                hours = hours % 24;
+            }
+
+            const formattedTime = [
+                hours.toString().padStart(2, '0'),
+                minutes.toString().padStart(2, '0'),
+                seconds.toString().padStart(2, '0')
+            ].join(':');
+
+            timeElement.textContent = `Time: ${formattedTime}`;
+        };
+
+        // multiply
+        return setInterval(updateTime, 1000 / timeMultiplier);
     }
 
     let statusUpdateInterval;
