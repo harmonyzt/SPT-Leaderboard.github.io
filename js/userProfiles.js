@@ -1048,6 +1048,33 @@ function getPlayerSideImageHTML(player) {
 function generateBadgesHTML(player) {
     let badges = "";
 
+    const seasonTiers = [
+        {
+            condition: (seasons) => seasons > 1 && seasons <= 2,
+            icon: "bx bxs-joystick",
+            style: "",
+            tooltip: (seasons) => `This player has been around for ${seasons} seasons!`
+        },
+        {
+            condition: (seasons) => seasons > 2 && seasons <= 3,
+            icon: "bx bxs-medal",
+            style: "color: #CD7F32",
+            tooltip: (seasons) => `${seasons} seasons of service. Veteran player.`
+        },
+        {
+            condition: (seasons) => seasons > 3 && seasons <= 4,
+            icon: "bx bxs-award",
+            style: "color: #C0C0C0",
+            tooltip: (seasons) => `${seasons} seasons! A true champion.`
+        },
+        {
+            condition: (seasons) => seasons > 4,
+            icon: "bx bxs-crown",
+            style: "color: #FFD700; text-shadow: 0 0 5px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;",
+            tooltip: (seasons) => `${seasons} seasons of service. Truly a legend.`
+        }
+    ];
+
     // Find player in all seasons
     const playerData = allSeasonsCombinedData.find(
         (p) => p.id === player.id || p.name === player.name
@@ -1075,18 +1102,17 @@ function generateBadgesHTML(player) {
         </div>`;
     }
 
-    if (playerData && playerData.seasonsCount > 1 && playerData.seasonsCount <= 3) {
-        badges += `<div class="badge tooltip">
-            <em class='bx bxs-joystick'></em>
-            <span class="tooltiptext">This player has been around for ${playerData.seasonsCount} seasons!</span>
-      </div>`;
-    }
-
-    if (playerData && playerData.seasonsCount > 3) {
-        badges += `<div class="badge tooltip">
-            <em class='bx  bxs-medal-star' style="color:rgb(255, 221, 70)" ></em> 
-            <span class="tooltiptext">${playerData.seasonsCount} seasons of service. Truly a legend.</span>
-      </div>`;
+    // Используем seasonTiers вместо старых условий
+    if (playerData && playerData.seasonsCount > 1) {
+        const seasons = playerData.seasonsCount;
+        const tier = seasonTiers.find(t => t.condition(seasons));
+        
+        if (tier) {
+            badges += `<div class="badge tooltip">
+                <em class='${tier.icon}' style="${tier.style}"></em>
+                <span class="tooltiptext">${tier.tooltip(seasons)}</span>
+            </div>`;
+        }
     }
 
     if (player?.trusted && !player?.dev) {
