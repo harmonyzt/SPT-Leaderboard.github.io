@@ -754,6 +754,7 @@ async function showPublicProfile(container, player) {
         };
     }
 
+    // I have no clue, this is bullshit but it works
     class RaidTimeAnimator {
         constructor(timeElement, timeMultiplier = 7) {
             this.timeElement = timeElement;
@@ -880,6 +881,7 @@ function updateBodyHitsVisualization(raidHitsHistory) {
     const maxHits = Math.max(...Object.values(groupedHits));
 
     const getColorStyle = (hits, max) => {
+        // If body part has no hits, return this
         if (hits === 0) return { color: '#cdcdcd', opacity: '0.5' };
 
         const intensity = hits / max;
@@ -1057,14 +1059,14 @@ function generateBadgesHTML(player) {
         },
         {
             condition: (seasons) => seasons > 2 && seasons <= 3,
-            icon: "bx bxs-medal",
+            icon: "bx bxs-medal-star",
             style: "color: #CD7F32",
             tooltip: (seasons) => `${seasons} seasons of service. Veteran player.`
         },
         {
             condition: (seasons) => seasons > 3 && seasons <= 4,
-            icon: "bx bxs-award",
-            style: "color: #C0C0C0",
+            icon: "bx bxs-bullseye",
+            style: "color: #81ffdfff",
             tooltip: (seasons) => `${seasons} seasons! A true champion.`
         },
         {
@@ -1102,7 +1104,6 @@ function generateBadgesHTML(player) {
         </div>`;
     }
 
-    // Используем seasonTiers вместо старых условий
     if (playerData && playerData.seasonsCount > 1) {
         const seasons = playerData.seasonsCount;
         const tier = seasonTiers.find(t => t.condition(seasons));
