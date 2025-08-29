@@ -55,7 +55,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image:
         radial-gradient(circle at top left, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(114, 68, 239, 0.1) 0%, transparent 20%);
@@ -94,7 +94,6 @@ h1 {
     padding: 20px;
     z-index: 1000;
     font-weight: 700;
-    font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     text-align: center;
     border-top: 1px solid var(--accent-teal);
@@ -113,7 +112,6 @@ h1 {
 
 #seasonTimer {
     display: none;
-    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
     text-shadow: 1px 0px 1px rgb(255 255 255 / 70%);
@@ -225,9 +223,8 @@ h1 {
 }
 
 .season-selector label {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--accent-teal);
-    font-family: 'Inter', sans-serif;
 }
 
 .season-selector select {
@@ -380,7 +377,7 @@ tr:hover {
 }
 
 td {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-align: center;
     font-weight: 500;
@@ -522,7 +519,6 @@ td {
 }
 
 td:nth-child(2) {
-    font-family: 'Inter', sans-serif;
     font-size: 1em;
     color: white;
     font-weight: 600;
@@ -569,7 +565,6 @@ button,
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: bold;
     position: relative;
@@ -591,7 +586,7 @@ button:hover {
     transition: all 300ms ease-in-out;
     cursor: pointer;
     border-radius: 4px;
-    height: 47px;
+    height: 50px;
 }
 
 .player-name:hover {
@@ -794,7 +789,6 @@ button:hover {
     padding: 14px 28px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     z-index: 2;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
     box-sizing: border-box;
     font-size: 0.96rem;
     min-width: 1000px;
@@ -1545,7 +1539,6 @@ button:hover {
     font-size: 0.95em;
     font-weight: 600;
     color: var(--accent-teal);
-    font-family: 'Inter', sans-serif;
     letter-spacing: 0.5px;
     display: flex;
     justify-content: space-between;
@@ -3458,7 +3451,6 @@ button:hover {
     text-align: center;
 }
 
-
 .ban-text {
     display: block;
     font-family: 'Arial', sans-serif;
@@ -3783,8 +3775,7 @@ button:hover {
 
 /* Footer */
 .modern-footer {
-    background-color: rgba(57, 89, 131, 0.205);
-    ;
+    background-color: rgba(57, 89, 131, 0.205);;
     color: #f0f0f0;
     padding: 2.5rem 0;
     font-family: 'Inter', -apple-system, sans-serif;
