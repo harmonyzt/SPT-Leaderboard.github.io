@@ -681,6 +681,8 @@ async function showPublicProfile(container, player) {
     // Auto Status Updater
     //
     function startStatusUpdater(playerId, statusElement) {
+        let raidTimeAnimator = null;
+
         const updateStatus = async () => {
             try {
                 const playerStatus = heartbeatMonitor.getPlayerStatus(playerId);
@@ -690,7 +692,6 @@ async function showPublicProfile(container, player) {
 
                 if (!player.banned) {
                     if (isOnline) {
-                        // If in raid - show stats
                         if (playerStatus.raidDetails !== null) {
                             newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">In raid <div id="blink"></div></span>`;
                         } else {
@@ -706,91 +707,142 @@ async function showPublicProfile(container, player) {
                     newStatusHTML = `<span class="last-online-time">Banned</span>`;
                 }
 
-                // Update only if status changed
                 if (statusElement.innerHTML !== newStatusHTML) {
                     statusElement.innerHTML = newStatusHTML;
-
-                    // Re-render last raids
                     initLastRaids(playerId);
 
-                    const raidTimeElement = this.container.querySelector('.raid-time');
-                    this.raidTimeInterval = startRaidTimeAnimation(
-                        raidTimeElement,
-                        playerStatus.raidDetails.gameTime.replace('Time: ', ''),
-                        2
-                    );
-
-                    // Information update
                     const raidInfoElement = document.querySelector('.raid-details');
                     if (isOnline && playerStatus.raidDetails !== null && raidInfoElement) {
                         raidInfoElement.style.display = 'flex';
                         raidInfoElement.innerHTML = `
-                        <span class="raid-map">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
-                        <span class="raid-side">Side: ${playerStatus.raidDetails.side}</span>
-                        <span class="raid-time">Time: ${playerStatus.raidDetails.gameTime}</span>
-                    `;
+                            <span class="raid-map">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
+                            <span class="raid-side">Side: ${playerStatus.raidDetails.side}</span>
+                            <span class="raid-time">Time: ${playerStatus.raidDetails.gameTime}</span>
+                        `;
+
+                        // Init the thing
+                        const timeElement = raidInfoElement.querySelector('.raid-time');
+                        if (timeElement) {
+                            if (!raidTimeAnimator) {
+                                raidTimeAnimator = new RaidTimeAnimator(timeElement, 7);
+                            }
+                            raidTimeAnimator.start(playerStatus.raidDetails.gameTime);
+                        }
                     } else if (raidInfoElement) {
                         raidInfoElement.style.display = 'none';
+                        // Stop animation
+                        if (raidTimeAnimator) {
+                            raidTimeAnimator.stop();
+                        }
                     }
-                } else {
-                    clearInterval(this.raidTimeInterval);
-                    this.raidTimeInterval = null;
                 }
             } catch (error) {
                 console.error('Error updating status:', error);
             }
         };
 
-        // Update instantly and then each 5 seconds
         updateStatus();
         const intervalId = setInterval(updateStatus, 5000);
 
-        return intervalId;
+        return {
+            intervalId: intervalId,
+            stopTimeAnimator: () => {
+                if (raidTimeAnimator) {
+                    raidTimeAnimator.stop();
+                }
+            }
+        };
     }
 
-    function startRaidTimeAnimation(timeElement, initialTime, timeMultiplier = 2) {
-        if (!timeElement || !initialTime) return;
+    class RaidTimeAnimator {
+        constructor(timeElement, timeMultiplier = 7) {
+            this.timeElement = timeElement;
+            this.timeMultiplier = timeMultiplier;
+            this.intervalId = null;
+            this.currentTime = null;
+        }
 
-        let [hours, minutes, seconds] = initialTime.split(':').map(Number);
+        start(initialTime) {
+            this.stop(); // Stop last animation
 
-        const updateTime = () => {
-            seconds += timeMultiplier;
+            // parse format HH:MM:SS
+            const timeStr = initialTime.replace('Time: ', '');
+            let [hours, minutes, seconds] = timeStr.split(':').map(Number);
 
-            if (seconds >= 60) {
-                minutes += Math.floor(seconds / 60);
-                seconds = seconds % 60;
+            this.currentTime = {
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+
+            // 500ms update
+            this.intervalId = setInterval(() => this.update(), 500);
+            this.updateDisplay(); // First display
+        }
+
+        stop() {
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
             }
-            if (minutes >= 60) {
-                hours += Math.floor(minutes / 60);
-                minutes = minutes % 60;
+        }
+
+        update() {
+            if (!this.currentTime) return;
+
+            this.currentTime.seconds += this.timeMultiplier;
+
+            // Some time correction
+            if (this.currentTime.seconds >= 60) {
+                this.currentTime.minutes += Math.floor(this.currentTime.seconds / 60);
+                this.currentTime.seconds = this.currentTime.seconds % 60;
             }
-            if (hours >= 24) {
-                hours = hours % 24;
+            if (this.currentTime.minutes >= 60) {
+                this.currentTime.hours += Math.floor(this.currentTime.minutes / 60);
+                this.currentTime.minutes = this.currentTime.minutes % 60;
             }
+            if (this.currentTime.hours >= 24) {
+                this.currentTime.hours = this.currentTime.hours % 24;
+            }
+
+            this.updateDisplay();
+        }
+
+        updateDisplay() {
+            if (!this.currentTime) return;
 
             const formattedTime = [
-                hours.toString().padStart(2, '0'),
-                minutes.toString().padStart(2, '0'),
-                seconds.toString().padStart(2, '0')
+                Math.floor(this.currentTime.hours).toString().padStart(2, '0'),
+                Math.floor(this.currentTime.minutes).toString().padStart(2, '0'),
+                Math.floor(this.currentTime.seconds).toString().padStart(2, '0')
             ].join(':');
 
-            timeElement.textContent = `Time: ${formattedTime}`;
-        };
+            this.timeElement.textContent = `Time: ${formattedTime}`;
+        }
 
-        // multiply
-        return setInterval(updateTime, 1000 / timeMultiplier);
+        setTime(newTime) {
+            const timeStr = newTime.replace('Time: ', '');
+            let [hours, minutes, seconds] = timeStr.split(':').map(Number);
+
+            this.currentTime = {
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+
+            this.updateDisplay();
+        }
     }
 
-    let statusUpdateInterval;
-
-    // Find element to update
+    // Close button stuff
+    let statusUpdater;
     const statusElement = container.querySelector('.player-status span');
-    statusUpdateInterval = startStatusUpdater(player.id, statusElement);
-
+    statusUpdater = startStatusUpdater(player.id, statusElement);
     const closeButton = document.getElementById('closeButton');
     closeButton.addEventListener('click', () => {
-        if (statusUpdateInterval) {
-            clearInterval(statusUpdateInterval);
+        if (statusUpdater) {
+            clearInterval(statusUpdater.intervalId);
+            statusUpdater.stopTimeAnimator();
         }
     });
 }

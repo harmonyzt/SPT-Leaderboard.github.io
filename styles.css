@@ -2145,6 +2145,10 @@ button:hover {
     border-radius: 10px;
 }
 
+.raid-time {
+    transition: all 0.2s ease;
+}
+
 /* Hits Sheet */
 .body-parts-main {
     position: relative;
