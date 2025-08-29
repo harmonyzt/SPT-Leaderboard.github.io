@@ -673,9 +673,80 @@ async function showPublicProfile(container, player) {
     initLastRaids(player.id);
     renderFriendList(player);
     initHOF(player, bestWeapon);
+
+    //
+    // Auto Status Updater
+    //
+    function startStatusUpdater(playerId, statusElement) {
+        const updateStatus = async () => {
+            try {
+                const playerStatus = heartbeatMonitor.getPlayerStatus(playerId);
+                const isOnline = playerStatus.isOnline;
+
+                let newStatusHTML = '';
+
+                if (!player.banned) {
+                    if (isOnline) {
+                        // If in raid - show stats
+                        if (playerStatus.raidDetails !== null) {
+                            newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">In raid: ${getPrettyMapName(playerStatus.raidDetails.map)} <div id="blink"></div></span>`;
+                        } else {
+                            newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
+                        }
+                    } else {
+                        const lastOnlineTime = window.heartbeatMonitor.getLastOnlineTime(
+                            playerStatus.lastUpdate || player.lastPlayed
+                        );
+                        newStatusHTML = `<span class="last-online-time">Last seen ${lastOnlineTime}</span>`;
+                    }
+                } else {
+                    newStatusHTML = `<span class="last-online-time">Banned</span>`;
+                }
+
+                // Update only if status changed
+                if (statusElement.innerHTML !== newStatusHTML) {
+                    statusElement.innerHTML = newStatusHTML;
+
+                    // Information update
+                    const raidInfoElement = document.querySelector('.raid-details');
+                    if (isOnline && playerStatus.raidDetails !== null && raidInfoElement) {
+                        raidInfoElement.innerHTML = `
+                        <span class="raid-map">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
+                        <span class="raid-side">Side: ${playerStatus.raidDetails.side}</span>
+                        <span class="raid-time">Time: ${playerStatus.raidDetails.gameTime}</span>
+                    `;
+                    } else if (raidInfoElement) {
+                        raidInfoElement.innerHTML = '';
+                    }
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        };
+
+        // Update instantly and then each 5 seconds
+        updateStatus();
+        const intervalId = setInterval(updateStatus, 5000);
+
+        return intervalId;
+    }
+
+    let statusUpdateInterval;
+
+    // Find element to update
+    const statusElement = container.querySelector('.player-status span');
+    statusUpdateInterval = startStatusUpdater(player.id, statusElement);
+
+    const closeButton = document.getElementById('closeButton');
+    closeButton.addEventListener('click', () => {
+        if (statusUpdateInterval) {
+            clearInterval(statusUpdateInterval);
+        }
+    });
 }
 
 
+// Body hits functions
 function updateBodyHitsVisualization(raidHitsHistory) {
     // Sum up all player hits
     const totalHits = {
