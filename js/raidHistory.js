@@ -10,6 +10,18 @@ async function initLastRaids(playerId) {
         console.error('Container element not found');
         return;
     }
+    
+    // Show loader
+    statsContainer.innerHTML = `
+                        <div class="loader-glass">
+                        <div class="loader-content" id="main-profile-loader">
+                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                            <h3 class="loader-text">Crunching latest data for you...</h3>
+                            <div class="loader-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>`;
 
     try {
         const playerRaidsPath = `${lastRaidsPath}${playerId}.json?t=${Date.now()}`;
@@ -28,7 +40,7 @@ async function initLastRaids(playerId) {
         }
 
         const sortedRaids = data.raids.sort((a, b) =>
-            b.absoluteLastTime - a.absoluteLastTime 
+            b.absoluteLastTime - a.absoluteLastTime
         );
 
         renderRaidsStats(sortedRaids);
@@ -79,7 +91,7 @@ function renderRaidsStats(raids) {
                             <i class="fa-solid fa-skull-crossbones"></i> Killed in Action`}
                         </span>
                         <span class="raid-meta">
-                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • LC Earned: <span class="lb-coins">+${raid.lcPointsEarned? raid.lcPointsEarned : 0}</span> • ${lastRaidAgo || 'Just Now'} ${raid.lastRaidSurvived || raid.lastRaidRanThrough || raid.discFromRaid || raid.isTransition || raid.agressorName == null  ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
+                            ${raid.lastRaidMap || 'Unknown'} • ${raid.lastRaidAs || 'N/A'} • ${lastRaidDuration || '00:00'} • LC Earned: <span class="lb-coins">+${raid.lcPointsEarned ? raid.lcPointsEarned : 0}</span> • ${lastRaidAgo || 'Just Now'} ${raid.lastRaidSurvived || raid.lastRaidRanThrough || raid.discFromRaid || raid.isTransition || raid.agressorName == null ? `` : `• Killed by <span class="raid-killer">${raid.agressorName}</span>`}
                         </span>
                     </div>
 

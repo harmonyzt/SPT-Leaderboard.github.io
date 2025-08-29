@@ -132,6 +132,9 @@ async function showPublicProfile(container, player) {
         player.discordUser = playerData.discordUser;
     }
 
+    // Disable auto updating on the background
+    AutoUpdater.setEnabled(false);
+
     // Convert registration date of a player
     const regDate = player.registrationDate
         ? new Date(player.registrationDate * 1000).toLocaleDateString("en-EN", {
@@ -418,7 +421,7 @@ async function showPublicProfile(container, player) {
                 <div class="last-raids" id="raids-stats-container">
                     <div class="loader-glass">
                         <div class="loader-content" id="main-profile-loader">
-                            <img src="../media/loading_bar.gif" width="30" height="30" class="loader-icon">
+                            <img src="media/loading_bar.gif" width="30" height="30" class="loader-icon">
                             <h3 class="loader-text">Crunching latest data for you...</h3>
                             <div class="loader-progress">
                                 <div class="progress-bar"></div>
@@ -689,7 +692,7 @@ async function showPublicProfile(container, player) {
                     if (isOnline) {
                         // If in raid - show stats
                         if (playerStatus.raidDetails !== null) {
-                            newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">In raid: ${getPrettyMapName(playerStatus.raidDetails.map)} <div id="blink"></div></span>`;
+                            newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">In raid <div id="blink"></div></span>`;
                         } else {
                             newStatusHTML = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`;
                         }
@@ -707,16 +710,20 @@ async function showPublicProfile(container, player) {
                 if (statusElement.innerHTML !== newStatusHTML) {
                     statusElement.innerHTML = newStatusHTML;
 
+                    // Re-render last raids
+                    initLastRaids(playerId);
+
                     // Information update
                     const raidInfoElement = document.querySelector('.raid-details');
                     if (isOnline && playerStatus.raidDetails !== null && raidInfoElement) {
+                        raidInfoElement.style.display = 'flex';
                         raidInfoElement.innerHTML = `
                         <span class="raid-map">Map: ${getPrettyMapName(playerStatus.raidDetails.map)}</span>
                         <span class="raid-side">Side: ${playerStatus.raidDetails.side}</span>
                         <span class="raid-time">Time: ${playerStatus.raidDetails.gameTime}</span>
                     `;
                     } else if (raidInfoElement) {
-                        raidInfoElement.innerHTML = '';
+                        raidInfoElement.style.display = 'none';
                     }
                 }
             } catch (error) {
@@ -1194,6 +1201,7 @@ function setupModalCloseHandlers() {
 
     if (closeBtn) {
         closeBtn.addEventListener("click", () => {
+            AutoUpdater.setEnabled(true);
             modal.style.display = "none";
             document.body.style.overflow = "auto"; // Re-enable scrolling
             window.location.hash = ``;
@@ -1202,6 +1210,7 @@ function setupModalCloseHandlers() {
 
     window.addEventListener("keydown", function closeModalOnEsc(e) {
         if (e.key === "Escape") {
+            AutoUpdater.setEnabled(true);
             modal.style.display = "none";
             document.body.style.overflow = "auto";
             window.location.hash = ``;
