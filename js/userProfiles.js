@@ -38,6 +38,7 @@ async function openProfile(playerId) {
         return;
     }
 
+    // Don't open profile again for whatever reason if profile already opened
     if(isProfileOpened){
         return;
     }
