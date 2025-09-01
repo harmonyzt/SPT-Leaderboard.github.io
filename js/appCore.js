@@ -50,6 +50,7 @@ if (isLocalhost) {
     profileUrlPath = `127.0.0.1:5500/#id=`;
     heartbeatsPath = `fallbacks/heartbeats.json?t=${Date.now()}`;
     achievementsPath = `../fallbacks/shared/achievement_counters.json`;
+    lastRaidsPath = `../fallbacks/player_raids/`;
 }
 
 // Call main init on DOM load

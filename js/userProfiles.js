@@ -289,7 +289,7 @@ async function showPublicProfile(container, player) {
                 <div class="aboutMe">${aboutText}</div>
 
                 <div class="player-overview">
-                    <div class="player-overview-side">PMC</div>
+                    <div class="player-overview-side player-overview-pmc">PMC</div>
                     <div class="stat-item">
                         <div class="stat-value">${player.killToDeathRatio || '0.00'}</div>
                         <div class="stat-name">K/D</div>
@@ -309,7 +309,7 @@ async function showPublicProfile(container, player) {
                 </div>
 
                 <div class="player-overview">
-                    <div class="player-overview-side">SCAV</div>
+                    <div class="player-overview-side player-overview-scav">SCAV</div>
                     <div class="stat-item">
                         <div class="stat-value">${player.scavKillToDeathRatio || '0.00'}</div>
                         <div class="stat-name">K/D</div>
@@ -338,10 +338,10 @@ async function showPublicProfile(container, player) {
             </div>
 
             <div class="battlepass-level profile-section">
-            <div class="achievement-title Common">
-                Leaderboard BattlePass Level
-            </div>
-            <img src="" class="rank-icon" id="playerRankIcon" />
+                <div class="achievement-title Common">
+                    Leaderboard BattlePass Level
+                </div>
+                <img src="" class="rank-icon" id="playerRankIcon" />
                 <div class="bp-wrapper">
                     <div class="level-info">
                         <span class="level-value">0</span>
@@ -986,6 +986,8 @@ async function renderWeaponList(playerId, modWeaponStats) {
             weaponItem.classList.add('weapon-silver');
         } else if (index === 2) {
             weaponItem.classList.add('weapon-bronze');
+        } else {
+            weaponItem.classList.add('profile-section');
         }
 
         weaponItem.innerHTML = `

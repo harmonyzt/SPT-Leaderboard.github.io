@@ -1896,19 +1896,44 @@ button:hover {
 }
 
 .profile-section {
-    background: #ffffff08;
-    border-radius: 10px;
-    padding: 15px 20px;
-    border: 1px solid #ffffff21;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ffffff08, #ffffff12);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #ffffff30;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    margin-bottom: 20px;
-    backdrop-filter: blur(10px);
-    transition: all 300ms;
+    margin-bottom: 24px;
+    backdrop-filter: blur(12px) saturate(180%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transition: left 0.7s ease;
+}
+
+.profile-section:hover::before {
+    left: 100%;
 }
 
 .profile-section:hover {
     border: 1px solid #ffffff49;
+}
+
+.profile-section:hover {
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .profile-section h3 {
@@ -1938,24 +1963,78 @@ button:hover {
     gap: 15px;
 }
 
+/* Main PMC/SCAV stats on the profile*/
 .player-overview {
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     text-align: center;
-    gap: 10px;
-    padding: 12px;
-    background-color: #ffffff0d;
-    border-radius: 8px;
-    margin: 5px 0;
-    backdrop-filter: blur(5px);
-    border: 1px solid #ffffff21;
+    padding: 10px;
+    background: linear-gradient(145deg, #ffffff0a, #ffffff12);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.player-overview:hover {
+    transform: translateY(-2px);
 }
 
 .player-overview-side {
     align-self: center;
-    font-weight: 600;
-    padding: 2px;
+    font-weight: 700;
+    padding: 10px 15px;
+    background: linear-gradient(145deg, #ffffff15, #ffffff0d);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 60px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.player-overview-scav {
+    color: #ffa66b;
+    background: linear-gradient(145deg, rgba(255, 166, 107, 0.15), rgba(255, 174, 107, 0.08));
+}
+
+.player-overview-pmc {
+    color: #4ecdc4;
+    background: linear-gradient(145deg, rgba(78, 205, 196, 0.15), rgba(78, 205, 196, 0.08));
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: center;
+    color: #bfebff;
+    text-shadow: 0 0 3px rgba(191, 235, 255, 0.4);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-item:hover .stat-value {
+    cursor: pointer;
+    transform: scale(1.01);
+    color: #91dcff;
+    text-shadow: 0 0 15px rgba(145, 220, 255, 0.6);
+}
+
+.stat-name {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .user-main-card .pfp {
@@ -2044,11 +2123,46 @@ button:hover {
 }
 
 /* Player full height preview */
+.playermodel {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.playermodel h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+.playermodel h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #92fff063, transparent);
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+.playermodel:hover h3::after {
+    transform: scaleX(1);
+}
+
 .playermodel-image img {
     width: 100%;
     display: flex;
     height: auto;
-    justify-self: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Online Status */
@@ -2107,10 +2221,6 @@ button:hover {
 .user-achievements {
     grid-area: achievements;
     height: fit-content;
-}
-
-.battlepass-level {
-    grid-area: battlepass;
 }
 
 .raid-block {
@@ -2547,13 +2657,24 @@ button:hover {
 /* Last Raids History */
 .last-raid-feed {
     position: relative;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
     height: fit-content;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 20px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
     overflow: clip
+}
+
+.last-raid-feed:hover {
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .error-raid-load {
@@ -2570,6 +2691,11 @@ button:hover {
     width: 100%;
     height: 100%;
     z-index: -1;
+    opacity: 0.25;
+    transition: opacity 0.5s ease;
+}
+
+.last-raid-feed:hover .last-raid-full-background {
     opacity: 0.35;
 }
 
@@ -2578,20 +2704,58 @@ button:hover {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: blur(2px) brightness(0.7);
+    transition: all 0.5s ease;
+}
+
+.last-raid-feed:hover .last-raid-full-background img {
+    filter: blur(1px) brightness(0.8);
+    transform: scale(1.05);
 }
 
 .section-title {
     color: #84d2ff;
-    margin: 0 0 15px 0;
-    font-size: 1.2em;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 0 20px 0;
+    font-size: 1.3em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #84d2ff, transparent);
+    transition: width 0.4s ease;
+}
+
+.last-raid-feed:hover .section-title::after {
+    width: 120px;
 }
 
 .lb-coins {
-    font-weight: 600;
+    font-weight: 700;
     color: #f59e0b;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    animation: pulseGold 2s infinite;
+}
+
+@keyframes pulseGold {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 .section-title::after {
@@ -2605,16 +2769,22 @@ button:hover {
 }
 
 .last-raid-map {
-    width: 80px;
-    height: 50px;
+    width: 90px;
+    height: 60px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    border: 2px solid rgba(7, 9, 14, 0.5);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.last-raid-map:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .last-raid-map img {
@@ -2622,26 +2792,59 @@ button:hover {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.4s ease;
 }
 
 .raid-result {
-    gap: 3px;
-    font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1em;
     vertical-align: middle;
-    border-radius: 5px;
-    font-weight: 600;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.raid-result i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
 }
 
 .raid-meta {
     display: block;
-    font-size: 1em;
-    margin-top: 8px;
+    font-size: 0.95em;
+    margin-top: 12px;
     opacity: 0.9;
+    line-height: 1.6;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .raid-killer {
-    font-weight: 600;
+    font-weight: 700;
     color: #ff6a6a;
+    text-shadow: 0 0 8px rgba(255, 106, 106, 0.4);
+    position: relative;
+}
+
+.raid-killer::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #ff6a6a, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.raid-killer:hover::after {
+    transform: scaleX(1);
 }
 
 .stats-blocks {
@@ -2672,24 +2875,33 @@ button:hover {
 
 .raid-stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    animation: slideInUp 0.8s ease;
 }
 
 .raid-stat-block {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 12px;
-    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    padding: 16px;
+    border-radius: 12px;
     text-align: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(3px);
-    border: 1px solid rgb(255 255 255 / 10%);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 .raid-stat-block:hover {
-    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.raid-stat-block:hover .profile-stat-value {
+    color: #84d2ff;
+    transform: scale(1.1);
 }
 
 .stat-row {
@@ -2701,15 +2913,20 @@ button:hover {
 
 .profile-stat-label {
     color: #b0b0c0;
-    font-size: 0.85em;
-    margin-bottom: 5px;
+    font-size: 0.9em;
+    margin-bottom: 8px;
     display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .profile-stat-value {
     color: #ffffff;
-    font-weight: bold;
-    font-size: 1.1em;
+    font-weight: 800;
+    font-size: 1.2em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 /* Survived */
@@ -2718,7 +2935,8 @@ button:hover {
 }
 
 .survived-bg {
-    background: radial-gradient(650px 240px at top left, hsl(178deg 69% 52% / 22%), #fffdfd03);
+    background: radial-gradient(800px 300px at top left, hsl(148, 100%, 72%, 0.25), hsl(210, 30%, 12%, 0.9));
+    border: 1px solid rgba(106, 255, 163, 0.2);
 }
 
 /* Died */
@@ -2727,7 +2945,8 @@ button:hover {
 }
 
 .died-bg {
-    background: radial-gradient(650px 240px at top left, hsla(0, 58%, 47%, 0.185), #fffdfd03);
+    background: radial-gradient(800px 300px at top left, hsla(0, 100%, 72%, 0.25), hsl(210, 30%, 12%, 0.9));
+    border: 1px solid rgba(255, 106, 106, 0.2);
 }
 
 /* Runner */
@@ -2736,7 +2955,8 @@ button:hover {
 }
 
 .run-through-bg {
-    background: radial-gradient(650px 240px at top left, hsla(0, 0%, 100%, 0.185), #ffffff03);
+    background: radial-gradient(800px 300px at top left, hsla(0, 0%, 100%, 0.2), hsl(210, 30%, 12%, 0.9));
+    border: 1px solid rgba(255, 250, 250, 0.2);
 }
 
 /* Transit */
@@ -2745,7 +2965,8 @@ button:hover {
 }
 
 .transit-bg {
-    background: radial-gradient(650px 240px at top left, #f4783025, #fffdfd03);
+    background: radial-gradient(800px 300px at top left, hsla(20, 90%, 57%, 0.25), hsl(210, 30%, 12%, 0.9));
+    border: 1px solid rgba(244, 119, 48, 0.2);
 }
 
 /* Disconnected */
@@ -2754,7 +2975,8 @@ button:hover {
 }
 
 .disconnected-bg {
-    background: radial-gradient(650px 240px at top left, hsla(0, 58%, 47%, 0.185), #fffdfd03);
+    background: radial-gradient(800px 300px at top left, hsla(0, 100%, 72%, 0.25), hsl(210, 30%, 12%, 0.9));
+    border: 1px solid rgba(255, 106, 106, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -2784,24 +3006,29 @@ button:hover {
     flex-direction: column;
 }
 
-.survived-border {
+.last-raid-map.survived-border {
     border: 2px solid #6affa3;
+    box-shadow: 0 0 20px rgba(106, 255, 163, 0.3);
 }
 
-.died-border {
+.last-raid-map.died-border {
     border: 2px solid #ff6a6a;
+    box-shadow: 0 0 20px rgba(255, 106, 106, 0.3);
 }
 
-.run-through-border {
+.last-raid-map.run-through-border {
     border: 2px solid #fffafa;
+    box-shadow: 0 0 20px rgba(255, 250, 250, 0.3);
 }
 
-.transit-border {
+.last-raid-map.transit-border {
     border: 2px solid #F47730;
+    box-shadow: 0 0 20px rgba(244, 119, 48, 0.3);
 }
 
-.disconnected-border {
+.last-raid-map.disconnected-border {
     border: 2px solid #ff6a6a;
+    box-shadow: 0 0 20px rgba(255, 106, 106, 0.3);
 }
 
 .badge.tooltip {
@@ -2925,7 +3152,7 @@ button:hover {
     color: #ccc;
 }
 
-/* Profile Battlepass tab */
+/* Profile Battlepass */
 .hall-of-fame-button-container {
     margin-top: 20px;
     padding-left: 35px;
@@ -3024,24 +3251,59 @@ button:hover {
 }
 
 .bp-wrapper {
-    width: 74%;
+    width: 340px;
     float: left;
 }
 
 .level-info {
     display: flex;
     justify-content: center;
-    font-size: x-large;
-    background: #ffffff0d;
-    border-radius: 10px;
+    align-items: center;
+    font-size: 1.5rem;
+    background: linear-gradient(145deg, #ffffff0a, #ffffff15);
+    border-radius: 12px;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.level-info::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(146, 255, 240, 0.05), transparent);
+    animation: shimmer 8s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .rank-icon {
     display: block;
-    width: 85px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
     float: left;
-    margin-right: 20px;
+    margin-right: 24px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.rank-icon:hover {
+    transform: scale(1.05) rotate(5deg);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
 .level-label {
@@ -3049,8 +3311,10 @@ button:hover {
 }
 
 .level-value {
-    font-weight: bold;
+    font-weight: 800;
     color: #92fff0;
+    text-shadow: 0 0 10px rgba(146, 255, 240, 0.5);
+    font-size: 2rem;
 }
 
 .level-value-wp {
@@ -3059,43 +3323,76 @@ button:hover {
 }
 
 .exp-bar-container {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .exp-bar {
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .exp-progress {
     height: 100%;
-    background: linear-gradient(90deg, #8ad0f096, #90ff9fcf);
-    border-radius: 5px;
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg,
+            #8ad0f0,
+            #90ff9f,
+            #8ad0f0);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: gradientShift 2s ease infinite;
+    box-shadow: 0 0 10px rgba(138, 208, 240, 0.4);
 }
 
 .exp-progress-wp {
     height: 100%;
-    background: linear-gradient(90deg, #f0c48a96, #f8ff90cf);
-    border-radius: 5px;
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg,
+            #f0c48a,
+            #f8ff90,
+            #f0c48a);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: gradientShift 2s ease infinite;
+    box-shadow: 0 0 10px rgba(240, 196, 138, 0.4);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .exp-numbers {
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
 }
 
 .exp-remaining {
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
-    margin-top: 8px;
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .remaining-value {
