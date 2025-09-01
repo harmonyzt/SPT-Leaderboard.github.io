@@ -10,6 +10,9 @@ const RARITY_ORDER = {
     'Common': 2
 };
 
+// To prevent any flicker
+let isProfileOpened = false;
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadAchievementsData();
 });
@@ -32,6 +35,10 @@ async function openProfile(playerId) {
     // Couldn't find
     if (!player) {
         showToast(`Couldn't find player`, 'error', 8000)
+        return;
+    }
+
+    if(isProfileOpened){
         return;
     }
 
@@ -115,6 +122,7 @@ async function getCustomProfileSettings(playerId) {
 // Public profile
 async function showPublicProfile(container, player) {
 
+    isProfileOpened = true;
     const playerData = await getCustomProfileSettings(player.id);
 
     if (playerData) {
@@ -1328,6 +1336,7 @@ function setupModalCloseHandlers() {
             AutoUpdater.setEnabled(true);
             modal.style.display = "none";
             document.body.style.overflow = "auto"; // Re-enable scrolling
+            isProfileOpened = false;
             window.location.hash = ``;
         });
     }
@@ -1337,6 +1346,7 @@ function setupModalCloseHandlers() {
             AutoUpdater.setEnabled(true);
             modal.style.display = "none";
             document.body.style.overflow = "auto";
+            isProfileOpened = false;
             window.location.hash = ``;
         }
     });
