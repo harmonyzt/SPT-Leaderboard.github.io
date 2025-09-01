@@ -64,23 +64,23 @@
                         <i class="fa-solid fa-coins"></i>
                         <span>GET networkBalance={marketToken}</span>
                     </li>
-                    <li class="command-item" data-command="getUserById">
+                    <li class="command-item" data-command="getHeartbeats">
                         <i class="fa-solid fa-heart-pulse"></i>
                         <span>GET heartbeats</span>
                     </li>
-                    <li class="command-item" data-command="getUserById">
+                    <li class="command-item" data-command="getHeartbeat">
                         <i class="fa-solid fa-heart-pulse"></i>
                         <span>GET heartbeat={profileId}</span>
                     </li>
-                    <li class="command-item" data-command="getUserById">
+                    <li class="command-item" data-command="getInventory">
                         <i class="fa-solid fa-briefcase"></i>
                         <span>GET inventory={marketToken}</span>
                     </li>
-                    <li class="command-item" data-command="getUserById">
+                    <li class="command-item" data-command="getNotifications">
                         <i class="fa-solid fa-bell"></i>
                         <span>GET notifications={marketToken}</span>
                     </li>
-                    <li class="command-item" data-command="getUserById">
+                    <li class="command-item" data-command="postIsBanned">
                         <i class="fa-solid fa-user-shield"></i>
                         <span>POST isBanned</span>
                     </li>
@@ -102,6 +102,16 @@
                             <code>
                             https://visuals.nullcore.net/SPT/release/v1/index.php
                         </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <p>API also provides headers to know what limit you currently have.</p>
+                        <div class="code-block">
+                            <code>
+                                X-RateLimit-Limit<br>
+                                X-RateLimit-Remaining<br>
+                                X-RateLimit-Reset<br>
+                            </code>
                         </div>
                     </div>
                     <div class="api-section">
@@ -416,6 +426,198 @@
                             &nbsp;&nbsp;"success": true,<br>
                             &nbsp;&nbsp;"data": { "balance": 100 },<br>
                             &nbsp;&nbsp;"message": "Balance retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getHeartbeats">
+                    <div class="api-header">
+                        <h2 class="api-title">GET heartbeats</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieve a list of heartbeats, their timestamps, profile IDs, and state all the online players are in.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?heartbeats<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { heartbeatData },<br>
+                            &nbsp;&nbsp;"message": "Heartbeats retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getHeartbeat">
+                    <div class="api-header">
+                        <h2 class="api-title">GET heartbeat</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Similar to retrieving data of all heartbeats. Instead will just return current heartbeat of a specified profile ID.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>heartbeat</td>
+                                    <td>string</td>
+                                    <td>Profile ID</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?heartbeat=684oya410ee00bb06074589a<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { heartbeatData },<br>
+                            &nbsp;&nbsp;"message": "Heartbeats retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getInventory">
+                    <div class="api-header">
+                        <h2 class="api-title">GET inventory</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Similar to retrieving data of market data. Instead will just return current inventory contents (Item IDs) of a specified Market ID.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>inventory</td>
+                                    <td>string</td>
+                                    <td>Market Token</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?heartbeat=684oya410ee00bb06074589a<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { notificationData },<br>
+                            &nbsp;&nbsp;"message": "Notifications retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getNotifications">
+                    <div class="api-header">
+                        <h2 class="api-title">GET notifications</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Similar to retrieving data of market data. Instead will just return current notifications of a specified Market ID.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>notifications</td>
+                                    <td>string</td>
+                                    <td>Market Token</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?heartbeat=684oya410ee00bb06074589a<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { notificationData },<br>
+                            &nbsp;&nbsp;"message": "Notifications retrieved successfully"<br>
                             }
                         </code>
                         </div>
