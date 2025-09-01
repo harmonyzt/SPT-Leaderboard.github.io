@@ -1905,7 +1905,7 @@ button:hover {
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
     overflow: hidden;
     margin-bottom: 24px;
-    backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(130%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     animation: fadeIn 0.4s ease-in-out;
