@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../api-documentation/apidoc.css">
+        <link rel="icon" href="../media/TP.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+        <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
+        <script src="../js/apiMonitor.js"></script>
+        <script src="../api-documentation/apidoc.js"></script>
+        <title>SPT Leaderboard - Docs</title>
+    </head>
+
+    <body>
+        <nav class="navbar animate__animated animate__fadeIn">
+            <a href="#">
+                <img src="../media/newlogo_transparent.png" alt="SPT Leaderboard Logo" class="navbar-logo">
+            </a>
+            <div class="navbar-links-container">
+                <a href="../" class="navbar-link">Go back</a>
+                <a href="https://visuals.nullcore.net/SPT/network/login/index.php" class="navbar-link navbar-link--login">Network Login</a>
+            </div>
+        </nav>
+        <div class="top-stats-bar">
+            <div class="live-data-label" id="serverStatus">Getting API Status...</div>
+        </div>
+        <div class="container">
+            <div class="sidebar">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search methods...">
+                </div>
+                <ul class="command-list">
+                    <li class="command-item active" data-command="introduction">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Introduction</span>
+                    </li>
+                    <li class="command-item" data-command="getAllSeasons">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>GET allSeasons</span>
+                    </li>
+                    <li class="command-item" data-command="getSeason">
+                        <i class="fas fa-users command-icon"></i>
+                        <span>GET season={seasonNumber}</span>
+                    </li>
+                    <li class="command-item" data-command="getPlayer">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>GET player={profileId}</span>
+                    </li>
+                    <li class="command-item" data-command="getPlayerMarketData">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>GET playerMarketData={marketToken}</span>
+                    </li>
+                    <li class="command-item" data-command="getPlayerProfileData">
+                        <i class="fa-solid fa-user-pen"></i>
+                        <span>GET playerProfileData={profileId}</span>
+                    </li>
+                    <li class="command-item" data-command="getNetworkBalance">
+                        <i class="fa-solid fa-coins"></i>
+                        <span>GET networkBalance={marketToken}</span>
+                    </li>
+                    <li class="command-item" data-command="getUserById">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>GET heartbeats</span>
+                    </li>
+                    <li class="command-item" data-command="getUserById">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>GET heartbeat={profileId}</span>
+                    </li>
+                    <li class="command-item" data-command="getUserById">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>GET inventory={marketToken}</span>
+                    </li>
+                    <li class="command-item" data-command="getUserById">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>GET notifications={marketToken}</span>
+                    </li>
+                    <li class="command-item" data-command="getUserById">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span>POST isBanned</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-api-container">
+                <div class="api-doc" id="introduction">
+                    <div class="api-header">
+                        <h2 class="api-title">Introduction</h2>
+                    </div>
+                    <p class="api-description"> Welcome to the new SPT Leaderboard API Documentation. We're gladly offering anyone who would like to observe, or just poke around, a free way to utilize our simple API for whatever ideas you store. </p>
+                    <div class="api-section">
+                        <h3 class="section-title"> Getting started </h3>
+                        <p>API only has one endpoint, therefore you can execute it with only GET and POST. Current API does not require authentication, unless it's a request to the SPTLB Network requiring you a Market Token. Overall a client is limited to 15 requests a second.</p>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title"> Base API URL for requests </h3>
+                        <div class="code-block">
+                            <code>
+                            https://visuals.nullcore.net/SPT/release/v1/index.php
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Response Format
+                        </h3>
+                        <p>All API responses are returned in JSON format with the following structure:</p>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { ... },<br>
+                            &nbsp;&nbsp;"message": "Success"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                    <!--<div class="danger-block">
+                        <div class="danger-content">
+                            <h4>Important Notice</h4>
+                            <p>placeholder hi</p>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="api-doc" id="getAllSeasons">
+                    <div class="api-header">
+                        <h2 class="api-title">GET allSeasons</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieves a list of all players ever recorded in the system.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?allSeasons<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"season1": { "leaderboard": [...] },<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"season2": { "leaderboard": [...] },<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"season3": { "leaderboard": [...] }<br>
+                            },<br>
+                            &nbsp;&nbsp;"message": "All seasons data retrieved successfully"<br>
+                            }<br>
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getSeason">
+                    <div class="api-header">
+                        <h2 class="api-title">GET season</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieves a list of player from a specified season</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>season</td>
+                                    <td>integer</td>
+                                    <td>Number of season to return (1-5)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?season=2<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { leaderboardData },<br>
+                            &nbsp;&nbsp;"message": "Season $season data retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getPlayer">
+                    <div class="api-header">
+                        <h2 class="api-title">GET player</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieves current player season data</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>player</td>
+                                    <td>string</td>
+                                    <td>Profile ID</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?player=68459257000124366ff1d55d<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { playerData },<br>
+                            &nbsp;&nbsp;"message": "Season $season data retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getPlayerMarketData">
+                    <div class="api-header">
+                        <h2 class="api-title">GET playerMarketData</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieves data of a player from SPTLB Network</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>playerMarketData</td>
+                                    <td>string</td>
+                                    <td>Market Token. Can only be found in SPTLB Network (log-in)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?playerMarketData=6845gerg3492IJ57000GkfFIO1234t4366ff1d55d<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { playerMarketData },<br>
+                            &nbsp;&nbsp;"message": "Market data retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getPlayerProfileData">
+                    <div class="api-header">
+                        <h2 class="api-title">GET playerProfileData</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Retrieves data of a player profile customization. Name, profile description, profile picture (custom), and profile stylings.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>playerProfileData</td>
+                                    <td>string</td>
+                                    <td>Profile ID</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?playerProfileData=68a410ee00052bb06074589a<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { playerProfileData },<br>
+                            &nbsp;&nbsp;"message": "Player profile data retrieved"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-doc" id="getNetworkBalance">
+                    <div class="api-header">
+                        <h2 class="api-title">GET networkBalance</h2>
+                        <span class="api-method">GET</span>
+                    </div>
+                    <p class="api-description"> Similar to retrieving data of getPlayerMarketData. Instead will just return current balance.</p>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list section-icon"></i> Parameters
+                        </h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>networkBalance</td>
+                                    <td>string</td>
+                                    <td>Market Token</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-code section-icon"></i> Example Request
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            <span class="code-keyword">GET</span> https://visuals.nullcore.net/SPT/release/v1/index.php?networkBalance=684hrjtjyoyUa410ee0005GRDWIKFJE2bb06074589a<br>
+                        </code>
+                        </div>
+                    </div>
+                    <div class="api-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-reply section-icon"></i> Example Response
+                        </h3>
+                        <div class="code-block">
+                            <code>
+                            {<br>
+                            &nbsp;&nbsp;"success": true,<br>
+                            &nbsp;&nbsp;"data": { "balance": 100 },<br>
+                            &nbsp;&nbsp;"message": "Balance retrieved successfully"<br>
+                            }
+                        </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="modern-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-slogan">
+                        <img src="../media/newlogo_transparent.png" class="footer-logo">
+                        <p class="slogan">Community driven project. With dedication and love.</p>
+                    </div>
+                    <div class="license-info">
+                        <p>© 2025 SPT Leaderboard. This service is not maintained by or associated with the SPT project or Battlestate Games.</p>
+                        <p>Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io/issues" target="_blank" rel="noopener">Contribute</a></li>
+                        <li><a href="https://github.com/harmonyzt/SPT-Leaderboard.github.io" target="_blank" rel="noopener">GitHub Page</a></li>
+                        <li><a href="https://hub.sp-tarkov.com/files/file/2787-spt-leaderboard/" target="_blank" rel="noopener">SPTarkov Mod</a></li>
+                        <li><a href="https://harmonyzt.github.io/SPT-Leaderboard.github.io/api-documentation" target="_blank" rel="noopener">API Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>

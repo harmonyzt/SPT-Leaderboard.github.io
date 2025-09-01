@@ -1641,13 +1641,11 @@ button:hover {
     flex: 1;
     padding: 30px;
     border-radius: 10px;
-    background: var(--card-bg);
+    background: radial-gradient(650px 240px at top left, hsla(216, 69%, 52%, 0.151), #fffdfd03);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(74, 159, 245, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(50px);
+    transition: all 0.4s ease-in-out;
 }
 
 .feature-card.animate {
@@ -1656,9 +1654,8 @@ button:hover {
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: rgba(74, 159, 245, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    border-color: rgba(74, 159, 245, 0.6);
 }
 
 .feature-icon {
@@ -1674,7 +1671,7 @@ button:hover {
 }
 
 .feature-card p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     opacity: 0.9;
 }
@@ -1980,6 +1977,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 5px;
+    width: 250px;
 }
 
 .user-main-card .aboutMe {
@@ -3775,7 +3773,8 @@ button:hover {
 
 /* Footer */
 .modern-footer {
-    background-color: rgba(57, 89, 131, 0.205);;
+    background-color: rgba(57, 89, 131, 0.205);
+    ;
     color: #f0f0f0;
     padding: 2.5rem 0;
     font-family: 'Inter', -apple-system, sans-serif;
