@@ -31,11 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // Weapons
             if (userData.weapons) {
                 for (const weaponName in userData.weapons) {
+                    const cleanWeaponName = weaponName.replace(/[★☆]/g, "");
+
                     const weaponInfo = userData.weapons[weaponName];
                     const stats = weaponInfo.stats;
 
-                    if (!weaponMap.has(weaponName)) {
-                        weaponMap.set(weaponName, {
+                    if (!weaponMap.has(cleanWeaponName)) {
+                        weaponMap.set(cleanWeaponName, {
                             kills: 0,
                             headshots: 0,
                             totalShots: 0,
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     }
 
-                    const weaponEntry = weaponMap.get(weaponName);
+                    const weaponEntry = weaponMap.get(cleanWeaponName);
                     weaponEntry.kills += stats.kills;
                     weaponEntry.headshots += stats.headshots;
                     weaponEntry.totalShots += stats.totalShots;
@@ -196,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "62e7e7bbe6da9612f743f1e0": { main: "Secondary weapons", sub: "Underbarrels", caliber: "40mm" }, // GP-25
 
             "5abccb7dd8ce87001773e277": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APB
+            "56e0598dd2720bb5668b45a6": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // PB
             "5a17f98cfcdbcb0980087290": { main: "Secondary weapons", sub: "Pistols", caliber: "9x18mm" }, // APS
             "66015072e9f84d5680039678": { main: "Secondary weapons", sub: "Pistols", caliber: "20x1" }, // Blicky
             "669fa409933e898cce0c2166": { main: "Secondary weapons", sub: "Pistols", caliber: ".357 Magnum" }, // Desert Eagle L5 .357
@@ -269,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             return {
-                name,
+                name: name.replace(/[★☆]/g, ""),
                 mainCategory,
                 subCategory,
                 caliber,
@@ -340,6 +343,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const card = document.createElement('div');
             card.classList.add('weapon-card');
 
+            const cleanWeaponName = weapon.name.replace(/[★☆]/g, "");
+
             const weaponTagsHTML = weapon.tags.map(tag =>
                 `<span class="weapon-tag weapon-tag--${tag.type}">${tag.text}</span>`
             ).join('');
@@ -351,10 +356,10 @@ document.addEventListener('DOMContentLoaded', function () {
             card.innerHTML = `
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
-                    ${weapon.name ? `<img src="../media/weapon_icons/${weapon.name}.webp" alt="${weapon.name}" class="weapon-icon">` : ''}
+                    ${cleanWeaponName ? `<img src="../media/weapon_icons/${cleanWeaponName}.webp" alt="${cleanWeaponName}" class="weapon-icon">` : ''}
                     <div class="weapon-name-container">
                         <span class="weapon-caliber">${weapon.caliber}</span>
-                        <span class="weapon-name">${weapon.name}</span>
+                        <span class="weapon-name">${cleanWeaponName}</span>
                         <div class="weapon-tags">${weaponTagsHTML}</div>
                     </div>
                 </div>

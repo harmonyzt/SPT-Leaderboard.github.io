@@ -978,6 +978,8 @@ async function renderWeaponList(playerId, modWeaponStats) {
     weaponList.className = 'weapon-list';
 
     sortedWeapons.forEach(([weaponName, weaponData], index) => {
+        // Clean weapon names from stars
+        const cleanWeaponName = weaponName.replace(/[★☆]/g, "");
 
         const kills = weaponData.stats?.kills || 0;
         const shotsFired = weaponData.stats?.totalShots || 0;
@@ -1011,7 +1013,7 @@ async function renderWeaponList(playerId, modWeaponStats) {
                 </div>
             </div>
             <div class="weapon-icon">
-                <img src="media/weapon_icons/${weaponName}.webp" alt="${weaponName}" onerror="this.style.display='none'">
+                <img src="media/weapon_icons/${cleanWeaponName}.webp" alt="${weaponName}" onerror="this.style.display='none'">
             </div>
         `;
 
@@ -1019,6 +1021,11 @@ async function renderWeaponList(playerId, modWeaponStats) {
     });
 
     weaponsContainer.appendChild(weaponList);
+}
+
+// Clean weapon name helper
+function cleanWeaponName(weaponName) {
+    return weaponName.replace(/[★☆]/g, "");
 }
 
 function getBestWeapon(playerId, modWeaponStats) {
@@ -1034,11 +1041,12 @@ function getBestWeapon(playerId, modWeaponStats) {
     for (const [weaponName, weaponData] of Object.entries(playerWeapons)) {
         const kills = weaponData.stats?.kills || 0;
 
+        const cleanWeaponNames = cleanWeaponName(weaponName);
         // Found best weapon by kills and assign data
         if (kills > maxKills) {
             maxKills = kills;
             bestWeapon = {
-                name: weaponName,
+                name: cleanWeaponNames,
                 ...weaponData,
             };
         }
