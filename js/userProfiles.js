@@ -898,7 +898,7 @@ async function showPublicProfile(container, player) {
     function submitComment(commentText, receiverId) {
         const url = new URL('https://visuals.nullcore.net/SPT/network/explore/add_comment.php');
 
-        url.searchParams.append('comment', encodeURIComponent(commentText));
+        url.searchParams.append('comment', commentText);
         url.searchParams.append('receiverId', receiverId);
         url.searchParams.append('timestamp', Date.now());
         url.searchParams.append('source', 'gh_pages');
