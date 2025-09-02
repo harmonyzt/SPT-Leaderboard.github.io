@@ -39,7 +39,7 @@ async function openProfile(playerId) {
     }
 
     // Don't open profile again for whatever reason if profile already opened
-    if(isProfileOpened){
+    if (isProfileOpened) {
         return;
     }
 
@@ -462,10 +462,29 @@ async function showPublicProfile(container, player) {
                           <div class="stat-label">Bosses Killed</div>
                         </div>
                     </div>
+
+                    <div class="recent-raids-stats" id="recent-raids-stats">
+                        <!-- JavaScript -->
+                    </div>
                 </div>
 
             </div>
 
+            <div class="profile-section">
+                <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Write your comment... (Must Be logged in SPTLB Network)"></textarea>
+                    <button class="comment-submit">
+                        <i class='bx bx-send'></i>
+                        Send
+                    </button>
+                </div>
+                
+                <div class="divider"></div>
+            
+                <div class="comments-list">
+                </div>
+
+            </div>
         </div>
 
         <!-- Right -->
@@ -685,6 +704,7 @@ async function showPublicProfile(container, player) {
     initLastRaids(player.id);
     renderFriendList(player);
     initHOF(player, bestWeapon);
+    loadComments(player.id);
 
     //
     // Auto Status Updater
@@ -855,8 +875,137 @@ async function showPublicProfile(container, player) {
             statusUpdater.stopTimeAnimator();
         }
     });
+
+    // Comment sending functionality
+    const commentSubmit = document.getElementById('submit-comment');
+    const commentInput = document.getElementById('comment-text');
+    commentSubmit.addEventListener('click', function () {
+        if (commentInput.value.trim() === '') {
+            commentInput.focus();
+            return;
+        }
+
+        // Send comment
+        submitComment(commentInput.value.trim(), player.id);
+    });
+
+    function submitComment(commentText, receiverId) {
+        // Make it with GET params
+        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/add_comment.php');
+
+        // Assign those
+        url.searchParams.append('comment', commentText);
+        url.searchParams.append('recieverId', receiverId);
+        url.searchParams.append('timestamp', Date.now());
+
+        // And gooooo
+        window.location.href = url.toString();
+    }
 }
 
+// Comments sending 
+async function loadComments(playerId) {
+    try {
+        const response = await fetch(`https://visuals.nullcore.net/SPT/network/explore/comments/player_${playerId}.json`);
+
+        if (!response.ok) {
+            // If doesn't exist, show empty state
+            if (response.status === 404) {
+                displayNoComments();
+                return;
+            }
+            throw new Error('Failed to load comments');
+        }
+
+        const comments = await response.json();
+        displayComments(comments);
+
+    } catch (error) {
+        console.error('Error loading comments:', error);
+        displayNoComments();
+    }
+}
+
+// Function to display comments in the UI
+function displayComments(comments) {
+    const commentsList = document.querySelector('.comments-list');
+
+    // Clear existing comments
+    commentsList.innerHTML = '';
+
+    if (!comments || comments.length === 0) {
+        displayNoComments();
+        return;
+    }
+
+    // Sort comments by timestamp (newest first)
+    comments.sort((a, b) => b.timestamp - a.timestamp);
+
+    // Create and append each comment
+    comments.forEach(comment => {
+        const commentElement = createCommentElement(comment);
+        commentsList.appendChild(commentElement);
+    });
+}
+
+// Function to create individual comment element
+function createCommentElement(comment) {
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+
+    // Format date ("September 2 2025, 14:10")
+    const commentDate = new Date(comment.timestamp * 1000);
+    const formattedDate = formatDate(commentDate);
+
+    commentDiv.innerHTML = `
+        <div class="comment-header">
+            <img src="${comment.avatar || 'media/default_avatar.png'}" 
+                 alt="User Avatar" class="user-avatar">
+            <div class="user-info">
+                <div class="user-name">${comment.author || 'Anonymous'}</div>
+                <div class="comment-date">${formattedDate}</div>
+            </div>
+        </div>
+        <div class="comment-content">
+            ${escapeHtml(comment.text)}
+        </div>
+    `;
+
+    return commentDiv;
+}
+
+// display "no comments if.. no comments lmao
+function displayNoComments() {
+    const commentsList = document.querySelector('.comments-list');
+    commentsList.innerHTML = `
+        <div class="no-comments">
+            <i class='bx bx-message-rounded'></i>
+            <p>No comments yet</p>
+            <span>Be the first to leave a comment!</span>
+        </div>
+    `;
+}
+
+// format date
+function formatDate(date) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+    return `${month} ${day} ${year}, ${hours}:${minutes}`;
+}
+
+// Helper function to escape HTML (for security)
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
 
 // Body hits functions
 function updateBodyHitsVisualization(raidHitsHistory) {
@@ -1126,7 +1275,7 @@ function generateBadgesHTML(player) {
     if (playerData && playerData.seasonsCount > 1) {
         const seasons = playerData.seasonsCount;
         const tier = seasonTiers.find(t => t.condition(seasons));
-        
+
         if (tier) {
             badges += `<div class="badge tooltip">
                 <em class='${tier.icon}' style="${tier.style}"></em>

@@ -2231,8 +2231,7 @@ button:hover {
 }
 
 .raid-summary {
-    display: flex;
-    justify-content: space-around;
+    display: block;
     text-align: center;
 }
 
@@ -2248,6 +2247,48 @@ button:hover {
 
 .raid-time {
     transition: all 0.2s ease;
+}
+
+/* Recent stats for raid */
+.recent-raids-stats {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recent-stats-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.recent-stats-header h3 {
+    font-size: 1.1rem;
+    color: #bfebff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.recent-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.recent-stats-grid .stat-card {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recent-stats-grid .stat-value {
+    font-size: 1.1rem;
+    color: #ffd700;
+}
+
+.recent-stats-grid .stat-label {
+    font-size: 0.8rem;
 }
 
 /* Hits Sheet */
@@ -2322,28 +2363,28 @@ button:hover {
 }
 
 .weapon-gold {
-    background: radial-gradient(350px 200px at top right, 
-                rgba(255, 215, 0, 0.4) 30%, 
-                rgba(218, 165, 32, 0.3) 60%, 
-                rgba(255, 253, 253, 0.05));
+    background: radial-gradient(350px 200px at top right,
+            rgba(255, 215, 0, 0.4) 30%,
+            rgba(218, 165, 32, 0.3) 60%,
+            rgba(255, 253, 253, 0.05));
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
     background-clip: padding-box;
 }
 
 .weapon-silver {
-    background: radial-gradient(350px 200px at top right, 
-                rgba(192, 192, 192, 0.5) 30%, 
-                rgba(169, 169, 169, 0.3) 60%, 
-                rgba(255, 253, 253, 0.05));
+    background: radial-gradient(350px 200px at top right,
+            rgba(192, 192, 192, 0.5) 30%,
+            rgba(169, 169, 169, 0.3) 60%,
+            rgba(255, 253, 253, 0.05));
     box-shadow: 0 0 12px rgba(192, 192, 192, 0.3);
     background-clip: padding-box;
 }
 
 .weapon-bronze {
-    background: radial-gradient(350px 200px at top right, 
-                rgba(205, 127, 50, 0.45) 30%, 
-                rgba(139, 69, 19, 0.35) 60%, 
-                rgba(255, 253, 253, 0.05));
+    background: radial-gradient(350px 200px at top right,
+            rgba(205, 127, 50, 0.45) 30%,
+            rgba(139, 69, 19, 0.35) 60%,
+            rgba(255, 253, 253, 0.05));
     box-shadow: 0 0 10px rgba(205, 127, 50, 0.25);
     background-clip: padding-box;
 }
@@ -4578,4 +4619,139 @@ button:hover {
         flex: 1 1 100%;
         max-width: 100%;
     }
+}
+
+/* Comment Section */
+.comment-form {
+    margin-bottom: 30px;
+}
+
+.comment-input {
+    width: 96%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    color: #fff;
+    font-size: 1rem;
+    resize: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #5d93ff;
+    box-shadow: 0 0 0 2px rgba(93, 147, 255, 0.2);
+}
+
+.comment-submit {
+    background: linear-gradient(90deg, #5d93ff 0%, #7b68ee 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comment-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(93, 147, 255, 0.3);
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid rgba(93, 147, 255, 0.5);
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #bfebff;
+    font-size: 1.1rem;
+}
+
+.comment-date {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.comment-content {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-left: 60px;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 25px 0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.no-comments {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.no-comments i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+    color: #ccc;
+}
+
+.no-comments p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.no-comments span {
+    font-size: 14px;
+    color: #888;
 }

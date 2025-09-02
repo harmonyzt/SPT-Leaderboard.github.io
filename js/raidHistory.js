@@ -10,7 +10,7 @@ async function initLastRaids(playerId) {
         console.error('Container element not found');
         return;
     }
-    
+
     // Show loader
     statsContainer.innerHTML = `
                         <div class="loader-glass">
@@ -58,8 +58,42 @@ function renderRaidsStats(raids) {
     }
 
     const statsContainer = document.getElementById('raids-stats-container');
+    const recentStatsContainer = document.getElementById('recent-raids-stats');
+    const recentStats = calculateRecentStats(raids);
 
     let html = '';
+    let recentStatsHtml = `
+        <div class="recent-stats-header">
+            <h3>Last ${raids.length} Raids Summary</h3>
+        </div>
+        <div class="recent-stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.survivalRate}%</div>
+                <div class="stat-label">Survival Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.avgKills}</div>
+                <div class="stat-label">Avg Kills/Raid</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.totalKills}</div>
+                <div class="stat-label">Total Kills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.avgDamage}</div>
+                <div class="stat-label">Avg Damage</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.totalEXP}</div>
+                <div class="stat-label">Total EXP</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${recentStats.totalLC}</div>
+                <div class="stat-label">Total LC Earned</div>
+            </div>
+        </div>
+    `;
+
     raids.forEach(raid => {
         const lastRaidDuration = formatSeconds(raid.raidTime);
         const lastRaidAgo = formatLastPlayedRaid(raid.absoluteLastTime);
@@ -128,5 +162,36 @@ function renderRaidsStats(raids) {
     });
 
     statsContainer.innerHTML = html;
+    recentStatsContainer.innerHTML = recentStatsHtml;
+}
 
+function calculateRecentStats(raids) {
+    const stats = {
+        totalKills: 0,
+        totalDamage: 0,
+        totalEXP: 0,
+        totalLC: 0,
+        survived: 0,
+        runs: raids.length
+    };
+
+    raids.forEach(raid => {
+        stats.totalKills += (raid.raidKills || 0) + (raid.scavsKilled || 0) + (raid.bossesKilled || 0);
+        stats.totalDamage += raid.raidDamage || 0;
+        stats.totalEXP += raid.lastRaidEXP || 0;
+        stats.totalLC += raid.lcPointsEarned || 0;
+
+        if (raid.lastRaidSurvived || raid.lastRaidRanThrough || raid.discFromRaid || raid.isTransition) {
+            stats.survived++;
+        }
+    });
+
+    return {
+        survivalRate: Math.round((stats.survived / stats.runs) * 100),
+        avgKills: (stats.totalKills / stats.runs).toFixed(1),
+        totalKills: stats.totalKills,
+        avgDamage: Math.round(stats.totalDamage / stats.runs),
+        totalEXP: stats.totalEXP.toLocaleString(),
+        totalLC: stats.totalLC.toLocaleString()
+    };
 }
