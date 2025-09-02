@@ -1,15 +1,15 @@
 {
     "6888d1dd000188376211c7d1": {
         "id": "6888d1dd000188376211c7d1",
-        "timestamp": 1756457968,
-        "type": "in_menu",
+        "timestamp": 1766457968,
+        "type": "online",
         "map": null,
         "side": null,
         "gameTime": null
     },
     "68ab67c10000d2ca7821684d": {
         "id": "68ab67c10000d2ca7821684d",
-        "timestamp": 1756458618,
+        "timestamp": 1766458618,
         "type": "in_raid",
         "map": "bigmap",
         "side": "Bear",
@@ -17,7 +17,7 @@
     },
     "68a08519000471eb66f0a127": {
         "id": "68a08519000471eb66f0a127",
-        "timestamp": 1756457639,
+        "timestamp": 1766457639,
         "type": "in_stash",
         "map": null,
         "side": null,
@@ -25,7 +25,7 @@
     },
     "68a6f1020003b4851d21158a": {
         "id": "68a6f1020003b4851d21158a",
-        "timestamp": 1756458634,
+        "timestamp": 1766458634,
         "type": "in_raid",
         "map": "RezervBase",
         "side": "Bear",
@@ -33,15 +33,15 @@
     },
     "683f05e700037c2f510dcdfa": {
         "id": "683f05e700037c2f510dcdfa",
-        "timestamp": 1756458577,
-        "type": "in_stash",
+        "timestamp": 1766458577,
+        "type": "online",
         "map": null,
         "side": null,
         "gameTime": null
     },
     "68b0505e00024b0707e5d788": {
         "id": "68b0505e00024b0707e5d788",
-        "timestamp": 1757458609,
+        "timestamp": 1767458609,
         "type": "in_stash",
         "map": "Sandbox",
         "side": "Usec",
