@@ -896,22 +896,17 @@ async function showPublicProfile(container, player) {
     });
 
     function submitComment(commentText, receiverId) {
-        const formData = new FormData();
-        formData.append('comment', commentText);
-        formData.append('receiverId', receiverId);
+        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/add_comment.php');
 
-        fetch('https://visuals.nullcore.net/SPT/network/explore/add_comment.php', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    commentInput.value = '';
-                    loadComments(receiverId);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        url.searchParams.append('comment', encodeURIComponent(commentText));
+        url.searchParams.append('receiverId', receiverId);
+        url.searchParams.append('timestamp', Date.now());
+        url.searchParams.append('source', 'gh_pages');
+
+        // Оpen in new thing
+        window.open(url.toString(), '_blank');
+
+        commentInput.value = '';
     }
 }
 
