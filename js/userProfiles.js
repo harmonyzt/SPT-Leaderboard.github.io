@@ -275,7 +275,7 @@ async function showPublicProfile(container, player) {
 
         <button id="closeButton" class="close-profile-button">×</button>
 
-        <div class="left-column">
+        <div class="left-column animate animate__animated animate__fadeInLeft">
 
             <div class="user-main-card profile-section" id="main-profile-card">
                 <div class="pfp"><img src="${player.profilePicture}" class="player-avatar" id="profile-avatar" alt="${player.name}" onerror="this.src='media/default_avatar.png';" /></div>
@@ -423,7 +423,7 @@ async function showPublicProfile(container, player) {
         </div>
 
         <!-- Central -->
-        <div class="center-column">
+        <div class="center-column animate animate__animated animate__fadeInUp">
 
             <!-- Raid History -->
             <div class="raid-block">
@@ -487,7 +487,7 @@ async function showPublicProfile(container, player) {
         </div>
 
         <!-- Right -->
-        <div class="right-column">
+        <div class="right-column animate animate__animated animate__fadeInRight">
 
             <!-- Player image -->
             <div class="playermodel profile-section" id="playermodel">
@@ -1508,7 +1508,6 @@ function setupModalCloseHandlers() {
         closeBtn.addEventListener("click", () => {
             AutoUpdater.setEnabled(true);
             modal.style.display = "none";
-            document.body.style.overflow = "auto"; // Re-enable scrolling
             isProfileOpened = false;
             window.location.hash = ``;
         });
@@ -1518,7 +1517,6 @@ function setupModalCloseHandlers() {
         if (e.key === "Escape") {
             AutoUpdater.setEnabled(true);
             modal.style.display = "none";
-            document.body.style.overflow = "auto";
             isProfileOpened = false;
             window.location.hash = ``;
         }
@@ -1644,25 +1642,4 @@ function closeLoader() {
 function capitalize(str, locale = 'en-EN') {
     if (!str) return str;
     return str[0].toLocaleUpperCase(locale) + str.slice(1).toLocaleLowerCase(locale);
-}
-
-// To 00:00
-function formatSeconds(seconds) {
-    const mins = Math.floor(seconds / 60)
-        .toString()
-        .padStart(2, "0");
-    const secs = (seconds % 60).toString().padStart(2, "0");
-    return `${mins}:${secs}`;
-}
-
-// Check if image exists
-function checkImageExists(imageUrl, callback) {
-    const img = new Image();
-    img.onload = function () {
-        callback(true);
-    };
-    img.onerror = function () {
-        callback(false);
-    };
-    img.src = imageUrl;
 }
