@@ -960,9 +960,11 @@ function createCommentElement(comment) {
     const commentDiv = document.createElement('div');
     commentDiv.className = 'comment';
 
-    // Format date ("September 2 2025, 14:10")
     const commentDate = new Date(comment.timestamp * 1000);
     const formattedDate = formatDate(commentDate);
+
+    // Decode text to look normal
+    const decodedText = decodeHtmlEntities(comment.text);
 
     commentDiv.innerHTML = `
         <div class="comment-header">
@@ -974,7 +976,7 @@ function createCommentElement(comment) {
             </div>
         </div>
         <div class="comment-content">
-            ${escapeHtml(comment.text)}
+            ${decodedText}
         </div>
     `;
 
@@ -1007,11 +1009,17 @@ function formatDate(date) {
     return `${month} ${day} ${year}, ${hours}:${minutes}`;
 }
 
-// Helper function to escape HTML (for security)
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+// Decode comments we got from file
+function decodeHtmlEntities(text) {
+    const entities = {
+        '&#39;': "'",
+        '&quot;': '"',
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>'
+    };
+
+    return text.replace(/&#?\w+;/g, match => entities[match] || match);
 }
 
 // Body hits functions
