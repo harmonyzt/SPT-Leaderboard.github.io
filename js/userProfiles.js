@@ -483,7 +483,6 @@ async function showPublicProfile(container, player) {
             
                 <div class="comments-list">
                 </div>
-
             </div>
         </div>
 
@@ -889,17 +888,30 @@ async function showPublicProfile(container, player) {
         submitComment(commentInput.value.trim(), player.id);
     });
 
+    commentInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            commentSubmit.click();
+        }
+    });
+
     function submitComment(commentText, receiverId) {
-        // Make it with GET params
-        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/add_comment.php');
+        const formData = new FormData();
+        formData.append('comment', commentText);
+        formData.append('receiverId', receiverId);
 
-        // Assign those
-        url.searchParams.append('comment', commentText);
-        url.searchParams.append('recieverId', receiverId);
-        url.searchParams.append('timestamp', Date.now());
-
-        // And gooooo
-        window.location.href = url.toString();
+        fetch('https://visuals.nullcore.net/SPT/network/explore/add_comment.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    commentInput.value = '';
+                    loadComments(receiverId);
+                }
+            })
+            .catch(error => console.error('Error:', error));
     }
 }
 
