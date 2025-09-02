@@ -505,13 +505,14 @@ async function displayLeaderboard(data) {
         }
 
         let playerGameMode = '';
-
-        if (player.isUsingFika && player.isUsingRealism && !player.banned) {
-            playerGameMode = `FIKA & REALISM`;
-        } else if (player.isUsingFika && !player.banned) {
-            playerGameMode = `FIKA`;
-        } else if (player.isUsingRealism && !player.banned) {
-            playerGameMode = `REALISM`;
+        if (!player.banned) {
+            if (player.isUsingRealism) {
+                playerGameMode = `REALISM`;
+            } else if (player.isUsingWTT) {
+                playerGameMode = `WTT`;
+            } else if (player.isUsingFika) {
+                playerGameMode = `FIKA`;
+            }
         }
 
         // Prestige icon
@@ -534,7 +535,7 @@ async function displayLeaderboard(data) {
                 : `${profileOpenIcon}`
             }</td>
             <td>${badge}</td>
-            <td>${player.publicProfile? `${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})` : `${player.pmcRaids}`}</td>
+            <td>${player.publicProfile ? `${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})` : `${player.pmcRaids}`}</td>
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
             <td class="${player.killToDeathRatioClass}">${player.killToDeathRatio}</td>
             <td class="${player.averageLifeTimeClass}">${formatSeconds(player.averageLifeTime)}</td>

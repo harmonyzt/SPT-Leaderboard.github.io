@@ -997,9 +997,9 @@ async function renderWeaponList(playerId, modWeaponStats) {
             weaponItem.classList.add('weapon-silver');
         } else if (index === 2) {
             weaponItem.classList.add('weapon-bronze');
-        } else {
-            weaponItem.classList.add('profile-section');
         }
+
+        weaponItem.classList.add('profile-section');
 
         weaponItem.innerHTML = `
             <div class="weapon-info">
@@ -1013,7 +1013,7 @@ async function renderWeaponList(playerId, modWeaponStats) {
                 </div>
             </div>
             <div class="weapon-icon">
-                <img src="media/weapon_icons/${cleanWeaponName}.webp" alt="${weaponName}" onerror="this.style.display='none'">
+                <img src="media/weapon_icons/${cleanWeaponName}.webp" alt="${weaponName}" onerror="this.src='media/default_weapon_icon.png';" />
             </div>
         `;
 

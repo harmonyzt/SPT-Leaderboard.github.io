@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
             card.innerHTML = `
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
-                    ${cleanWeaponName ? `<img src="../media/weapon_icons/${cleanWeaponName}.webp" alt="${cleanWeaponName}" class="weapon-icon">` : ''}
+                    <img src="../media/weapon_icons/${cleanWeaponName}.webp" alt="${cleanWeaponName}" class="weapon-icon" onerror="this.src='../media/default_weapon_icon.png';" />
                     <div class="weapon-name-container">
                         <span class="weapon-caliber">${weapon.caliber}</span>
                         <span class="weapon-name">${cleanWeaponName}</span>

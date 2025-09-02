@@ -1904,7 +1904,7 @@ button:hover {
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     backdrop-filter: blur(12px) saturate(130%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -2322,15 +2322,30 @@ button:hover {
 }
 
 .weapon-gold {
-    background: radial-gradient(350px 200px at top right, #ffd90018 50%, #fffdfd03);
+    background: radial-gradient(350px 200px at top right, 
+                rgba(255, 215, 0, 0.4) 30%, 
+                rgba(218, 165, 32, 0.3) 60%, 
+                rgba(255, 253, 253, 0.05));
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    background-clip: padding-box;
 }
 
 .weapon-silver {
-    background: radial-gradient(350px 200px at top right, #c0c0c03a 50%, #fffdfd03);
+    background: radial-gradient(350px 200px at top right, 
+                rgba(192, 192, 192, 0.5) 30%, 
+                rgba(169, 169, 169, 0.3) 60%, 
+                rgba(255, 253, 253, 0.05));
+    box-shadow: 0 0 12px rgba(192, 192, 192, 0.3);
+    background-clip: padding-box;
 }
 
 .weapon-bronze {
-    background: radial-gradient(350px 200px at top right, #68450433 50%, #fffdfd03);
+    background: radial-gradient(350px 200px at top right, 
+                rgba(205, 127, 50, 0.45) 30%, 
+                rgba(139, 69, 19, 0.35) 60%, 
+                rgba(255, 253, 253, 0.05));
+    box-shadow: 0 0 10px rgba(205, 127, 50, 0.25);
+    background-clip: padding-box;
 }
 
 .weapon-list {
@@ -2347,11 +2362,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 12px 15px;
-    background-color: #14151c0e;
-    border-radius: 6px;
-    color: #e0e0e0;
-    transition: background-color 0.2s;
-    border: 1px solid #ffffff21;
+    overflow: hidden;
 }
 
 .weapon-infos {
