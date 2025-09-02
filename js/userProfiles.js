@@ -472,8 +472,8 @@ async function showPublicProfile(container, player) {
 
             <div class="profile-section">
                 <div class="comment-form">
-                    <textarea class="comment-input" placeholder="Write your comment... (Must Be logged in SPTLB Network)"></textarea>
-                    <button class="comment-submit">
+                    <textarea class="comment-input" id="comment-text" placeholder="Write your comment... (Must Be logged in SPTLB Network)"></textarea>
+                    <button class="comment-submit" id="submit-comment">
                         <i class='bx bx-send'></i>
                         Send
                     </button>
