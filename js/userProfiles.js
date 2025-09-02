@@ -896,7 +896,7 @@ async function showPublicProfile(container, player) {
     });
 
     function submitComment(commentText, receiverId) {
-        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/add_comment.php');
+        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/index.php');
 
         url.searchParams.append('comment', commentText);
         url.searchParams.append('receiverId', receiverId);
