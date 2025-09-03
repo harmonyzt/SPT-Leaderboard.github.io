@@ -1273,6 +1273,15 @@ function generateBadgesHTML(player) {
         </div>`;
     }
 
+    // Was banned before
+    if(player.wasBannedBefore){
+        badges += `<div class="badge tooltip">
+        <em class='bx  bxs-target' style="color:rgba(255, 204, 204, 1);"></em>
+        <span class="tooltiptext">Mark of the dead. This player was previously banned</span>
+      </div>`;
+    }
+
+    // Kappa
     if (player.hasKappa) {
         badges += `<div class="badge tooltip">
             <img src="media/kappa.png" width="35" height="35" alt="Kappa">
