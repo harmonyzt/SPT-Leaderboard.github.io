@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadAchievementsData();
 });
 
-async function openProfile(playerId) {
+async function openProfile(playerId, bypass = false) {
+    // Don't open profile again for whatever reason if profile is already open
+    if (isProfileOpened && !bypass) {
+        return;
+    }
+
     const modal = document.getElementById("playerProfileModal");
     const modalContent = document.getElementById("modalPlayerInfo");
 
@@ -35,11 +40,6 @@ async function openProfile(playerId) {
     // Couldn't find
     if (!player) {
         showToast(`Couldn't find player`, 'error', 8000)
-        return;
-    }
-
-    // Don't open profile again for whatever reason if profile already opened
-    if (isProfileOpened) {
         return;
     }
 
@@ -98,6 +98,7 @@ function showDisqualProfile(container, player) {
             <h3>Profile Banned</h3>
             <p>This player has been suspended.</p>
             <div class="ban-details">
+                <p><strong>Profile ID:</strong> ${player.id}</p>
                 <p><strong>Reason:</strong> ${player.banReason}</p>
                 <p><strong>${player.tookAction === "harmony" ? `Admin:` : `Moderator:`}</strong> ${player.tookAction}</p>
             </div>
@@ -1274,7 +1275,7 @@ function generateBadgesHTML(player) {
     }
 
     // Was banned before
-    if(player.wasBannedBefore){
+    if (player.wasBannedBefore) {
         badges += `<div class="badge tooltip">
         <em class='bx  bxs-target' style="color:rgba(255, 204, 204, 1);"></em>
         <span class="tooltiptext">Mark of the dead. This player was previously banned</span>

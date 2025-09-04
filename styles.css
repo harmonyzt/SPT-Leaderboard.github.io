@@ -2793,49 +2793,73 @@ button:hover,
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
-    backdrop-filter: blur(2px);
+    z-index: 1000;
+    backdrop-filter: blur(8px) brightness(0.4);
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(139, 0, 0, 0.2));
 }
 
 .private-profile-content {
-    background: rgb(25, 25, 40);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 30px;
-    width: 350px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 2px solid #ff4757;
+    border-radius: 16px;
+    padding: 35px;
+    width: 380px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .private-profile-content h3 {
     color: #ff6b6b;
-    margin: 15px 0;
+    margin: 20px 0;
+    font-size: 24px;
+    text-shadow: 
+        0 0 10px rgba(255, 107, 107, 0.5),
+        0 0 20px rgba(255, 107, 107, 0.3);
 }
 
 .private-profile-content p {
     color: #b0b0c0;
-    margin-bottom: 12px;
-    line-height: 1.5;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 .ban-details {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px;
-    border-radius: 8px;
-    margin: 15px 0;
+    background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(255, 107, 107, 0.15) 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    position: relative;
+}
+
+.ban-details::before {
+    content: '⚠️';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    font-size: 18px;
 }
 
 .ban-details p {
-    margin: 8px 0;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.ban-details strong {
+    color: #ff6b6b;
+    font-weight: 600;
 }
 
 .ban-icon {
-    width: 200px;
-    height: 120px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.5));
+    width: 220px;
+    height: 140px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 71, 86, 0.096);
 }
 
 .banned {

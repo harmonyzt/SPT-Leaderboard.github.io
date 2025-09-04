@@ -68,7 +68,7 @@ async function renderFriendList(player) {
         // Add click handlers for player items so you can open them :D
         document.querySelectorAll('.friend-item').forEach(element => {
             element.addEventListener('click', () => {
-                openProfile(element.dataset.playerId);
+                openProfile(element.dataset.playerId, true);
             });
         });
     }
