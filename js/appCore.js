@@ -663,9 +663,9 @@ function convertTimeToSeconds(time) {
  *
  * @description
  * Calculates player skill scores considering:
- * - Kill/death ratio
+ * - Kill/Death ratio
  * - Survival rate
- * - Raid count
+ * - PMC Raids
  * - Average lifetime
  * Applies penalties for low raid count and short lifetimes
  */
@@ -714,13 +714,13 @@ async function calculateRanks(data) {
         }
 
         if (player.boostPerc) {
-            // Properly apply multiplier (+5% = 1.05, -3% = 0.97)
+            // Properly apply boost multiplier (+5% = 1.05, -3% = 0.97)
             const boostMultiplier = 1 + (player.boostPerc / 100);
 
             score *= boostMultiplier;
 
-            // Clamp boost to max +-20%
-            const clampedBoost = Math.min(Math.max(boostMultiplier, 0.8), 1.2);
+            // Clamp boost to max +-25%
+            const clampedBoost = Math.min(Math.max(boostMultiplier, 0.8), 1.25);
             score *= clampedBoost;
         }
 
@@ -848,21 +848,9 @@ function calculateOverallStats(data) {
     animateNumber('onlinePlayers', onlinePlayers, 0, previousStats.onlinePlayers);
     animateNumber('totalPlayTime', totalPlayTime, 0, previousStats.totalPlayTime);
 
+    // utils.js
     updateNavbarOffset();
 }
-
-
-//Auto offset top by top-stats-bar height
-function updateNavbarOffset() {
-    const bar = document.querySelector('.top-stats-bar');
-    if (bar) {
-        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight + 15 + 'px');
-        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight - 50 + 'px');
-    }
-}
-
-window.addEventListener('load', updateNavbarOffset);
-window.addEventListener('resize', updateNavbarOffset);
 
 function animateNumber(elementId, targetValue, decimals = 0, startValue = null) {
     const element = document.getElementById(elementId);

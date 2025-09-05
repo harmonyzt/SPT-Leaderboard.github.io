@@ -72,3 +72,16 @@ document.addEventListener('DOMContentLoaded', function () {
         bg.style.transform = `translate(-${x * 50}px, -${y * 50}px)`;
     });
 });
+
+// Auto offset top by top-stats-bar height
+// This is done so navbar doesn't get in the way when window is resized
+function updateNavbarOffset() {
+    const bar = document.querySelector('.top-stats-bar');
+    if (bar) {
+        document.documentElement.style.setProperty('--top-stats-height', bar.offsetHeight + 15 + 'px');
+        document.documentElement.style.setProperty('--top-stats-height-variant', bar.offsetHeight - 50 + 'px');
+    }
+}
+
+window.addEventListener('load', updateNavbarOffset);
+window.addEventListener('resize', updateNavbarOffset);

@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "57c44b372459772d2b39b8ce": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "9x39mm" }, // AS VAL
             "5cadfbf7ae92152ac412eeef": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "12.7x55mm" }, // ASh-12
             "62e7c4fba689e8c9c50dfc38": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AUG A1
-            "63171672192e68c5460cebc5": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AUG A3
+            "6718817435e3cfd9550d2c27": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // AUG A3
             "5c488a752e221602b412af63": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // MDR
             "623063e994fc3f7b302a9696": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // G36
             "5bb2475ed4351e00853264e3": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "5.56x45mm NATO" }, // HK 416A5
@@ -125,6 +125,18 @@ document.addEventListener('DOMContentLoaded', function () {
             "5b0bbe4e5acfc40dc528a72d": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // SA58
             "676176d362e0497044079f4c": { main: "Primary Weapons", sub: "Assault Rifles", caliber: "7.62x51mm NATO" }, // X-17 (SCAR)
             "674d6121c09f69dfb201a888": { main: "Primary Weapons", sub: "Assault Rifles", caliber: ".300 Blackout" }, // Velociraptor .300 BLK
+            // WTT
+            "686093d590c3dce07984c38a": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "7.62x39mm", tag: "WTT" }, // AEK-973
+            "6761b213607f9a6f79017c7e": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: ".300 Blackout", tag: "WTT" }, // KAC PDW
+            "664a5b945636ce820472f225": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "7.62x51mm NATO", tag: "WTT" }, // HK417
+            "6671ebcdd32bd95eb398e920": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // AK5C
+            "682d460e951a926af552d764": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // AK5C Custom
+            "682d3dd16900cb35564c8825": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // AK5D
+            "66839591f4d0cba7b041b2af": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // Patriot
+            "67a01e4ea2b82626b73d10a3": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // ACR
+            "66a545898022784400d6c836": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // Tavor X95
+            "664274a4d2e5fe0439d545a6": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "7.62x51mm NATO", tag: "WTT" }, // G3
+            "66ba249b102a9dd6040a6e7e": { main: "Primary Weapons", sub: "Assault Rifles WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // Carmel
 
             "627e14b21713922ded6f2c15": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "8.6x70mm" }, // AXMC
             "588892092459774ac91d4b11": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x51mm NATO" }, // DVL-10
@@ -135,6 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
             "5df24cf80dee1b22f862e9bc": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "7.62x51mm NATO" }, // T-5000M
             "673cab3e03c6a20581028bc1": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: "8.6x70mm" }, // TRG M10
             "5de652c31b7e3716273428be": { main: "Primary Weapons", sub: "Bolt-action rifles", caliber: ".366 TKM" }, // VPO-215 Gornostay
+            // WTT
+            "68a3836826dffa87b5767c04": { main: "Primary Weapons", sub: "Bolt-action rifles WTT", caliber: ".300 Winchester Magnum" }, // AXMC .300WM
+            "684e32eaec9f5eb3cacc7ca7": { main: "Primary Weapons", sub: "Bolt-action rifles WTT", caliber: ".300 Winchester Magnum" }, // MSR
 
             "6176aca650224f204c1da3fb": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // G28
             "5aafa857e5b5b00018480968": { main: "Primary Weapons", sub: "Designated marksman rifles", caliber: "7.62x51mm NATO" }, // M1A
@@ -154,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "6513ef33e06849f06c0957ca": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPD
             "65268d8ecb944ff1e90ea385": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPDN
             "5beed0f50db834001c062b12": { main: "Primary Weapons", sub: "Light machine guns", caliber: "7.62x39mm" }, // RPK-16
+            // WTT
+            "66e718dc498d978477e0ba75": { main: "Primary Weapons", sub: "Light machine guns WTT", caliber: "5.56x45mm NATO", tag: "WTT" }, // M249
 
             "66ffa9b66e19cc902401c5e8": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // AA-12 Gen 1
             "67124dcfa3541f2a1f0e788b": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // AA-12 Gen 2
@@ -170,6 +187,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "576165642459773c7a400233": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // Saiga-12K
             "674fe9a75e51f1c47c04ec23": { main: "Primary Weapons", sub: "Shotguns", caliber: "12/70" }, // Saiga-12K FA
             "5a38e6bac4a2826c6e06d79b": { main: "Primary Weapons", sub: "Shotguns", caliber: "20/70" }, // TOZ-106
+            // WTT
+            "6840ebf5b8687ba34f8dfbca": { main: "Primary Weapons", sub: "Shotguns WTT", caliber: "12/70", tag: "WTT" }, // Auto-5
 
             "5926bb2186f7744b1c6c6e60": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP5
             "5d2f0d8048f0356c925bc3b0": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // MP5K-N
@@ -194,6 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "668e71a8dadf42204c032ce1": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // UZI PRO SMG
             "5fb64bc92b1b027b1f50bcf2": { main: "Primary Weapons", sub: "Submachine guns", caliber: ".45 ACP" }, // Vector .45
             "5fc3f2d5900b1d5091531e57": { main: "Primary Weapons", sub: "Submachine guns", caliber: "9x19mm" }, // Vector 9x19
+            // WTT
+            "687afda52dc9fd6c0e14c602": { main: "Primary Weapons", sub: "Submachine guns WTT", caliber: "9x19mm" }, // EVO 3
 
             "62e7e7bbe6da9612f743f1e0": { main: "Secondary weapons", sub: "Underbarrels", caliber: "40mm" }, // GP-25
 
@@ -221,6 +242,10 @@ document.addEventListener('DOMContentLoaded', function () {
             "571a12c42459771f627b58a0": { main: "Secondary weapons", sub: "Pistols", caliber: "7.62x25mm" }, // TT
             "5b3b713c5acfc4330140bd8d": { main: "Secondary weapons", sub: "Pistols", caliber: "7.62x25mm" }, // TT Gold
             "6193a720f8ee7e52e42109ed": { main: "Secondary weapons", sub: "Pistols", caliber: ".45 ACP" }, // USP .45
+            // WTT
+            "68433b58a8f9a618b11082d4": { main: "Secondary weapons", sub: "Pistols WTT", caliber: "4.6x30mm" }, // UCP
+            "675ceb83e25d80bc676e15a6": { main: "Secondary weapons", sub: "Pistols WTT", caliber: "4.6x30mm" }, // Prodigy
+            "6761b213607f9a6f79017d52": { main: "Secondary weapons", sub: "Pistols WTT", caliber: "9x19mm" }, // EDC X9
 
             "61a4c8884f95bc3b2c5dc96f": { main: "Secondary weapons", sub: "Revolvers", caliber: ".357 Magnum" }, // CR 50DS
             "624c2e8614da335f1e034d8c": { main: "Secondary weapons", sub: "Revolvers", caliber: "9x19mm" }, // CR 200DS
@@ -314,11 +339,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (weapon.avgLevel < 15) weapon.tags.push({ text: 'Fresh Wipe Meta', type: 'level' });
             if (weapon.avgLevel > 30) weapon.tags.push({ text: 'Veteran Choice', type: 'level' });
             if (weapon.kills === maxKills) weapon.tags.push({ text: 'Most Kills', type: 'kills' });
-            if (weapon.kills > 50 && weapon.avgLevel > 20) weapon.tags.push({ text: 'Hot', type: 'kills' });
+            if (weapon.kills > 1000 && weapon.avgLevel > 25) weapon.tags.push({ text: 'Hot', type: 'kills' });
             if (weapon.headshotsPercent > 60 && weapon.headshotsPercent !== 100) weapon.tags.push({ text: 'Headhunter', type: 'accuracy' });
-            if (weapon.headshotsPercent < 20 && weapon.headshotsPercent !== 0) weapon.tags.push({ text: 'Spray & Pray', type: 'accuracy' });
             if (weapon.playerCount === maxPlayerCount) weapon.tags.push({ text: 'Popular', type: 'popularity' });
-            if (weapon.survivalRate > 95) weapon.tags.push({ text: 'Survivor', type: 'survival' });
 
             // Map tags
             if (weapon.topMaps.includes('factory4_day')) weapon.mapTags.push({ text: 'Factory Dominator', type: 'factory' });

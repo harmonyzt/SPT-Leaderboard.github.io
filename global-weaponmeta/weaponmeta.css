@@ -12,23 +12,45 @@
 
 .weapons-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
     width: 90%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 25px 0;
     position: relative;
 }
 
 .weapon-card {
-    background-color: rgba(255, 255, 255, 0.034);
-    border-radius: 16px;
-    padding: 24px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+    border-radius: 20px;
+    padding: 28px;
     border: 1px solid var(--card-border);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    height: 260px;
+    max-height: 340px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: cardAppear 0.6s ease forwards;
+}
+
+.weapon-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.weapon-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .weapon-card:hover {
@@ -36,21 +58,12 @@
     border-color: var(--primary-color);
 }
 
-.weapon-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--rank-bg);
-}
-
 .weapon-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    position: relative;
 }
 
 .weapon-icon {
@@ -68,36 +81,51 @@
 
 .weapon-name-wrapper img {
     width: 170px;
-    height: 70px;
-    transform: rotate(7deg);
+    height: 140px;
+    transform: rotate(5deg);
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.weapon-name-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .weapon-name {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--text-main);
     margin: 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .weapon-rank {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: -12px;
+    right: -12px;
     background: var(--rank-bg);
     color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    min-width: 40px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 800;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 18px;
 }
 
 .stat-item {
@@ -130,18 +158,21 @@
 }
 
 .progress-container {
-    height: 8px;
-    background: #334155;
-    border-radius: 4px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
     position: relative;
-    margin-top: 8px;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    background: var(--success-color);
-    border-radius: 4px;
+    background: linear-gradient(90deg, var(--success-color), #22c55e);
+    border-radius: 6px;
     position: relative;
+    transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: left;
 }
 
 .progress-bar::after {
@@ -150,8 +181,8 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: rgba(255, 255, 255, 0.3);
+    width: 3px;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.4), transparent);
 }
 
 .progress-value {
@@ -186,30 +217,43 @@
 .weapon-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 8px;
+    margin-top: 8px;
 }
 
+
 .weapon-tag {
-    font-size: 0.65rem;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-weight: 600;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 16px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
 
 .weapon-caliber {
-    background: rgba(255, 255, 255, 0.096);
-    border: 1px solid #ffffff3b;
-    border-radius: 5px;
-    width: fit-content;
-    font-size: 0.65rem;
-    padding: 2px;
-    margin-bottom: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    width: fit-content;
+    transition: all 0.3s ease;
 }
+
+.weapon-card:hover .weapon-caliber {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
 
 .weapon-tag--level {
     background: rgba(99, 102, 241, 0.2);
@@ -247,7 +291,6 @@
 }
 
 .map-tags-container {
-    margin-top: 15px;
     padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -259,12 +302,13 @@
 }
 
 .map-tag {
-    font-size: 0.65rem;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.1);
-    color: #e2e8f0;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
 
 .map-tag--factory {
@@ -457,4 +501,3 @@
     border-color: #4d7ea8;
     box-shadow: 0 0 0 1px rgba(77, 126, 168, 0.5);
 }
-

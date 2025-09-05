@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function openProfile(playerId, bypass = false) {
     // Don't open profile again for whatever reason if profile is already open
+    // Only let this happen if user opens a player from friend list
     if (isProfileOpened && !bypass) {
         return;
     }
