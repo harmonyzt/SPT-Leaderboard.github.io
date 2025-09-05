@@ -672,7 +672,7 @@ function convertTimeToSeconds(time) {
 async function calculateRanks(data) {
     const MIN_RAIDS = 50
     const SOFT_CAP_RAIDS = 100
-    const MIN_LIFE_TIME = 10 // Skill issue tracker
+    const MIN_LIFE_TIME = 8 // Skill issue tracker
     const MAX_LIFE_TIME = 55
 
     const maxKDR = Math.max(...data.map(p => p.killToDeathRatio))
