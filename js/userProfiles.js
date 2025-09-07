@@ -915,7 +915,7 @@ async function showPublicProfile(container, player) {
 // Comments sending 
 async function loadComments(playerId) {
     try {
-        const response = await fetch(`https://visuals.nullcore.net/SPT/network/explore/comments/player_${playerId}.json`);
+        const response = await fetch(`https://visuals.nullcore.net/SPT/network/explore/comments/player_${playerId}.json?t=${Date.now}`);
 
         if (!response.ok) {
             // If doesn't exist, show empty state
