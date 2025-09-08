@@ -225,19 +225,16 @@ async function showPublicProfile(container, player) {
     }
 
     // Account type handling
-    let accountIcon = '';
     let accountColor = '';
     let accountClass = '';
     let nameClass = '';
 
     // 1st prio - dev
     if (player.dev) {
-        accountIcon = `<img src="media/leaderboard_icons/icon_developer.png" alt="Developer" style="width: 15px; height: 15px" class="account-icon">`;
         accountColor = '#2486ff';
     }
     // 2nd prio - Tester
     else if (player.trusted && !player.banned) {
-        accountIcon = `<img src="media/trusted.png" alt="Tester" class="account-icon">`;
         accountColor = '#ba8bdb';
     }
     // 3rd prio - twitch players
@@ -249,11 +246,9 @@ async function showPublicProfile(container, player) {
     else if (!player.banned && !player.isUsingTP) {
         switch (player.accountType) {
             case 'edge_of_darkness':
-                accountIcon = `<img src="media/EOD.png" alt="EOD" class="account-icon">`;
                 accountColor = '#be8301';
                 break;
             case 'unheard_edition':
-                accountIcon = `<img src="media/Unheard.png" alt="Unheard" class="account-icon">`;
                 accountColor = '#54d0e7';
                 break;
         }
@@ -285,7 +280,6 @@ async function showPublicProfile(container, player) {
                     <div class="name-wrapper">
                         <div class="name ${finalNameClass}" ${accountColor && !finalNameClass ? `style="color: ${accountColor}"` : ''}>
                             ${player.teamTag ? `[${player.teamTag}]` : ``}
-                            ${accountIcon}
                             ${player.name}
                         </div>
                         <div class="registerDate">Joined: ${regDate}</div>
