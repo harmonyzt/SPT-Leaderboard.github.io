@@ -2234,14 +2234,14 @@ button:hover,
 }
 
 .user-main-card .name {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #84d2ff;
     font-weight: bold;
     line-height: 1.2;
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 250px;
+    width: 220px;
 }
 
 .user-main-card .aboutMe {
@@ -2813,7 +2813,7 @@ button:hover,
     color: #ff6b6b;
     margin: 20px 0;
     font-size: 24px;
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(255, 107, 107, 0.5),
         0 0 20px rgba(255, 107, 107, 0.3);
 }
