@@ -457,6 +457,10 @@ async function showPublicProfile(container, player) {
                           <div class="stat-value">${player.bossesKilled}</div>
                           <div class="stat-label">Bosses Killed</div>
                         </div>
+                        <div class="stat-card">
+                          <div class="stat-value">${player.damage}</div>
+                          <div class="stat-label">Damage Dealt</div>
+                        </div>
                     </div>
 
                     <div class="recent-raids-stats" id="recent-raids-stats">
