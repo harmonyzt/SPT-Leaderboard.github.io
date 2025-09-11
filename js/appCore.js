@@ -242,7 +242,11 @@ async function loadSeasonData(season) {
         emptyLeaderboardNotification.style.display = 'block';
     } finally {
         // Data is fully ready
-        displayLeaderboard(leaderboardData);
+        if(getCookie('lbToggle') === 'true'){
+            displaySimpleLeaderboard(leaderboardData);
+        } else {
+            displayLeaderboard(leaderboardData);
+        }
         isDataReady = true;
     }
 }
@@ -539,8 +543,121 @@ async function displayLeaderboard(data) {
             <td class="${player.survivedToDiedRatioClass}">${player.survivalRate}%</td>
             <td class="${player.killToDeathRatioClass}">${player.killToDeathRatio}</td>
             <td class="${player.averageLifeTimeClass}">${formatSeconds(player.averageLifeTime)}</td>
-            <td>${player.totalScore <= 0 ? 'Calibrating...'
-                : player.totalScore.toFixed(2)} ${player.totalScore <= 0 ? '' : `(${rankLabel})`}</td>
+            <td>${player.totalScore <= 0 ? 'Calibrating...' : player.totalScore.toFixed(2)} ${player.totalScore <= 0 ? '' : `(${rankLabel})`}</td>
+            <td>${player.sptVer}</td>
+        `
+
+        fragment.appendChild(row)
+    });
+
+    tempTableBody.appendChild(fragment);
+
+    const mainTable = document.querySelector('#leaderboardTable');
+    const currentTableBody = mainTable.querySelector('tbody');
+    mainTable.replaceChild(tempTableBody, currentTableBody);
+    tempTableBody.style.display = '';
+
+    // Add click handlers for player names
+    mainTable.addEventListener('click', (e) => {
+        if (e.target.closest('.player-name')) {
+            openProfile(e.target.closest('.player-name').dataset.playerId);
+        }
+        if (e.target.closest('.teamtag')) {
+            openTeam(e.target.closest('.teamtag').dataset.team);
+        }
+    });
+
+    isDataReady = true;
+}
+
+/**
+ * Renders player leaderboard data in a table (simple)
+ * @param {Array<Object>} data - Leaderboard data with all the season entries
+ * @returns {Promise<void>}
+ */
+async function displaySimpleLeaderboard(data) {
+    const tempTableBody = document.createElement('tbody');
+    tempTableBody.style.display = 'none';
+
+    // Process players sequentially for proper ordering
+    const fragment = document.createDocumentFragment();
+    data.forEach(player => {
+        const row = document.createElement('tr');
+        let lastGame;
+
+        const nowInSeconds = Math.floor(Date.now() / 1000);
+        const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
+
+        // Player was online for more 15 days, skip to render less jank
+        // Will not work when autoUpdater is off
+        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds && AutoUpdater.getStatus()) {
+            return;
+        }
+
+        // Check HeartbeatMonitor
+        const playerStatus = window.heartbeatMonitor.getPlayerStatus(player.id);
+
+        if (!player.banned) {
+            const lastOnlineTime = heartbeatMonitor.isOnline(player.id)
+                ? '<span class="player-status-lb-online">Online</span>'
+                : window.heartbeatMonitor.getLastOnlineTime(playerStatus.lastUpdate || player.lastPlayed);
+
+            // For lastGame
+            if (heartbeatMonitor.isOnline(player.id)) {
+                lastGame = `<span class="player-status-lb ${playerStatus.statusClass}">${playerStatus.statusText} <div id="blink"></div></span>`
+            } else {
+                lastGame = `<span class="last-online-time">${lastOnlineTime}</span>`;
+            }
+        } else {
+            lastGame = `<span class="last-online-time">Banned</span>`;
+        }
+
+        // Add profile standing
+        let badge = '';
+        if (player.banned) {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgba(255, 110, 100, 1);"></em> 
+                <span class="tooltiptext">Profile is banned</span>
+            </div>`;
+        } else if (player?.suspicious && !player.isCasual) {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-alert-shield' style="color:rgb(255, 214, 100);"></em> 
+                <span class="tooltiptext">Marked as suspicious by SkillIssueDetector™</span>
+            </div>`;
+        } else {
+            badge = `
+            <div class="badge-lb tooltip">
+                <em class='bx bxs-shield-alt-2' style="color:rgb(100, 255, 165);"></em>
+                <span class="tooltiptext">Profile in good standing</span>
+            </div>
+            `;
+        }
+
+        let profileOpenIcon = `Private <em class='bx bxs-lock' style="font-size: 23px"></em>`;
+        if (player.publicProfile) {
+            profileOpenIcon = `Share`;
+        }
+
+        // Skill rank label
+        const rankLabel = player.isCasual ? 'Casual' : getRankLabel(player.totalScore);
+        row.innerHTML = `
+            <td class="rank">${player.rank}</td>
+            <td class="teamtag" data-team="${player.teamTag ? player.teamTag : ``}">${player.teamTag ? `[${player.teamTag}]` : ``}</td>
+            <td class="player-name" style="height: 33px;" data-player-id="${player.id || '0'}">
+                ${player.name}
+            </td>
+            <td>${lastGame || 'N/A'}</td>
+            <td>${player.publicProfile ? `<button style="share-button" onclick="copyProfile('${player.id}')">${profileOpenIcon} <i class='bx  bxs-share'></i> </button>`
+                : `${profileOpenIcon}`
+            }</td>
+            <td>${badge}</td>
+            <td>${player.publicProfile ? `${player.pmcRaids} / ${player.scavRaids} (${player.pmcRaids + player.scavRaids})` : `${player.pmcRaids}`}</td>
+            <td>${player.survivalRate}%</td>
+            <td>${player.killToDeathRatio}</td>
+            <td>${formatSeconds(player.averageLifeTime)}</td>
+            <td>${player.totalScore <= 0 ? 'Calibrating...' : player.totalScore.toFixed(2)} ${player.totalScore <= 0 ? '' : `(${rankLabel})`}</td>
             <td>${player.sptVer}</td>
         `
 

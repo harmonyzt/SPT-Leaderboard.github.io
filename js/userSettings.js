@@ -11,8 +11,12 @@ let lastPlayed = null;
 let timerInterval;
 
 function updateVisibility(toggle, element, cookieName) {
-    element.style.display = toggle.checked ? 'block' : 'none';
-    setCookie(cookieName, toggle.checked);
+    const isVisible = toggle.checked;
+    if (element) {
+        element.style.display = isVisible ? 'block' : 'none';
+    }
+
+    setCookie(cookieName, isVisible);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,11 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const winnersElement = document.getElementById('winners');
     const staffToggle = document.getElementById('staffToggle');
     const staffElement = document.getElementById('admins-container');
+    const lbToggle = document.getElementById('lbToggle');
 
     // If no cookies are found, enable everything
     timerToggle.checked = getCookie('showTimer') !== 'false';
     winnersToggle.checked = getCookie('showWinners') !== 'false';
     staffToggle.checked = getCookie('showStaff') !== 'false';
+    lbToggle.checked = getCookie('lbToggle') !== 'false';
 
     // Should we display or hide elements
     seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
@@ -37,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timerToggle.addEventListener('change', () => updateVisibility(timerToggle, seasonTimer, 'showTimer'));
     winnersToggle.addEventListener('change', () => updateVisibility(winnersToggle, winnersElement, 'showWinners'));
     staffToggle.addEventListener('change', () => updateVisibility(staffToggle, staffElement, 'showStaff'));
+    lbToggle.addEventListener('change', () => updateVisibility(lbToggle, null, 'lbToggle'));
 
     // Timer functionality
     const timerDisplay = document.getElementById('timerDisplay');
@@ -425,18 +432,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Cookie helpers (yes again I DONT KNOW HELP)
+// Saver functions
 function setCookie(name, value) {
-    document.cookie = `${name}=${value}; path=/`;
+    localStorage.setItem(name, value);
+    document.cookie = `${name}=${value}; path=/; max-age=31536000`;
 }
 
 function getCookie(name) {
+    // Try to grab setting from localstorage
+    const fromStorage = localStorage.getItem(name);
+    if (fromStorage !== null) {
+        return fromStorage;
+    }
+
+    // If not, find a cookie
     const cookies = document.cookie.split(';');
     for (let cookie of cookies) {
         cookie = cookie.trim();
         if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
+            const value = cookie.substring(name.length + 1);
+            localStorage.setItem(name, value);
+            return value;
         }
     }
+
     return '';
 }
