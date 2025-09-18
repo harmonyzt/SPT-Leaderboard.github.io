@@ -383,7 +383,9 @@ async function displayLeaderboard(data) {
 
         // Player was online for more 15 days, skip to render less jank
         // Will not work when autoUpdater is off
-
+        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds && AutoUpdater.getStatus()) {
+            return;
+        }
 
         // If user has enabled option to hide Casual Players - we hide them
         if(player.isCasual && getCookie('casualToggle') === 'true'){
@@ -594,6 +596,11 @@ async function displaySimpleLeaderboard(data) {
         // Player was online for more 15 days, skip to render less jank
         // Will not work when autoUpdater is off
         if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds && AutoUpdater.getStatus()) {
+            return;
+        }
+
+        // If user has enabled option to hide Casual Players - we hide them
+        if(player.isCasual && getCookie('casualToggle') === 'true'){
             return;
         }
 

@@ -18,6 +18,7 @@
     margin: 0 auto;
     padding: 25px 0;
     position: relative;
+    z-index: 1;
 }
 
 .weapon-card {
@@ -27,7 +28,6 @@
     border: 1px solid var(--card-border);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
     max-height: 340px;
     backdrop-filter: blur(10px);
     box-shadow:
@@ -36,6 +36,130 @@
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     animation: cardAppear 0.6s ease forwards;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+/* Top players */
+.player-tooltip {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 20px);
+    width: 330px;
+    background: linear-gradient(145deg, rgba(23, 32, 48, 0.99), rgba(15, 23, 42, 0.99));
+    border: 1px solid var(--primary-color);
+    border-radius: 16px;
+    padding: 16px;
+    z-index: 1001;
+    display: none;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.weapon-card:hover .player-tooltip {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.player-tooltip-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.player-item:hover {
+    border-color: var(--primary-color);
+    transform: translateX(1px);
+}
+
+.player-item:nth-child(1) {
+    background: linear-gradient(90deg, rgba(234, 179, 8, 0.15), transparent);
+    border-color: rgba(234, 179, 8, 0.3);
+}
+
+.player-item:nth-child(2) {
+    background: linear-gradient(90deg, rgba(107, 114, 128, 0.15), transparent);
+    border-color: rgba(107, 114, 128, 0.3);
+}
+
+.player-item:nth-child(3) {
+    background: linear-gradient(90deg, rgba(185, 28, 28, 0.15), transparent);
+    border-color: rgba(185, 28, 28, 0.3);
+}
+
+.player-wpnp-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-main);
+    flex: 1;
+}
+
+.player-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+}
+
+.player-level {
+    color: #60a5fa;
+    font-weight: 700;
+    background: rgba(96, 165, 250, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.player-kills {
+    color: #ef4444;
+    font-weight: 700;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.player-headshots {
+    color: #10b981;
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .weapon-card:nth-child(odd) {
@@ -56,6 +180,8 @@
 .weapon-card:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     border-color: var(--primary-color);
+    z-index: 1000 !important;
+    transform: translateY(-5px) scale(1.02);
 }
 
 .weapon-header {
@@ -355,6 +481,7 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .search-box {

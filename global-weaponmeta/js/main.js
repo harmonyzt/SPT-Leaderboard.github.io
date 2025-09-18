@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (const userId in weaponData.weapons) {
             const userData = weaponData.weapons[userId];
             const userLevel = userData.level || 0;
+            const userName = userData.name || 'Unknown';
             const userMaps = userData.playedMaps || {};
 
             // Weapons
@@ -44,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             timesLost: 0,
                             levels: [],
                             originalIds: [],
-                            maps: {}
+                            maps: {},
+                            players: []
                         });
                     }
 
@@ -54,6 +56,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     weaponEntry.totalShots += stats.totalShots;
                     weaponEntry.timesLost += stats.timesLost;
                     weaponEntry.levels.push(userLevel);
+
+                    // Add info about player
+                    weaponEntry.players.push({
+                        id: userId,
+                        name: userName,
+                        level: userLevel,
+                        kills: stats.kills,
+                        headshots: stats.headshots,
+                        totalShots: stats.totalShots,
+                        timesLost: stats.timesLost
+                    });
 
                     if (weaponInfo.originalId) {
                         weaponEntry.originalIds.push(weaponInfo.originalId);
@@ -271,6 +284,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 .slice(0, 3)
                 .map(([mapName]) => mapName);
 
+            // Find top 5
+            const topPlayers = stats.players
+                .sort((a, b) => b.kills - a.kills)
+                .slice(0, 5)
+                .map(player => ({
+                    name: player.name,
+                    level: player.level,
+                    kills: player.kills,
+                    headshots: player.headshots
+                }));
+
             // Set weapon categories
             let mainCategory = "Unknown";
             let subCategory = "Unknown";
@@ -319,7 +343,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 survivalRate: (stats.timesLost + stats.kills) > 0
                     ? (stats.kills / (stats.timesLost + stats.kills) * 100).toFixed(2)
                     : 0,    // NOT a survival rate but is meant for total times lost 
-                topMaps // Top 3 maps for each weapon
+                topMaps, // Top 3 maps for each weapon
+                topPlayers
             };
         });
 
@@ -376,6 +401,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 `<span class="map-tag map-tag--${tag.type}">${tag.text}</span>`
             ).join('');
 
+            // Create player card
+            const playersHTML = weapon.topPlayers.map((player, playerIndex) => {
+                const headshotsPercent = player.kills > 0
+                    ? ((player.headshots / player.kills) * 100).toFixed(1)
+                    : 0;
+
+                return `
+                    <li class="player-item">
+                        <span class="player-wpnp-name">${player.name}</span>
+                        <span class="player-stats">
+                            <span class="player-level">${player.level} LVL</span>
+                            <span class="player-kills">${player.kills} K</span>
+                            <span class="player-headshots">${headshotsPercent}% HS</span>
+                        </span>
+                    </li>
+                `;
+            }).join('');
+
             card.innerHTML = `
             <div class="weapon-header">
                 <div class="weapon-name-wrapper">
@@ -388,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <span class="weapon-rank">#${index + 1}</span>
             </div>
-            
+
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-label">Kills</div>
@@ -413,7 +456,15 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="map-tags-container">
                 <div class="map-tags">${mapTagsHTML}</div>
             </div>
-        `;
+
+            <div class="player-tooltip">
+                <div class="player-tooltip-title">Top 5 Players</div>
+                <ul class="player-list">
+                    ${playersHTML}
+                </ul>
+            </div>
+            `;
+
             // Add weapon categories to a card
             card.dataset.mainCategory = weapon.mainCategory;
             card.dataset.subCategory = weapon.subCategory;
@@ -533,6 +584,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Call upon DOM load
         populateSubCategories();
         populateCalibers();
+        setTimeout(adjustTooltipPosition, 100);
+        window.addEventListener('resize', adjustTooltipPosition);
 
         document.getElementById('weaponSearch').addEventListener('input', filterWeapons);
         document.getElementById('mainCategory').addEventListener('change', function () {
@@ -545,6 +598,42 @@ document.addEventListener('DOMContentLoaded', function () {
             filterWeapons();
         });
         document.getElementById('caliberFilter').addEventListener('change', filterWeapons);
+    }
+
+    // Using this so tooltip doesn't go off screen
+    function adjustTooltipPosition() {
+        const cards = document.querySelectorAll('.weapon-card');
+
+        cards.forEach(card => {
+            const tooltip = card.querySelector('.player-tooltip');
+            if (!tooltip) return;
+
+            card.addEventListener('mouseenter', function () {
+                const cardRect = card.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const viewportWidth = window.innerWidth;
+
+                // If tooltip goes right off screen
+                if (cardRect.right + tooltipRect.width + 20 > viewportWidth) {
+                    tooltip.style.left = 'auto';
+                    tooltip.style.right = 'calc(100% + 10px)';
+                    tooltip.style.transform = 'translateX(20px)';
+                    card.querySelector('.player-tooltip::before').style.cssText = `
+                        left: auto;
+                        right: -6px;
+                        transform: rotate(-45deg);
+                        border-left: none;
+                        border-right: 1px solid var(--primary-color);
+                        border-bottom: 1px solid var(--primary-color);
+                    `;
+                } else {
+                    // Reset arrow
+                    tooltip.style.left = 'calc(100% + 30px)';
+                    tooltip.style.right = 'auto';
+                    tooltip.style.transform = 'translateX(-20px)';
+                }
+            });
+        });
     }
 
 });
