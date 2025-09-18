@@ -27,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const staffToggle = document.getElementById('staffToggle');
     const staffElement = document.getElementById('admins-container');
     const lbToggle = document.getElementById('lbToggle');
+    const casualToggle = document.getElementById('casualToggle');
 
     // If no cookies are found, enable everything
     timerToggle.checked = getCookie('showTimer') !== 'false';
     winnersToggle.checked = getCookie('showWinners') !== 'false';
     staffToggle.checked = getCookie('showStaff') !== 'false';
     lbToggle.checked = getCookie('lbToggle') !== 'false';
+    casualToggle.checked = getCookie('casualToggle') !== 'false';
 
     // Should we display or hide elements
     seasonTimer.style.display = timerToggle.checked ? 'block' : 'none';
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     winnersToggle.addEventListener('change', () => updateVisibility(winnersToggle, winnersElement, 'showWinners'));
     staffToggle.addEventListener('change', () => updateVisibility(staffToggle, staffElement, 'showStaff'));
     lbToggle.addEventListener('change', () => updateVisibility(lbToggle, null, 'lbToggle'));
+    casualToggle.addEventListener('change', () => updateVisibility(casualToggle, null, 'casualToggle'));
 
     // Timer functionality
     const timerDisplay = document.getElementById('timerDisplay');
