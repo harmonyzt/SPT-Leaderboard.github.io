@@ -9,24 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Resources to load
     const resources = [
-
+        { name: "Connectivity with API", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 25 },
+        { name: "Connectivity with Network", url: "https://visuals.nullcore.net/SPT/network/explore/messages.json", weight: 25 },
         { name: "Core Logic", url: "js/appCore.js", weight: 30 },
-        { name: "Winners Logic", url: "js/displayWinners.js", weight: 20 },
-        { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 25 },
+        { name: "Winners Logic", url: "js/displayWinners.js", weight: 10 },
+        { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 15 },
         { name: "User Heartbeats", url: "js/heartbeatMonitor.js", weight: 15 },
-        { name: "Live Data Flow", url: "js/liveUpdaterControls.js", weight: 10 },
-        { name: "API Monitor", url: "js/apiMonitor.js", weight: 10 },
+        { name: "Live Data Flow", url: "js/liveUpdaterControls.js", weight: 20 },
+        { name: "API Monitor", url: "js/apiMonitor.js", weight: 20 },
         { name: "Raid History", url: "js/raidHistory.js", weight: 10 },
-        { name: "Achievements", url: "js/achievements.js", weight: 10 },
-        { name: "User Settings", url: "js/userSettings.js", weight: 10 },
-        { name: "Search", url: "js/userSearch.js", weight: 10 },
-        { name: "User Profiles", url: "js/userProfiles.js", weight: 10 },
-        { name: "Friend Lists", url: "js/userFriendList.js", weight: 10 },
-        { name: "Teams", url: "js/userTeams.js", weight: 10 },
-        { name: "BattlePass Features", url: "js/BPLevelCalculator.js", weight: 10 },
-        { name: "BattlePass Rewards", url: "js/BPRewardSystem.js", weight: 10 },
+        { name: "Achievements", url: "js/achievements.js", weight: 5 },
+        { name: "User Settings", url: "js/userSettings.js", weight: 5 },
+        { name: "Search", url: "js/userSearch.js", weight: 5 },
+        { name: "User Profiles", url: "js/userProfiles.js", weight: 30 },
+        { name: "Friend Lists", url: "js/userFriendList.js", weight: 15 },
+        { name: "Teams", url: "js/userTeams.js", weight: 5 },
+        { name: "BattlePass Features", url: "js/BPLevelCalculator.js", weight: 15 },
+        { name: "BattlePass Rewards", url: "js/BPRewardSystem.js", weight: 15 },
         { name: "Utils", url: "js/utils.js", weight: 10 }
-
     ];
 
     // Track loading progress
