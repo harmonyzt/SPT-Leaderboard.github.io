@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Resources to load
     const resources = [
-        { name: "API Connectivity Check", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 30 },
-        { name: "SPTLB Network", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 30 },
+
         { name: "Core Logic", url: "js/appCore.js", weight: 30 },
         { name: "Winners Logic", url: "js/displayWinners.js", weight: 20 },
         { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 25 },
@@ -160,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             statusText.textContent = "Establishing connection...";
 
-            const MAX_CONCURRENT = 4;
+            const MAX_CONCURRENT = 10;
             for (let i = 0; i < resources.length; i += MAX_CONCURRENT) {
                 const chunk = resources.slice(i, i + MAX_CONCURRENT);
                 await Promise.all(chunk.map((resource, idx) =>
