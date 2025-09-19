@@ -38,11 +38,12 @@ let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=
 let heartbeatsPath = `https://visuals.nullcore.net/SPT/api/heartbeat/heartbeats.json?t=${Date.now()}`;
 let achievementsPath = `https://visuals.nullcore.net/SPT/data/shared/achievement_counters.json`;
 let pmcPfpsPath = `https://visuals.nullcore.net/SPT/data/pmc_avatars/`;
+let globalCounters = `https://visuals.nullcore.net/SPT/data/shared/global_counters.json`;
 
 // Paths for local files if debug is on
 if (isLocalhost) {
     pmcPfpsPath = `fallbacks/pmc_avatars/`;
-    seasonPath = `fallbacks/season`;
+    seasonPath = `../fallbacks/season`;
     lastRaidsPath = `fallbacks/player_raids/}`;
     profileSettingsPath = `fallbacks/profile_settings.json?t=${Date.now()}`;
     weaponStatsPath = `../fallbacks/shared/weapon_counters.json?t=${Date.now()}`;
@@ -50,6 +51,7 @@ if (isLocalhost) {
     heartbeatsPath = `fallbacks/heartbeats.json?t=${Date.now()}`;
     achievementsPath = `../fallbacks/shared/achievement_counters.json`;
     lastRaidsPath = `../fallbacks/player_raids/`;
+    globalCounters = `../fallbacks/shared/global_counters.json`;
 }
 
 // Call main init on DOM load
@@ -64,25 +66,28 @@ document.addEventListener('DOMContentLoaded', initAllSeasons)
 async function checkSeasonExists(seasonNumber) {
     try {
         // Check server first
-        const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
+        const serverUrl = `${seasonPath}${seasonNumber}${seasonPathEnd}`;
+        const serverResponse = await fetch(serverUrl);
 
-        if (response.ok) return true;
+        if (serverResponse.ok) return true;
 
-        if (response.status === 404) {
-            // Nothing found on the server - load season locally
+        if (serverResponse.status === 404) {
+            // Nothing found on the server - check locally
             try {
-                const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+                const localUrl = `${seasonLocalPath}${seasonNumber}.json`;
+                const localResponse = await fetch(localUrl);
                 return localResponse.ok;
             } catch (localError) {
                 return false;
             }
         }
-        
+
         return false;
     } catch (error) {
-        // If any error - load locally
+        // If any error - check locally
         try {
-            const localResponse = await fetch(`${seasonLocalPath}${seasonNumber}.json`);
+            const localUrl = `${seasonLocalPath}${seasonNumber}.json`;
+            const localResponse = await fetch(localUrl);
             return localResponse.ok;
         } catch (localError) {
             return false;

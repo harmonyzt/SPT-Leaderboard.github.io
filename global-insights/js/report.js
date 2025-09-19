@@ -90,13 +90,74 @@ function initCharts() {
             [],
             'Raids Recorded',
             true
+        ),
+        hitDistributionChart: createChart(
+            'hitDistributionChart',
+            'bar',
+            ['Head', 'Chest', 'Stomach', 'Left Arm', 'Right Arm', 'Left Leg', 'Right Leg'],
+            [0, 0, 0, 0, 0, 0, 0],
+            'Average Hits per Player',
+            false,
+            'Hit Distribution by Body Part'
+        ),
+        activityChart: createChart(
+            'activityChart',
+            'bar',
+            ['<1 Week', '<1 Month', '<3 Months', '>3 Months'],
+            [0, 0, 0, 0],
+            'Players',
+            false,
+            'Player Activity (Last Played)'
+        ),
+        traderPopularityChart: createChart(
+            'traderPopularityChart',
+            'bar',
+            ['Prapor', 'Therapist', 'Skier', 'Peacekeeper', 'Mechanic', 'Ragman', 'Jaeger', 'Fence', 'Lightkeeper'],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Players (LL > 2)',
+            true,
+            'Trader Popularity (Loyalty Level > 2)'
+        ),
+        salesSumChart: createChart(
+            'salesSumChart',
+            'bar',
+            ['<1M', '1-5M', '5-10M', '10-50M', '50M+'],
+            [0, 0, 0, 0, 0],
+            'Players',
+            false,
+            'Total Trader Sales Sum'
+        ),
+        playstyleChart: createChart(
+            'playstyleChart',
+            'pie',
+            ['PvE Focused', 'Mixed', 'PvP (PMC Kills) Focused'],
+            [0, 0, 0],
+            'Players',
+            false,
+            'Playstyle Distribution (PvP vs PvE)'
+        ),
+        bossKillsChart: createChart(
+            'bossKillsChart',
+            'bar',
+            ['0 Kills', '1-50 Kills', '50-200 Kills', '200+ Kills'],
+            [0, 0, 0, 0],
+            'Players',
+            false,
+            'Boss Kills Distribution'
         )
     };
 }
 
 // Helper function to create chart
 function createChart(canvasId, type, labels, data, label, isMapChart = false) {
-    const ctx = document.getElementById(canvasId).getContext('2d');
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) {
+        console.error(`Canvas element with id '${canvasId}' not found`);
+        return null;
+    }
+
+    const ctx = canvas.getContext('2d');
+
     const backgroundColors = isMapChart
         ? Array(labels.length).fill().map(() => getRandomColor())
         : ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f97316', '#f59e0b'];
@@ -120,16 +181,24 @@ function createChart(canvasId, type, labels, data, label, isMapChart = false) {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        color: '#f8fafc'
+                        color: '#f8fafc',
+                        font: {
+                            size: 12
+                        }
                     }
                 },
                 tooltip: {
                     enabled: true,
                     mode: 'index',
-                    intersect: false
+                    intersect: false,
+                    callbacks: {
+                        label: function (context) {
+                            return `${context.label}: ${context.raw}`;
+                        }
+                    }
                 }
             },
-            scales: type === 'bar' ? {
+            scales: (type === 'bar' || type === 'line') ? {
                 y: {
                     beginAtZero: true,
                     ticks: {
@@ -201,6 +270,10 @@ function processPlayersData() {
     const totalPlayTimeSeconds = playersData.reduce((sum, p) => sum + (p.totalPlayTime || 0), 0);
     const totalPlayTimeFormatted = formatPlayTime(totalPlayTimeSeconds);
 
+    const totalKills = playersData.reduce((sum, p) => sum + (p.pmcKills || 0) + (p.bossesKilled || 0) + (p.scavsKilled || 0), 0);
+    const totalDeaths = playersData.reduce((sum, p) => sum + (p.pmcDeaths || 0) + (p.scavDeaths || 0), 0);
+    const globalKDRatio = (totalKills / Math.max(totalDeaths, 1)).toFixed(2);
+
     document.getElementById('total-players').textContent = totalPlayers;
     document.getElementById('total-raids-recorded').textContent = totalRaids;
     document.getElementById('total-play-time').textContent = totalPlayTimeFormatted;
@@ -209,6 +282,8 @@ function processPlayersData() {
     document.getElementById('kappa-players').textContent = kappaPlayers;
     document.getElementById('kappa-percent').textContent = `${kappaPercent}%`;
     document.getElementById('avg-level').textContent = avgLevel;
+    document.getElementById('total-kills').textContent = totalKills;
+    document.getElementById('global-kd').textContent = globalKDRatio;
 
     // PMC/SCAV raids
     updateChart(charts.pmcScavChart, [totalPmcRaids, totalScavRaids]);
@@ -299,6 +374,115 @@ function processPlayersData() {
         else longestShots[4]++;
     });
     updateChart(charts.longestShotsChart, longestShots);
+
+    // Hit Distribution
+    const avgHitDistribution = { head: 0, chest: 0, stomach: 0, leftArm: 0, rightArm: 0, leftLeg: 0, rightLeg: 0 };
+    playersData.forEach(p => {
+        if (p.raidHits) {
+            for (const [zone, count] of Object.entries(p.raidHits)) {
+                avgHitDistribution[zone] += count;
+            }
+        }
+    });
+    const hitDistributionValues = [
+        (avgHitDistribution.head / totalPlayers).toFixed(1),
+        (avgHitDistribution.chest / totalPlayers).toFixed(1),
+        (avgHitDistribution.stomach / totalPlayers).toFixed(1),
+        (avgHitDistribution.leftArm / totalPlayers).toFixed(1),
+        (avgHitDistribution.rightArm / totalPlayers).toFixed(1),
+        (avgHitDistribution.leftLeg / totalPlayers).toFixed(1),
+        (avgHitDistribution.rightLeg / totalPlayers).toFixed(1)
+    ];
+    updateChart(charts.hitDistributionChart, hitDistributionValues);
+
+    // Activity (online)
+    const now = Math.floor(Date.now() / 1000);
+    const activityGroups = [0, 0, 0, 0]; // <1 week, <1 month, <3 months, >3 months
+
+    playersData.forEach(p => {
+        const daysSinceLastPlayed = (now - p.lastPlayed) / (60 * 60 * 24);
+
+        if (daysSinceLastPlayed <= 7) activityGroups[0]++;
+        else if (daysSinceLastPlayed <= 30) activityGroups[1]++;
+        else if (daysSinceLastPlayed <= 90) activityGroups[2]++;
+        else activityGroups[3]++;
+    });
+    updateChart(charts.activityChart, activityGroups);
+
+    // trader popularity
+    const traderPopularity = {
+        'PRAPOR': 0, 'THERAPIST': 0, 'SKIER': 0, 'PEACEKEEPER': 0,
+        'MECHANIC': 0, 'RAGMAN': 0, 'JAEGER': 0, 'FENCE': 0, 'LIGHTKEEPER': 0
+    };
+
+    playersData.forEach(p => {
+        if (p.traderInfo) {
+            for (const [traderName, info] of Object.entries(p.traderInfo)) {
+                if (traderPopularity.hasOwnProperty(traderName) && info.unlocked && info.loyaltyLevel >= 2) {
+                    traderPopularity[traderName]++;
+                }
+            }
+        }
+    });
+
+    const traderValues = [
+        traderPopularity.PRAPOR,
+        traderPopularity.THERAPIST,
+        traderPopularity.SKIER,
+        traderPopularity.PEACEKEEPER,
+        traderPopularity.MECHANIC,
+        traderPopularity.RAGMAN,
+        traderPopularity.JAEGER,
+        traderPopularity.FENCE,
+        traderPopularity.LIGHTKEEPER
+    ];
+    updateChart(charts.traderPopularityChart, traderValues);
+
+    // Sales Sum Distribution
+    const salesSumRanges = [0, 0, 0, 0, 0]; // <1M, 1-5M, 5-10M, 10-50M, 50M+
+    playersData.forEach(p => {
+        let totalSales = 0;
+        if (p.traderInfo) {
+            for (const trader of Object.values(p.traderInfo)) {
+                totalSales += trader.salesSum || 0;
+            }
+        }
+        totalSales /= 1000000;
+
+        if (totalSales < 1) salesSumRanges[0]++;
+        else if (totalSales < 5) salesSumRanges[1]++;
+        else if (totalSales < 10) salesSumRanges[2]++;
+        else if (totalSales < 50) salesSumRanges[3]++;
+        else salesSumRanges[4]++;
+    });
+    updateChart(charts.salesSumChart, salesSumRanges);
+
+    // Playstyle Distribution (PvP (pmc kills) vs PvE)
+    const playstyleGroups = [0, 0, 0]; // PvE Focused, Mixed, PvP Focused
+    playersData.forEach(p => {
+        const totalKills = p.scavsKilled + p.bossesKilled + p.pmcKills;
+        if (totalKills === 0) {
+            playstyleGroups[1]++; // Mixed
+            return;
+        }
+        const pvpRatio = (p.pmcKills / totalKills) * 100;
+
+        if (pvpRatio < 30) playstyleGroups[0]++;
+        else if (pvpRatio < 70) playstyleGroups[1]++;
+        else playstyleGroups[2]++;
+    });
+    updateChart(charts.playstyleChart, playstyleGroups);
+
+    // Boss Kills Distribution
+    const bossKillsRanges = [0, 0, 0, 0]; // 0, 1-50, 50-200, 200+
+    playersData.forEach(p => {
+        const bossKills = p.bossesKilled || 0;
+        if (bossKills === 0) bossKillsRanges[0]++;
+        else if (bossKills <= 50) bossKillsRanges[1]++;
+        else if (bossKills <= 200) bossKillsRanges[2]++;
+        else bossKillsRanges[3]++;
+    });
+    updateChart(charts.bossKillsChart, bossKillsRanges);
 }
 
 // Process maps data

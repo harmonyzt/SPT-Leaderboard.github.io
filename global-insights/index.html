@@ -40,16 +40,24 @@
                     </h2>
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <span class="stat-label">Total Raids Recorded</span>
+                            <span class="stat-label">Overall Raids Recorded</span>
                             <span class="stat-value" id="total-raids-recorded">0</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Total Players</span>
+                            <span class="stat-label">Overall Players Registered</span>
                             <span class="stat-value" id="total-players">0</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Total in-Raid Time Recorded</span>
+                            <span class="stat-label">Overall in-Raid Time Recorded</span>
                             <span class="stat-value" id="total-play-time">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Overall Kills</span>
+                            <span class="stat-value" id="total-kills">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Overall K/D Ratio</span>
+                            <span class="stat-value" id="global-kd">0</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Average PMC Level</span>
@@ -125,7 +133,7 @@
                 </div>
                 <div class="card">
                     <h2 class="card-title">
-                        <i class='bx  bxs-leaf'></i> Average Lifetime Distribution
+                        <i class='bx  bxs-pulse'  ></i> Average Lifetime Distribution
                     </h2>
                     <div class="chart-container">
                         <canvas id="lifetimeChart"></canvas>
@@ -137,6 +145,54 @@
                     </h2>
                     <div class="chart-container">
                         <canvas id="longestShotsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-body'  ></i> Hits Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="hitDistributionChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-radar'  ></i> Player Online Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-swap-horizontal'  ></i> Trader Loyalty Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="traderPopularityChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-dollar'  ></i> Trader Sales Sum Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="salesSumChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-target'></i> Playstyle Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="playstyleChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class='bx  bxs-face-alt-2'  ></i> Boss Kills Distribution
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="bossKillsChart"></canvas>
                     </div>
                 </div>
             </div>

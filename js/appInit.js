@@ -1,3 +1,9 @@
+//     _____ ____  ______   __    _________    ____  __________  ____  ____  ___    ____  ____ 
+//    / ___// __ \/_  __/  / /   / ____/   |  / __ \/ ____/ __ \/ __ )/ __ \/   |  / __ \/ __ \
+//    \__ \/ /_/ / / /    / /   / __/ / /| | / / / / __/ / /_/ / __  / / / / /| | / /_/ / / / /  
+//   ___/ / ____/ / /    / /___/ /___/ ___ |/ /_/ / /___/ _, _/ /_/ / /_/ / ___ |/ _, _/ /_/ / 
+//  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/  
+
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const progressBar = document.getElementById('progress-bar');
@@ -9,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Resources to load
     const resources = [
-        { name: "Connectivity with API", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 25 },
-        { name: "Connectivity with Network", url: "https://visuals.nullcore.net/SPT/network/explore/messages.json", weight: 25 },
+        //{ name: "Connectivity with API", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 25 },
+        //{ name: "Connectivity with Network", url: "https://visuals.nullcore.net/SPT/network/explore/messages.json", weight: 25 },
         { name: "Core Logic", url: "js/appCore.js", weight: 30 },
         { name: "Winners Logic", url: "js/displayWinners.js", weight: 10 },
         { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 15 },
@@ -153,8 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 document.body.style.overflow = 'auto';
-            }, 500);
-        }, 1500);
+            }, 300);
+        }, 1300);
     }
 
     // Initialize and load all resources

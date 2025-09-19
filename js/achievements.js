@@ -12,9 +12,13 @@ let achievementStats = {};
 async function loadAchievementsData() {
     try {
         [achievementsData, playerAchievements] = await Promise.all([
-            loadJSON('global-achieve/js/compiledAchData.json'),
-            loadJSON(`${achievementsPath}`)
+            fetch('global-achieve/js/compiledAchData.json'),
+            fetch(`${achievementsPath}`)
         ]);
+
+        if (!achievementsResponse.ok || !playersResponse.ok) {
+            throw new Error('Failed to load one achievements');
+        }
 
         totalPlayers = Object.keys(playerAchievements.achievements).length;
         achievementStats = calculateAchievementStats();
@@ -65,9 +69,4 @@ function calculateAchievementStats() {
 
 function getAchievementPercentage(achievementId) {
     return achievementStats[achievementId]?.percent || 0;
-}
-
-async function loadJSON(url) {
-    const response = await fetch(url);
-    return await response.json();
 }

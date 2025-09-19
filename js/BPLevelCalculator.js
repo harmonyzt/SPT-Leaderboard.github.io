@@ -5,11 +5,12 @@
 //  /____/_/     /_/    /_____/_____/_/  |_/_____/_____/_/ |_/_____/\____/_/  |_/_/ |_/_____/
 
 const BASE_EXP_PER_LEVEL = 2200;
-const MAX_LEVEL = 80;
+const MAX_LEVEL = 30;
 
 async function initHOF(player, bestWeapon) {
     updatePlayerProfile(player);
     updatePlayerProfileMastery(player, bestWeapon);
+    
     // rewardSystem.js
     refreshRewards(player);
 }
