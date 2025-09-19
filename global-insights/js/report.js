@@ -246,7 +246,7 @@ async function fetchData() {
         // Combine
         playersData = [...season1Data.leaderboard, ...season2Data.leaderboard, ...season3Data.leaderboard, ...season4Data.leaderboard, ...season5Data.leaderboard];
 
-        // display
+        // Display
         processPlayersData();
         processMapsData();
     } catch (error) {
