@@ -33,12 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let loadedResources = 0;
     let totalWeight = resources.reduce((sum, resource) => sum + resource.weight, 0);
     let loadingMessages = [
-        "Starting app...",
         "Duping free Leaderboard Coins...",
         "Syncing with SPTLB network...",
         "Don't look at me like that! I'm shy...",
         "Banning bad players...",
-        "Almost there..."
+        "Placing good players on top...",
+        "Preparing the competition...",
+        "Setting up real-time rankings...",
+        "Preparing your BattlePass rewards...",
+        "Calculating your Skill Rating..."
     ];
 
     function getRandomMessage() {
