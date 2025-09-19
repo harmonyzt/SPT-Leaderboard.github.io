@@ -27,7 +27,6 @@ let oldTotalPlayers = 0;
 let oldOnlinePlayers = 0;
 let oldTotalPlayTime = 0;
 
-// TODO: #7 Fully support all paths for debug and not
 // Paths
 let seasonPath = 'https://visuals.nullcore.net/SPT/data/seasons/season';
 let seasonLocalPath = `fallbacks/season`;
@@ -68,6 +67,7 @@ async function checkSeasonExists(seasonNumber) {
         const response = await fetch(`${seasonPath}${seasonNumber}${seasonPathEnd}`);
 
         if (response.ok) return true;
+
         if (response.status === 404) {
             // Nothing found on the server - load season locally
             try {
@@ -77,6 +77,7 @@ async function checkSeasonExists(seasonNumber) {
                 return false;
             }
         }
+        
         return false;
     } catch (error) {
         // If any error - load locally
@@ -242,7 +243,7 @@ async function loadSeasonData(season) {
         emptyLeaderboardNotification.style.display = 'block';
     } finally {
         // Data is fully ready
-        if(getCookie('lbToggle') === 'true'){
+        if (getCookie('lbToggle') === 'true') {
             displaySimpleLeaderboard(leaderboardData);
         } else {
             displayLeaderboard(leaderboardData);
@@ -388,7 +389,7 @@ async function displayLeaderboard(data) {
         }
 
         // If user has enabled option to hide Casual Players - we hide them
-        if(player.isCasual && getCookie('casualToggle') === 'true'){
+        if (player.isCasual && getCookie('casualToggle') === 'true') {
             return;
         }
 
@@ -600,7 +601,7 @@ async function displaySimpleLeaderboard(data) {
         }
 
         // If user has enabled option to hide Casual Players - we hide them
-        if(player.isCasual && getCookie('casualToggle') === 'true'){
+        if (player.isCasual && getCookie('casualToggle') === 'true') {
             return;
         }
 

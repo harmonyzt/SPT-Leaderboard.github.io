@@ -17,13 +17,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <script src="js/appCore.js"></script>
-
         <script src="js/displayWinners.js"></script>
         <script src="js/raidNotificationTracker.js"></script>
         <script src="js/heartbeatMonitor.js"></script>
         <script src="js/liveUpdaterControls.js"></script>
         <script src="js/apiMonitor.js"></script>
-
         <script src="js/raidHistory.js"></script>
         <script src="js/achievements.js"></script>
         <script src="js/userSettings.js"></script>
@@ -34,15 +32,37 @@
         <script src="js/userTeams.js"></script>
         <script src="js/BPLevelCalculator.js"></script>
         <script src="js/BPRewardSystem.js"></script>
-
         <script src="js/navigationModals.js"></script>
         <script src="js/systemToasts.js"></script>
         <script src="js/adminCheckup.js"></script>
         <script src="js/utils.js"></script>
+        <script src="js/appInit.js"></script>
         <title>SPT Leaderboard</title>
     </head>
 
     <body>
+        <div class="loader-container-pre" id="loader">
+            <div class="logo-pre">SPTLB</div>
+            <span class="loader-pre"></span>
+            <div class="progress-container-pre">
+                <div class="progress-bar-pre" id="progress-bar"></div>
+            </div>
+            <div class="status-text-pre" id="status-text">Initializing...</div>
+            <div class="resource-list-container-pre">
+                <div class="resource-list-header-pre">
+                    <span>Loading Resources</span>
+                    <span class="resource-count-pre" id="resource-count">0/16</span>
+                </div>
+                <div class="resource-list-pre" id="resource-list">
+                    <!-- Resources will be added here -->
+                </div>
+            </div>
+            <div class="error-container-pre" id="error-container">
+                <div class="error-title-pre">Connection Error</div>
+                <div class="error-message-pre" id="error-message"> Please check your internet connection and try again. </div>
+                <button class="retry-button-pre" id="retry-button">Retry</button>
+            </div>
+        </div>
         <header>
             <nav class="navbar" role="navigation">
                 <a href="#" aria-label="Home">
@@ -66,81 +86,69 @@
         </header>
         <h1 style="margin-top: 180px;" class="animate__animated animate__fadeInDown">SPT Leaderboard</h1>
         <div id="welcomePopup" aria-label="Welcome Screen">
-                <img class="welcome-bg-image animate__animated animate__fadeIn" src="media/TP.png" alt="Background">
-                
-                <div class="popup-container">
-                    <div class="popup-header animate__animated animate__fadeInDown">
-                        <h1>Welcome to SPT Leaderboard!</h1>
-                        <p class="animate__animated animate__fadeInUp delay-1">Track your progress, progress, compete, and compare with other players, all in Single Player Tarkov! Your journey to the top starts here.</p>
+            <img class="welcome-bg-image animate__animated animate__fadeIn" src="media/TP.png" alt="Background">
+            <div class="popup-container">
+                <div class="popup-header animate__animated animate__fadeInDown">
+                    <h1>Welcome to SPT Leaderboard!</h1>
+                    <p class="animate__animated animate__fadeInUp delay-1">Track your progress, progress, compete, and compare with other players, all in Single Player Tarkov! Your journey to the top starts here.</p>
+                </div>
+                <div class="features-container">
+                    <div class="feature-row">
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                            <div class="feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Real-Time Leaderboard</h3>
+                            <p>See live updates of your ranking compared to the other players of SPT community. Watch your stats, others, and get rewards as you progress.</p>
+                        </div>
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Detailed Statistics</h3>
+                            <p>Comprehensive analytics of your gameplay including K/D ratio, Survival Rate, Recent Hits, SCAV stats, and more.</p>
+                        </div>
                     </div>
-                    
-                    <div class="features-container">
-                        
-                        <div class="feature-row">
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
-                                <div class="feature-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h3>Real-Time Leaderboard</h3>
-                                <p>See live updates of your ranking compared to the other players of SPT community. Watch your stats, others, and get rewards as you progress.</p>
+                    <div class="feature-row">
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-hexagon-nodes"></i>
                             </div>
-                            
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
-                                <div class="feature-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3>Detailed Statistics</h3>
-                                <p>Comprehensive analytics of your gameplay including K/D ratio, Survival Rate, Recent Hits, SCAV stats, and more.</p>
-                            </div>
+                            <h3>SPT Leaderboard Network</h3>
+                            <p>Log-in for more than just editing your profile. Report Players, Edit your profile, Withdraw Items from your inventory and explore Tarkov Market.</p>
                         </div>
-                        
-                        <div class="feature-row">
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
-                                <div class="feature-icon">
-                                    <i class="fa-solid fa-hexagon-nodes"></i>
-                                </div>
-                                <h3>SPT Leaderboard Network</h3>
-                                <p>Log-in for more than just editing your profile. Report Players, Edit your profile, Withdraw Items from your inventory and explore Tarkov Market.</p>
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-shop"></i>
                             </div>
-                            
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
-                                <div class="feature-icon">
-                                    <i class="fa-solid fa-shop"></i>
-                                </div>
-                                <h3>Tarkov Market</h3>
-                                <p>Earn Leaderboard Coins by playing the game - and spend the well deserved coins on external Tarkov Market which includes - Dynamic (on high demand) Pricing, Re-stocking, Cases, and arrival right into your in-game inventory.</p>
-                            </div>
+                            <h3>Tarkov Market</h3>
+                            <p>Earn Leaderboard Coins by playing the game - and spend the well deserved coins on external Tarkov Market which includes - Dynamic (on high demand) Pricing, Re-stocking, Cases, and arrival right into your in-game inventory.</p>
                         </div>
-
-                        <div class="feature-row">
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
-                                <div class="feature-icon">
-                                    <i class="fas fa-history"></i>
-                                </div>
-                                <h3>Historical Data</h3>
-                                <p>View your progress over time with historical charts and see how you've improved. Including Raid History, Hits History, All Achievements, Trader Standings and Player Model Preview along with other stats.</p>
-                            </div>
-                            
-                            <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
-                                <div class="feature-icon">
-                                    <i class="fas fa-cog"></i>
-                                </div>
-                                <h3>Custom Profiles</h3>
-                                <p>Personalize your Leaderboard Profile with custom banners, styles, themes, showcase your drip of your PMC and your best stats.</p>
-                            </div>
-                        </div>
-
                     </div>
-                    
-                    <div class="buttons-container">
-                        <button class="welcome-button animate__animated animate__fadeInUp delay-3" id="continueBtn">
-                            <i class="fas fa-arrow-right"></i> Continue to Leaderboard
-                        </button>
-                        <button class="welcome-button animate__animated animate__fadeInUp delay-4" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">
-                            <i class="fab fa-discord"></i> Join our Discord
-                        </button>
+                    <div class="feature-row">
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInLeft">
+                            <div class="feature-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Historical Data</h3>
+                            <p>View your progress over time with historical charts and see how you've improved. Including Raid History, Hits History, All Achievements, Trader Standings and Player Model Preview along with other stats.</p>
+                        </div>
+                        <div class="feature-card animate__animated" data-animation="animate__fadeInRight">
+                            <div class="feature-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <h3>Custom Profiles</h3>
+                            <p>Personalize your Leaderboard Profile with custom banners, styles, themes, showcase your drip of your PMC and your best stats.</p>
+                        </div>
                     </div>
                 </div>
+                <div class="buttons-container">
+                    <button class="welcome-button animate__animated animate__fadeInUp delay-3" id="continueBtn">
+                        <i class="fas fa-arrow-right"></i> Continue to Leaderboard </button>
+                    <button class="welcome-button animate__animated animate__fadeInUp delay-4" onclick="window.open('https://discord.gg/UrRkqwdgnd', '_blank')">
+                        <i class="fab fa-discord"></i> Join our Discord </button>
+                </div>
+            </div>
         </div>
         <div id="infoModal" class="modal">
             <div class="modal-content">
@@ -206,15 +214,8 @@
                 <ul>
                     <li><strong>Fair Play:</strong> Use of cheats, exploits, stat manipulation, or any attempt to deceive the system will result in a permanent ban from the leaderboard.</li>
                     <li><strong>Casual Mode:</strong> While gameplay-altering mods are allowed in Casual Mode, exploits, or any harm towards Leaderboard remain prohibited.</li>
-                    <li><strong>Allowed Mods:</strong>
-                        Cosmetic, weapon, AI and quality-of-life (QoL) mods are permitted. However, gameplay-altering mods (e.g., god mode, unlimited ammo, faster reload speed, extra amount of loot, radars, revival after death, debug mods, quieter environment) are strictly forbidden.
-                        The SPT Leaderboard team is not obligated to maintain or publish a definitive list of banned mods.
-                        Moderation decisions are based on the principle of fair play, and any mod providing a very unfair advantage or potential may lead to disqualification.
-                    </li>
-                    <li><strong>Profile Standing:</strong>
-                        Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be banned without the right to appeal.
-                        Players are responsible for ensuring their profile complies with all rules.
-                    </li>
+                    <li><strong>Allowed Mods:</strong> Cosmetic, weapon, AI and quality-of-life (QoL) mods are permitted. However, gameplay-altering mods (e.g., god mode, unlimited ammo, faster reload speed, extra amount of loot, radars, revival after death, debug mods, quieter environment) are strictly forbidden. The SPT Leaderboard team is not obligated to maintain or publish a definitive list of banned mods. Moderation decisions are based on the principle of fair play, and any mod providing a very unfair advantage or potential may lead to disqualification. </li>
+                    <li><strong>Profile Standing:</strong> Profiles which been automatically flagged by the system for suspicious activity or abnormal statistics may be banned without the right to appeal. Players are responsible for ensuring their profile complies with all rules. </li>
                     <li><strong>Content Guidelines:</strong> Usernames, profile pictures (PFP), and "About Me" sections must not contain offensive, discriminatory, hateful, or NSFW content. Violations lead to disqualification or permanent ban.</li>
                 </ul>
                 <h3>2. Eligibility & Participation</h3>
@@ -227,16 +228,8 @@
                 <h3>3. Data Usage & Rights</h3>
                 <ul>
                     <li><strong>Public Display:</strong> By submitting your data, you grant permission for it to be publicly displayed on the leaderboard. This applies to any form or state of the player profile and the data being sent to the server.</li>
-                    <li><strong>Privacy & Data Collection:</strong>
-                        To maintain leaderboard integrity and prevent exploits, hashed/obfuscated IP addresses may be temporarily collected solely for anti-cheat detection.
-                        Hashed IPs are stored alongside user-generated tokens for no longer than 1 hour, after which they are automatically erased.
-                        Only IPs flagged as malicious (e.g., brute-force attacks) are retained long-term for developer review.
-                        No personally identifiable information (PII) is stored or shared. Raw/unhashed IPs are never logged or accessible.
-                    </li>
-                    <li><strong>Moderation:</strong>
-                        Administrators reserve the right to review, modify, or remove any entries of the leaderboard at their sole discretion without prior notice.
-                        Developers reserve the right to modify season duration, reset times, or scoring rules as needed.
-                    </li>
+                    <li><strong>Privacy & Data Collection:</strong> To maintain leaderboard integrity and prevent exploits, hashed/obfuscated IP addresses may be temporarily collected solely for anti-cheat detection. Hashed IPs are stored alongside user-generated tokens for no longer than 1 hour, after which they are automatically erased. Only IPs flagged as malicious (e.g., brute-force attacks) are retained long-term for developer review. No personally identifiable information (PII) is stored or shared. Raw/unhashed IPs are never logged or accessible. </li>
+                    <li><strong>Moderation:</strong> Administrators reserve the right to review, modify, or remove any entries of the leaderboard at their sole discretion without prior notice. Developers reserve the right to modify season duration, reset times, or scoring rules as needed. </li>
                     <li><strong>Policy Updates:</strong> These Terms may be updated at any time. Continued use of the mod, leaderboard, implies acceptance of the most recent version.</li>
                 </ul>
                 <p><em>Last updated: July 5, 2025</em></p>
@@ -249,33 +242,28 @@
                 <div class="settings-list">
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="lbToggle"> Compact Leaderboard Display
-                        </label>
-                            <p class="setting-description">Will display leaderboard without PFPs, styles, and other elements. Might increase performance.</p>
+                            <input type="checkbox" id="lbToggle"> Compact Leaderboard Display </label>
+                        <p class="setting-description">Will display leaderboard without PFPs, styles, and other elements. Might increase performance.</p>
                     </div>
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="timerToggle"> Show Season Countdown Timer
-                        </label>
-                            <p class="setting-description">Display or hide the time left until new season on the page.</p>
+                            <input type="checkbox" id="timerToggle"> Show Season Countdown Timer </label>
+                        <p class="setting-description">Display or hide the time left until new season on the page.</p>
                     </div>
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="winnersToggle" checked="checked"> Show Winners on the page
-                        </label>
-                            <p class="setting-description">Display or hide winners of the previous season on the page.</p>
+                            <input type="checkbox" id="winnersToggle" checked="checked"> Show Winners on the page </label>
+                        <p class="setting-description">Display or hide winners of the previous season on the page.</p>
                     </div>
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="staffToggle" checked="checked"> Show Staff Online
-                        </label>
-                            <p class="setting-description">Display or hide current Staff activity on the page.</p>
+                            <input type="checkbox" id="staffToggle" checked="checked"> Show Staff Online </label>
+                        <p class="setting-description">Display or hide current Staff activity on the page.</p>
                     </div>
                     <div class="setting-item">
                         <label class="setting-label">
-                            <input type="checkbox" id="casualToggle"> Hide Casual Players
-                        </label>
-                            <p class="setting-description">Display or hide casual players on the leaderboard.</p>
+                            <input type="checkbox" id="casualToggle"> Hide Casual Players </label>
+                        <p class="setting-description">Display or hide casual players on the leaderboard.</p>
                     </div>
                 </div>
             </div>
@@ -311,12 +299,9 @@
             <div class="announcement-icon"><img src="https://img.icons8.com/?size=256&id=61604&format=png" style="height: 70px;"></div>
             <div class="announcement-content">
                 <div class="announcement-title">Our first official collab is HERE!</div>
-                <div class="announcement-text">
-                    We're thrilled to announce that <a href="https://hub.sp-tarkov.com/files/file/3000-shashacz-cs-knives/" target="_blank" class="announcement-link">CS Knives Mod</a> has arrived on our Tarkov Market at SPTLB Network! Earn LC, open exclusive cases, collect the skins, sell them on our market or withdraw them in your in-game inventory! If you're a mod creator and interested in integration of your items, let the Staff know! <a href="https://discord.gg/psV2PY8brW" target="_blank" class="announcement-link">Join Discord Server stay up-to-date</a>
+                <div class="announcement-text"> We're thrilled to announce that <a href="https://hub.sp-tarkov.com/files/file/3000-shashacz-cs-knives/" target="_blank" class="announcement-link">CS Knives Mod</a> has arrived on our Tarkov Market at SPTLB Network! Earn LC, open exclusive cases, collect the skins, sell them on our market or withdraw them in your in-game inventory! If you're a mod creator and interested in integration of your items, let the Staff know! <a href="https://discord.gg/psV2PY8brW" target="_blank" class="announcement-link">Join Discord Server stay up-to-date</a>
                 </div>
-                <div class="announcement-signature">
-                    — SPTLB Team
-                </div>
+                <div class="announcement-signature"> — SPTLB Team </div>
             </div>
         </div>
         <p id="status"></p>
