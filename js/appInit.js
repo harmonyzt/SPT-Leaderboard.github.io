@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Resources to load
     const resources = [
-        { name: "Connectivity with API", url: "https://visuals.nullcore.net/SPT/api/online.json", weight: 25 },
-        { name: "Connectivity with Network", url: "https://visuals.nullcore.net/SPT/network/explore/messages.json", weight: 25 },
+        { name: "Connectivity with API", url: "https://sptlb.yuyui.moe/api/api/online.json", weight: 25 },
+        { name: "Connectivity with Network", url: "https://sptlb.yuyui.moe/api/network/explore/messages.json", weight: 25 },
         { name: "Core Logic", url: "js/appCore.js", weight: 30 },
         { name: "Winners Logic", url: "js/displayWinners.js", weight: 10 },
         { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 15 },
@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (progress < 100) {
             statusText.textContent = "Almost ready...";
         } else {
+            waitForDataReady(() => completeLoading());
             statusText.textContent = "Welcome to SPTLB!";
-            completeLoading();
         }
     }
 
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             statusText.textContent = "Establishing connection...";
 
-            const MAX_CONCURRENT = 10;
+            const MAX_CONCURRENT = 20;
             for (let i = 0; i < resources.length; i += MAX_CONCURRENT) {
                 const chunk = resources.slice(i, i + MAX_CONCURRENT);
                 await Promise.all(chunk.map((resource, idx) =>

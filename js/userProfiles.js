@@ -110,7 +110,7 @@ function showDisqualProfile(container, player) {
 
 async function getCustomProfileSettings(playerId) {
     try {
-        const response = await fetch(`https://visuals.nullcore.net/SPT/network/profile/profiles/${playerId}.json?t=${Date.now()}`);
+        const response = await fetch(`https://sptlb.yuyui.moe/api/network/profile/profiles/${playerId}.json?t=${Date.now()}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -493,7 +493,7 @@ async function showPublicProfile(container, player) {
             <div class="playermodel profile-section" id="playermodel">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
-                    <img src="https://visuals.nullcore.net/SPT/data/pmc_avatars/${player.id}_full.png?t=${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
+                    <img src="https://sptlb.yuyui.moe/api/data/pmc_avatars/${player.id}_full.png?t=${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
                 </div>
             </div>
 
@@ -896,7 +896,7 @@ async function showPublicProfile(container, player) {
     });
 
     function submitComment(commentText, receiverId) {
-        const url = new URL('https://visuals.nullcore.net/SPT/network/explore/index.php');
+        const url = new URL('https://sptlb.yuyui.moe/api/network/explore/index.php');
 
         url.searchParams.append('comment', commentText);
         url.searchParams.append('receiverId', receiverId);
@@ -913,7 +913,7 @@ async function showPublicProfile(container, player) {
 // Comments sending 
 async function loadComments(playerId) {
     try {
-        const response = await fetch(`https://visuals.nullcore.net/SPT/network/explore/comments/player_${playerId}.json?t=${Date.now}`);
+        const response = await fetch(`https://sptlb.yuyui.moe/api/network/explore/comments/player_${playerId}.json?t=${Date.now}`);
 
         if (!response.ok) {
             // If doesn't exist, show empty state
