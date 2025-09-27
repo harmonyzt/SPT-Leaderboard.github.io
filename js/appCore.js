@@ -13,10 +13,7 @@ let isDataReady = false; // To tell whenever the live update was done
 
 // For debugging purposes
 // Will use local paths for some files/fallbacks
-//const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-
-// TEMPORARY
-const isLocalhost = true;
+const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
 // For dynamic stats counters
 let oldTotalRaids = 0;
@@ -31,17 +28,17 @@ let oldOnlinePlayers = 0;
 let oldTotalPlayTime = 0;
 
 // Paths
-let seasonPath = 'https://sptlb.yuyui.moe/api/data/seasons/season';
+let seasonPath = '/api/data/seasons/season';
 let seasonLocalPath = `fallbacks/season`;
 let seasonPathEnd = `.json?t=${Date.now()}`;
-let lastRaidsPath = `https://sptlb.yuyui.moe/api/data/player_raids/`;
-let profileSettingsPath = `https://sptlb.yuyui.moe/api/data/profile_settings.json?t=${Date.now()}`;
-let weaponStatsPath = `https://sptlb.yuyui.moe/api/data/shared/weapon_counters.json?t=${Date.now()}`;
-let profileUrlPath = `https://harmonyzt.github.io/SPT-Leaderboard.github.io/#id=`;
-let heartbeatsPath = `https://sptlb.yuyui.moe/api/api/heartbeat/heartbeats.json?t=${Date.now()}`;
-let achievementsPath = `https://sptlb.yuyui.moe/api/data/shared/achievement_counters.json`;
-let pmcPfpsPath = `https://sptlb.yuyui.moe/api/data/pmc_avatars/`;
-let globalCounters = `https://sptlb.yuyui.moe/api/data/shared/global_counters.json`;
+let lastRaidsPath = `/api/data/player_raids/`;
+let profileSettingsPath = `/api/data/profile_settings.json?t=${Date.now()}`;
+let weaponStatsPath = `/api/data/shared/weapon_counters.json?t=${Date.now()}`;
+let profileUrlPath = `https://sptlb.yuyui.moe/#id=`;
+let heartbeatsPath = `/api/api/heartbeat/heartbeats.json?t=${Date.now()}`;
+let achievementsPath = `/api/data/shared/achievement_counters.json`;
+let pmcPfpsPath = `/api/data/pmc_avatars/`;
+let globalCounters = `/api/data/shared/global_counters.json`;
 
 // Paths for local files if debug is on
 if (isLocalhost) {

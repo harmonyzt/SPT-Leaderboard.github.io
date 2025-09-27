@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Resources to load
     const resources = [
-        { name: "Connectivity with API", url: "https://sptlb.yuyui.moe/api/api/online.json", weight: 25 },
-        { name: "Connectivity with Network", url: "https://sptlb.yuyui.moe/api/network/explore/messages.json", weight: 25 },
+        { name: "Connectivity with API", url: "/api/api/online.json", weight: 25 },
+        { name: "Connectivity with Network", url: "/api/network/explore/messages.json", weight: 25 },
         { name: "Core Logic", url: "js/appCore.js", weight: 30 },
         { name: "Winners Logic", url: "js/displayWinners.js", weight: 10 },
         { name: "Raid Notifications", url: "js/raidNotificationTracker.js", weight: 15 },

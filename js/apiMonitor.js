@@ -6,7 +6,7 @@
 
 async function getServerStatus() {
     try {
-        const response = await fetch(`https://visuals.nullcore.net/SPT/api/online.json?t=${Date.now()}`);
+        const response = await fetch(`/api/main/online.json?t=${Date.now()}`);
         if (!response.ok) throw new Error('API is not responding');
 
         return await response.json();

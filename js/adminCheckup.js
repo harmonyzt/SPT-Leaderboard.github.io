@@ -13,7 +13,7 @@ async function updateAdminsStatus() {
     loadingOverlay.classList.add('active');
 
     try {
-        const response = await fetch(`https://sptlb.yuyui.moe/api/admins_online.json?t=${Date.now()}`);
+        const response = await fetch(`/api/admins_online.json?t=${Date.now()}`);
         const usersObject = await response.json();
         const users = Object.values(usersObject);
 
