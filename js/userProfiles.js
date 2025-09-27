@@ -493,7 +493,7 @@ async function showPublicProfile(container, player) {
             <div class="playermodel profile-section" id="playermodel">
                 <h3>Player Pre-Raid Preview</h3>
                 <div class="playermodel-image">
-                    <img src="/api/data/pmc_avatars/${player.id}_full.png?t=${Date.now}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
+                    <img src="/api/data/pmc_avatars/${player.id}_full.png?t=${Date.now()}" alt="Player model preview" onerror="this.src='media/default_full_pmc_avatar.png';" />
                 </div>
             </div>
 
@@ -913,7 +913,7 @@ async function showPublicProfile(container, player) {
 // Comments sending 
 async function loadComments(playerId) {
     try {
-        const response = await fetch(`/api/network/explore/comments/player_${playerId}.json?t=${Date.now}`);
+        const response = await fetch(`/api/network/explore/comments/player_${playerId}.json?t=${Date.now()}`);
 
         if (!response.ok) {
             // If doesn't exist, show empty state
