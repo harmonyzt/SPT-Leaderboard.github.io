@@ -386,12 +386,6 @@ async function displayLeaderboard(data) {
         const nowInSeconds = Math.floor(Date.now() / 1000);
         const fifteenDaysInSeconds = 15 * 24 * 60 * 60;
 
-        // Player was online for more 15 days, skip to render less jank
-        // Will not work when autoUpdater is off
-        if (player.absoluteLastTime < nowInSeconds - fifteenDaysInSeconds && AutoUpdater.getStatus()) {
-            return;
-        }
-
         // If user has enabled option to hide Casual Players - we hide them
         if (player.isCasual && getCookie('casualToggle') === 'true') {
             return;
